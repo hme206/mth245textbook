@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MTH 245 – Ch 9.2: Statistical Tests</title>
+
+    <!-- MathJax configuration (single $ intentionally disabled so dollar amounts never collide with math) -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]'], ['$$', '$$']],
+                packages: {'[+]': ['color']}
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            },
+            loader: {
+                load: ['[tex]/color']
+            }
+        };
+    </script>
+    <script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+
+    <link rel="stylesheet" href="styles1.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div id="toc-placeholder"></div>
+
+<main class="container" id="main-content" tabindex="-1">
+
+    <h1>Chapter 9: Hypothesis Testing</h1>
+    <h2 id="section-9-2">Section 9.2: Statistical Tests</h2>
+
+    <p>Hypothesis testing is a statistical procedure used to determine whether there is sufficient evidence from a sample to support a claim about a population parameter.</p>
+
+    <p>Since collecting information from an entire population is usually impractical, decisions are based on random samples.</p>
+
+    <p>Generally, hypothesis tests can be classified into three types:</p>
+    <ul>
+        <li>A <strong>two-tailed test</strong> determines whether a parameter differs from a specified value.</li>
+        <li>A <strong>left-tailed test</strong> determines whether a parameter is less than a specified value.</li>
+        <li>A <strong>right-tailed test</strong> determines whether a parameter is greater than a specified value.</li>
+    </ul>
+    <p>For a directional claim or a claim involving a difference, the claim is often represented by the alternative hypothesis. However, some claims, such as an equality or status-quo claim, may be represented by the null hypothesis.</p>
+
+    <p>Graphically, we can see these three types of tests on the normal or Student's \(t\) curve:</p>
+    <!-- Image mth245_9_2_1 -->
+    <figure class="diagram">
+        <img
+            src="images1/mth245_9_2_1.png"
+            alt="Standard normal curve titled Two-Tailed Test. Both tails are shaded red: the left tail below negative z sub c and the right tail above z sub c, each labeled alpha over 2. Dashed vertical lines mark the critical values negative z sub c and z sub c on the x-axis. The middle region between them is not shaded."
+        />
+        <figcaption>Two-tailed test: the rejection region is split between both tails.</figcaption>
+    </figure>
+    <!-- Image mth245_9_2_2 -->
+    <figure class="diagram">
+        <img
+            src="images1/mth245_9_2_2.png"
+            alt="Standard normal curve titled Left-Tailed Test. Only the left tail, below the critical value z sub c on the negative side, is shaded red and labeled alpha. A dashed vertical line marks the critical value. The rest of the curve is not shaded."
+        />
+        <figcaption>Left-tailed test: the rejection region is in the left tail.</figcaption>
+    </figure>
+    <!-- Image mth245_9_2_3 -->
+    <figure class="diagram">
+        <img
+            src="images1/mth245_9_2_3.png"
+            alt="Standard normal curve titled Right-Tailed Test. Only the right tail, above the critical value z sub c on the positive side, is shaded red and labeled alpha. A dashed vertical line marks the critical value. The rest of the curve is not shaded."
+        />
+        <figcaption>Right-tailed test: the rejection region is in the right tail.</figcaption>
+    </figure>
+
+    <hr class="divider" aria-hidden="true" />
+
+    <section aria-labelledby="hypotheses-heading">
+        <h3 id="hypotheses-heading">Null and Alternative Hypotheses</h3>
+        <p>A statistical hypothesis is a statement about a population parameter.</p>
+    <div class="definition-box" role="note" aria-labelledby="def-null">
+        <h4 id="def-null">Definition: Null Hypothesis</h4>
+        <p>The <strong>null hypothesis</strong>, denoted by \(H_0\), is the hypothesis tested directly. It commonly represents a specified value, no difference, or no effect. The null hypothesis contains the equality component (\(=\), \(\leq\), or \(\geq\)), while the alternative hypothesis contains the corresponding strict inequality (\(\neq\), \(&lt;\), or \(>\)).</p>
+    </div>
+    <div class="definition-box" role="note" aria-labelledby="def-alternative">
+        <h4 id="def-alternative">Definition: Alternative Hypothesis</h4>
+        <p>The <strong>alternative hypothesis</strong>, denoted by \(H_1\), represents the competing claim. It is the complement of the null hypothesis. This text uses \(H_1\); many statistics texts use \(H_a\).</p>
+    </div>
+    <p>The hypotheses are formulated so that the null and alternative hypotheses are mutually exclusive and collectively exhaustive.</p>
+    <section class="example" aria-labelledby="ex-9-2-1-heading">
+        <div class="example-problem">
+            <h3 id="ex-9-2-1-heading">Example 1</h3>
+            <p>A beverage company claims that the average amount of juice in each bottle is 500 mL. Rather than measuring every bottle, a random sample is selected to determine whether the true average differs from 500 mL. State the null and alternative hypotheses. How would they change if the task were to determine whether the true average is less than 500 mL, or greater than 500 mL?</p>
+        </div>
+        <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-9-2-1">
+            <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+        </button>
+        <div id="sol-9-2-1" class="example-content">
+            <div class="solution">
+                <h4>Solution</h4>
+                <p>Since we want to determine whether the true mean differs from 500 mL, this is a two-tailed test:</p>
+                \[H_0:\mu=500\]
+                \[H_1:\mu\neq500\]
+                <p>If our task were to determine whether the true average was less than 500 mL, we would use a left-tailed test:</p>
+                \[H_0:\mu\ge500\]
+                \[H_1:\mu&lt;500\]
+                <p>If our task were to determine whether the true average was greater than 500 mL, we would use a right-tailed test:</p>
+                \[H_0:\mu\le500\]
+                \[H_1:\mu>500\]
+            </div>
+        </div>
+    </section>
+    <p>More examples of research questions and their hypotheses:</p>
+    <div class="table-scroll">
+    <table>
+    <caption>Research questions and their hypotheses</caption>
+    <thead>
+    <tr><th scope="col">Research Question</th><th scope="col">Null Hypothesis</th><th scope="col">Alternative Hypothesis</th></tr>
+    </thead>
+    <tbody>
+    <tr><td>Average salary is \$60,000</td><td>\(H_0:\mu=\$60{,}000\)</td><td>\(H_1:\mu \neq\$60{,}000\)</td></tr>
+    <tr><td>Defect rate less than 3%</td><td>\(H_0:p \geq 0.03\)</td><td>\(H_1:p&lt;0.03\)</td></tr>
+    <tr><td>Life expectancy has increased</td><td>\(H_0:\mu \leq 78\)</td><td>\(H_1:\mu>78\)</td></tr>
+    </tbody>
+    </table>
+    </div>
+    <p>Some texts write every null hypothesis using equality, such as \(H_0:p=0.03\), even for a one-sided alternative. Other texts use the logically complementary null, such as \(H_0:p\geq0.03\). This text uses the latter convention.</p>
+    </section>
+
+    <section aria-labelledby="decisions-heading">
+        <h3 id="decisions-heading">Possible Decisions</h3>
+    <div class="definition-box" role="note" aria-labelledby="def-decisions">
+        <h4 id="def-decisions">The Two Possible Decisions</h4>
+        <p>After conducting a hypothesis test, one of two decisions is made.</p>
+        <ul>
+            <li>Reject \(H_0\)</li>
+            <li>Fail to reject \(H_0\)</li>
+        </ul>
+        <p>Failing to reject \(H_0\) does not mean that \(H_0\) has been proved true. It means that the sample does not provide sufficient evidence to reject \(H_0\) at the chosen significance level.</p>
+    </div>
+    </section>
+
+    <section aria-labelledby="errors-heading">
+        <h3 id="errors-heading">Type I and Type II Errors</h3>
+        <p>Because conclusions are based on sample data, errors are possible.</p>
+    <div class="definition-box" role="note" aria-labelledby="def-type1">
+        <h4 id="def-type1">Definition: Type I Error and Significance Level</h4>
+        <p>A <strong>Type I error</strong> occurs when a true null hypothesis is rejected. The probability of a Type I error is</p>
+        \[P(\text{Type I Error})=\alpha\]
+        <p>where \(\alpha\) is called the <strong>significance level</strong>. The significance level \(\alpha\) is the probability of rejecting \(H_0\) when \(H_0\) is true. Common choices are</p>
+        \[\alpha=0.10,\qquad \alpha=0.05,\qquad \alpha=0.01.\]
+        <p>A smaller significance level requires stronger evidence before rejecting the null hypothesis.</p>
+        <p>For example, a medical test incorrectly indicates that a person has a disease.</p>
+    </div>
+    <div class="definition-box" role="note" aria-labelledby="def-type2">
+        <h4 id="def-type2">Definition: Type II Error</h4>
+        <p>A <strong>Type II error</strong> occurs when a false null hypothesis is not rejected.</p>
+        \[P(\text{Type II Error})=\beta\]
+        <p>where \(\beta\) is the probability of a Type II error.</p>
+        <p>For example, a medical test fails to detect a disease that is actually present.</p>
+    </div>
+    <div class="definition-box" role="note" aria-labelledby="def-power">
+        <h4 id="def-power">Definition: Power</h4>
+        <p>The <strong>power</strong> of a statistical test is the probability of correctly rejecting a false null hypothesis.</p>
+        \[\text{Power}=1-\beta.\]
+        <p>Higher power means that a test is more likely to detect a true effect.</p>
+    </div>
+    <p>The possible outcomes can be summarized as:</p>
+    <div class="table-scroll">
+    <table>
+    <caption>Possible outcomes of a hypothesis test</caption>
+    <thead>
+    <tr><th scope="col">Reality</th><th scope="col">Decision</th><th scope="col">Result</th></tr>
+    </thead>
+    <tbody>
+    <tr><td>\(H_0\) True</td><td>Reject \(H_0\)</td><td>Type I Error</td></tr>
+    <tr><td>\(H_0\) True</td><td>Fail to Reject \(H_0\)</td><td>Correct</td></tr>
+    <tr><td>\(H_0\) False</td><td>Reject \(H_0\)</td><td>Correct</td></tr>
+    <tr><td>\(H_0\) False</td><td>Fail to Reject \(H_0\)</td><td>Type II Error</td></tr>
+    </tbody>
+    </table>
+    </div>
+    </section>
+
+    <section aria-labelledby="relationship-heading">
+        <h3 id="relationship-heading">Relationship Among \(\alpha\), \(\beta\), and \(n\)</h3>
+        <p>Increasing the significance level \(\alpha\):</p>
+        <ul>
+            <li>increases the probability of a Type I error,</li>
+            <li>decreases the probability of a Type II error,</li>
+            <li>increases the power of the test.</li>
+        </ul>
+        <p>Decreasing the significance level:</p>
+        <ul>
+            <li>decreases the probability of a Type I error,</li>
+            <li>increases the probability of a Type II error,</li>
+            <li>decreases the power.</li>
+        </ul>
+        <p>Increasing the sample size:</p>
+        <ul>
+            <li>reduces sampling variability,</li>
+            <li>decreases Type II error,</li>
+            <li>increases power,</li>
+            <li>does not change the chosen significance level.</li>
+        </ul>
+        <p>Basically, we have three components we are interested in, \(\alpha\), \(\beta\), and \(n\). \(\alpha\) and \(\beta\) constitute possible errors which we want to minimize, and \(n\) is sample size, which tends to be expensive in money or effort.</p>
+        <!-- Image mth245_9_2_4 -->
+        <figure class="diagram">
+            <img
+                src="images1/mth245_9_2_4.png"
+                alt="A triangle with the label n inside it near the top, alpha near the lower left corner, and beta near the lower right corner, showing that sample size, Type I error probability, and Type II error probability are three linked quantities that must be balanced."
+            />
+            <figcaption>Sample size \(n\), Type I error \(\alpha\), and Type II error \(\beta\) must be balanced.</figcaption>
+        </figure>
+        <p>Choosing these three values is a balancing act. The significance level \(\alpha\), sample size \(n\), and the size of the effect being detected all influence statistical power. For a fixed effect size, increasing \(n\) generally increases power. Increasing \(\alpha\) also generally increases power, but it increases the probability of a Type I error. Researchers therefore choose these quantities by considering the consequences of both types of error, the desired power, the effect size of interest, and practical constraints on sample size.</p>
+    </section>
+
+    <nav class="page-nav" aria-label="Section navigation">
+        <a class="nav-button" href="mth245_ch9_1.html">Previous: 9.1 Introduction</a>
+        <a class="nav-button" href="mth245_ch9_3.html">Next: 9.3 General Steps of Hypothesis Testing</a>
+    </nav>
+
+</main>
+
+<script>
+    function toggleExample(button) {
+        var content = button.nextElementSibling;
+        var arrow = button.querySelector('.toggle-arrow');
+        var label = button.querySelector('span:last-child');
+
+        if (content.classList.contains('open')) {
+            content.classList.remove('open');
+            arrow.classList.remove('open');
+            label.textContent = 'Show Solution';
+            button.setAttribute('aria-expanded', 'false');
+        } else {
+            content.classList.add('open');
+            arrow.classList.add('open');
+            label.textContent = 'Hide Solution';
+            button.setAttribute('aria-expanded', 'true');
+        }
+    }
+</script>
+
+<script>
+    fetch('toc.html')
+        .then(function (response) {
+            if (!response.ok) { throw new Error('TOC not found'); }
+            return response.text();
+        })
+        .then(function (data) {
+            document.getElementById('toc-placeholder').innerHTML = data;
+
+            document.querySelectorAll('.toc-chapter').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var expanded = button.getAttribute('aria-expanded') === 'true';
+                    button.setAttribute('aria-expanded', String(!expanded));
+                    document.getElementById(button.getAttribute('aria-controls')).classList.toggle('open');
+                });
+            });
+
+            // Mark the current page and open its chapter
+            var page = window.location.pathname.split('/').pop();
+            var current = document.querySelector('.toc-submenu a[href="' + page + '"]');
+            if (current) {
+                current.setAttribute('aria-current', 'page');
+                var menu = current.closest('.toc-submenu');
+                menu.classList.add('open');
+                var chapterButton = document.querySelector('[aria-controls="' + menu.id + '"]');
+                if (chapterButton) { chapterButton.setAttribute('aria-expanded', 'true'); }
+            }
+        })
+        .catch(function () { /* TOC unavailable: page content still works */ });
+</script>
+
+</body>
+</html>

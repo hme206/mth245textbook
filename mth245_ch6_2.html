@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MTH 245 – Ch 6.2: Correlation</title>
+
+    <!-- MathJax configuration (single $ intentionally disabled so dollar amounts never collide with math) -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]'], ['$$', '$$']],
+                packages: {'[+]': ['color']}
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            },
+            loader: {
+                load: ['[tex]/color']
+            }
+        };
+    </script>
+    <script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+
+    <link rel="stylesheet" href="styles1.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div id="toc-placeholder"></div>
+
+<main class="container" id="main-content" tabindex="-1">
+
+    <h1>Chapter 6: Correlation and Regression</h1>
+    <h2 id="section-6-2">Section 6.2: Correlation</h2>
+
+    <p>In many applications, two variables are measured on the same individual or object. For example, we may record a person's height and weight, a student's hours of study and exam score, or the outside temperature and electricity usage. In these situations, we are interested in describing and measuring the relationship between the variables.</p>
+
+    <section aria-labelledby="direction-heading">
+        <h3 id="direction-heading">Positive and Negative Correlation</h3>
+    <div class="definition-box" role="note" aria-labelledby="def-correlation">
+        <h4 id="def-correlation">Definition: Correlation</h4>
+        <p><strong>Correlation</strong> is a numerical measure of the strength and direction of association between two quantitative variables. In this chapter, we focus on linear correlation, which measures how closely the paired data follow a straight-line pattern.</p>
+    </div>
+    <div class="definition-box" role="note" aria-labelledby="def-positive">
+        <h4 id="def-positive">Definition: Positive Linear Correlation</h4>
+        <p>A <strong>positive linear correlation</strong> occurs when larger values of one variable tend to be associated with larger values of the other variable.</p>
+        <p>For example, taller people generally weigh more than shorter people.</p>
+    </div>
+    <div class="definition-box" role="note" aria-labelledby="def-negative">
+        <h4 id="def-negative">Definition: Negative Linear Correlation</h4>
+        <p>A <strong>negative linear correlation</strong> occurs when larger values of one variable tend to be associated with smaller values of the other variable.</p>
+        <p>For example, as the outside temperature increases, home heating costs generally decrease.</p>
+    </div>
+    <p>If there is no apparent straight-line relationship between the variables, the data are said to have <strong>little or no linear correlation</strong>.</p>
+
+    <p><strong>Scatterplots</strong> are often used to visualize these relationships before computing a numerical measure of correlation.</p>
+
+    <p><strong>Always examine a scatterplot before interpreting a correlation coefficient.</strong></p>
+    </section>
+
+    <hr class="divider" aria-hidden="true" />
+
+    <section aria-labelledby="pearson-heading">
+        <h3 id="pearson-heading">Pearson Correlation Coefficient</h3>
+    <div class="definition-box" role="note" aria-labelledby="def-pearson">
+        <h4 id="def-pearson">Definition: Pearson Correlation Coefficient</h4>
+        <p>The most commonly used measure of linear correlation is the <strong>Pearson correlation coefficient</strong>, denoted by \(\rho\) for a population and \(r\) for a sample.</p>
+        <p>For a sample consisting of paired observations</p>
+        \[(x_1,y_1),\,(x_2,y_2),\,\ldots,\,(x_n,y_n),\]
+        <p>the sample Pearson correlation coefficient is</p>
+        \[r=\frac{n\sum x_iy_i-\left(\sum x_i\right)\left(\sum y_i\right)}{\sqrt{\left[n\sum x_i^2-\left(\sum x_i\right)^2\right]\left[n\sum y_i^2-\left(\sum y_i\right)^2\right]}}.\]
+        <p>The Pearson correlation coefficient is defined only when both variables have nonzero variation.</p>
+        <p>The Pearson correlation coefficient always satisfies</p>
+        \[-1\le r\le1.\]
+    </div>
+    <p>The correlation coefficient \(r\) measures the direction and strength of a linear relationship. While values of \(r\) closer to \(\pm1\) indicate stronger linear relationships and values closer to 0 indicate weaker relationships, there are no universally accepted cutoffs for classifying a correlation as weak, moderate, or strong. The interpretation depends on the field of study, the quality of the data, and the purpose of the analysis. As a result, any classification of strength should be viewed as a guideline rather than a strict rule.</p>
+
+    <p>The following ranges are one possible set of informal guidelines. Different fields and textbooks use different conventions. These labels should not be treated as mathematical definitions.</p>
+    <div class="table-scroll">
+    <table>
+    <caption>Informal guidelines for interpreting \(r\)</caption>
+    <thead>
+    <tr><th scope="col">Value of \(r\)</th><th scope="col">Interpretation</th></tr>
+    </thead>
+    <tbody>
+    <tr><td>\(r=1\)</td><td>Perfect positive linear correlation</td></tr>
+    <tr><td>\(0.8&lt;r&lt;1\)</td><td>Strong positive correlation</td></tr>
+    <tr><td>\(0.5&lt;r\le0.8\)</td><td>Moderate positive correlation</td></tr>
+    <tr><td>\(0.2&lt;r\le0.5\)</td><td>Weak positive correlation</td></tr>
+    <tr><td>\(-0.2\le r\le 0.2\)</td><td>Little or no linear correlation</td></tr>
+    <tr><td>\(-0.5\le r&lt;-0.2\)</td><td>Weak negative correlation</td></tr>
+    <tr><td>\(-0.8\le r&lt;-0.5\)</td><td>Moderate negative correlation</td></tr>
+    <tr><td>\(-1&lt;r&lt;-0.8\)</td><td>Strong negative correlation</td></tr>
+    <tr><td>\(r=-1\)</td><td>Perfect negative linear correlation</td></tr>
+    </tbody>
+    </table>
+    </div>
+    <p>Below are some scatterplots showing different levels of correlation.</p>
+    <!-- Image mth245_6_2_1 -->
+    <figure class="diagram">
+        <img
+            src="images1/mth245_6_2_1.png"
+            alt="Six small scatterplots arranged in two rows of three. Every plot has x and y axes running from 0.5 to 5.5. Top row, left to right. Strong Positive, r = 0.93: points at (1,1), (1,2), (2,2), (2,3), (3,3), (3,4), (4,4), (4,5), (5,5), rising steadily from lower left to upper right. Moderate Positive, r = 0.76: points at (1,2), (1,1), (2,2), (2,3), (3,2), (3,4), (4,3), (4,5), (5,4), rising with more scatter. Weak Positive, r = 0.32: points at (1,3), (1,1), (2,4), (2,2), (3,2), (3,5), (4,3), (4,4), (5,3), with a slight upward drift and a lot of scatter. Bottom row, left to right. No Correlation, r = -0.01: points at (1,5), (1,2), (2,3), (2,1), (3,4), (3,2), (4,5), (4,1), (5,3), scattered with no pattern. Moderate Negative, r = -0.76: points at (1,5), (1,4), (2,5), (2,3), (3,4), (3,2), (4,3), (4,2), (5,2), falling from upper left to lower right. No Correlation, r = 0: points at (1,2), (1.25,3), (2,3.75), (3,4), (4,3.75), (4.75,3), (5,2), forming an upside-down U shape, a strong curved pattern that is not linear."
+        />
+        <figcaption>Scatterplots illustrating different levels of correlation.</figcaption>
+    </figure>
+    <p>Notice that for positive correlation, as the \(x\)-values increase, the \(y\)-values increase. For negative correlation, as the \(x\)-values increase, the \(y\)-values decrease.</p>
+
+    <p>Also notice that \(r\) measures linear association, not association of every possible form. The last example with \(r=0\) has no linear correlation, although it appears to have a very strong nonlinear association.</p>
+    </section>
+
+    <section aria-labelledby="r-squared-heading">
+        <h3 id="r-squared-heading">Coefficient of Determination</h3>
+    <div class="definition-box" role="note" aria-labelledby="def-r-squared">
+        <h4 id="def-r-squared">Definition: Coefficient of Determination</h4>
+        <p>The square of the Pearson correlation coefficient, \(r^2\), is called the <strong>coefficient of determination</strong>.</p>
+        <p>The coefficient of determination represents the proportion of the variation in the response variable that is explained by the linear relationship with the explanatory variable.</p>
+    </div>
+    <p>For example, \(r=0.90\) gives \(r^2=(0.90)^2=0.81\). Thus, approximately \(81\%\) of the variation in the response variable is explained by the linear model. The remaining \(19\%\) is variation not accounted for by the model.</p>
+    <section class="example" aria-labelledby="ex-6-2-1-heading">
+        <div class="example-problem">
+            <h3 id="ex-6-2-1-heading">Example 1</h3>
+            <p>Suppose the following data record hours studied and exam scores. Find the correlation coefficient and the coefficient of determination.</p>
+            <div class="table-scroll">
+            <table>
+            <caption>Hours studied and exam score</caption>
+            <thead>
+            <tr><th scope="col">Hours (\(x\))</th><th scope="col">Score (\(y\))</th></tr>
+            </thead>
+            <tbody>
+            <tr><td>1</td><td>55</td></tr>
+            <tr><td>2</td><td>60</td></tr>
+            <tr><td>3</td><td>65</td></tr>
+            <tr><td>4</td><td>70</td></tr>
+            <tr><td>5</td><td>80</td></tr>
+            </tbody>
+            </table>
+            </div>
+        </div>
+        <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-6-2-1">
+            <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+        </button>
+        <div id="sol-6-2-1" class="example-content">
+            <div class="solution">
+                <h4>Solution</h4>
+                <p>We can construct the following computation table.</p>
+                <div class="table-scroll">
+                <table>
+                <caption>Computation table for r</caption>
+                <thead>
+                <tr><th scope="col">\(x\)</th><th scope="col">\(y\)</th><th scope="col">\(x^2\)</th><th scope="col">\(y^2\)</th><th scope="col">\(xy\)</th></tr>
+                </thead>
+                <tbody>
+                <tr><td>1</td><td>55</td><td>1</td><td>3025</td><td>55</td></tr>
+                <tr><td>2</td><td>60</td><td>4</td><td>3600</td><td>120</td></tr>
+                <tr><td>3</td><td>65</td><td>9</td><td>4225</td><td>195</td></tr>
+                <tr><td>4</td><td>70</td><td>16</td><td>4900</td><td>280</td></tr>
+                <tr><td>5</td><td>80</td><td>25</td><td>6400</td><td>400</td></tr>
+                <tr><th scope="row">Total</th><td>330</td><td>55</td><td>22150</td><td>1050</td></tr>
+                </tbody>
+                </table>
+                </div>
+                <p>The column totals are \(\sum x=15\), \(\sum y=330\), \(\sum x^2=55\), \(\sum y^2=22150\), and \(\sum xy=1050\). Since \(n=5\), the correlation coefficient is</p>
+                \[r=\frac{5(1050)-15(330)}{\sqrt{[5(55)-15^2][5(22150)-330^2]}}=\frac{300}{\sqrt{50(1850)}}\approx0.986.\]
+                <p>The correlation coefficient is very close to 1, indicating a very strong positive linear relationship between hours studied and exam score.</p>
+                <p>The coefficient of determination is</p>
+                \[r^2=(0.986)^2\approx0.972.\]
+                <p>Thus, approximately \(97.2\%\) of the variation in exam scores is accounted for by the fitted linear regression model using hours studied and \(2.8\%\) is not accounted for by the model.</p>
+            </div>
+        </div>
+    </section>
+    <h4 id="important-notes-heading">Important Notes</h4>
+    <p>Correlation measures the strength of a <strong>linear</strong> relationship. Two variables may have a strong nonlinear relationship while having a correlation coefficient close to zero.</p>
+    <p>Furthermore, a correlation between two variables indicates an association, but correlation alone does not establish that changes in one variable cause changes in the other.</p>
+    <div class="definition-box" role="note" aria-labelledby="kp-correlation">
+        <h4 id="kp-correlation">Key Points</h4>
+        <ul>
+            <li>Correlation measures the strength and direction of a linear relationship between two variables.</li>
+            <li>The Pearson correlation coefficient ranges from \(-1\) to \(1\).</li>
+            <li>Positive values indicate positive linear correlation; negative values indicate negative linear correlation.</li>
+            <li>Values near \(\pm1\) indicate strong linear relationships.</li>
+            <li>The coefficient of determination is \(r^2\).</li>
+            <li>The value of \(r^2\) represents the proportion of the variation explained by the linear model.</li>
+            <li>Correlation measures association, not causation.</li>
+        </ul>
+    </div>
+    </section>
+
+    <nav class="page-nav" aria-label="Section navigation">
+        <a class="nav-button" href="mth245_ch6_1.html">Previous: 6.1 Introduction</a>
+        <a class="nav-button" href="mth245_ch6_3.html">Next: 6.3 Linear Regression</a>
+    </nav>
+
+</main>
+
+<script>
+    function toggleExample(button) {
+        var content = button.nextElementSibling;
+        var arrow = button.querySelector('.toggle-arrow');
+        var label = button.querySelector('span:last-child');
+
+        if (content.classList.contains('open')) {
+            content.classList.remove('open');
+            arrow.classList.remove('open');
+            label.textContent = 'Show Solution';
+            button.setAttribute('aria-expanded', 'false');
+        } else {
+            content.classList.add('open');
+            arrow.classList.add('open');
+            label.textContent = 'Hide Solution';
+            button.setAttribute('aria-expanded', 'true');
+        }
+    }
+</script>
+
+<script>
+    fetch('toc.html')
+        .then(function (response) {
+            if (!response.ok) { throw new Error('TOC not found'); }
+            return response.text();
+        })
+        .then(function (data) {
+            document.getElementById('toc-placeholder').innerHTML = data;
+
+            document.querySelectorAll('.toc-chapter').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var expanded = button.getAttribute('aria-expanded') === 'true';
+                    button.setAttribute('aria-expanded', String(!expanded));
+                    document.getElementById(button.getAttribute('aria-controls')).classList.toggle('open');
+                });
+            });
+
+            // Mark the current page and open its chapter
+            var page = window.location.pathname.split('/').pop();
+            var current = document.querySelector('.toc-submenu a[href="' + page + '"]');
+            if (current) {
+                current.setAttribute('aria-current', 'page');
+                var menu = current.closest('.toc-submenu');
+                menu.classList.add('open');
+                var chapterButton = document.querySelector('[aria-controls="' + menu.id + '"]');
+                if (chapterButton) { chapterButton.setAttribute('aria-expanded', 'true'); }
+            }
+        })
+        .catch(function () { /* TOC unavailable: page content still works */ });
+</script>
+
+</body>
+</html>

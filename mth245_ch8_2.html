@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MTH 245 – Ch 8.2: Confidence Intervals</title>
+
+    <!-- MathJax configuration (single $ intentionally disabled so dollar amounts never collide with math) -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]'], ['$$', '$$']],
+                packages: {'[+]': ['color']}
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            },
+            loader: {
+                load: ['[tex]/color']
+            }
+        };
+    </script>
+    <script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+
+    <link rel="stylesheet" href="styles1.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div id="toc-placeholder"></div>
+
+<main class="container" id="main-content" tabindex="-1">
+
+    <h1>Chapter 8: Estimation</h1>
+    <h2 id="section-8-2">Section 8.2: Confidence Intervals</h2>
+
+    <p>In statistics, we often wish to estimate an unknown population parameter using sample data. Confidence intervals allow us to provide a range of plausible values.</p>
+
+    <section aria-labelledby="key-terms-heading">
+        <h3 id="key-terms-heading">Key Terms</h3>
+    <div class="definition-box" role="note" aria-labelledby="def-point-estimate">
+        <h4 id="def-point-estimate">Definition: Point Estimate</h4>
+        <p>A single value computed from a sample, such as the sample mean or sample proportion, is called a <strong>point estimate</strong>. A point estimate is a statistic used to estimate a population parameter. Because different samples generally produce different statistics, a point estimate is subject to sampling variability.</p>
+    </div>
+    <div class="definition-box" role="note" aria-labelledby="def-confidence-level">
+        <h4 id="def-confidence-level">Definition: Confidence Level</h4>
+        <p>The <strong>confidence level</strong> (\(c\)) is the long-run proportion of similarly constructed confidence intervals that contain the true population parameter. This does not mean that a 95% confidence level has a 95% probability that the particular interval calculated from this sample contains the parameter. Common values are 0.90, 0.95, and 0.99. These are also commonly listed as 90%, 95%, and 99%.</p>
+    </div>
+    <div class="definition-box" role="note" aria-labelledby="def-critical-value">
+        <h4 id="def-critical-value">Definition: Critical Value</h4>
+        <p>The <strong>critical value</strong> is a specific threshold value on the scale of the test statistic that separates the region where the null hypothesis is rejected (the rejection region or critical region) from the region where it is not rejected at a confidence level of \(c\), where \(\alpha=1-c\) represents the rejection region. For a two-tailed test, \(z_{\alpha/2}\) is the z score such that the area under the standard normal curve between \(\pm z_{\alpha/2}\) equals \(c\). \(t_{\alpha/2,n-1}\) is the \(t\) score such that the area under the Student’s \(t\) curve between \(\pm t_{\alpha/2,n-1}\) equals \(c\) for \(n-1\) degrees of freedom.</p>
+        <p>Specifically,</p>
+        \[P(-z_{\alpha/2}&lt;Z&lt;z_{\alpha/2})=1-\alpha=c.\]
+        <p>For a 95% confidence interval:</p>
+        \[\alpha=0.05\]
+        <p>and</p>
+        \[z_{\alpha/2}=z_{0.025}=1.96.\]
+        <p>For a one-sided 95% bound:</p>
+        \[z_\alpha=z_{0.05}=1.645.\]
+    </div>
+    <div class="definition-box" role="note" aria-labelledby="def-margin-error">
+        <h4 id="def-margin-error">Definition: Margin of Error</h4>
+        <p>The <strong>margin of error</strong> (\(E\)) is the amount added to and subtracted from the point estimate to form the confidence interval. For a given confidence level and procedure, the margin of error determines how far the interval extends from the point estimate.</p>
+    </div>
+    <div class="definition-box" role="note" aria-labelledby="def-confidence-interval">
+        <h4 id="def-confidence-interval">Definition: Confidence Interval</h4>
+        <p>A <strong>confidence interval</strong> provides a range of plausible values for the unknown parameter together with a measure of confidence that the interval contains the true value.</p>
+    </div>
+    <p>For example, instead of estimating the average height of all students to be exactly 68.4 inches, we might report that the average height is between 67.8 and 69.0 inches with 95% confidence.</p>
+    </section>
+
+    <hr class="divider" aria-hidden="true" />
+
+    <section aria-labelledby="general-form-heading">
+        <h3 id="general-form-heading">The General Form of a Confidence Interval</h3>
+    <div class="definition-box" role="note" aria-labelledby="def-general-form">
+        <h4 id="def-general-form">General Form</h4>
+        <p>The general form of a confidence interval is</p>
+        \[\text{Point Estimate} \pm \text{Margin of Error}.\]
+        <p>The margin of error (\(E\)) depends on three factors:</p>
+        <ul>
+            <li>the desired confidence level (\(c\)),</li>
+            <li>population standard deviation (\(\sigma\)), when it is known, and</li>
+            <li>the sample size (\(n\)).</li>
+        </ul>
+        <p>Increasing the confidence level produces a wider interval, while increasing the sample size produces a narrower interval. The margin of error can be found as</p>
+        \[E=z_{\alpha/2} \frac{\sigma}{\sqrt{n}}\]
+        <p>when \(\sigma\) is known and</p>
+        \[E=t_{\alpha/2,n-1} \frac{s}{\sqrt{n}}\]
+        <p>when \(\sigma\) is unknown.</p>
+        <p>The confidence interval for a mean can be written as</p>
+        \[\bar{x}\pm E \quad\text{or}\quad \bar{x}-E&lt;\mu&lt;\bar{x}+E \quad\text{or}\quad (\bar{x}-E, \bar{x}+E).\]
+    </div>
+    </section>
+
+    <section aria-labelledby="assumptions-heading">
+        <h3 id="assumptions-heading">Confidence Interval Assumptions</h3>
+    <div class="definition-box" role="note" aria-labelledby="def-assumptions">
+        <h4 id="def-assumptions">Assumptions for the Normal (z) Interval for a Mean</h4>
+        <p>To use a normal (\(z\)) confidence interval for a population mean when \(\sigma\) is known:</p>
+        <ul>
+            <li>The observations should come from an appropriate random sampling process.</li>
+            <li>Observations should be independent, or approximately independent.</li>
+            <li>If the population is not normally distributed, the sample size should be sufficiently large for the sampling distribution of \(\bar{X}\) to be approximately normal. The guideline \(n\geq30\) is sometimes used as a rule of thumb, but no single sample size guarantees approximate normality for every population.</li>
+        </ul>
+    </div>
+    <p>If the population standard deviation (\(\sigma\)) is unknown, we can estimate it with the sample standard deviation (\(s\)) and use the Student’s \(t\)-distribution.</p>
+    <p>If the sample size of a proportion is large enough (\(np\geq 5\), \(nq\geq 5\)), we can estimate population proportion with the standard normal distribution.</p>
+    </section>
+
+    <section aria-labelledby="steps-heading">
+        <h3 id="steps-heading">Confidence Interval Steps for a Population Mean Using the Normal Distribution</h3>
+    <div class="definition-box" role="note" aria-labelledby="steps-ci-mean">
+        <h4 id="steps-ci-mean">Steps</h4>
+        <ol>
+            <li>Identify the statistic.</li>
+            <li>Identify/select the confidence level (\(c\)).</li>
+            <li>Determine the sample mean and the population standard deviation.</li>
+            <li>From the standard normal table, determine the associated critical value (\(z_{\alpha/2}\)).</li>
+            <li>Compute the maximal margin of error: \(E=z_{\alpha/2}\, \sigma / \sqrt{n}\).</li>
+            <li>Identify the confidence interval:
+                \[\bar{x}-E&lt;\mu&lt;\bar{x}+E \quad\text{or}\quad (\bar{x}-E, \bar{x}+E) \quad\text{or}\quad \bar{x}\pm E.\]
+            </li>
+            <li>Interpret the confidence interval.</li>
+        </ol>
+    </div>
+    <section class="example" aria-labelledby="ex-8-2-1-heading">
+        <div class="example-problem">
+            <h3 id="ex-8-2-1-heading">Example 1</h3>
+            <p>Suppose a random sample of \(n=64\) students has an average test score of \(\bar{x}=82\). Assume the population standard deviation is known to be \(\sigma=12\). Construct a 95% confidence interval for the population mean.</p>
+        </div>
+        <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-8-2-1">
+            <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+        </button>
+        <div id="sol-8-2-1" class="example-content">
+            <div class="solution">
+                <h4>Solution</h4>
+                <p>Since \(c=95\%=0.95\), \(\alpha=0.05\) and \(\alpha/2=0.025\). From the normal table, \(z_{0.025}=1.96\). The margin of error is</p>
+                \[E=1.96\left(\frac{12}{\sqrt{64}}\right)=1.96(1.5)=2.94.\]
+                <p>Therefore, the confidence interval is \(82\pm2.94\), or \((79.06,\;84.94)\).</p>
+                <p>There are several ways to interpret the confidence interval. One method is to state, “We are \(95\%\) confident that the true population mean lies between 79.06 and 84.94.” Another is “We conclude with 95% confidence that the interval \((79.06,\;84.94)\) contains the population mean.” In most cases, these interpretations are sufficient.</p>
+                <p>For those that want to be a little more formal, we can say “In repeated sampling, approximately 95% of intervals constructed by this procedure will contain the true mean.”</p>
+                <p>The idea behind this last interpretation is that our sample is random, but the parameter is not. Theoretically, if we were to take 20 different samples, we would get 20 different point estimates \(\bar{X}\). Each of these would lead to a different confidence interval. On average, 19 of those 20 confidence intervals would contain the true parameter, while one would “miss.”</p>
+                <p>If we are uncomfortable with the probability of the parameter not being inside the confidence interval, we can increase the confidence (\(c\)), widening the interval. If we want a narrower interval, we decrease the confidence.</p>
+            </div>
+        </div>
+    </section>
+    </section>
+
+    <nav class="page-nav" aria-label="Section navigation">
+        <a class="nav-button" href="mth245_ch8_1.html">Previous: 8.1 Introduction</a>
+        <a class="nav-button" href="mth245_ch8_3.html">Next: 8.3 Student's t-Distribution</a>
+    </nav>
+
+</main>
+
+<script>
+    function toggleExample(button) {
+        var content = button.nextElementSibling;
+        var arrow = button.querySelector('.toggle-arrow');
+        var label = button.querySelector('span:last-child');
+
+        if (content.classList.contains('open')) {
+            content.classList.remove('open');
+            arrow.classList.remove('open');
+            label.textContent = 'Show Solution';
+            button.setAttribute('aria-expanded', 'false');
+        } else {
+            content.classList.add('open');
+            arrow.classList.add('open');
+            label.textContent = 'Hide Solution';
+            button.setAttribute('aria-expanded', 'true');
+        }
+    }
+</script>
+
+<script>
+    fetch('toc.html')
+        .then(function (response) {
+            if (!response.ok) { throw new Error('TOC not found'); }
+            return response.text();
+        })
+        .then(function (data) {
+            document.getElementById('toc-placeholder').innerHTML = data;
+
+            document.querySelectorAll('.toc-chapter').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var expanded = button.getAttribute('aria-expanded') === 'true';
+                    button.setAttribute('aria-expanded', String(!expanded));
+                    document.getElementById(button.getAttribute('aria-controls')).classList.toggle('open');
+                });
+            });
+
+            // Mark the current page and open its chapter
+            var page = window.location.pathname.split('/').pop();
+            var current = document.querySelector('.toc-submenu a[href="' + page + '"]');
+            if (current) {
+                current.setAttribute('aria-current', 'page');
+                var menu = current.closest('.toc-submenu');
+                menu.classList.add('open');
+                var chapterButton = document.querySelector('[aria-controls="' + menu.id + '"]');
+                if (chapterButton) { chapterButton.setAttribute('aria-expanded', 'true'); }
+            }
+        })
+        .catch(function () { /* TOC unavailable: page content still works */ });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MTH 245 – Ch 6.1: Introduction</title>
+
+    <!-- MathJax configuration (single $ intentionally disabled so dollar amounts never collide with math) -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]'], ['$$', '$$']],
+                packages: {'[+]': ['color']}
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            },
+            loader: {
+                load: ['[tex]/color']
+            }
+        };
+    </script>
+    <script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+
+    <link rel="stylesheet" href="styles1.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div id="toc-placeholder"></div>
+
+<main class="container" id="main-content" tabindex="-1">
+
+    <h1>Chapter 6: Correlation and Regression</h1>
+    <h2 id="section-6-1">Section 6.1: Introduction</h2>
+
+    <section aria-labelledby="intro-6-1-heading">
+        <h3 id="intro-6-1-heading" class="visually-hidden">Overview</h3>
+        <p>Correlation and linear regression are important statistical tools for describing and analyzing relationships between two quantitative variables. Correlation measures the strength and direction of a linear relationship between two quantitative variables. Linear regression uses a linear relationship to construct a model for describing the relationship and making predictions. In this chapter, we examine the Pearson correlation coefficient, the coefficient of determination, residuals, and the least squares regression line. We also explore how statistical technology can be used to calculate, visualize, and interpret these concepts while emphasizing the importance of understanding the underlying statistical reasoning.</p>
+    </section>
+
+    <div class="learning-obj-box" role="note" aria-labelledby="lo-6-1-heading">
+        <h3 id="lo-6-1-heading">Learning Objectives</h3>
+        <p>After completing this chapter, you should be able to:</p>
+        <ul>
+            <li>Explain the meaning of correlation and distinguish between positive, negative, and no linear correlation.</li>
+            <li>Interpret the Pearson correlation coefficient \(r\) and its range from \(-1\) to \(1\).</li>
+            <li>Calculate and interpret the coefficient of determination \(R^2\), and recognize that \(R^2=r^2\) in simple linear regression.</li>
+            <li>Distinguish between correlation and causation.</li>
+            <li>Distinguish between correlation and regression.</li>
+            <li>Identify the predictor and response variables in a regression problem.</li>
+            <li>Write and interpret a linear regression equation \(\hat{y}=b_0+b_1x\).</li>
+            <li>Interpret the slope and \(y\)-intercept of a regression line.</li>
+            <li>Calculate residuals and explain the least squares method.</li>
+            <li>Use a regression equation to make predictions.</li>
+            <li>Explain the relationship between correlation and the regression slope.</li>
+            <li>Recognize when a regression prediction involves extrapolation.</li>
+        </ul>
+    </div>
+
+    <nav class="page-nav" aria-label="Section navigation">
+        <a class="nav-button" href="mth245_ch5_7.html">Previous: 5.7 Exercises</a>
+        <a class="nav-button" href="mth245_ch6_2.html">Next: 6.2 Correlation</a>
+    </nav>
+
+</main>
+
+<script>
+    fetch('toc.html')
+        .then(function (response) {
+            if (!response.ok) { throw new Error('TOC not found'); }
+            return response.text();
+        })
+        .then(function (data) {
+            document.getElementById('toc-placeholder').innerHTML = data;
+
+            document.querySelectorAll('.toc-chapter').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var expanded = button.getAttribute('aria-expanded') === 'true';
+                    button.setAttribute('aria-expanded', String(!expanded));
+                    document.getElementById(button.getAttribute('aria-controls')).classList.toggle('open');
+                });
+            });
+
+            // Mark the current page and open its chapter
+            var page = window.location.pathname.split('/').pop();
+            var current = document.querySelector('.toc-submenu a[href="' + page + '"]');
+            if (current) {
+                current.setAttribute('aria-current', 'page');
+                var menu = current.closest('.toc-submenu');
+                menu.classList.add('open');
+                var chapterButton = document.querySelector('[aria-controls="' + menu.id + '"]');
+                if (chapterButton) { chapterButton.setAttribute('aria-expanded', 'true'); }
+            }
+        })
+        .catch(function () { /* TOC unavailable: page content still works */ });
+</script>
+
+</body>
+</html>

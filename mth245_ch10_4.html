@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MTH 245 – Ch 10.4: Difference of Proportions</title>
+
+    <!-- MathJax configuration (single $ intentionally disabled so dollar amounts never collide with math) -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]'], ['$$', '$$']],
+                packages: {'[+]': ['color']}
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            },
+            loader: {
+                load: ['[tex]/color']
+            }
+        };
+    </script>
+    <script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+
+    <link rel="stylesheet" href="styles1.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div id="toc-placeholder"></div>
+
+<main class="container" id="main-content" tabindex="-1">
+
+    <h1>Chapter 10: Advanced Hypothesis Testing</h1>
+    <h2 id="section-10-4">Section 10.4: Difference of Proportions</h2>
+
+    <p>Sometimes the parameter of interest is the difference between two population proportions.</p>
+
+    <section aria-labelledby="diff-prop-heading">
+        <h3 id="diff-prop-heading">The Parameter of Interest</h3>
+    <div class="definition-box" role="note" aria-labelledby="def-diff-prop">
+        <h4 id="def-diff-prop">Difference of Two Proportions</h4>
+        <p>Let</p>
+        \[p_1=\text{population proportion for Group 1}\]
+        <p>and</p>
+        \[p_2=\text{population proportion for Group 2}.\]
+        <p>The parameter of interest is</p>
+        \[p_1-p_2.\]
+        <p>The sample estimate is</p>
+        \[\hat{p}_1-\hat{p}_2.\]
+    </div>
+    </section>
+
+    <section aria-labelledby="prop-ci-heading">
+        <h3 id="prop-ci-heading">Confidence Interval for the Difference of Two Proportions</h3>
+    <div class="definition-box" role="note" aria-labelledby="def-prop-ci">
+        <h4 id="def-prop-ci">Confidence Interval for \(p_1-p_2\)</h4>
+        <p>A \(100(1-\alpha)\%\) confidence interval for \(p_1-p_2\) is</p>
+        \[(\hat{p}_1-\hat{p}_2) \pm z_{\alpha/2}\sqrt{\frac{\hat{p}_1\hat{q}_1}{n_1}+\frac{\hat{p}_2\hat{q}_2}{n_2}}\]
+        <p>where \(\hat{q}_1=1-\hat{p}_1\), \(\hat{q}_2=1-\hat{p}_2\), and \(\hat{q}=1-\hat{p}\).</p>
+        <p>Notice that the confidence interval uses the sample proportions \(\hat{p}_1\) and \(\hat{p}_2\) in the margin of error. The hypothesis test uses a pooled proportion.</p>
+    </div>
+    <section class="example" aria-labelledby="ex-10-4-1-heading">
+        <div class="example-problem">
+            <h3 id="ex-10-4-1-heading">Example 1</h3>
+            <p>A company wants to determine whether the proportion of customers who purchase a product differs between two stores.</p>
+            <p>At Store 1, \(84\) of \(200\) customers make a purchase.</p>
+            <p>At Store 2, \(66\) of \(180\) customers make a purchase.</p>
+            <p>Determine the confidence interval for the difference of proportions at \(\alpha=0.05\).</p>
+        </div>
+        <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-10-4-1">
+            <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+        </button>
+        <div id="sol-10-4-1" class="example-content">
+            <div class="solution">
+                <h4>Solution</h4>
+                <p>The sample proportions are</p>
+                \[\hat{p}_1=\frac{84}{200}=0.42,\qquad\hat{p}_2=\frac{66}{180}\approx0.3667.\]
+                <p>Therefore,</p>
+                \[\hat{q}_1=0.58,\qquad\hat{q}_2\approx0.6333.\]
+                <p>For a \(95\%\) confidence interval, \(\alpha=0.05\), so</p>
+                \[z_{\alpha/2}=z_{0.025}=1.96.\]
+                <p>The difference between the sample proportions is</p>
+                \[\hat{p}_1-\hat{p}_2=0.42-0.3667\approx0.0533.\]
+                <p>The margin of error is</p>
+                \[E=z_{\alpha/2}\sqrt{\frac{\hat{p}_1\hat{q}_1}{n_1}+\frac{\hat{p}_2\hat{q}_2}{n_2}}\]
+                \[=1.96\sqrt{\frac{(0.42)(0.58)}{200}+\frac{(0.3667)(0.6333)}{180}}\approx0.0982.\]
+                <p>Therefore, the confidence interval is \(0.0533\pm0.0982\) or \((-0.0449,\;0.1515)\). More formally, 95% of all similarly constructed confidence intervals will contain the true but unknown difference of proportions.</p>
+            </div>
+        </div>
+    </section>
+    </section>
+
+    <section aria-labelledby="prop-test-heading">
+        <h3 id="prop-test-heading">Hypothesis Test for Two Proportions</h3>
+    <div class="definition-box" role="note" aria-labelledby="def-prop-test">
+        <h4 id="def-prop-test">Hypotheses and Test Statistic</h4>
+        <p>A common null hypothesis is</p>
+        \[H_0:p_1-p_2=0\text{, or }H_0:p_1=p_2.\]
+        <p>The alternative hypothesis would be</p>
+        \[H_1:p_1-p_2\neq 0\text{, or }H_1:p_1\neq p_2.\]
+        <p>One-tailed hypotheses are also possible:</p>
+        \[H_0:p_1-p_2\leq 0\text{, or }H_0:p_1\leq p_2,\]
+        <p>versus</p>
+        \[H_1:p_1-p_2>0\text{, or }H_1:p_1>p_2,\]
+        <p>and</p>
+        \[H_0:p_1-p_2\geq 0\text{, or }H_0:p_1\geq p_2,\]
+        <p>versus</p>
+        \[H_1:p_1-p_2&lt;0\text{, or }H_1:p_1&lt;p_2.\]
+        <p>For the hypothesis test, the margin of error uses the pooled proportion. The pooled sample proportion is</p>
+        \[\hat{p}=\frac{x_1+x_2}{n_1+n_2},\qquad \hat{q}=1-\hat{p}\]
+        <p>where \(x_1\) and \(x_2\) are the numbers of successes in the two samples.</p>
+        <p>The test statistic is</p>
+        \[z=\frac{(\hat{p}_1-\hat{p}_2)-0}{\sqrt{\frac{\hat{p}\hat{q}}{n_1}+\frac{\hat{p}\hat{q}}{n_2}}}\]
+    </div>
+    <p>When \(H_0:p_1=p_2\) is assumed true, both samples are treated as estimates of the same population proportion. The pooled proportion combines the two samples to estimate that common proportion.</p>
+    <section class="example" aria-labelledby="ex-10-4-2-heading">
+        <div class="example-problem">
+            <h3 id="ex-10-4-2-heading">Example 2</h3>
+            <p>A company wants to determine whether the proportion of customers who purchase a product differs between two stores.</p>
+            <p>At Store 1, \(84\) of \(200\) customers make a purchase.</p>
+            <p>At Store 2, \(66\) of \(180\) customers make a purchase.</p>
+            <p>Test whether the purchase proportions differ at \(\alpha=0.05\).</p>
+        </div>
+        <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-10-4-2">
+            <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+        </button>
+        <div id="sol-10-4-2" class="example-content">
+            <div class="solution">
+                <h4>Solution</h4>
+                <ol>
+                    <li><strong>Claim</strong> – The stores have similar sales results.</li>
+                    <li><strong>Complement of the claim</strong> – Sales results differ by store.</li>
+                    <li><strong>Hypotheses</strong> – \(H_0:p_1=p_2\), \(H_1:p_1\neq p_2\).</li>
+                    <li><strong>Significance level</strong> – \(\alpha=0.05\).</li>
+                    <li><strong>Select the test statistic</strong> – For proportions we use \(z\).</li>
+                    <li><strong>Compute the test statistic.</strong>
+                        \[\hat{p}_1=\frac{84}{200}=0.42\]
+                        \[\hat{p}_2=\frac{66}{180}\approx0.3667\]
+                        \[\hat{p}=\frac{x_1+x_2}{n_1+n_2}=\frac{84+66}{200+180}=\frac{150}{380}\approx0.3947.\]
+                        \[\hat{q}_1=0.58,\quad\hat{q}_2\approx0.6333,\quad\hat{q}=0.6053\]
+                        \[z=\frac{0.42-0.3667}{\sqrt{(0.3947)(0.6053)\left(\frac{1}{200}+\frac{1}{180}\right)}}\approx1.06.\]
+                    </li>
+                    <li><strong>Determine the critical values</strong> – For a two-tailed test at \(\alpha=0.05\), \(z_c=\pm1.96\).
+                        <!-- Image mth245_10_4_1 -->
+                        <figure class="diagram">
+                            <img
+                                src="images1/mth245_10_4_1.png"
+                                alt="Standard normal curve with both tails shaded red beyond negative 1.96 and beyond 1.96, each labeled alpha over 2 equals 0.025. The unshaded middle region is labeled FTR H0 equals 0.95. Dashed vertical lines mark the critical values negative 1.96 and 1.96. A solid black vertical marker for the test statistic z, at about 1.06, lies in the unshaded middle region to the right of center."
+                            />
+                            <figcaption>Two-tailed test: the test statistic z ≈ 1.06 falls in the non-rejection region.</figcaption>
+                        </figure>
+                    </li>
+                    <li><strong>Decision</strong> – Since \(1.06&lt;1.96\), we fail to reject \(H_0\) and can make no conclusion on \(H_1\). We can see this graphically as \(z\) falls outside the critical region.</li>
+                    <li><strong>Conclusion</strong> – There is insufficient evidence at the 5% significance level to conclude that the population purchase proportions differ between the two stores.</li>
+                </ol>
+                <p>If we use the \(p\)-value method we find \(p=2(1-0.8554)\approx0.29>0.05\), resulting in the same conclusion.</p>
+            </div>
+        </div>
+    </section>
+    </section>
+
+    <section aria-labelledby="ci-ht-heading">
+        <h3 id="ci-ht-heading">Confidence Intervals and Hypothesis Tests</h3>
+    <div class="definition-box" role="note" aria-labelledby="def-ci-ht">
+        <h4 id="def-ci-ht">The Relationship Between Intervals and Tests</h4>
+        <p>Confidence intervals and hypothesis tests are closely related.</p>
+        <p>For a two-sided hypothesis test at significance level \(\alpha\), a \(100(1-\alpha)\%\) confidence interval can be used to make the corresponding decision assuming the same statistical procedure and assumptions are used.</p>
+        <p>For example, when \(\alpha=0.05\), use a \(95\%\) confidence interval.</p>
+        <p>If the null hypothesis is \(H_0:\mu_1-\mu_2=0\), then</p>
+        \[0\text{ outside the confidence interval}\quad\Longrightarrow\quad \text{Reject }H_0\]
+        <p>and</p>
+        \[0\text{ inside the confidence interval}\quad\Longrightarrow\quad\text{Fail to reject }H_0.\]
+        <p>If 0 is exactly on the boundary of the interval, rounding can affect the apparent decision. Use the unrounded calculations when possible.</p>
+        <p>The same principle applies to a difference of proportions.</p>
+        <p>For one-sided tests, confidence bounds have the same relationship.</p>
+    </div>
+    </section>
+
+    <section aria-labelledby="choosing-procedure-heading">
+        <h3 id="choosing-procedure-heading">Choosing the Correct Procedure</h3>
+        <p>The most important question when comparing two means is whether the samples are paired or independent.</p>
+        \[\text{Same subjects or natural pairs}\quad\Longrightarrow\quad\text{Matched-pairs procedure}\]
+        \[\text{Independent observations from two groups}\quad\Longrightarrow\quad\text{Two-sample procedure}\]
+        <p>The procedure in this chapter assumes the two samples are independent. Paired binary data require a different procedure.</p>
+        <div class="table-scroll">
+        <table>
+        <caption>Choosing a procedure for comparing two populations</caption>
+        <thead>
+        <tr><th scope="col">Procedure</th><th scope="col">Data Structure</th><th scope="col">Main Conditions</th></tr>
+        </thead>
+        <tbody>
+        <tr><th scope="row">Matched-pairs \(t\)</th><td>Paired quantitative observations</td><td>Differences are approximately normal for small \(n\); no severe outliers</td></tr>
+        <tr><th scope="row">Two-sample \(t\)</th><td>Two independent quantitative samples</td><td>Independent observations; approximate normality for small samples; no severe outliers</td></tr>
+        <tr><th scope="row">Two-proportion \(z\)</th><td>Two independent binary samples</td><td>Random/appropriate samples, independence, sufficiently large expected successes and failures</td></tr>
+        </tbody>
+        </table>
+        </div>
+    </section>
+
+    <section aria-labelledby="summary-procedures-heading">
+        <h3 id="summary-procedures-heading">Summary of Procedures</h3>
+        <div class="table-scroll">
+        <table>
+        <caption>Confidence interval and test statistic for each parameter</caption>
+        <thead>
+        <tr><th scope="col">Parameter</th><th scope="col">Confidence Interval</th><th scope="col">Hypothesis Test</th></tr>
+        </thead>
+        <tbody>
+        <tr><th scope="row">Matched means</th><td>\(\displaystyle \bar{d}\pm t^*\frac{s_d}{\sqrt{n}}\)</td><td>\(\displaystyle t=\frac{\bar{d}-d_0}{s_d/\sqrt{n}}\)</td></tr>
+        <tr><th scope="row">Independent means</th><td>\(\displaystyle (\bar{x}_1-\bar{x}_2)\pm t^*\,SE\)</td><td>\(\displaystyle t=\frac{(\bar{x}_1-\bar{x}_2)-d_0}{SE}\)</td></tr>
+        <tr><th scope="row">Two proportions</th><td>\(\displaystyle (\hat{p}_1-\hat{p}_2)\pm z^*\,SE\)</td><td>\(\displaystyle z=\frac{(\hat{p}_1-\hat{p}_2)-0}{SE_{\mathrm{pooled}}}\)</td></tr>
+        </tbody>
+        </table>
+        </div>
+        <p>For independent means</p>
+        \[SE=\sqrt{\frac{s_1^2}{n_1}+\frac{s_2^2}{n_2}}\]
+        <p>For confidence intervals on proportions</p>
+        \[SE=\sqrt{\frac{\hat{p}_1\hat{q}_1}{n_1}+\frac{\hat{p}_2\hat{q}_2}{n_2}}\]
+        <p>For hypothesis tests on proportions</p>
+        \[SE=\sqrt{\frac{\hat{p}\hat{q}}{n_1}+\frac{\hat{p}\hat{q}}{n_2}}\]
+    <div class="definition-box" role="note" aria-labelledby="key-ideas-10">
+        <h4 id="key-ideas-10">Key Ideas</h4>
+        <ol>
+            <li>For matched pairs, calculate a difference for each pair and perform a one-sample \(t\) procedure on the differences.</li>
+            <li>For unmatched means, treat the two samples as independent and use a two-sample \(t\) procedure.</li>
+            <li>For two proportions, compare \(p_1\) and \(p_2\) using a two-proportion \(z\) procedure.</li>
+            <li>Confidence intervals estimate the size of the difference.</li>
+            <li>Hypothesis tests determine whether there is sufficient evidence of a difference.</li>
+            <li>For a test of no difference, the null hypothesis is commonly \(H_0:\mu_1-\mu_2=0\) or \(H_0:p_1-p_2=0\).</li>
+            <li>For a two-sided test, a confidence interval that excludes \(0\) provides evidence of a statistically significant difference.</li>
+        </ol>
+    </div>
+    </section>
+
+    <nav class="page-nav" aria-label="Section navigation">
+        <a class="nav-button" href="mth245_ch10_3.html">Previous: 10.3 Testing Unmatched Pairs</a>
+        <a class="nav-button" href="mth245_ch10_5.html">Next: 10.5 Summary</a>
+    </nav>
+
+</main>
+
+<script>
+    function toggleExample(button) {
+        var content = button.nextElementSibling;
+        var arrow = button.querySelector('.toggle-arrow');
+        var label = button.querySelector('span:last-child');
+
+        if (content.classList.contains('open')) {
+            content.classList.remove('open');
+            arrow.classList.remove('open');
+            label.textContent = 'Show Solution';
+            button.setAttribute('aria-expanded', 'false');
+        } else {
+            content.classList.add('open');
+            arrow.classList.add('open');
+            label.textContent = 'Hide Solution';
+            button.setAttribute('aria-expanded', 'true');
+        }
+    }
+</script>
+
+<script>
+    fetch('toc.html')
+        .then(function (response) {
+            if (!response.ok) { throw new Error('TOC not found'); }
+            return response.text();
+        })
+        .then(function (data) {
+            document.getElementById('toc-placeholder').innerHTML = data;
+
+            document.querySelectorAll('.toc-chapter').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var expanded = button.getAttribute('aria-expanded') === 'true';
+                    button.setAttribute('aria-expanded', String(!expanded));
+                    document.getElementById(button.getAttribute('aria-controls')).classList.toggle('open');
+                });
+            });
+
+            // Mark the current page and open its chapter
+            var page = window.location.pathname.split('/').pop();
+            var current = document.querySelector('.toc-submenu a[href="' + page + '"]');
+            if (current) {
+                current.setAttribute('aria-current', 'page');
+                var menu = current.closest('.toc-submenu');
+                menu.classList.add('open');
+                var chapterButton = document.querySelector('[aria-controls="' + menu.id + '"]');
+                if (chapterButton) { chapterButton.setAttribute('aria-expanded', 'true'); }
+            }
+        })
+        .catch(function () { /* TOC unavailable: page content still works */ });
+</script>
+
+</body>
+</html>

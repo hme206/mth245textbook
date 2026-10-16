@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MTH 245 – Ch 8.4: Proportions</title>
+
+    <!-- MathJax configuration (single $ intentionally disabled so dollar amounts never collide with math) -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]'], ['$$', '$$']],
+                packages: {'[+]': ['color']}
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            },
+            loader: {
+                load: ['[tex]/color']
+            }
+        };
+    </script>
+    <script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+
+    <link rel="stylesheet" href="styles1.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div id="toc-placeholder"></div>
+
+<main class="container" id="main-content" tabindex="-1">
+
+    <h1>Chapter 8: Estimation</h1>
+    <h2 id="section-8-4">Section 8.4: Proportions</h2>
+
+    <p>Many studies estimate a population proportion rather than a population mean. We depict the population proportion as \(p\) and the sample proportion as \(\hat p\). Just like the binomial distribution, \(q=1-p\) and \(\hat q=1-\hat p\).</p>
+
+    <section aria-labelledby="prop-interval-heading">
+        <h3 id="prop-interval-heading">Confidence Interval for a Population Proportion</h3>
+    <div class="definition-box" role="note" aria-labelledby="def-prop-interval">
+        <h4 id="def-prop-interval">Confidence Interval for a Proportion</h4>
+        <p>The sample proportion is \(\hat p=\frac{x}{n}\), where \(x\) is the number of successes in a sample of size \(n\).</p>
+        <p>A commonly used rule of thumb for the normal approximation to the sampling distribution of \(\hat p\) is \(n\hat p\geq5\) and \(n\hat q\geq5\). Some texts use the more conservative requirement of at least 10 expected successes and 10 expected failures.</p>
+        <p>Also, the sample should come from an appropriate random sampling process and observations should be independent or approximately independent.</p>
+        <p>The confidence interval is</p>
+        \[\hat p \pm z_{\alpha/2}\sqrt{\frac{\hat p\hat q}{n}}\]
+    </div>
+    <p>The interval presented here is the traditional normal/Wald interval. It is used in this textbook for introductory purposes. It can perform poorly when the sample size is small or the sample proportion is close to 0 or 1. Alternative methods, such as the Wilson interval, may provide better coverage.</p>
+    <section class="example" aria-labelledby="ex-8-4-1-heading">
+        <div class="example-problem">
+            <h3 id="ex-8-4-1-heading">Example 1</h3>
+            <p>A survey of 400 registered voters finds that 240 support a proposed measure. Assume the 400 voters were selected using an appropriate random sampling method. Construct a 95% confidence interval for the population proportion.</p>
+        </div>
+        <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-8-4-1">
+            <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+        </button>
+        <div id="sol-8-4-1" class="example-content">
+            <div class="solution">
+                <h4>Solution</h4>
+                <p>The sample proportion is</p>
+                \[\hat p=\frac{240}{400}=0.60.\]
+                <p>Using a 95% confidence level,</p>
+                \[E=1.96\sqrt{\frac{0.60(0.40)}{400}}\approx0.048.\]
+                <p>Therefore, \(0.60\pm0.048\), or \((0.552,\;0.648)\).</p>
+                <p>We are 95% confident that between 55.2% and 64.8% of all registered voters support the proposal, or more formally, in repeated sampling, approximately 95% of intervals constructed by this procedure will contain the true proportion.</p>
+            </div>
+        </div>
+    </section>
+    </section>
+
+    <nav class="page-nav" aria-label="Section navigation">
+        <a class="nav-button" href="mth245_ch8_3.html">Previous: 8.3 Student's t-Distribution</a>
+        <a class="nav-button" href="mth245_ch8_5.html">Next: 8.5 Confidence Bounds</a>
+    </nav>
+
+</main>
+
+<script>
+    function toggleExample(button) {
+        var content = button.nextElementSibling;
+        var arrow = button.querySelector('.toggle-arrow');
+        var label = button.querySelector('span:last-child');
+
+        if (content.classList.contains('open')) {
+            content.classList.remove('open');
+            arrow.classList.remove('open');
+            label.textContent = 'Show Solution';
+            button.setAttribute('aria-expanded', 'false');
+        } else {
+            content.classList.add('open');
+            arrow.classList.add('open');
+            label.textContent = 'Hide Solution';
+            button.setAttribute('aria-expanded', 'true');
+        }
+    }
+</script>
+
+<script>
+    fetch('toc.html')
+        .then(function (response) {
+            if (!response.ok) { throw new Error('TOC not found'); }
+            return response.text();
+        })
+        .then(function (data) {
+            document.getElementById('toc-placeholder').innerHTML = data;
+
+            document.querySelectorAll('.toc-chapter').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var expanded = button.getAttribute('aria-expanded') === 'true';
+                    button.setAttribute('aria-expanded', String(!expanded));
+                    document.getElementById(button.getAttribute('aria-controls')).classList.toggle('open');
+                });
+            });
+
+            // Mark the current page and open its chapter
+            var page = window.location.pathname.split('/').pop();
+            var current = document.querySelector('.toc-submenu a[href="' + page + '"]');
+            if (current) {
+                current.setAttribute('aria-current', 'page');
+                var menu = current.closest('.toc-submenu');
+                menu.classList.add('open');
+                var chapterButton = document.querySelector('[aria-controls="' + menu.id + '"]');
+                if (chapterButton) { chapterButton.setAttribute('aria-expanded', 'true'); }
+            }
+        })
+        .catch(function () { /* TOC unavailable: page content still works */ });
+</script>
+
+</body>
+</html>

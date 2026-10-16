@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MTH 245 – Ch 7.2: Normal Distribution</title>
+
+    <!-- MathJax configuration (single $ intentionally disabled so dollar amounts never collide with math) -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]'], ['$$', '$$']],
+                packages: {'[+]': ['color']}
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            },
+            loader: {
+                load: ['[tex]/color']
+            }
+        };
+    </script>
+    <script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+
+    <link rel="stylesheet" href="styles1.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div id="toc-placeholder"></div>
+
+<main class="container" id="main-content" tabindex="-1">
+
+    <h1>Chapter 7: Normal Distribution</h1>
+    <h2 id="section-7-2">Section 7.2: Normal Distribution</h2>
+
+    <p>Many naturally occurring measurements, such as heights, test scores, blood pressure, and manufacturing measurements, tend to cluster around an average value with fewer observations occurring as we move farther away from the average. When a distribution of data is approximately symmetric, unimodal, and bell-shaped, a <strong>normal distribution</strong> may provide a useful model.</p>
+
+    <section aria-labelledby="what-normal-heading">
+        <h3 id="what-normal-heading">What Is a Normal Distribution?</h3>
+    <div class="definition-box" role="note" aria-labelledby="def-normal">
+        <h4 id="def-normal">Definition: Normal Distribution</h4>
+        <p>The <strong>normal distribution</strong> is one of the most important probability distributions in statistics. It serves as the foundation for many statistical methods and provides a useful model for a wide variety of real-world phenomena.</p>
+        <p>A normal distribution is completely determined by two parameters:</p>
+        <ul>
+            <li>the population mean, \(\mu\), which determines the center of the distribution, and</li>
+            <li>the population variance, \(\sigma^2\), which determines the spread.</li>
+        </ul>
+        <p>A random variable \(X\) that follows a normal distribution with mean \(\mu\) and variance \(\sigma^2\) is written</p>
+        \[X\sim N(\mu,\sigma^2).\]
+        <p>This is a convention. This is the most common interpretation in the statistical community.</p>
+    </div>
+    <p>Some software and texts use a different convention in which the second parameter represents the standard deviation, \(X\sim N(\mu,\sigma)\). Always verify the convention being used.</p>
+    </section>
+
+    <section aria-labelledby="properties-heading">
+        <h3 id="properties-heading">Properties of the Normal Distribution</h3>
+    <div class="definition-box" role="note" aria-labelledby="def-properties">
+        <h4 id="def-properties">Properties of the Normal Distribution</h4>
+        <p>Every normal distribution has the following characteristics.</p>
+        <ul>
+            <li>The graph is bell-shaped and symmetric about the mean.</li>
+            <li>The mean, median, and mode are all equal.</li>
+            <li>The highest point of the curve occurs at the mean.</li>
+            <li>The total area under the curve is equal to 1.</li>
+            <li>The tails of the curve approach, but never touch, the horizontal axis.</li>
+            <li>For a normally distributed random variable approximately \(68\%\), \(95\%\), and \(99.7\%\) of observations lie within one, two, and three standard deviations of the mean, respectively. This is referred to as the <strong>Empirical Rule</strong>.</li>
+        </ul>
+    </div>
+    <p>Since the total area under the density curve is 1 and the density is nonnegative everywhere, the normal distribution qualifies as a probability distribution.</p>
+    <p>Because the normal distribution is symmetric,</p>
+    \[P(X\leq \mu)=P(X\geq \mu)=0.5.\]
+    <p>This means that any interval centered at the mean contains equal amounts of area on either side of the mean.</p>
+    </section>
+
+    <hr class="divider" aria-hidden="true" />
+
+    <section aria-labelledby="empirical-heading">
+        <h3 id="empirical-heading">Empirical Rule</h3>
+        <p>Since approximately \(68\%\), \(95\%\), and \(99.7\%\) of observations lie within one, two, and three standard deviations of the mean, respectively; and any interval centered at the mean contains equal amounts of area on either side of the mean; we can further divide up the entire region under the curve.</p>
+    <!-- Image mth245_7_2_1 -->
+    <figure class="diagram">
+        <img
+            src="images1/mth245_7_2_1.png"
+            alt="A bell-shaped normal curve over an x-axis labeled from mu minus 3 sigma to mu plus 3 sigma in steps of one standard deviation, with the peak at mu. The area under the curve is shaded in three nested bands: orange within one standard deviation of the mean, yellow out to two standard deviations, and green out to three. Dashed vertical lines mark each standard deviation. The percentage of area in each region is labeled: 34 percent between mu and mu plus sigma, 13.5 percent between mu plus sigma and mu plus 2 sigma, 2.35 percent between mu plus 2 sigma and mu plus 3 sigma, and 0.15 percent beyond mu plus 3 sigma, with the same values mirrored on the left side of the mean."
+        />
+        <figcaption>The Empirical Rule: percentage of area in each region of a normal curve.</figcaption>
+    </figure>
+    <section class="example" aria-labelledby="ex-7-2-1-heading">
+        <div class="example-problem">
+            <h3 id="ex-7-2-1-heading">Example 1</h3>
+            <p>Suppose adult male heights are approximately normally distributed with</p>
+            \[\mu=70\text{ inches},\qquad \sigma=3\text{ inches}.\]
+            <p>Use the Empirical Rule to describe the distribution of heights.</p>
+        </div>
+        <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-7-2-1">
+            <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+        </button>
+        <div id="sol-7-2-1" class="example-content">
+            <div class="solution">
+                <h4>Solution</h4>
+                <p>Most men have heights close to \(70\) inches, while very short or very tall heights occur much less frequently.</p>
+                <p>Using the Empirical Rule, approximately</p>
+                \[68\%\text{ of heights lie between }67\text{ and }73\text{ inches},\]
+                \[95\%\text{ lie between }64\text{ and }76\text{ inches},\]
+                \[99.7\%\text{ lie between }61\text{ and }79\text{ inches}.\]
+                <p>By dividing the chart up as above, we can further see approximately</p>
+                \[49.85\%\text{ of heights lie between }61\text{ and }70\text{ inches},\]
+                \[81.5\%\text{ of heights lie between }67\text{ and }76\text{ inches},\]
+                \[84\%\text{ of heights lie below }73\text{ inches}.\]
+            </div>
+        </div>
+    </section>
+    <section class="example" aria-labelledby="ex-7-2-2-heading">
+        <div class="example-problem">
+            <h3 id="ex-7-2-2-heading">Example 2</h3>
+            <p>Suppose scores on a standardized examination follow a normal distribution with</p>
+            \[\mu=500,\qquad \sigma=100.\]
+            <p>Use the Empirical Rule to describe the distribution of scores.</p>
+        </div>
+        <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-7-2-2">
+            <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+        </button>
+        <div id="sol-7-2-2" class="example-content">
+            <div class="solution">
+                <h4>Solution</h4>
+                <p>Most students (approximately \(68\%\)) score between</p>
+                \[400\text{ and }600,\]
+                <p>while relatively few (approximately \(0.3\%\)) score below \(200\) or above \(800\).</p>
+            </div>
+        </div>
+    </section>
+    </section>
+
+    <section aria-labelledby="changing-mean-heading">
+        <h3 id="changing-mean-heading">Changing the Mean</h3>
+        <p>Changing the mean shifts the entire distribution left or right without changing its shape.</p>
+        <p>If \(X\sim N(50,64)\) and \(Y\sim N(70,64)\), then both distributions have the same spread, but the distribution of \(Y\) is centered \(20\) units to the right.</p>
+    <!-- Image mth245_7_2_2 -->
+    <figure class="diagram">
+        <img
+            src="images1/mth245_7_2_2.png"
+            alt="Graph of two normal density curves with the same shape. The blue curve, labeled N(50, 64), is centered at 50. The red curve, labeled N(70, 64), is centered at 70, so it is the blue curve shifted 20 units to the right. The horizontal axis runs from 20 to 100 and the vertical axis is labeled f of x. Dotted vertical lines mark the two means, and both curves peak at about 0.05."
+        />
+        <figcaption>Two normal curves with the same spread and different means.</figcaption>
+    </figure>
+    <p>Remember, \(X\sim N(50,64)\) represents a distribution with mean \(\mu=50\) and variance \(\sigma^2=64\), therefore standard deviation \(\sigma=8\).</p>
+    </section>
+
+    <section aria-labelledby="changing-variance-heading">
+        <h3 id="changing-variance-heading">Changing the Variance</h3>
+        <p>Changing the standard deviation changes the spread of the distribution.</p>
+        <p>For example, \(X\sim N(50,16)\) produces a tall, narrow bell curve, while \(Y\sim N(50,144)\) produces a shorter, wider bell curve. Although both distributions are centered at \(50\), the second exhibits much greater variability.</p>
+    <!-- Image mth245_7_2_3 -->
+    <figure class="diagram">
+        <img
+            src="images1/mth245_7_2_3.png"
+            alt="Graph of two normal density curves with the same center at 50, marked by a dotted vertical line. The blue curve, labeled N(50, 16), is tall and narrow with a peak of about 0.10. The red curve, labeled N(50, 144), is lower and wider with a peak of about 0.033. The horizontal axis runs from 10 to 90 and the vertical axis is labeled f of x."
+        />
+        <figcaption>Two normal curves with the same mean and different variances.</figcaption>
+    </figure>
+    <p>For a normal distribution, approximately \(68\%\) of observations lie within one standard deviation of the mean, so changing \(\sigma\) changes both the spread and the height of the density curve.</p>
+    </section>
+
+    <section aria-labelledby="when-appropriate-heading">
+        <h3 id="when-appropriate-heading">When Is the Normal Distribution Appropriate?</h3>
+        <p>Many real-world variables are approximately normal, especially when observations arise from many small, independent sources of variation. Examples include</p>
+        <ul>
+            <li>adult heights,</li>
+            <li>IQ scores,</li>
+            <li>measurement errors,</li>
+            <li>manufacturing dimensions,</li>
+            <li>standardized test scores (approximately), and</li>
+            <li>many biological measurements.</li>
+        </ul>
+        <p>Not every data set is normally distributed. Variables such as household income, home prices, and waiting times are often strongly skewed and require different probability models.</p>
+        <p>That said, a variable does not need to be exactly normally distributed for a normal model to be useful. The appropriateness of the model depends on how well the normal distribution represents the relevant features of the data or probability distribution.</p>
+    <div class="definition-box" role="note" aria-labelledby="kp-normal">
+        <h4 id="kp-normal">Key Points</h4>
+        <ul>
+            <li>The normal distribution is a symmetric, bell-shaped probability distribution.</li>
+            <li>It is completely determined by its mean \(\mu\) and standard deviation \(\sigma\).</li>
+            <li>The mean, median, and mode are equal.</li>
+            <li>The total area under the curve equals \(1\).</li>
+            <li>Larger values of \(\sigma\) produce wider, flatter curves, while smaller values produce narrower, taller curves.</li>
+            <li>Differing values of \(\mu\) shift the curve left and right.</li>
+            <li>Many natural and manufactured quantities are well approximated by a normal distribution.</li>
+        </ul>
+    </div>
+    </section>
+
+    <nav class="page-nav" aria-label="Section navigation">
+        <a class="nav-button" href="mth245_ch7_1.html">Previous: 7.1 Introduction</a>
+        <a class="nav-button" href="mth245_ch7_3.html">Next: 7.3 Standard Normal Distribution</a>
+    </nav>
+
+</main>
+
+<script>
+    function toggleExample(button) {
+        var content = button.nextElementSibling;
+        var arrow = button.querySelector('.toggle-arrow');
+        var label = button.querySelector('span:last-child');
+
+        if (content.classList.contains('open')) {
+            content.classList.remove('open');
+            arrow.classList.remove('open');
+            label.textContent = 'Show Solution';
+            button.setAttribute('aria-expanded', 'false');
+        } else {
+            content.classList.add('open');
+            arrow.classList.add('open');
+            label.textContent = 'Hide Solution';
+            button.setAttribute('aria-expanded', 'true');
+        }
+    }
+</script>
+
+<script>
+    fetch('toc.html')
+        .then(function (response) {
+            if (!response.ok) { throw new Error('TOC not found'); }
+            return response.text();
+        })
+        .then(function (data) {
+            document.getElementById('toc-placeholder').innerHTML = data;
+
+            document.querySelectorAll('.toc-chapter').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var expanded = button.getAttribute('aria-expanded') === 'true';
+                    button.setAttribute('aria-expanded', String(!expanded));
+                    document.getElementById(button.getAttribute('aria-controls')).classList.toggle('open');
+                });
+            });
+
+            // Mark the current page and open its chapter
+            var page = window.location.pathname.split('/').pop();
+            var current = document.querySelector('.toc-submenu a[href="' + page + '"]');
+            if (current) {
+                current.setAttribute('aria-current', 'page');
+                var menu = current.closest('.toc-submenu');
+                menu.classList.add('open');
+                var chapterButton = document.querySelector('[aria-controls="' + menu.id + '"]');
+                if (chapterButton) { chapterButton.setAttribute('aria-expanded', 'true'); }
+            }
+        })
+        .catch(function () { /* TOC unavailable: page content still works */ });
+</script>
+
+</body>
+</html>

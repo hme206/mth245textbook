@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MTH 245 – Ch 9.8: Exercises</title>
+
+    <!-- MathJax configuration (single $ intentionally disabled so dollar amounts never collide with math) -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]'], ['$$', '$$']],
+                packages: {'[+]': ['color']}
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            },
+            loader: {
+                load: ['[tex]/color']
+            }
+        };
+    </script>
+    <script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+
+    <link rel="stylesheet" href="styles1.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div id="toc-placeholder"></div>
+
+<main class="container" id="main-content" tabindex="-1">
+
+    <h1>Chapter 9: Hypothesis Testing</h1>
+    <h2 id="section-9-8">Section 9.8: Exercises</h2>
+
+    <p>The following exercises review the major concepts introduced in this chapter. Show your work and simplify answers when appropriate. References such as “Question 5” refer to the question with that number in the same group.</p>
+
+    <section aria-labelledby="ex-group-tests">
+        <h3 id="ex-group-tests">Statistical Tests</h3>
+        <ol>
+            <li>Write the null and alternative hypotheses for the claim that the population mean is different from 75.</li>
+            <li>Write the null and alternative hypotheses for the claim that the population mean is less than 42.</li>
+            <li>Write the null and alternative hypotheses for the claim that the population mean is greater than 18.</li>
+            <li>Write the null and alternative hypotheses for the claim that the population proportion is less than 0.25.</li>
+            <li>Write the null and alternative hypotheses for the claim that the population proportion is greater than 0.60.</li>
+            <li>Write the null and alternative hypotheses for the claim that the population proportion is different from 0.50.</li>
+            <li>A company claims that the average processing time is 30 minutes. A researcher wants to determine whether the true average differs from 30 minutes. State \(H_0\) and \(H_1\).</li>
+            <li>A manufacturer claims that the average lifetime of a product is at least 500 hours. A researcher suspects that the average is less than 500 hours. State \(H_0\) and \(H_1\).</li>
+            <li>A university claims that the average student spends no more than 12 hours per week studying. A researcher believes that students spend more than 12 hours. State \(H_0\) and \(H_1\).</li>
+            <li>Explain the difference between “reject \(H_0\)” and “fail to reject \(H_0\).” Why does failing to reject \(H_0\) not prove that \(H_0\) is true?</li>
+        </ol>
+    </section>
+
+    <section aria-labelledby="ex-group-steps">
+        <h3 id="ex-group-steps">General Steps of Hypothesis Testing</h3>
+        <ol>
+            <li>List the general steps used to conduct a hypothesis test.</li>
+            <li>What is the purpose of selecting a significance level \(\alpha\)?</li>
+            <li>What information is needed to determine whether a test should be left-tailed, right-tailed, or two-tailed?</li>
+            <li>Suppose a researcher is testing
+                \[H_0:\mu=100,\qquad H_1:\mu\ne100.\]
+                If \(\alpha=0.05\), what are the critical values for a \(z\) test?</li>
+            <li>Suppose a right-tailed \(z\) test is conducted at \(\alpha=0.05\). What is the critical value?</li>
+            <li>Suppose a left-tailed \(z\) test is conducted at \(\alpha=0.01\). What is the critical value?</li>
+            <li>A two-tailed test has \(\alpha=0.10\). What critical values should be used for a \(z\) test?</li>
+            <li>A test statistic is \(z=2.30\) for a two-tailed test with \(\alpha=0.05\). Should \(H_0\) be rejected?</li>
+            <li>A test has \(p=0.018\) and \(\alpha=0.05\). Should \(H_0\) be rejected?</li>
+            <li>Explain the difference between the traditional critical-value method and the \(p\)-value method.</li>
+        </ol>
+    </section>
+
+    <section aria-labelledby="ex-group-mean">
+        <h3 id="ex-group-mean">Hypothesis Test for a Population Mean</h3>
+        <ol>
+            <li>When is the one-sample \(z\) statistic used to test a population mean?</li>
+            <li>When is the one-sample \(t\) statistic used to test a population mean?</li>
+            <li>Write the formula for the one-sample \(z\) statistic when the population standard deviation is known.</li>
+            <li>Write the formula for the one-sample \(t\) statistic when the population standard deviation is unknown.</li>
+            <li>A random sample of \(64\) batteries has \(\bar{x}=96\) hours. The population standard deviation is known to be \(12\) hours. Test \(H_0:\mu=100\), \(H_1:\mu\ne100\) at \(\alpha=0.05\). Calculate the test statistic.</li>
+            <li>For Question 5, determine the critical values and state whether \(H_0\) should be rejected.</li>
+            <li>For Question 5, calculate the two-tailed \(p\)-value using a standard normal table and state the conclusion.</li>
+            <li>A random sample of \(36\) applications has \(\bar{x}=42\) minutes and the population standard deviation is \(\sigma=9\) minutes. Test \(H_0:\mu\ge45\), \(H_1:\mu&lt;45\) at \(\alpha=0.05\). Calculate the test statistic.</li>
+            <li>A random sample of \(20\) students has \(\bar{x}=13.5\) hours and \(s=3\) hours. Test \(H_0:\mu\le12\), \(H_1:\mu>12\) at \(\alpha=0.01\). Calculate the \(t\) statistic and identify the degrees of freedom.</li>
+            <li>For Question 9, the critical value is \(t_c=2.539\). Should \(H_0\) be rejected? State the conclusion in context.</li>
+        </ol>
+    </section>
+
+    <section aria-labelledby="ex-group-prop">
+        <h3 id="ex-group-prop">Hypothesis Test for a Population Proportion</h3>
+        <ol>
+            <li>Write the formula for the test statistic used to test a population proportion.</li>
+            <li>What does \(\hat{p}\) represent?</li>
+            <li>What conditions should be satisfied for the normal approximation to be appropriate for a population proportion test?</li>
+            <li>A company claims that more than \(40\%\) of its customers prefer Brand A. Write \(H_0\) and \(H_1\).</li>
+            <li>A sample of 200 customers contains 98 who prefer Brand A. Calculate \(\hat{p}\).</li>
+            <li>Using the information in Question 5, calculate the test statistic for
+                \[H_0:p\le0.40,\qquad H_1:p>0.40.\]</li>
+            <li>For Question 6, determine whether the normal approximation conditions are satisfied.</li>
+            <li>For Question 6, use \(\alpha=0.05\) and the critical value \(z_c=1.645\). Should \(H_0\) be rejected?</li>
+            <li>Calculate the \(p\)-value for the test in Question 6 using \(z=2.60\).</li>
+            <li>State the conclusion of the population proportion test in context.</li>
+        </ol>
+    </section>
+
+
+    <nav class="page-nav" aria-label="Section navigation">
+        <a class="nav-button" href="mth245_ch9_7.html">Previous: 9.7 Summary</a>
+        <a class="nav-button" href="mth245_ch10_1.html">Next: 10.1 Introduction</a>
+    </nav>
+
+</main>
+
+<script>
+    fetch('toc.html')
+        .then(function (response) {
+            if (!response.ok) { throw new Error('TOC not found'); }
+            return response.text();
+        })
+        .then(function (data) {
+            document.getElementById('toc-placeholder').innerHTML = data;
+
+            document.querySelectorAll('.toc-chapter').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var expanded = button.getAttribute('aria-expanded') === 'true';
+                    button.setAttribute('aria-expanded', String(!expanded));
+                    document.getElementById(button.getAttribute('aria-controls')).classList.toggle('open');
+                });
+            });
+
+            // Mark the current page and open its chapter
+            var page = window.location.pathname.split('/').pop();
+            var current = document.querySelector('.toc-submenu a[href="' + page + '"]');
+            if (current) {
+                current.setAttribute('aria-current', 'page');
+                var menu = current.closest('.toc-submenu');
+                menu.classList.add('open');
+                var chapterButton = document.querySelector('[aria-controls="' + menu.id + '"]');
+                if (chapterButton) { chapterButton.setAttribute('aria-expanded', 'true'); }
+            }
+        })
+        .catch(function () { /* TOC unavailable: page content still works */ });
+</script>
+
+</body>
+</html>

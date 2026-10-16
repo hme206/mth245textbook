@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MTH 245 – Ch 8.1: Introduction</title>
+
+    <!-- MathJax configuration (single $ intentionally disabled so dollar amounts never collide with math) -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]'], ['$$', '$$']],
+                packages: {'[+]': ['color']}
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            },
+            loader: {
+                load: ['[tex]/color']
+            }
+        };
+    </script>
+    <script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+
+    <link rel="stylesheet" href="styles1.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div id="toc-placeholder"></div>
+
+<main class="container" id="main-content" tabindex="-1">
+
+    <h1>Chapter 8: Estimation</h1>
+    <h2 id="section-8-1">Section 8.1: Introduction</h2>
+
+    <section aria-labelledby="intro-8-1-heading">
+        <h3 id="intro-8-1-heading" class="visually-hidden">Overview</h3>
+        <p>Confidence intervals provide a method for estimating an unknown population parameter using sample data. Rather than reporting only a point estimate, a confidence interval gives a range of plausible values along with a specified confidence level. The width of the interval generally increases with the confidence level and variability and decreases as sample size increases. This chapter introduces confidence intervals for population means and proportions, including procedures using the standard normal distribution, Student's \(t\)-distribution, and one-sided confidence bounds.</p>
+    </section>
+
+    <div class="learning-obj-box" role="note" aria-labelledby="lo-8-1-heading">
+        <h3 id="lo-8-1-heading">Learning Objectives</h3>
+        <p>After completing this chapter, you should be able to:</p>
+        <ul>
+            <li>Explain the purpose and interpretation of confidence intervals.</li>
+            <li>Construct confidence intervals for population means using the normal and Student's \(t\) distributions.</li>
+            <li>Construct confidence intervals for population proportions.</li>
+            <li>Calculate and interpret the margin of error.</li>
+            <li>Explain the role of the standard error in determining the margin of error.</li>
+            <li>Determine appropriate confidence levels and critical values.</li>
+            <li>Distinguish between a confidence interval and a confidence bound.</li>
+            <li>Construct and interpret one-sided confidence bounds.</li>
+            <li>Select the appropriate confidence interval procedure based on the given information.</li>
+        </ul>
+    </div>
+
+    <nav class="page-nav" aria-label="Section navigation">
+        <a class="nav-button" href="mth245_ch7_8.html">Previous: 7.8 Exercises</a>
+        <a class="nav-button" href="mth245_ch8_2.html">Next: 8.2 Confidence Intervals</a>
+    </nav>
+
+</main>
+
+<script>
+    fetch('toc.html')
+        .then(function (response) {
+            if (!response.ok) { throw new Error('TOC not found'); }
+            return response.text();
+        })
+        .then(function (data) {
+            document.getElementById('toc-placeholder').innerHTML = data;
+
+            document.querySelectorAll('.toc-chapter').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var expanded = button.getAttribute('aria-expanded') === 'true';
+                    button.setAttribute('aria-expanded', String(!expanded));
+                    document.getElementById(button.getAttribute('aria-controls')).classList.toggle('open');
+                });
+            });
+
+            // Mark the current page and open its chapter
+            var page = window.location.pathname.split('/').pop();
+            var current = document.querySelector('.toc-submenu a[href="' + page + '"]');
+            if (current) {
+                current.setAttribute('aria-current', 'page');
+                var menu = current.closest('.toc-submenu');
+                menu.classList.add('open');
+                var chapterButton = document.querySelector('[aria-controls="' + menu.id + '"]');
+                if (chapterButton) { chapterButton.setAttribute('aria-expanded', 'true'); }
+            }
+        })
+        .catch(function () { /* TOC unavailable: page content still works */ });
+</script>
+
+</body>
+</html>

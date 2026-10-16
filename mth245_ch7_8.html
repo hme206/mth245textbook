@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MTH 245 – Ch 7.8: Exercises</title>
+
+    <!-- MathJax configuration (single $ intentionally disabled so dollar amounts never collide with math) -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]'], ['$$', '$$']],
+                packages: {'[+]': ['color']}
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            },
+            loader: {
+                load: ['[tex]/color']
+            }
+        };
+    </script>
+    <script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+
+    <link rel="stylesheet" href="styles1.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div id="toc-placeholder"></div>
+
+<main class="container" id="main-content" tabindex="-1">
+
+    <h1>Chapter 7: Normal Distribution</h1>
+    <h2 id="section-7-8">Section 7.8: Exercises</h2>
+
+    <p>The following exercises review the major concepts introduced in this chapter. Show your work and simplify answers when appropriate.</p>
+
+    <section aria-labelledby="ex-group-identify">
+        <h3 id="ex-group-identify">Identify Normal Distributions</h3>
+        <ol>
+            <li>Consider the graph below.
+                <!-- Image mth245_7_8_1 -->
+                <figure class="diagram">
+                    <img
+                        src="images1/mth245_7_8_1.png"
+                        alt="Graph of a smooth, single-peaked, symmetric bell-shaped density curve. The horizontal axis is labeled Score and runs from 40 to 100 with ticks at 50, 60, 70, 80, and 90; the vertical axis is labeled Density with no tick values. Approximate curve heights: x = 40: about 0.000, x = 50: about 0.002, x = 60: about 0.023, x = 70: about 0.050, x = 80: about 0.023, x = 90: about 0.002, x = 100: about 0.000."
+                    />
+                    <figcaption>Density curve for exercise 1.</figcaption>
+                </figure>
+                Identify the approximate center and spread of the distribution. Does a normal model appear reasonable?</li>
+            <li>Consider the graph below.
+                <!-- Image mth245_7_8_2 -->
+                <figure class="diagram">
+                    <img
+                        src="images1/mth245_7_8_2.png"
+                        alt="Graph of a smooth, single-peaked, symmetric bell-shaped density curve. The horizontal axis is labeled Measurement and runs from 70 to 170 with ticks at 80, 100, 120, 140, and 160; the vertical axis is labeled Density with no tick values. Approximate curve heights: x = 70: about 0.000, x = 80: about 0.001, x = 100: about 0.013, x = 120: about 0.032, x = 140: about 0.013, x = 160: about 0.001, x = 170: about 0.000."
+                    />
+                    <figcaption>Density curve for exercise 2.</figcaption>
+                </figure>
+                Identify the approximate mean and standard deviation. Does the graph appear approximately normal?</li>
+            <li>Two normal distributions are shown conceptually below.
+                <!-- Image mth245_7_8_3 -->
+                <figure class="diagram">
+                    <img
+                        src="images1/mth245_7_8_3.png"
+                        alt="Graph of two smooth, symmetric bell-shaped density curves on a horizontal axis labeled x that runs from 20 to 80; the vertical axis is labeled Density with no tick values. Both curves peak at the same x value. One curve is tall and narrow, and the other is lower and wider. Approximate heights of the tall, narrow curve: x = 20: about 0.000, x = 30: about 0.000, x = 40: about 0.011, x = 50: about 0.080, x = 60: about 0.011, x = 70: about 0.000, x = 80: about 0.000. Approximate heights of the lower, wider curve: x = 20: about 0.000, x = 30: about 0.005, x = 40: about 0.024, x = 50: about 0.040, x = 60: about 0.024, x = 70: about 0.005, x = 80: about 0.000."
+                    />
+                    <figcaption>Two density curves for exercise 3.</figcaption>
+                </figure>
+                Both distributions have the same center. Which distribution has the larger standard deviation? Explain how the graph shows this.</li>
+            <li>A distribution is strongly right-skewed, with a long tail extending toward larger values. Would a normal model be a reasonable model for this distribution? Explain.</li>
+        </ol>
+    </section>
+
+    <section aria-labelledby="ex-group-empirical">
+        <h3 id="ex-group-empirical">Empirical Rule</h3>
+        <p>Recall that for an approximately normal distribution:</p>
+        \[68\%\text{ lie within }1\sigma,\qquad 95\%\text{ lie within }2\sigma,\qquad 99.7\%\text{ lie within }3\sigma.\]
+        <ol>
+            <li>Exam scores are approximately normally distributed with \(\mu=100, \sigma=15.\) Using the Empirical Rule, find the interval containing approximately \(68\%\) of the scores.</li>
+            <li>The weights of a population are approximately normal with \(\mu=72\text{ kg}, \sigma=6\text{ kg}.\) Find the interval containing approximately \(95\%\) of the observations.</li>
+            <li>Battery lifetimes are approximately normally distributed with \(\mu=500\text{ hours}, \sigma=40\text{ hours}.\) Find the interval containing approximately \(99.7\%\) of battery lifetimes.</li>
+            <li>A normal distribution has approximately \(95\%\) of its observations between 30 and 50. Estimate the mean and standard deviation.</li>
+        </ol>
+    </section>
+
+    <section aria-labelledby="ex-group-z">
+        <h3 id="ex-group-z">\(z\)-Scores</h3>
+        <p>Use \(z=\dfrac{x-\mu}{\sigma}.\)</p>
+        <ol>
+            <li>A test has mean \(72\) and standard deviation \(6\). A student scores \(84\). Calculate and interpret the \(z\)-score.</li>
+            <li>A measurement has mean \(70\) and standard deviation \(8\). An observation is \(58\). Calculate the \(z\)-score and interpret its sign.</li>
+            <li>A student's score has a \(z\)-score of \(-1.50\). Is the student's score above or below the mean? How many standard deviations from the mean is the score?</li>
+            <li>A data value has a \(z\)-score of \(2.25\). Describe the location of the observation relative to the mean.</li>
+        </ol>
+    </section>
+
+    <section aria-labelledby="ex-group-convert">
+        <h3 id="ex-group-convert">Convert \(z\) Back to \(x\)</h3>
+        <p>Use \(x=\mu+z\sigma.\)</p>
+        <ol>
+            <li>Test scores have \(\mu=70, \sigma=8.\) Find the score corresponding to \(z=1.50.\)</li>
+            <li>Heights have \(\mu=68\text{ in}, \sigma=3\text{ in}.\) Find the height corresponding to \(z=-2.\)</li>
+            <li>A measurement has \(\mu=120, \sigma=15.\) Find the measurement corresponding to \(z=0.80.\)</li>
+            <li>A test has \(\mu=500, \sigma=100.\) Find the score corresponding to \(z=-1.25.\)</li>
+        </ol>
+    </section>
+
+    <section aria-labelledby="ex-group-left">
+        <h3 id="ex-group-left">Left-Tail Probabilities</h3>
+        <p>Find each probability using the standard normal distribution.</p>
+        <ol>
+            <li>\(P(Z&lt;0.75)\)</li>
+            <li>\(P(Z&lt;-1.25)\)</li>
+            <li>\(P(Z&lt;1.50)\)</li>
+            <li>\(P(Z&lt;-2.00)\)</li>
+        </ol>
+    </section>
+
+    <section aria-labelledby="ex-group-right">
+        <h3 id="ex-group-right">Right-Tail Probabilities</h3>
+        <p>Find each probability.</p>
+        <ol>
+            <li>\(P(Z>1.20)\)</li>
+            <li>\(P(Z>-0.80)\)</li>
+            <li>\(P(Z>2.05)\)</li>
+            <li>\(P(Z>-1.75)\)</li>
+        </ol>
+    </section>
+
+    <section aria-labelledby="ex-group-between">
+        <h3 id="ex-group-between">Between-Two-Values Probabilities</h3>
+        <p>Find each probability.</p>
+        <ol>
+            <li>\(P(-1&lt;Z&lt;1.50)\)</li>
+            <li>\(P(-1.50&lt;Z&lt;0.75)\)</li>
+            <li>\(P(-0.50&lt;Z&lt;2.00)\)</li>
+            <li>\(P(-2.00&lt;Z&lt;-0.50)\)</li>
+        </ol>
+    </section>
+
+    <section aria-labelledby="ex-group-percentiles">
+        <h3 id="ex-group-percentiles">Percentiles</h3>
+        <ol>
+            <li>Test scores are normally distributed with \(\mu=70, \sigma=8.\) Find the score corresponding to the \(90\)th percentile.</li>
+            <li>Test scores are normally distributed with \(\mu=70, \sigma=8.\) Find the score corresponding to the \(25\)th percentile.</li>
+            <li>A measurement is normally distributed with \(\mu=70, \sigma=10.\) Find the measurement corresponding to the \(95\)th percentile.</li>
+            <li>Heights are normally distributed with \(\mu=100, \sigma=15.\) Find the height corresponding to the \(80\)th percentile.</li>
+        </ol>
+    </section>
+
+    <section aria-labelledby="ex-group-conditional">
+        <h3 id="ex-group-conditional">Conditional Normal Probabilities</h3>
+        <ol>
+            <li>Let \(X\sim N(100,15^2).\) Find \(P(X>115\mid X>100).\)</li>
+            <li>The amount of sand in a container is normally distributed with \(\mu=50, \sigma=8.\) Find \(P(X&lt;42\mid X&lt;50).\)</li>
+            <li>Pigeon flight distances are normally distributed with \(\mu=200\text{ m}, \sigma=20\text{ m}.\) Find \(P(190&lt;X&lt;220\mid X>190).\)</li>
+            <li>Sand-particle diameters are normally distributed with \(\mu=70, \sigma=10.\) Find \(P(65&lt;X&lt;80\mid X>65).\)</li>
+        </ol>
+    </section>
+
+    <section aria-labelledby="ex-group-sampling">
+        <h3 id="ex-group-sampling">Sampling Distributions</h3>
+        <p>For the sampling distribution of \(\bar X\),</p>
+        \[\mu_{\bar X}=\mu,\qquad \sigma_{\bar X}=\frac{\sigma}{\sqrt n}.\]
+        <ol>
+            <li>A population has \(\mu=50, \sigma=12.\) A random sample of \(n=36\) observations is selected. Find \(\mu_{\bar X}\) and \(\sigma_{\bar X}\).</li>
+            <li>A population has mean \(80\) and standard deviation \(20\). Samples of size \(100\) are selected. Find the mean and standard deviation of the sampling distribution of \(\bar X\).</li>
+            <li>A population has \(\mu=200, \sigma=30.\) A sample of \(n=25\) is selected. Find \(P(\bar X>212).\)</li>
+            <li>A population has \(\mu=500, \sigma=60.\) A sample of \(n=36\) is selected. Find \(P(490&lt;\bar X&lt;515).\)</li>
+        </ol>
+    </section>
+
+    <section aria-labelledby="ex-group-clt">
+        <h3 id="ex-group-clt">CLT Conceptual Questions</h3>
+        <ol>
+            <li>A researcher studies the heights of all students at a school. Is the collection of all student heights a population distribution, a sample distribution, or a sampling distribution?</li>
+            <li>A researcher randomly selects 40 students and records their heights. The resulting 40 observed heights form what type of distribution?</li>
+            <li>A researcher repeatedly selects samples of 40 students, calculates the mean height for each sample, and examines the distribution of those sample means. What type of distribution is being examined?</li>
+            <li>Explain the main idea of the Central Limit Theorem. Why is it useful even when the population distribution is not normal?</li>
+        </ol>
+    </section>
+
+    <section aria-labelledby="ex-group-approx">
+        <h3 id="ex-group-approx">Normal Approximation to the Binomial</h3>
+        <p>For the normal approximation to a binomial distribution, check whether the expected numbers of successes and failures are sufficiently large. Use the common condition</p>
+        \[np\geq5\qquad\text{and}\qquad nq\geq5.\]
+        <ol>
+            <li>Determine whether a normal approximation is reasonable for \(n=40, p=0.50.\)</li>
+            <li>Determine whether a normal approximation is reasonable for \(n=20, p=0.10.\)</li>
+            <li>Determine whether a normal approximation is reasonable for \(n=100, p=0.08.\)</li>
+            <li>Determine whether a normal approximation is reasonable for \(n=200, p=0.60.\)</li>
+        </ol>
+    </section>
+
+    <section aria-labelledby="ex-group-continuity">
+        <h3 id="ex-group-continuity">Continuity Correction</h3>
+        <p>For a binomial random variable \(X\), use continuity correction when approximating with a continuous normal distribution.</p>
+        <ol>
+            <li>Write the continuity-corrected normal interval for \(P(X=12).\)</li>
+            <li>Write the continuity-corrected normal interval for \(P(X\leq20).\)</li>
+            <li>Write the continuity-corrected normal interval for \(P(X\geq15).\)</li>
+            <li>Write the continuity-corrected normal interval for \(P(10\leq X\leq18).\)</li>
+        </ol>
+    </section>
+
+    <section aria-labelledby="ex-group-exact">
+        <h3 id="ex-group-exact">Exact Binomial vs. Normal Approximation</h3>
+        <p>For each problem, calculate the exact binomial probability and then calculate the normal approximation using continuity correction. Compare the two answers.</p>
+        <ol>
+            <li>Let \(X\sim\operatorname{Binomial}(50,0.40).\) Find \(P(X=20)\) using:
+                <ol type="a">
+                    <li>the exact binomial calculation;</li>
+                    <li>the normal approximation.</li>
+                </ol></li>
+            <li>Let \(X\sim\operatorname{Binomial}(50,0.40).\) Find \(P(X\geq25)\) using both the exact binomial calculation and the normal approximation with continuity correction.</li>
+            <li>Let \(X\sim\operatorname{Binomial}(80,0.30).\) Find \(P(30\leq X\leq40)\) using both methods.</li>
+            <li>Let \(X\sim\operatorname{Binomial}(40,0.25).\) Find \(P(8\leq X\leq12)\) using both methods. Compare the exact probability with the approximation.</li>
+        </ol>
+    </section>
+
+
+    <nav class="page-nav" aria-label="Section navigation">
+        <a class="nav-button" href="mth245_ch7_7.html">Previous: 7.7 Summary</a>
+        <a class="nav-button" href="mth245_ch8_1.html">Next: 8.1 Introduction</a>
+    </nav>
+
+</main>
+
+<script>
+    fetch('toc.html')
+        .then(function (response) {
+            if (!response.ok) { throw new Error('TOC not found'); }
+            return response.text();
+        })
+        .then(function (data) {
+            document.getElementById('toc-placeholder').innerHTML = data;
+
+            document.querySelectorAll('.toc-chapter').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var expanded = button.getAttribute('aria-expanded') === 'true';
+                    button.setAttribute('aria-expanded', String(!expanded));
+                    document.getElementById(button.getAttribute('aria-controls')).classList.toggle('open');
+                });
+            });
+
+            // Mark the current page and open its chapter
+            var page = window.location.pathname.split('/').pop();
+            var current = document.querySelector('.toc-submenu a[href="' + page + '"]');
+            if (current) {
+                current.setAttribute('aria-current', 'page');
+                var menu = current.closest('.toc-submenu');
+                menu.classList.add('open');
+                var chapterButton = document.querySelector('[aria-controls="' + menu.id + '"]');
+                if (chapterButton) { chapterButton.setAttribute('aria-expanded', 'true'); }
+            }
+        })
+        .catch(function () { /* TOC unavailable: page content still works */ });
+</script>
+
+</body>
+</html>

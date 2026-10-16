@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MTH 245 – Ch 8.7: Exercises</title>
+
+    <!-- MathJax configuration (single $ intentionally disabled so dollar amounts never collide with math) -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]'], ['$$', '$$']],
+                packages: {'[+]': ['color']}
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            },
+            loader: {
+                load: ['[tex]/color']
+            }
+        };
+    </script>
+    <script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+
+    <link rel="stylesheet" href="styles1.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div id="toc-placeholder"></div>
+
+<main class="container" id="main-content" tabindex="-1">
+
+    <h1>Chapter 8: Estimation</h1>
+    <h2 id="section-8-7">Section 8.7: Exercises</h2>
+
+    <p>The following exercises review the major concepts introduced in this chapter. Show your work and simplify answers when appropriate.</p>
+
+    <section aria-labelledby="ex-group-point">
+        <h3 id="ex-group-point">Point Estimates</h3>
+        <ol>
+            <li>A random sample of 50 students has a mean test score of \(\bar{x}=84\). Find the point estimate for the population mean \(\mu\).</li>
+            <li>In a survey of 200 students, 126 report that they regularly use a particular study app. Find the point estimate for the population proportion \(p\).</li>
+            <li>A random sample of 40 batteries has a mean lifetime of 18.6 hours. Find the point estimate for the population mean lifetime.</li>
+            <li>In a sample of 500 voters, 315 support a proposed policy. Find the point estimate for the population proportion.</li>
+            <li>A sample of 64 students has a mean height of 68.4 inches. What statistic is used as the point estimate for the population mean height?</li>
+        </ol>
+    </section>
+
+    <section aria-labelledby="ex-group-moe">
+        <h3 id="ex-group-moe">Margin of Error</h3>
+        <p>Use \(E=z_{\alpha/2}\dfrac{\sigma}{\sqrt n}\) when the population standard deviation is known.</p>
+        <ol>
+            <li>Find the margin of error for a 95% confidence level when \(\sigma=10\) and \(n=100\).</li>
+            <li>Find the margin of error for a 90% confidence level when \(\sigma=18\) and \(n=64\).</li>
+            <li>Find the margin of error for a 99% confidence level when \(\sigma=25\) and \(n=400\).</li>
+            <li>A population has known standard deviation \(\sigma=12\). Find the margin of error for a 95% confidence level using a sample of \(n=36\).</li>
+            <li>A researcher wants a 95% confidence interval with a margin of error no greater than \(2\). The population standard deviation is known to be \(\sigma=10\). What minimum sample size is required?</li>
+        </ol>
+    </section>
+
+    <section aria-labelledby="ex-group-known">
+        <h3 id="ex-group-known">Confidence Intervals with Known \(\sigma\)</h3>
+        <p>Use \(\bar{x}\pm z_{\alpha/2}\dfrac{\sigma}{\sqrt n}.\)</p>
+        <ol>
+            <li>A random sample of 64 students has \(\bar{x}=82\) and known \(\sigma=12\). Construct a 95% confidence interval for \(\mu\).</li>
+            <li>A random sample of 50 adult men has \(\bar{x}=71\) inches and known \(\sigma=2.5\) inches. Construct a 95% confidence interval for the population mean height.</li>
+            <li>A sample of 100 machines has a mean output of \(\bar{x}=105\) units per hour. The population standard deviation is known to be \(\sigma=15\). Construct a 99% confidence interval.</li>
+            <li>A sample of 36 batteries has mean lifetime \(\bar{x}=48\) hours and known \(\sigma=8\) hours. Construct a 90% confidence interval.</li>
+            <li>A sample of 225 measurements has \(\bar{x}=210\) and known \(\sigma=30\). Construct a 95% confidence interval.</li>
+        </ol>
+    </section>
+
+    <section aria-labelledby="ex-group-t">
+        <h3 id="ex-group-t">\(t\)-Intervals</h3>
+        <p>Students should determine when the Student's \(t\) distribution is appropriate, find the degrees of freedom, select the critical value, and construct the interval.</p>
+        <ol>
+            <li>A sample of 16 observations has \(\bar{x}=74\) and \(s=8\). The population standard deviation is unknown. Construct a 95% confidence interval for \(\mu\). State the degrees of freedom and the appropriate \(t\) critical value.</li>
+            <li>A sample of 10 observations has \(\bar{x}=52\) and \(s=6\). Construct a 95% confidence interval for \(\mu\). State the degrees of freedom and the appropriate \(t\) critical value.</li>
+            <li>A sample of 25 observations has \(\bar{x}=101\) and \(s=12\). Construct a 99% confidence interval for \(\mu\).</li>
+            <li>A sample of 20 observations has \(\bar{x}=18.5\) and \(s=2.5\). Construct a 90% confidence interval for \(\mu\).</li>
+            <li>A sample of 30 observations has \(\bar{x}=65\) and \(s=5\). Construct a 95% confidence interval for \(\mu\).</li>
+        </ol>
+    </section>
+
+    <section aria-labelledby="ex-group-zt">
+        <h3 id="ex-group-zt">Choosing \(z\) versus \(t\)</h3>
+        <p>For each situation, determine whether a \(z\)-interval or a \(t\)-interval for a population mean is appropriate. Explain briefly.</p>
+        <ol>
+            <li>A random sample of 64 students has \(\bar{x}=78\). The population standard deviation is known to be \(\sigma=10\).</li>
+            <li>A random sample of 18 students has \(\bar{x}=74\) and \(s=7\). The population standard deviation is unknown, and the population is approximately normal.</li>
+            <li>A random sample of 100 measurements has \(\bar{x}=42.6\). The population standard deviation is known to be \(\sigma=5\).</li>
+            <li>A random sample of 12 measurements has \(\bar{x}=31.4\) and \(s=4.1\). The population standard deviation is unknown, and the population is approximately normal with no severe outliers.</li>
+            <li>A random sample of 45 observations has \(\bar{x}=105\) and \(s=12\). The population standard deviation is unknown. Which procedure should be used: \(z\) or \(t\)? Explain why.</li>
+        </ol>
+    </section>
+
+    <section aria-labelledby="ex-group-prop">
+        <h3 id="ex-group-prop">Proportion Intervals</h3>
+        <p>Use the normal approximation interval \(\hat p\pm z_{\alpha/2}\sqrt{\dfrac{\hat p\hat q}{n}},\ \hat q=1-\hat p\) only when the normal approximation is appropriate. Use the guideline \(\hat p n\ge5\) and \((1-\hat p)n\ge5\).</p>
+        <ol>
+            <li>In a sample of 400 voters, 240 support a proposal. Construct a 95% confidence interval for the population proportion.</li>
+            <li>In a sample of 80 windshields, 74 are acceptable. Determine whether the normal approximation is appropriate. Then, if appropriate, construct a 99% confidence interval.</li>
+            <li>In a sample of 30 customers, 18 report being satisfied. Determine whether the normal approximation is appropriate and construct a 95% confidence interval if it is appropriate.</li>
+            <li>In a sample of 100 products, only 6 are defective. Determine whether the normal approximation is appropriate. Explain the limitation of using the traditional normal/Wald interval.</li>
+            <li>In a sample of 40 patients, only 2 experience a particular outcome. Determine whether the normal approximation is appropriate. Explain why a normal-based interval may be unreliable in this case.</li>
+        </ol>
+    </section>
+
+    <section aria-labelledby="ex-group-level">
+        <h3 id="ex-group-level">Confidence-Level Changes</h3>
+        <p>For a fixed sample, compare 90%, 95%, and 99% confidence levels.</p>
+        <ol>
+            <li>A sample has \(\bar{x}=100\), \(\sigma=20\), and \(n=100\). Find the margin of error for 90%, 95%, and 99% confidence. Which confidence level produces the widest interval?</li>
+            <li>Explain what happens to the width of a confidence interval when the confidence level changes from 90% to 95%, while the sample and variability remain fixed.</li>
+            <li>A researcher reports a 95% confidence interval of \((48,52)\). Without calculating a new interval, explain whether a 99% confidence interval based on the same data would generally be narrower, the same width, or wider.</li>
+            <li>For the same sample, rank the expected margins of error from smallest to largest for 90%, 95%, and 99% confidence.</li>
+            <li>A researcher wants a narrower confidence interval but does not want to change the sample size. Should the researcher increase or decrease the confidence level? Explain the tradeoff.</li>
+        </ol>
+    </section>
+
+    <section aria-labelledby="ex-group-size">
+        <h3 id="ex-group-size">Sample-Size Effects</h3>
+        <p>For fixed confidence level and variability, \(E\propto\dfrac{1}{\sqrt n}.\)</p>
+        <ol>
+            <li>If the sample size is doubled, by what factor is the margin of error multiplied?</li>
+            <li>If the sample size is quadrupled, by what factor is the margin of error multiplied?</li>
+            <li>A study has a margin of error of \(4\) with sample size \(n=100\). What will the margin of error be approximately if the sample size is increased to \(400\)?</li>
+            <li>A study has a margin of error of \(3\) with sample size \(n=200\). What will the margin of error be approximately if the sample size is reduced to \(50\)?</li>
+            <li>A researcher wants to cut the margin of error in half without changing the confidence level or population variability. By what factor must the sample size be changed?</li>
+        </ol>
+    </section>
+
+    <section aria-labelledby="ex-group-interp">
+        <h3 id="ex-group-interp">Confidence-Interval Interpretation</h3>
+        <p>Use the frequentist interpretation emphasized in this chapter: the confidence level describes the long-run proportion of similarly constructed intervals that contain the true parameter.</p>
+        <ol>
+            <li>A 95% confidence interval for a population mean is \((67.8,69.0)\). Write a standard interpretation of this interval.</li>
+            <li>A student says, “There is a 95% probability that the population mean is between 67.8 and 69.0.” Explain why this is not the standard frequentist interpretation of a 95% confidence interval.</li>
+            <li>A student says, “95% of the individual observations in the population are inside my confidence interval.” Explain why this statement is incorrect.</li>
+            <li>A researcher constructs 100 confidence intervals using the same procedure and random sampling method. What does a 95% confidence level mean in terms of the long-run behavior of these intervals?</li>
+            <li>A 99% confidence interval for a population proportion is \((0.42,0.58)\). Write a correct interpretation and explain what the 99% does <em>not</em> mean.</li>
+        </ol>
+    </section>
+
+    <section aria-labelledby="ex-group-bounds">
+        <h3 id="ex-group-bounds">Confidence Bounds</h3>
+        <p>Use one-sided critical values for confidence bounds:</p>
+        \[\text{Lower Bound}=\bar{x}-z_\alpha\frac{\sigma}{\sqrt n},\qquad \text{Upper Bound}=\bar{x}+z_\alpha\frac{\sigma}{\sqrt n}.\]
+        <ol>
+            <li>A sample of 50 adult men has \(\bar{x}=71\) inches and known \(\sigma=2.5\) inches. Find a 95% <em>upper</em> confidence bound for the population mean height.</li>
+            <li>A sample of 64 students has \(\bar{x}=100\) and known \(\sigma=12\). Find a 90% <em>lower</em> confidence bound for the population mean.</li>
+            <li>A sample of 100 measurements has \(\bar{x}=50\) and known \(\sigma=10\). Find a 99% <em>upper</em> confidence bound.</li>
+            <li>A random sample of 400 voters contains 240 supporters of a proposal. Find a 95% <em>lower</em> confidence bound for the population proportion.</li>
+            <li>Explain the difference between a 95% two-sided confidence interval and a 95% one-sided upper confidence bound. Include the critical values used for the normal distribution.</li>
+        </ol>
+    </section>
+
+    <section aria-labelledby="ex-group-percentile">
+        <h3 id="ex-group-percentile">Percentile vs. Confidence-Bound Questions</h3>
+        <p>These questions distinguish a statement about the distribution of <em>individual observations</em> from a statement about an unknown <em>population parameter</em>.</p>
+        <ol>
+            <li>Adult male heights are normally distributed with mean \(\mu=70\) inches and standard deviation \(\sigma=3\) inches. Find the 95th percentile of the distribution of individual heights.</li>
+            <li>Adult male heights have known population standard deviation \(\sigma=2.5\) inches. A random sample of 50 men has \(\bar{x}=71\) inches. Find a 95% <em>upper confidence bound</em> for the population mean.</li>
+            <li>Explain the difference between these two questions:
+                &lt;blockquote><p>“Find the 95th percentile of individual heights.”</p>&lt;/blockquote>
+                and
+                &lt;blockquote><p>“Find a 95% upper confidence bound for the population mean height.”</p>&lt;/blockquote></li>
+            <li>A population has individual measurements distributed as \(N(100,15^2)\). Find the 90th percentile for an individual observation. Is this a confidence interval or a percentile calculation?</li>
+            <li>A random sample of \(n=64\) observations has \(\bar{x}=103\) and known \(\sigma=15\). Find a 95% upper confidence bound for the population mean. Explain why the resulting value should not be described as the 95th percentile of individual observations.</li>
+        </ol>
+    </section>
+
+
+    <nav class="page-nav" aria-label="Section navigation">
+        <a class="nav-button" href="mth245_ch8_6.html">Previous: 8.6 Summary</a>
+        <a class="nav-button" href="mth245_ch9_1.html">Next: 9.1 Introduction</a>
+    </nav>
+
+</main>
+
+<script>
+    fetch('toc.html')
+        .then(function (response) {
+            if (!response.ok) { throw new Error('TOC not found'); }
+            return response.text();
+        })
+        .then(function (data) {
+            document.getElementById('toc-placeholder').innerHTML = data;
+
+            document.querySelectorAll('.toc-chapter').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var expanded = button.getAttribute('aria-expanded') === 'true';
+                    button.setAttribute('aria-expanded', String(!expanded));
+                    document.getElementById(button.getAttribute('aria-controls')).classList.toggle('open');
+                });
+            });
+
+            // Mark the current page and open its chapter
+            var page = window.location.pathname.split('/').pop();
+            var current = document.querySelector('.toc-submenu a[href="' + page + '"]');
+            if (current) {
+                current.setAttribute('aria-current', 'page');
+                var menu = current.closest('.toc-submenu');
+                menu.classList.add('open');
+                var chapterButton = document.querySelector('[aria-controls="' + menu.id + '"]');
+                if (chapterButton) { chapterButton.setAttribute('aria-expanded', 'true'); }
+            }
+        })
+        .catch(function () { /* TOC unavailable: page content still works */ });
+</script>
+
+</body>
+</html>

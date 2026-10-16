@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MTH 245 – Ch 7.1: Introduction</title>
+
+    <link rel="stylesheet" href="styles1.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div id="toc-placeholder"></div>
+
+<main class="container" id="main-content" tabindex="-1">
+
+    <h1>Chapter 7: Normal Distribution</h1>
+    <h2 id="section-7-1">Section 7.1: Introduction</h2>
+
+    <section aria-labelledby="intro-7-1-heading">
+        <h3 id="intro-7-1-heading" class="visually-hidden">Overview</h3>
+        <p>The <strong>normal distribution</strong> is a fundamental concept in probability and statistics because it provides a useful model for many measurements and random quantities and forms the basis for numerous statistical methods. This chapter introduces the properties of normal and standard normal distributions, including z-scores and probability calculations, and explains how normal distributions are used in practical applications. It also introduces the <strong>Central Limit Theorem</strong>, which describes the behavior of sample means, and the use of the normal distribution to approximate binomial probabilities.</p>
+    </section>
+
+    <div class="learning-obj-box" role="note" aria-labelledby="lo-7-1-heading">
+        <h3 id="lo-7-1-heading">Learning Objectives</h3>
+        <p>After completing this chapter, you should be able to:</p>
+        <ul>
+            <li>Identify the key properties of a normal distribution.</li>
+            <li>Calculate and interpret z-scores.</li>
+            <li>Determine probabilities and percentiles for normal random variables using z-scores.</li>
+            <li>Convert between z-scores and original values.</li>
+            <li>Apply the Empirical Rule to normal distributions.</li>
+            <li>Explain and apply the Central Limit Theorem.</li>
+            <li>Calculate the mean and standard error of a sampling distribution.</li>
+            <li>Recognize when a normal approximation to a binomial distribution is appropriate and apply a continuity correction.</li>
+        </ul>
+    </div>
+
+    <nav class="page-nav" aria-label="Section navigation">
+        <a class="nav-button" href="mth245_ch6_5.html">Previous: 6.5 Exercises</a>
+        <a class="nav-button" href="mth245_ch7_2.html">Next: 7.2 Normal Distribution</a>
+    </nav>
+
+</main>
+
+<script>
+    fetch('toc.html')
+        .then(function (response) {
+            if (!response.ok) { throw new Error('TOC not found'); }
+            return response.text();
+        })
+        .then(function (data) {
+            document.getElementById('toc-placeholder').innerHTML = data;
+
+            document.querySelectorAll('.toc-chapter').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var expanded = button.getAttribute('aria-expanded') === 'true';
+                    button.setAttribute('aria-expanded', String(!expanded));
+                    document.getElementById(button.getAttribute('aria-controls')).classList.toggle('open');
+                });
+            });
+
+            // Mark the current page and open its chapter
+            var page = window.location.pathname.split('/').pop();
+            var current = document.querySelector('.toc-submenu a[href="' + page + '"]');
+            if (current) {
+                current.setAttribute('aria-current', 'page');
+                var menu = current.closest('.toc-submenu');
+                menu.classList.add('open');
+                var chapterButton = document.querySelector('[aria-controls="' + menu.id + '"]');
+                if (chapterButton) { chapterButton.setAttribute('aria-expanded', 'true'); }
+            }
+        })
+        .catch(function () { /* TOC unavailable: page content still works */ });
+</script>
+
+</body>
+</html>

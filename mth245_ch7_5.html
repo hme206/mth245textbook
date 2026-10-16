@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MTH 245 – Ch 7.5: Central Limit Theorem</title>
+
+    <!-- MathJax configuration (single $ intentionally disabled so dollar amounts never collide with math) -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]'], ['$$', '$$']],
+                packages: {'[+]': ['color']}
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            },
+            loader: {
+                load: ['[tex]/color']
+            }
+        };
+    </script>
+    <script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+
+    <link rel="stylesheet" href="styles1.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div id="toc-placeholder"></div>
+
+<main class="container" id="main-content" tabindex="-1">
+
+    <h1>Chapter 7: Normal Distribution</h1>
+    <h2 id="section-7-5">Section 7.5: Central Limit Theorem</h2>
+
+    <p>One of the most important concepts in statistics is the <strong>Central Limit Theorem (CLT)</strong>. It explains why the normal distribution appears so frequently in statistics, even when the original population is not normally distributed.</p>
+
+    <section aria-labelledby="clt-heading">
+        <h3 id="clt-heading">The Central Limit Theorem</h3>
+    <div class="definition-box" role="note" aria-labelledby="def-sampling-dist">
+        <h4 id="def-sampling-dist">Definition: Sampling Distribution</h4>
+        <p>The Central Limit Theorem describes the behavior of the <strong>sampling distribution of the sample mean</strong>. A sampling distribution is the probability distribution of a statistic obtained from repeated samples of a fixed size drawn according to the specified sampling process.</p>
+        <p>Suppose a population has mean \(\mu\) and standard deviation \(\sigma\). If many random samples of size \(n\) are selected from the population and the mean of each sample is computed, then these sample means form a new distribution.</p>
+    </div>
+    <div class="definition-box" role="note" aria-labelledby="def-clt">
+        <h4 id="def-clt">The Central Limit Theorem</h4>
+        <p>The Central Limit Theorem states that, under appropriate conditions, including independence and a sufficiently large sample size, the sampling distribution of the sample mean is approximately normal even when the original population is not normally distributed. Furthermore,</p>
+        \[\mu_{\bar{x}}=\mu, \quad\text{and}\quad \sigma_{\bar{x}}=\frac{\sigma}{\sqrt{n}},\]
+        <p>where \(\mu_{\bar{x}}\) is the mean of the sampling distribution and \(\sigma_{\bar{x}}\) is called the <strong>standard error of the mean</strong>.</p>
+    </div>
+    <p>Notice that the standard error decreases as the sample size increases. As sample size increases, the standard error decreases, so sample means tend to vary less from sample to sample around the population mean.</p>
+    </section>
+
+    <section aria-labelledby="clt-conditions-heading">
+        <h3 id="clt-conditions-heading">When Does the Central Limit Theorem Apply?</h3>
+        <p>The Central Limit Theorem applies under the following conditions.</p>
+        <ul>
+            <li>The sample is selected randomly.</li>
+            <li>The observations are independent.</li>
+            <li>The sample size is sufficiently large.</li>
+            <li>When sampling without replacement from a finite population, a common guideline is that the sample size should be no more than about 10% of the population so that observations can be treated as approximately independent.</li>
+        </ul>
+        <p>A commonly used guideline is:</p>
+        <ul>
+            <li>If the population is approximately normal, the theorem works well for almost any sample size.</li>
+            <li>If the population is not normal, a sample size of \(n\ge30\) is often sufficient for the sampling distribution of the mean to be approximately normal.</li>
+        </ul>
+        <p>There is no universal sample-size cutoff that guarantees normality of the sampling distribution. A common introductory rule of thumb is \(n\geq30\), but the required sample size depends on the shape of the population distribution; strongly skewed or heavy-tailed populations may require much larger samples.</p>
+    <section class="example" aria-labelledby="ex-7-5-1-heading">
+        <div class="example-problem">
+            <h3 id="ex-7-5-1-heading">Example 1</h3>
+            <p>Suppose the weights of packages have \(\mu=10\) lb and \(\sigma=2\) lb. Random samples of \(n=25\) packages are selected. Find the mean and standard error of the sampling distribution of the sample mean.</p>
+        </div>
+        <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-7-5-1">
+            <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+        </button>
+        <div id="sol-7-5-1" class="example-content">
+            <div class="solution">
+                <h4>Solution</h4>
+                <p>The sampling distribution of the sample mean has</p>
+                \[\mu_{\bar{x}}=10\]
+                <p>and</p>
+                \[\sigma_{\bar{x}}=\frac{2}{\sqrt{25}}=\frac{2}{5}=0.4.\]
+                <p>Although individual package weights vary with a standard deviation of 2 lb, the sample means vary by only 0.4 lb.</p>
+            </div>
+        </div>
+    </section>
+    <section class="example" aria-labelledby="ex-7-5-2-heading">
+        <div class="example-problem">
+            <h3 id="ex-7-5-2-heading">Example 2</h3>
+            <p>A population has \(\mu=80\) and \(\sigma=15\). Find the mean and standard error of the sampling distribution when \(n=100\).</p>
+        </div>
+        <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-7-5-2">
+            <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+        </button>
+        <div id="sol-7-5-2" class="example-content">
+            <div class="solution">
+                <h4>Solution</h4>
+                <p>Since</p>
+                \[\mu_{\bar{x}}=\mu,\]
+                <p>we have</p>
+                \[\mu_{\bar{x}}=80.\]
+                <p>The standard error is</p>
+                \[\sigma_{\bar{x}}=\frac{15}{\sqrt{100}}=\frac{15}{10}=1.5.\]
+                <p>Therefore,</p>
+                \[\bar{x}\sim N(80,1.5^2)\]
+                <p>approximately, provided the sample size is large enough or the original population is approximately normal.</p>
+            </div>
+        </div>
+    </section>
+    </section>
+
+    <section aria-labelledby="clt-matters-heading">
+        <h3 id="clt-matters-heading">Why the Central Limit Theorem Matters</h3>
+        <p>The Central Limit Theorem allows statisticians to use the normal distribution to study sample means, even when the original population is not normally distributed. This theorem provides an important theoretical basis for many statistical procedures involving sample means, including procedures that use normal or approximately normal sampling distributions.</p>
+        <p>Without the Central Limit Theorem, many of the statistical methods used in science, engineering, medicine, business, and the social sciences would not be possible.</p>
+    <div class="definition-box" role="note" aria-labelledby="kp-clt">
+        <h4 id="kp-clt">Key Points</h4>
+        <ul>
+            <li>The Central Limit Theorem describes the distribution of sample means.</li>
+            <li>For sufficiently large samples, the sampling distribution of the sample mean is approximately normal.</li>
+            <li>The sampling distribution has mean \(\mu_{\bar{x}}=\mu.\)</li>
+            <li>The sampling distribution has standard deviation \(\sigma_{\bar{x}}=\dfrac{\sigma}{\sqrt{n}}\), called the <strong>standard error of the mean</strong>.</li>
+            <li>Increasing the sample size decreases the standard error.</li>
+            <li>The Central Limit Theorem provides the foundation for confidence intervals and hypothesis testing.</li>
+        </ul>
+    </div>
+    </section>
+
+    <nav class="page-nav" aria-label="Section navigation">
+        <a class="nav-button" href="mth245_ch7_4.html">Previous: 7.4 Applications</a>
+        <a class="nav-button" href="mth245_ch7_6.html">Next: 7.6 Normal Approximation to the Binomial Distribution</a>
+    </nav>
+
+</main>
+
+<script>
+    function toggleExample(button) {
+        var content = button.nextElementSibling;
+        var arrow = button.querySelector('.toggle-arrow');
+        var label = button.querySelector('span:last-child');
+
+        if (content.classList.contains('open')) {
+            content.classList.remove('open');
+            arrow.classList.remove('open');
+            label.textContent = 'Show Solution';
+            button.setAttribute('aria-expanded', 'false');
+        } else {
+            content.classList.add('open');
+            arrow.classList.add('open');
+            label.textContent = 'Hide Solution';
+            button.setAttribute('aria-expanded', 'true');
+        }
+    }
+</script>
+
+<script>
+    fetch('toc.html')
+        .then(function (response) {
+            if (!response.ok) { throw new Error('TOC not found'); }
+            return response.text();
+        })
+        .then(function (data) {
+            document.getElementById('toc-placeholder').innerHTML = data;
+
+            document.querySelectorAll('.toc-chapter').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var expanded = button.getAttribute('aria-expanded') === 'true';
+                    button.setAttribute('aria-expanded', String(!expanded));
+                    document.getElementById(button.getAttribute('aria-controls')).classList.toggle('open');
+                });
+            });
+
+            // Mark the current page and open its chapter
+            var page = window.location.pathname.split('/').pop();
+            var current = document.querySelector('.toc-submenu a[href="' + page + '"]');
+            if (current) {
+                current.setAttribute('aria-current', 'page');
+                var menu = current.closest('.toc-submenu');
+                menu.classList.add('open');
+                var chapterButton = document.querySelector('[aria-controls="' + menu.id + '"]');
+                if (chapterButton) { chapterButton.setAttribute('aria-expanded', 'true'); }
+            }
+        })
+        .catch(function () { /* TOC unavailable: page content still works */ });
+</script>
+
+</body>
+</html>

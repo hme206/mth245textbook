@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MTH 245 – Ch 9.1: Introduction</title>
+
+    <!-- MathJax configuration (single $ intentionally disabled so dollar amounts never collide with math) -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]'], ['$$', '$$']],
+                packages: {'[+]': ['color']}
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            },
+            loader: {
+                load: ['[tex]/color']
+            }
+        };
+    </script>
+    <script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+
+    <link rel="stylesheet" href="styles1.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div id="toc-placeholder"></div>
+
+<main class="container" id="main-content" tabindex="-1">
+
+    <h1>Chapter 9: Hypothesis Testing</h1>
+    <h2 id="section-9-1">Section 9.1: Introduction</h2>
+
+    <section aria-labelledby="intro-9-1-heading">
+        <h3 id="intro-9-1-heading" class="visually-hidden">Overview</h3>
+        <p>Hypothesis testing is a statistical method used to evaluate claims about a population parameter using sample data. By formulating null and alternative hypotheses, selecting a significance level, and analyzing an appropriate test statistic or \(p\)-value, we can determine whether the sample provides sufficient evidence to reject the null hypothesis in favor of the alternative hypothesis. This chapter introduces two-tailed, left-tailed, and right-tailed tests, Type I and Type II errors, statistical power, and hypothesis tests for population means and proportions.</p>
+    </section>
+
+    <div class="learning-obj-box" role="note" aria-labelledby="lo-9-1-heading">
+        <h3 id="lo-9-1-heading">Learning Objectives</h3>
+        <p>After completing this chapter, students should be able to:</p>
+        <ul>
+            <li>Define the null and alternative hypotheses.</li>
+            <li>Explain Type I and Type II errors.</li>
+            <li>Describe the relationship among significance level, power, and sample size.</li>
+            <li>Perform hypothesis tests for a population mean and a population proportion.</li>
+            <li>Apply both the traditional (critical value) method and the \(p\)-value method.</li>
+            <li>Interpret the conclusion of a hypothesis test in the context of the problem.</li>
+        </ul>
+    </div>
+
+    <nav class="page-nav" aria-label="Section navigation">
+        <a class="nav-button" href="mth245_ch8_7.html">Previous: 8.7 Exercises</a>
+        <a class="nav-button" href="mth245_ch9_2.html">Next: 9.2 Statistical Tests</a>
+    </nav>
+
+</main>
+
+<script>
+    fetch('toc.html')
+        .then(function (response) {
+            if (!response.ok) { throw new Error('TOC not found'); }
+            return response.text();
+        })
+        .then(function (data) {
+            document.getElementById('toc-placeholder').innerHTML = data;
+
+            document.querySelectorAll('.toc-chapter').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var expanded = button.getAttribute('aria-expanded') === 'true';
+                    button.setAttribute('aria-expanded', String(!expanded));
+                    document.getElementById(button.getAttribute('aria-controls')).classList.toggle('open');
+                });
+            });
+
+            // Mark the current page and open its chapter
+            var page = window.location.pathname.split('/').pop();
+            var current = document.querySelector('.toc-submenu a[href="' + page + '"]');
+            if (current) {
+                current.setAttribute('aria-current', 'page');
+                var menu = current.closest('.toc-submenu');
+                menu.classList.add('open');
+                var chapterButton = document.querySelector('[aria-controls="' + menu.id + '"]');
+                if (chapterButton) { chapterButton.setAttribute('aria-expanded', 'true'); }
+            }
+        })
+        .catch(function () { /* TOC unavailable: page content still works */ });
+</script>
+
+</body>
+</html>

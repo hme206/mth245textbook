@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MTH 245 – Ch 10.2: Testing Matched Pairs</title>
+
+    <!-- MathJax configuration (single $ intentionally disabled so dollar amounts never collide with math) -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]'], ['$$', '$$']],
+                packages: {'[+]': ['color']}
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            },
+            loader: {
+                load: ['[tex]/color']
+            }
+        };
+    </script>
+    <script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+
+    <link rel="stylesheet" href="styles1.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div id="toc-placeholder"></div>
+
+<main class="container" id="main-content" tabindex="-1">
+
+    <h1>Chapter 10: Advanced Hypothesis Testing</h1>
+    <h2 id="section-10-2">Section 10.2: Testing Matched Pairs</h2>
+
+    <p>Suppose we want to compare two population means, \(\mu_1\) and \(\mu_2\). The appropriate procedure depends on whether the two samples are matched or unmatched.</p>
+
+    <section aria-labelledby="matched-design-heading">
+        <h3 id="matched-design-heading">The Matched-Pairs Design</h3>
+    <div class="definition-box" role="note" aria-labelledby="def-matched">
+        <h4 id="def-matched">Definition: Matched Pairs</h4>
+        <p>A <strong>matched-pairs design</strong> is used when each observation in one sample is naturally paired with an observation in the other sample.</p>
+    </div>
+    <p>Examples include:</p>
+    <ul>
+        <li>measurements taken from the same person before and after a treatment;</li>
+        <li>the same subjects receiving two different treatments;</li>
+        <li>measurements on the same student before and after an intervention.</li>
+    </ul>
+    <p>Matched pairs occur when observations are naturally paired so that each observation in one condition corresponds to a specific observation in the other condition. A before-and-after study is one common example.</p>
+
+    <p>Instead of analyzing two separate samples, we analyze the difference within each pair of samples.</p>
+    <div class="definition-box" role="note" aria-labelledby="def-differences">
+        <h4 id="def-differences">Differences Within Pairs</h4>
+        <p>For each pair \(i\), we define \(d_i=x_{1i}-x_{2i}\).</p>
+        <p>Rather than analyzing the two measurements separately, we analyze the differences within the pairs. This converts the matched-pairs problem into a one-sample problem involving the population mean difference \(\mu_d\).</p>
+        <p>The sample mean difference is</p>
+        \[\bar{d}=\frac{\sum_{i=1}^{n}d_i}{n}.\]
+        <p>The sample standard deviation of the differences is</p>
+        \[s_d=\sqrt{\frac{\sum_{i=1}^{n}(d_i-\bar{d})^2}{n-1}}.\]
+    </div>
+    </section>
+
+    <section aria-labelledby="matched-ci-heading">
+        <h3 id="matched-ci-heading">Confidence Interval for a Matched-Pairs Mean Difference</h3>
+    <div class="definition-box" role="note" aria-labelledby="def-matched-ci">
+        <h4 id="def-matched-ci">Confidence Interval for a Matched-Pairs Mean Difference</h4>
+        <p>Because the differences are treated as a single sample, a Student's \(t\)-interval is used.</p>
+        <p>A \(100(1-\alpha)\%\) confidence interval for \(\mu_d\) is</p>
+        \[\bar{d}\pm t_{\alpha/2,n-1}\frac{s_d}{\sqrt{n}}\]
+        <p>where \(df=n-1\).</p>
+        <p>A matched-pairs confidence interval is a one-sample \(t\) confidence interval applied to the differences.</p>
+    </div>
+    <section class="example" aria-labelledby="ex-10-2-1-heading">
+        <div class="example-problem">
+            <h3 id="ex-10-2-1-heading">Example 1</h3>
+            <p>A researcher measures the blood pressure of \(12\) patients before and after a treatment. Define the difference as</p>
+            \[d=\text{Before}-\text{After}.\]
+            <p>The sample results are</p>
+            \[n=12,\qquad \bar{d}=6.4,\qquad s_d=5.2.\]
+            <p>Determine the confidence interval for the difference in blood pressure at \(\alpha=0.05\).</p>
+        </div>
+        <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-10-2-1">
+            <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+        </button>
+        <div id="sol-10-2-1" class="example-content">
+            <div class="solution">
+                <h4>Solution</h4>
+                <p>Since \(c=95\%=0.95\), \(\alpha=0.05\) and \(\alpha/2=0.025\). With \(n=12\), \(df=11\). From the Student's \(t\) table, \(t_{0.025,11}=2.201\). The margin of error is</p>
+                \[E=t_{\alpha/2,n-1}\left(\frac{s_d}{\sqrt{n}}\right)=2.201\left(\frac{5.2}{\sqrt{12}}\right)\approx3.30.\]
+                <p>Therefore, the confidence interval is \(6.4\pm3.3\), or \((3.1,\;9.7)\). More formally, 95% of all similarly constructed confidence intervals will contain the true but unknown difference of means.</p>
+            </div>
+        </div>
+    </section>
+    </section>
+
+    <section aria-labelledby="matched-test-heading">
+        <h3 id="matched-test-heading">Hypothesis Test for a Matched-Pairs Mean Difference</h3>
+    <div class="definition-box" role="note" aria-labelledby="def-matched-test">
+        <h4 id="def-matched-test">Hypotheses and Test Statistic</h4>
+        <p>The hypotheses can take any of the following forms:</p>
+        \[H_0:\mu_d= d_0\text{ versus }H_1:\mu_d\neq d_0,\]
+        <p>or</p>
+        \[H_0:\mu_d\leq d_0\text{ versus }H_1:\mu_d>d_0,\]
+        <p>or</p>
+        \[H_0:\mu_d\geq d_0\text{ versus }H_1:\mu_d&lt;d_0.\]
+        <p>The most common null hypothesis is</p>
+        \[H_0:\mu_d= d_0\text{ versus }H_1:\mu_d\neq d_0,\]
+        <p>which represents no average difference between the two conditions when \(d_0=0\). Although single-tailed tests still have their place, we must look closely at each scenario.</p>
+        <p>The test statistic is</p>
+        \[t=\frac{\bar{d}-d_0}{s_d/\sqrt{n}}\]
+        <p>with \(df=n-1\).</p>
+    </div>
+    <section class="example" aria-labelledby="ex-10-2-2-heading">
+        <div class="example-problem">
+            <h3 id="ex-10-2-2-heading">Example 2</h3>
+            <p>A researcher measures the blood pressure of \(12\) patients before and after a treatment. Define the difference as</p>
+            \[d=\text{Before}-\text{After}.\]
+            <p>The sample results are</p>
+            \[n=12,\qquad \bar{d}=6.4,\qquad s_d=5.2.\]
+            <p>Test whether the treatment produces a change in blood pressure at \(\alpha=0.05\).</p>
+        </div>
+        <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-10-2-2">
+            <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+        </button>
+        <div id="sol-10-2-2" class="example-content">
+            <div class="solution">
+                <h4>Solution</h4>
+                <ol>
+                    <li><strong>Claim</strong> – Blood pressure is unchanged by treatment.</li>
+                    <li><strong>Complement of the claim</strong> – Blood pressure is changed by treatment.</li>
+                    <li><strong>Hypotheses</strong> – \(H_0:\mu_d=0\), \(H_1:\mu_d\neq0\).</li>
+                    <li><strong>Significance level</strong> – \(\alpha=0.05\).</li>
+                    <li><strong>Select the test statistic</strong> – Since \(\sigma\) is unknown, \(t\).</li>
+                    <li><strong>Compute the test statistic.</strong>
+                        \[t=\frac{\bar{d}-\mu_{d,0}}{s_d/\sqrt{n}}=\frac{6.4-0}{5.2/\sqrt{12}}\approx4.26.\]
+                    </li>
+                    <li><strong>Determine the critical values</strong> – For a two-tailed test with \(df=n-1=11\), \(t_c=\pm2.201\).
+                        <!-- Image mth245_10_2_1 -->
+                        <figure class="diagram">
+                            <img
+                                src="images1/mth245_10_2_1.png"
+                                alt="Bell-shaped curve with both tails shaded red beyond negative 2.201 and beyond 2.201, each labeled alpha over 2 equals 0.025. The unshaded middle region is labeled FTR H0 equals 0.95. Dashed vertical lines mark the critical values negative 2.201 and 2.201. A solid black vertical marker labeled t equals 4.26 lies far out in the right tail, beyond the right critical value."
+                            />
+                            <figcaption>Two-tailed test: the test statistic t = 4.26 falls in the right rejection region.</figcaption>
+                        </figure>
+                    </li>
+                    <li><strong>Decision</strong> – Since \(4.26>2.201\), we reject \(H_0\); there is sufficient evidence to support the alternative hypothesis. We can see this graphically as \(t\) falls in the critical region.</li>
+                    <li><strong>Conclusion</strong> – There is sufficient evidence to conclude that the mean blood pressure difference between before and after treatment is not zero.</li>
+                </ol>
+                <p>If we use the \(p\)-value method we find \(0.001&lt;p&lt;0.01\), well below \(\alpha=0.05\), resulting in the same strong conclusion.</p>
+            </div>
+        </div>
+    </section>
+    </section>
+
+    <nav class="page-nav" aria-label="Section navigation">
+        <a class="nav-button" href="mth245_ch10_1.html">Previous: 10.1 Introduction</a>
+        <a class="nav-button" href="mth245_ch10_3.html">Next: 10.3 Testing Unmatched Pairs</a>
+    </nav>
+
+</main>
+
+<script>
+    function toggleExample(button) {
+        var content = button.nextElementSibling;
+        var arrow = button.querySelector('.toggle-arrow');
+        var label = button.querySelector('span:last-child');
+
+        if (content.classList.contains('open')) {
+            content.classList.remove('open');
+            arrow.classList.remove('open');
+            label.textContent = 'Show Solution';
+            button.setAttribute('aria-expanded', 'false');
+        } else {
+            content.classList.add('open');
+            arrow.classList.add('open');
+            label.textContent = 'Hide Solution';
+            button.setAttribute('aria-expanded', 'true');
+        }
+    }
+</script>
+
+<script>
+    fetch('toc.html')
+        .then(function (response) {
+            if (!response.ok) { throw new Error('TOC not found'); }
+            return response.text();
+        })
+        .then(function (data) {
+            document.getElementById('toc-placeholder').innerHTML = data;
+
+            document.querySelectorAll('.toc-chapter').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var expanded = button.getAttribute('aria-expanded') === 'true';
+                    button.setAttribute('aria-expanded', String(!expanded));
+                    document.getElementById(button.getAttribute('aria-controls')).classList.toggle('open');
+                });
+            });
+
+            // Mark the current page and open its chapter
+            var page = window.location.pathname.split('/').pop();
+            var current = document.querySelector('.toc-submenu a[href="' + page + '"]');
+            if (current) {
+                current.setAttribute('aria-current', 'page');
+                var menu = current.closest('.toc-submenu');
+                menu.classList.add('open');
+                var chapterButton = document.querySelector('[aria-controls="' + menu.id + '"]');
+                if (chapterButton) { chapterButton.setAttribute('aria-expanded', 'true'); }
+            }
+        })
+        .catch(function () { /* TOC unavailable: page content still works */ });
+</script>
+
+</body>
+</html>

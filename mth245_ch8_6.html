@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MTH 245 – Ch 8.6: Summary</title>
+
+    <!-- MathJax configuration (single $ intentionally disabled so dollar amounts never collide with math) -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]'], ['$$', '$$']],
+                packages: {'[+]': ['color']}
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            },
+            loader: {
+                load: ['[tex]/color']
+            }
+        };
+    </script>
+    <script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+
+    <link rel="stylesheet" href="styles1.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div id="toc-placeholder"></div>
+
+<main class="container" id="main-content" tabindex="-1">
+
+    <h1>Chapter 8: Estimation</h1>
+    <h2 id="section-8-6">Section 8.6: Summary</h2>
+
+    <p>A confidence interval provides a range of plausible values for an unknown population parameter. It combines a point estimate with a margin of error and is associated with a specified confidence level. Higher confidence levels produce wider intervals, while larger sample sizes generally produce narrower intervals.</p>
+
+    <p>For a population mean with known standard deviation, the standard normal distribution is used. The margin of error is determined by the critical value, population standard deviation, and sample size. For a one-sample population mean when the standard deviation is unknown and the assumptions for the \(t\)-procedure are satisfied, the Student's \(t\)-distribution with \(n-1\) degrees of freedom is used.</p>
+
+    <p>Confidence intervals can also be constructed for population proportions. The sample proportion \(\hat{p}\) is used as the point estimate, provided the sample is sufficiently large for the normal approximation to be appropriate.</p>
+
+    <p>Sometimes only an upper or lower limit is needed. In these cases, one-sided confidence bounds provide an appropriate estimate and use a critical value based on a single tail of the distribution.</p>
+
+    <p>Overall, the appropriate confidence interval procedure depends on the parameter being estimated, whether the population standard deviation is known, and whether a two-sided interval or one-sided bound is required.</p>
+
+    <nav class="page-nav" aria-label="Section navigation">
+        <a class="nav-button" href="mth245_ch8_5.html">Previous: 8.5 Confidence Bounds</a>
+        <a class="nav-button" href="mth245_ch8_7.html">Next: 8.7 Exercises</a>
+    </nav>
+
+</main>
+
+<script>
+    fetch('toc.html')
+        .then(function (response) {
+            if (!response.ok) { throw new Error('TOC not found'); }
+            return response.text();
+        })
+        .then(function (data) {
+            document.getElementById('toc-placeholder').innerHTML = data;
+
+            document.querySelectorAll('.toc-chapter').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var expanded = button.getAttribute('aria-expanded') === 'true';
+                    button.setAttribute('aria-expanded', String(!expanded));
+                    document.getElementById(button.getAttribute('aria-controls')).classList.toggle('open');
+                });
+            });
+
+            // Mark the current page and open its chapter
+            var page = window.location.pathname.split('/').pop();
+            var current = document.querySelector('.toc-submenu a[href="' + page + '"]');
+            if (current) {
+                current.setAttribute('aria-current', 'page');
+                var menu = current.closest('.toc-submenu');
+                menu.classList.add('open');
+                var chapterButton = document.querySelector('[aria-controls="' + menu.id + '"]');
+                if (chapterButton) { chapterButton.setAttribute('aria-expanded', 'true'); }
+            }
+        })
+        .catch(function () { /* TOC unavailable: page content still works */ });
+</script>
+
+</body>
+</html>

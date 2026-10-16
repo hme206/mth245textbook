@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MTH 245 – Ch 8.5: Confidence Bounds</title>
+
+    <!-- MathJax configuration (single $ intentionally disabled so dollar amounts never collide with math) -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]'], ['$$', '$$']],
+                packages: {'[+]': ['color']}
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            },
+            loader: {
+                load: ['[tex]/color']
+            }
+        };
+    </script>
+    <script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+
+    <link rel="stylesheet" href="styles1.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div id="toc-placeholder"></div>
+
+<main class="container" id="main-content" tabindex="-1">
+
+    <h1>Chapter 8: Estimation</h1>
+    <h2 id="section-8-5">Section 8.5: Confidence Bounds</h2>
+
+    <p>Sometimes only a lower bound or an upper bound is required instead of an interval.</p>
+
+    <section aria-labelledby="bounds-heading">
+        <h3 id="bounds-heading">Lower and Upper Confidence Bounds</h3>
+    <div class="definition-box" role="note" aria-labelledby="def-lower-bound">
+        <h4 id="def-lower-bound">Definition: Lower Confidence Bound</h4>
+        <p>A <strong>lower confidence bound</strong> provides a value below which the population parameter is unlikely to fall, according to the specified confidence procedure.</p>
+    </div>
+    <div class="definition-box" role="note" aria-labelledby="def-upper-bound">
+        <h4 id="def-upper-bound">Definition: Upper Confidence Bound</h4>
+        <p>An <strong>upper confidence bound</strong> provides a value above which the population parameter is unlikely to fall, according to the specified confidence procedure.</p>
+    </div>
+    <div class="definition-box" role="note" aria-labelledby="def-bound-formulas">
+        <h4 id="def-bound-formulas">Formulas for Confidence Bounds</h4>
+        <p>For a population mean with known standard deviation,</p>
+        \[\text{Lower Bound}=\bar{x}-z_\alpha\frac{\sigma}{\sqrt n},\]
+        <p>and</p>
+        \[\text{Upper Bound}=\bar{x}+z_\alpha\frac{\sigma}{\sqrt n}.\]
+        <p>For a population proportion,</p>
+        \[\text{Lower Bound}=\hat p-z_{\alpha}\sqrt{\frac{\hat p\hat q}{n}},\]
+        <p>and</p>
+        \[\text{Upper Bound}=\hat p+z_{\alpha}\sqrt{\frac{\hat p\hat q}{n}}.\]
+    </div>
+    <p>Notice that one-sided confidence bounds use \(z_\alpha\) instead of \(z_{\alpha/2}\), because all of the allowable error is placed in only one tail of the distribution.</p>
+
+    <p>Care must be taken when finding the critical values. For example, a two-sided 95% interval yields</p>
+    \[\alpha=0.05,\qquad z_{\alpha/2}=z_{0.025}=1.96\]
+    <p>while a one-sided 95% bound yields</p>
+    \[\alpha=0.05,\qquad z_\alpha=z_{0.05}=1.645.\]
+
+    <p>One-sided confidence bounds are commonly used when regulations require demonstrating that a quantity is above or below a specified threshold. Examples include minimum product strength, maximum contaminant concentration, or guaranteed service life.</p>
+    </section>
+
+    <section aria-labelledby="choosing-heading">
+        <h3 id="choosing-heading">Choosing the Appropriate Procedure</h3>
+    <div class="table-scroll">
+    <table>
+    <caption>Choosing a confidence interval procedure</caption>
+    <thead>
+    <tr><th scope="col">Parameter</th><th scope="col">Procedure</th></tr>
+    </thead>
+    <tbody>
+    <tr><td>Population mean (\(\sigma\) known)</td><td>Normal (\(z\)) confidence interval</td></tr>
+    <tr><td>Population mean (\(\sigma\) unknown)</td><td>Student's \(t\) confidence interval</td></tr>
+    <tr><td>Population proportion</td><td>Normal approximation confidence interval</td></tr>
+    <tr><td>One-sided estimate</td><td>Confidence bound</td></tr>
+    </tbody>
+    </table>
+    </div>
+    <section class="example" aria-labelledby="ex-8-5-1-heading">
+        <div class="example-problem">
+            <h3 id="ex-8-5-1-heading">Example 1</h3>
+            <p>A manufacturer wants to estimate the mean height of adult men. Men's heights are normally distributed with a known population standard deviation of 2.5 inches. A random sample of 50 men has a mean height of 71 inches. Find a 95% upper confidence bound for the population mean height.</p>
+        </div>
+        <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-8-5-1">
+            <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+        </button>
+        <div id="sol-8-5-1" class="example-content">
+            <div class="solution">
+                <h4>Solution</h4>
+                <p>Since the population standard deviation is known, we use a one-sided \(z\) confidence bound for the population mean.</p>
+                <p>Given</p>
+                \[\bar{x}=71,\qquad \sigma=2.5,\qquad n=50,\]
+                <p>the standard error is</p>
+                \[\frac{\sigma}{\sqrt{n}}=\frac{2.5}{\sqrt{50}}\approx0.3536.\]
+                <p>For a 95% upper confidence bound, the critical value is</p>
+                \[z_{0.05}=1.645.\]
+                <p>The upper confidence bound is</p>
+                \[\bar{x}+z_{0.05}\frac{\sigma}{\sqrt{n}}=71+1.645(0.3536)\approx71.58.\]
+                <p>Therefore, the 95% upper confidence bound for the population mean is 71.58 inches. We are 95% confident that \(\mu&lt;71.58\) inches.</p>
+                <p>The 95% upper confidence bound produced by this procedure is 71.58 inches. In repeated sampling, approximately 95% of similarly constructed upper confidence bounds would exceed the true population mean.</p>
+            </div>
+        </div>
+    </section>
+    <section class="example" aria-labelledby="ex-8-5-2-heading">
+        <div class="example-problem">
+            <h3 id="ex-8-5-2-heading">Example 2</h3>
+            <p>80 windshields are inspected at an automotive plant and 74 are found to be acceptable. Find the 99% lower confidence bound of the proportion of windshields that are acceptable.</p>
+        </div>
+        <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-8-5-2">
+            <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+        </button>
+        <div id="sol-8-5-2" class="example-content">
+            <div class="solution">
+                <h4>Solution</h4>
+                <p>Let \(p\) be the true proportion of acceptable windshields.</p>
+                <p>From the sample,</p>
+                \[n=80,\qquad x=74,\qquad \hat{p}=\frac{74}{80}=0.925.\]
+                <p>Since</p>
+                \[n\hat{p}=74\ge5\quad \text{and}\quad n\hat{q}=6\ge5,\]
+                <p>the normal approximation may be used.</p>
+                <p>The standard error is</p>
+                \[\sqrt{\frac{\hat{p}\hat{q}}{n}}=\sqrt{\frac{(0.925)(0.075)}{80}}\approx0.0294.\]
+                <p>For a 99% lower confidence bound, the critical value is \(z_{0.01}=2.326\).</p>
+                <p>The lower confidence bound is</p>
+                \[\hat{p}-z_{0.01}\sqrt{\frac{\hat{p}\hat{q}}{n}}=0.925-2.326(0.0294)\approx0.8566.\]
+                <p>Therefore, the 99% lower confidence bound for the true proportion of acceptable windshields is 0.8566.</p>
+                <p>Assuming the 80 windshields were selected using an appropriate random sampling method, we are 99% confident that at least 85.66% of all windshields produced are acceptable, or more formally, in repeated sampling, approximately 99% of intervals constructed by this procedure will contain the true proportion.</p>
+            </div>
+        </div>
+    </section>
+    <div class="definition-box" role="note" aria-labelledby="kp-estimation">
+        <h4 id="kp-estimation">Key Points</h4>
+        <ul>
+            <li>A confidence interval estimates an unknown population parameter using sample data.</li>
+            <li>The confidence intervals introduced in this chapter have the form \(\text{estimate}\pm\text{margin of error}.\)</li>
+            <li>For a population mean with known \(\sigma\), use a normal-based confidence interval when the sampling distribution of \(\bar{X}\) is approximately normal. This occurs when the population is approximately normal or there is a sufficiently large sample under appropriate conditions.</li>
+            <li>Use Student's \(t\) distribution when the population standard deviation is unknown.</li>
+            <li>Confidence intervals for proportions are based on the sampling distribution of the sample proportion.</li>
+            <li>Confidence bounds provide one-sided estimates when only an upper or lower limit is needed.</li>
+            <li>Holding the confidence level and variability constant, larger samples produce narrower confidence intervals, while higher confidence levels produce wider intervals.</li>
+        </ul>
+    </div>
+    </section>
+
+    <nav class="page-nav" aria-label="Section navigation">
+        <a class="nav-button" href="mth245_ch8_4.html">Previous: 8.4 Proportions</a>
+        <a class="nav-button" href="mth245_ch8_6.html">Next: 8.6 Summary</a>
+    </nav>
+
+</main>
+
+<script>
+    function toggleExample(button) {
+        var content = button.nextElementSibling;
+        var arrow = button.querySelector('.toggle-arrow');
+        var label = button.querySelector('span:last-child');
+
+        if (content.classList.contains('open')) {
+            content.classList.remove('open');
+            arrow.classList.remove('open');
+            label.textContent = 'Show Solution';
+            button.setAttribute('aria-expanded', 'false');
+        } else {
+            content.classList.add('open');
+            arrow.classList.add('open');
+            label.textContent = 'Hide Solution';
+            button.setAttribute('aria-expanded', 'true');
+        }
+    }
+</script>
+
+<script>
+    fetch('toc.html')
+        .then(function (response) {
+            if (!response.ok) { throw new Error('TOC not found'); }
+            return response.text();
+        })
+        .then(function (data) {
+            document.getElementById('toc-placeholder').innerHTML = data;
+
+            document.querySelectorAll('.toc-chapter').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var expanded = button.getAttribute('aria-expanded') === 'true';
+                    button.setAttribute('aria-expanded', String(!expanded));
+                    document.getElementById(button.getAttribute('aria-controls')).classList.toggle('open');
+                });
+            });
+
+            // Mark the current page and open its chapter
+            var page = window.location.pathname.split('/').pop();
+            var current = document.querySelector('.toc-submenu a[href="' + page + '"]');
+            if (current) {
+                current.setAttribute('aria-current', 'page');
+                var menu = current.closest('.toc-submenu');
+                menu.classList.add('open');
+                var chapterButton = document.querySelector('[aria-controls="' + menu.id + '"]');
+                if (chapterButton) { chapterButton.setAttribute('aria-expanded', 'true'); }
+            }
+        })
+        .catch(function () { /* TOC unavailable: page content still works */ });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MTH 245 – Ch 7.3: Standard Normal Distribution</title>
+
+    <!-- MathJax configuration (single $ intentionally disabled so dollar amounts never collide with math) -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]'], ['$$', '$$']],
+                packages: {'[+]': ['color']}
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            },
+            loader: {
+                load: ['[tex]/color']
+            }
+        };
+    </script>
+    <script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+
+    <link rel="stylesheet" href="styles1.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div id="toc-placeholder"></div>
+
+<main class="container" id="main-content" tabindex="-1">
+
+    <h1>Chapter 7: Normal Distribution</h1>
+    <h2 id="section-7-3">Section 7.3: Standard Normal Distribution</h2>
+
+    <section aria-labelledby="std-normal-heading">
+        <h3 id="std-normal-heading">The Standard Normal Distribution</h3>
+        <p>Normal distributions can have many different combinations of means and standard deviations. For example, the distributions \(N(50,4)\) and \(N(50,12)\) are both normal distributions centered at 50, but they have different amounts of spread, while \(N(70,4)\) is shifted considerably to the right.</p>
+    <div class="definition-box" role="note" aria-labelledby="def-normal-formula">
+        <h4 id="def-normal-formula">The Normal Density Function</h4>
+        <p>The generic formula for the normal distribution is</p>
+        \[f(x;\mu,\sigma)=\frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{(x-\mu)^2}{2\sigma^2}},\]
+        <p>where</p>
+        \[x=\text{individual observation},\]
+        \[\mu=\text{population mean},\]
+        <p>and</p>
+        \[\sigma=\text{population standard deviation}.\]
+    </div>
+    <p>As you can imagine, trying to work with this formula becomes cumbersome. To make comparisons between different normal distributions easier, we use a special normal distribution called the <strong>standard normal distribution</strong>.</p>
+    <div class="definition-box" role="note" aria-labelledby="def-std-normal">
+        <h4 id="def-std-normal">Definition: Standard Normal Distribution</h4>
+        <p>The <strong>standard normal distribution</strong> is a normal distribution with</p>
+        \[\mu=0,\qquad  \sigma=1,\qquad  \text{therefore }\sigma^2=1\]
+        <p>and is denoted by</p>
+        \[Z\sim N(0,1^2).\]
+        <p>The standard normal distribution is centered at zero and measured in units of standard deviations. The horizontal axis is called the <strong>standard score</strong> or <strong>z-score</strong>.</p>
+    </div>
+    <!-- Image mth245_7_3_1 -->
+    <figure class="diagram">
+        <img
+            src="images1/mth245_7_3_1.png"
+            alt="Graph of four normal density curves on an x-axis running from minus 6 to 6. The blue curve, N(0, 1), is centered at 0 with a peak of about 0.4. The red curve, N(0, 0.16), is also centered at 0 but is much taller and narrower, with a peak near 1.0. The green dotted curve, N(0, 5), is centered at 0 and is very wide and low, with a peak of about 0.18. The orange curve, N(minus 2, 0.5), is centered at minus 2 with a peak of about 0.57. Dashed vertical lines mark the center of each curve."
+        />
+        <figcaption>Several normal curves with different means and variances.</figcaption>
+    </figure>
+    </section>
+
+    <section aria-labelledby="standardizing-heading">
+        <h3 id="standardizing-heading">Standardizing a Normal Variable</h3>
+        <p>Any normally distributed variable can be converted into a standard normal variable by measuring how many standard deviations an observation is above or below the mean.</p>
+    <div class="definition-box" role="note" aria-labelledby="def-zscore">
+        <h4 id="def-zscore">Definition: z-Score</h4>
+        <p>The <strong>z-score</strong> is defined as</p>
+        \[z=\frac{x-\mu}{\sigma},\]
+        <p>where</p>
+        \[x=\text{individual observation},\]
+        \[\mu=\text{population mean},\]
+        <p>and</p>
+        \[\sigma=\text{population standard deviation}.\]
+        <p>A positive z-score indicates that the observation is above the mean, while a negative z-score indicates that the observation is below the mean.</p>
+    </div>
+    <div class="table-scroll">
+    <table>
+    <caption>Interpreting the sign of a z-score</caption>
+    <thead>
+    <tr><th scope="col">z-score</th><th scope="col">Interpretation</th></tr>
+    </thead>
+    <tbody>
+    <tr><td>\(z&lt;0\)</td><td>Observation is below the mean</td></tr>
+    <tr><td>\(z=0\)</td><td>Observation is exactly at the mean</td></tr>
+    <tr><td>\(z&gt;0\)</td><td>Observation is above the mean</td></tr>
+    </tbody>
+    </table>
+    </div>
+    <section class="example" aria-labelledby="ex-7-3-1-heading">
+        <div class="example-problem">
+            <h3 id="ex-7-3-1-heading">Example 1</h3>
+            <p>Suppose adult male heights are approximately normally distributed with \(\mu=70\) inches and \(\sigma=3\) inches. Find the z-score for a person who is 76 inches tall.</p>
+        </div>
+        <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-7-3-1">
+            <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+        </button>
+        <div id="sol-7-3-1" class="example-content">
+            <div class="solution">
+                <h4>Solution</h4>
+                <p>Using</p>
+                \[z=\frac{x-\mu}{\sigma},\]
+                <p>we have</p>
+                \[z=\frac{76-70}{3}\]
+                \[z=\frac{6}{3}=2.\]
+                <p>A height of 76 inches is therefore 2 standard deviations above the mean.</p>
+            </div>
+        </div>
+    </section>
+    </section>
+
+    <hr class="divider" aria-hidden="true" />
+
+    <section aria-labelledby="using-std-heading">
+        <h3 id="using-std-heading">Using the Standard Normal Distribution</h3>
+        <p>Once a value has been converted to a z-score, probabilities can be found using the standard normal distribution.</p>
+        <p>The area under the standard normal curve represents probability. Because the total area under the curve is 1,</p>
+        \[P(-\infty&lt;Z&lt;\infty)=1.\]
+        <p>Common probabilities are often found using a <strong>standard normal table</strong> similar to the one found in this text.</p>
+        <p>The standard normal table is a table used to find probabilities associated with the standard normal distribution: \(Z\sim N(0,1)\). The entries in the table represent the area under the standard normal curve to the <strong>left</strong> of a given z-score: \(P(Z&lt;z)\).</p>
+        <p>The table is organized by splitting each z-score into two parts.</p>
+        <ul>
+            <li>The <strong>row</strong> contains the ones and tenths digits of the z-score.</li>
+            <li>The <strong>column</strong> contains the hundredths digit of the z-score.</li>
+        </ul>
+        <p>A portion of the table looks like this:</p>
+        <div class="table-scroll">
+        <table>
+        <caption>Portion of the standard normal table: areas to the left of z for z from 1.80 to 2.59</caption>
+        <thead>
+        <tr><th rowspan="2" scope="col">\(z\)</th><th colspan="10" scope="colgroup">Table of Areas to the Left of \(z\)</th></tr>
+        <tr><th scope="col">0.00</th><th scope="col">0.01</th><th scope="col">0.02</th><th scope="col">0.03</th><th scope="col">0.04</th><th scope="col">0.05</th><th scope="col">0.06</th><th scope="col">0.07</th><th scope="col">0.08</th><th scope="col">0.09</th></tr>
+        </thead>
+        <tbody>
+        <tr><th scope="row">1.8</th><td>0.9641</td><td>0.9649</td><td>0.9656</td><td>0.9664</td><td>0.9671</td><td>0.9678</td><td>0.9686</td><td>0.9693</td><td>0.9699</td><td>0.9706</td></tr>
+        <tr><th scope="row">1.9</th><td>0.9713</td><td>0.9719</td><td>0.9726</td><td>0.9732</td><td>0.9738</td><td>0.9744</td><td>0.9750</td><td>0.9756</td><td>0.9761</td><td>0.9767</td></tr>
+        <tr><th scope="row">2.0</th><td>0.9772</td><td>0.9778</td><td>0.9783</td><td>0.9788</td><td>0.9793</td><td>0.9798</td><td>0.9803</td><td>0.9808</td><td>0.9812</td><td>0.9817</td></tr>
+        <tr><th scope="row">2.1</th><td>0.9821</td><td>0.9826</td><td>0.9830</td><td>0.9834</td><td>0.9838</td><td>0.9842</td><td>0.9846</td><td>0.9850</td><td>0.9854</td><td>0.9857</td></tr>
+        <tr><th scope="row">2.2</th><td>0.9861</td><td>0.9864</td><td>0.9868</td><td>0.9871</td><td>0.9875</td><td>0.9878</td><td>0.9881</td><td>0.9884</td><td>0.9887</td><td>0.9890</td></tr>
+        <tr><th scope="row">2.3</th><td>0.9893</td><td>0.9896</td><td>0.9898</td><td>0.9901</td><td>0.9904</td><td>0.9906</td><td>0.9909</td><td>0.9911</td><td>0.9913</td><td>0.9916</td></tr>
+        <tr><th scope="row">2.4</th><td>0.9918</td><td>0.9920</td><td>0.9922</td><td>0.9925</td><td>0.9927</td><td>0.9929</td><td>0.9931</td><td>0.9932</td><td>0.9934</td><td>0.9936</td></tr>
+        <tr><th scope="row">2.5</th><td>0.9938</td><td>0.9940</td><td>0.9941</td><td>0.9943</td><td>0.9945</td><td>0.9946</td><td>0.9948</td><td>0.9949</td><td>0.9951</td><td>0.9952</td></tr>
+        </tbody>
+        </table>
+        </div>
+        <p>For example, to find the probability associated with \(z=2.13\), locate \(2.1\) in the row labels and \(0.03\) in the column headings. The entry at the intersection gives</p>
+        \[P(Z&lt;2.13).\]
+        <p>Using this table,</p>
+        \[P(Z&lt;2.13)\approx0.9834.\]
+        <p>Therefore, approximately \(98.34\%\) of observations in a standard normal distribution lie below a z-score of 2.13.</p>
+
+        <h4 id="negative-z-heading">Negative z-Scores</h4>
+        <p>Negative z-scores are handled in the same way. For example, \(z=-2.13\) is found using the row \(-2.1\) and the column \(0.03\). The table entry gives</p>
+        \[P(Z&lt;-2.13)\approx0.0166.\]
+        <div class="table-scroll">
+        <table>
+        <caption>Portion of the standard normal table for negative z-scores from −2.29 to −2.00</caption>
+        <thead>
+        <tr><th rowspan="2" scope="col">\(z\)</th><th colspan="10" scope="colgroup">Table of Areas to the Left of \(z\)</th></tr>
+        <tr><th scope="col">0.00</th><th scope="col">0.01</th><th scope="col">0.02</th><th scope="col">0.03</th><th scope="col">0.04</th><th scope="col">0.05</th><th scope="col">0.06</th><th scope="col">0.07</th><th scope="col">0.08</th><th scope="col">0.09</th></tr>
+        </thead>
+        <tbody>
+        <tr><th scope="row">−2.2</th><td>0.0139</td><td>0.0136</td><td>0.0132</td><td>0.0129</td><td>0.0125</td><td>0.0122</td><td>0.0119</td><td>0.0116</td><td>0.0113</td><td>0.0110</td></tr>
+        <tr><th scope="row">−2.1</th><td>0.0179</td><td>0.0174</td><td>0.0170</td><td>0.0166</td><td>0.0162</td><td>0.0158</td><td>0.0154</td><td>0.0150</td><td>0.0146</td><td>0.0143</td></tr>
+        <tr><th scope="row">−2.0</th><td>0.0228</td><td>0.0222</td><td>0.0217</td><td>0.0212</td><td>0.0207</td><td>0.0202</td><td>0.0197</td><td>0.0192</td><td>0.0188</td><td>0.0183</td></tr>
+        </tbody>
+        </table>
+        </div>
+        <p>Because the standard normal distribution is symmetric about zero, probabilities for negative z-scores can also be found using symmetry:</p>
+        \[P(Z&lt;-a)=1-P(Z&lt;a).\]
+        <p>For example,</p>
+        \[P(Z&lt;-2.13)=1-P(Z&lt;2.13),\]
+        <p>so</p>
+        \[P(Z&lt;-2.13)=1-0.9834=0.0166.\]
+
+        <h4 id="table-uses-heading">Finding Different Types of Probabilities</h4>
+        <p>The standard normal table can be used to find:</p>
+        <ul>
+            <li>the probability that a z-score falls below a value,</li>
+            <li>the probability that a z-score falls above a value,</li>
+            <li>the probability that a z-score falls between two values.</li>
+        </ul>
+        <p>For probabilities below a z-score, \(P(Z&lt;z)\), read the probability directly from the standard normal table.</p>
+        <p>For probabilities above a z-score, \(P(Z&gt;z)\), use the complement rule:</p>
+        \[P(Z&gt;z)=1-P(Z&lt;z).\]
+        <p>For example, to find the probability \(P(Z&gt;2.34)\), read the probability off the table and subtract from 1:</p>
+        \[1-P(Z&lt;2.34)=1-0.9904=0.0096\]
+        <div class="table-scroll">
+        <table>
+        <caption>Portion of the standard normal table for z from 2.20 to 2.49</caption>
+        <thead>
+        <tr><th rowspan="2" scope="col">\(z\)</th><th colspan="10" scope="colgroup">Table of Areas to the Left of \(z\)</th></tr>
+        <tr><th scope="col">0.00</th><th scope="col">0.01</th><th scope="col">0.02</th><th scope="col">0.03</th><th scope="col">0.04</th><th scope="col">0.05</th><th scope="col">0.06</th><th scope="col">0.07</th><th scope="col">0.08</th><th scope="col">0.09</th></tr>
+        </thead>
+        <tbody>
+        <tr><th scope="row">2.2</th><td>0.9861</td><td>0.9864</td><td>0.9868</td><td>0.9871</td><td>0.9875</td><td>0.9878</td><td>0.9881</td><td>0.9884</td><td>0.9887</td><td>0.9890</td></tr>
+        <tr><th scope="row">2.3</th><td>0.9893</td><td>0.9896</td><td>0.9898</td><td>0.9901</td><td>0.9904</td><td>0.9906</td><td>0.9909</td><td>0.9911</td><td>0.9913</td><td>0.9916</td></tr>
+        <tr><th scope="row">2.4</th><td>0.9918</td><td>0.9920</td><td>0.9922</td><td>0.9925</td><td>0.9927</td><td>0.9929</td><td>0.9931</td><td>0.9932</td><td>0.9934</td><td>0.9936</td></tr>
+        </tbody>
+        </table>
+        </div>
+        <p>For probabilities between two z-scores, \(P(a&lt;Z&lt;b)\), subtract the two left-tail areas:</p>
+        \[P(a&lt;Z&lt;b)=P(Z&lt;b)-P(Z&lt;a).\]
+        <p>For example, to find the probability \(P(1.93&lt;Z&lt;2.54)\), find \(P(Z&lt;1.93)\) and \(P(Z&lt;2.54)\), then subtract:</p>
+        \[P(1.93&lt;Z&lt;2.54)=P(Z&lt;2.54)-P(Z&lt;1.93)=0.9945-0.9732=0.0213.\]
+        <div class="table-scroll">
+        <table>
+        <caption>Portion of the standard normal table for z from 1.90 to 2.59</caption>
+        <thead>
+        <tr><th rowspan="2" scope="col">\(z\)</th><th colspan="10" scope="colgroup">Table of Areas to the Left of \(z\)</th></tr>
+        <tr><th scope="col">0.00</th><th scope="col">0.01</th><th scope="col">0.02</th><th scope="col">0.03</th><th scope="col">0.04</th><th scope="col">0.05</th><th scope="col">0.06</th><th scope="col">0.07</th><th scope="col">0.08</th><th scope="col">0.09</th></tr>
+        </thead>
+        <tbody>
+        <tr><th scope="row">1.9</th><td>0.9713</td><td>0.9719</td><td>0.9726</td><td>0.9732</td><td>0.9738</td><td>0.9744</td><td>0.9750</td><td>0.9756</td><td>0.9761</td><td>0.9767</td></tr>
+        <tr><th scope="row">2.0</th><td>0.9772</td><td>0.9778</td><td>0.9783</td><td>0.9788</td><td>0.9793</td><td>0.9798</td><td>0.9803</td><td>0.9808</td><td>0.9812</td><td>0.9817</td></tr>
+        <tr><th scope="row">2.1</th><td>0.9821</td><td>0.9826</td><td>0.9830</td><td>0.9834</td><td>0.9838</td><td>0.9842</td><td>0.9846</td><td>0.9850</td><td>0.9854</td><td>0.9857</td></tr>
+        <tr><th scope="row">2.2</th><td>0.9861</td><td>0.9864</td><td>0.9868</td><td>0.9871</td><td>0.9875</td><td>0.9878</td><td>0.9881</td><td>0.9884</td><td>0.9887</td><td>0.9890</td></tr>
+        <tr><th scope="row">2.3</th><td>0.9893</td><td>0.9896</td><td>0.9898</td><td>0.9901</td><td>0.9904</td><td>0.9906</td><td>0.9909</td><td>0.9911</td><td>0.9913</td><td>0.9916</td></tr>
+        <tr><th scope="row">2.4</th><td>0.9918</td><td>0.9920</td><td>0.9922</td><td>0.9925</td><td>0.9927</td><td>0.9929</td><td>0.9931</td><td>0.9932</td><td>0.9934</td><td>0.9936</td></tr>
+        <tr><th scope="row">2.5</th><td>0.9938</td><td>0.9940</td><td>0.9941</td><td>0.9943</td><td>0.9945</td><td>0.9946</td><td>0.9948</td><td>0.9949</td><td>0.9951</td><td>0.9952</td></tr>
+        </tbody>
+        </table>
+        </div>
+    </section>
+
+    <section aria-labelledby="empirical-verify-heading">
+        <h3 id="empirical-verify-heading">Verifying the Empirical Rule</h3>
+        <p>We can verify the empirical rule by looking at the values in the standard normal table.</p>
+        <p>For example, we can look at the area within two standard deviations of the mean. From the table, we can find \(P(Z&lt;2)=0.9772\).</p>
+        <p>This means approximately 97.72% of standard normal observations are below a z-score of 2.</p>
+        <p>Similarly,</p>
+        \[P(-2&lt;Z&lt;2)=0.9772-0.0228=0.9544=95.44\%.\]
+        <p>This is close to the approximation of \(95\%\).</p>
+        <p>Looking at values that are a little closer to \(95\%\),</p>
+        \[P(-1.96&lt;Z&lt;1.96)=0.9750-0.0250=0.9500=95\%.\]
+        <p>The value \(z=1.96\) is commonly used for a two-sided \(95\%\) confidence interval based on the standard normal distribution.</p>
+        <p>If we were to look at the area within one standard deviation of the mean,</p>
+        \[P(-1&lt;Z&lt;1)=0.8413-0.1587=0.6826=68.26\%.\]
+        <p>This is close to the \(68\%\) value from the empirical rule.</p>
+        <p>Finally, looking at the area within three standard deviations of the mean yields</p>
+        \[P(-3&lt;Z&lt;3)=0.9987-0.0013=0.9974=99.74\%.\]
+        <p>This is close to the \(99.7\%\) value from the empirical rule.</p>
+    </section>
+
+    <section aria-labelledby="converting-back-heading">
+        <h3 id="converting-back-heading">Converting Back to Original Units</h3>
+        <p>The z-score formula can be rearranged to convert a standard score back into an original measurement.</p>
+        <p>Starting with</p>
+        \[z=\frac{x-\mu}{\sigma},\]
+        <p>multiply both sides by \(\sigma\):</p>
+        \[z\sigma=x-\mu.\]
+        <p>Adding \(\mu\) gives</p>
+        \[x=\mu+z\sigma.\]
+        <p>This formula allows us to find the original value corresponding to a given percentile or z-score.</p>
+    <section class="example" aria-labelledby="ex-7-3-2-heading">
+        <div class="example-problem">
+            <h3 id="ex-7-3-2-heading">Example 2</h3>
+            <p>Exam scores are normally distributed with</p>
+            \[\mu=80\quad\text{and}\quad\sigma=6.\]
+            <p>A student has a score with \(z=1.5\). Find the student's exam score.</p>
+        </div>
+        <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-7-3-2">
+            <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+        </button>
+        <div id="sol-7-3-2" class="example-content">
+            <div class="solution">
+                <h4>Solution</h4>
+                <p>Using \(x=\mu+z\sigma\), we get</p>
+                \[x=80+(1.5)(6)=89.\]
+                <p>The student's score is 89.</p>
+            </div>
+        </div>
+    </section>
+    </section>
+
+    <section aria-labelledby="relationship-heading">
+        <h3 id="relationship-heading">Relationship Between Normal and Standard Normal Distributions</h3>
+        <p>Every normal distribution has the same basic bell-shaped form. The mean determines the center of the distribution, and the standard deviation determines the spread.</p>
+        <p>The standard normal distribution provides a common scale by converting all normal distributions into the same form.</p>
+    <div class="table-scroll">
+    <table>
+    <caption>Normal and standard normal distributions compared</caption>
+    <thead>
+    <tr><th scope="col">Normal Distribution</th><th scope="col">Standard Normal Distribution</th></tr>
+    </thead>
+    <tbody>
+    <tr><td>Mean \(\mu\)</td><td>Mean \(0\)</td></tr>
+    <tr><td>Standard deviation \(\sigma\)</td><td>Standard deviation \(1\)</td></tr>
+    <tr><td>Variable \(X\)</td><td>Variable \(Z\)</td></tr>
+    <tr><td>Units of measurement</td><td>Standard deviations from the mean</td></tr>
+    </tbody>
+    </table>
+    </div>
+    <div class="definition-box" role="note" aria-labelledby="kp-std-normal">
+        <h4 id="kp-std-normal">Key Points</h4>
+        <ul>
+            <li>The standard normal distribution is a normal distribution with \(\mu=0,\ \sigma=1.\)</li>
+            <li>Any normal distribution can be converted to a standard normal distribution using \(z=\dfrac{x-\mu}{\sigma}.\)</li>
+            <li>A z-score describes the number of standard deviations an observation is from the mean.</li>
+            <li>Positive z-scores indicate values above the mean; negative z-scores indicate values below the mean.</li>
+            <li>The standard normal distribution allows probabilities from different normal distributions to be compared.</li>
+            <li>The original value can be recovered using \(x=\mu+z\sigma.\)</li>
+        </ul>
+    </div>
+    </section>
+
+    <nav class="page-nav" aria-label="Section navigation">
+        <a class="nav-button" href="mth245_ch7_2.html">Previous: 7.2 Normal Distribution</a>
+        <a class="nav-button" href="mth245_ch7_4.html">Next: 7.4 Applications</a>
+    </nav>
+
+</main>
+
+<script>
+    function toggleExample(button) {
+        var content = button.nextElementSibling;
+        var arrow = button.querySelector('.toggle-arrow');
+        var label = button.querySelector('span:last-child');
+
+        if (content.classList.contains('open')) {
+            content.classList.remove('open');
+            arrow.classList.remove('open');
+            label.textContent = 'Show Solution';
+            button.setAttribute('aria-expanded', 'false');
+        } else {
+            content.classList.add('open');
+            arrow.classList.add('open');
+            label.textContent = 'Hide Solution';
+            button.setAttribute('aria-expanded', 'true');
+        }
+    }
+</script>
+
+<script>
+    fetch('toc.html')
+        .then(function (response) {
+            if (!response.ok) { throw new Error('TOC not found'); }
+            return response.text();
+        })
+        .then(function (data) {
+            document.getElementById('toc-placeholder').innerHTML = data;
+
+            document.querySelectorAll('.toc-chapter').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var expanded = button.getAttribute('aria-expanded') === 'true';
+                    button.setAttribute('aria-expanded', String(!expanded));
+                    document.getElementById(button.getAttribute('aria-controls')).classList.toggle('open');
+                });
+            });
+
+            // Mark the current page and open its chapter
+            var page = window.location.pathname.split('/').pop();
+            var current = document.querySelector('.toc-submenu a[href="' + page + '"]');
+            if (current) {
+                current.setAttribute('aria-current', 'page');
+                var menu = current.closest('.toc-submenu');
+                menu.classList.add('open');
+                var chapterButton = document.querySelector('[aria-controls="' + menu.id + '"]');
+                if (chapterButton) { chapterButton.setAttribute('aria-expanded', 'true'); }
+            }
+        })
+        .catch(function () { /* TOC unavailable: page content still works */ });
+</script>
+
+</body>
+</html>

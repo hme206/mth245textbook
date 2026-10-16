@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MTH 245 – Ch 6.5: Exercises</title>
+
+    <!-- MathJax configuration (single $ intentionally disabled so dollar amounts never collide with math) -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]'], ['$$', '$$']],
+                packages: {'[+]': ['color']}
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            },
+            loader: {
+                load: ['[tex]/color']
+            }
+        };
+    </script>
+    <script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+
+    <link rel="stylesheet" href="styles1.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div id="toc-placeholder"></div>
+
+<main class="container" id="main-content" tabindex="-1">
+
+    <h1>Chapter 6: Correlation and Regression</h1>
+    <h2 id="section-6-5">Section 6.5: Exercises</h2>
+
+    <p>The following exercises review the major concepts introduced in this chapter. Show your work and simplify answers when appropriate.</p>
+
+    <section aria-labelledby="ex-group-reading">
+        <h3 id="ex-group-reading">Reading Scatterplots</h3>
+        <ol>
+            <li>Consider the scatterplot below.
+                <!-- Image mth245_6_5_1 -->
+                <figure class="diagram">
+                    <img
+                        src="images1/mth245_6_5_1.png"
+                        alt="Scatterplot with both axes labeled x and y and running from 0 to 10. Nine points are plotted at (1, 1.5), (2, 2.1), (3, 2.8), (4, 3.7), (5, 4.2), (6, 5.3), (7, 5.7), (8, 6.8), and (9, 7.5)."
+                    />
+                    <figcaption>Scatterplot for exercise 1.</figcaption>
+                </figure>
+                Describe the direction and approximate strength of the association. Is the relationship approximately linear?</li>
+            <li>Consider the scatterplot below.
+                <!-- Image mth245_6_5_2 -->
+                <figure class="diagram">
+                    <img
+                        src="images1/mth245_6_5_2.png"
+                        alt="Scatterplot with both axes labeled x and y and running from 0 to 11. Eleven points are plotted at (1, 9.5), (2, 8.7), (3, 8.2), (4, 7.1), (5, 6.4), (6, 5.7), (7, 5.1), (8, 4.2), (9, 3.5), (10, 2.7), and (9.5, 9.5)."
+                    />
+                    <figcaption>Scatterplot for exercise 2.</figcaption>
+                </figure>
+                Describe the main association. Identify any possible outlier.</li>
+            <li>Consider the scatterplot below.
+                <!-- Image mth245_6_5_3 -->
+                <figure class="diagram">
+                    <img
+                        src="images1/mth245_6_5_3.png"
+                        alt="Scatterplot with both axes labeled x and y and running from 0 to 11. Ten points are plotted at (1, 1.5), (2, 8.7), (3, 6.5), (4, 3.0), (5, 7.3), (6, 5.3), (7, 3.0), (8, 6.2), (9, 2.5), and (10, 6.7)."
+                    />
+                    <figcaption>Scatterplot for exercise 3.</figcaption>
+                </figure>
+                Describe the main association. Identify any possible outlier.</li>
+            <li>Consider the scatterplot below.
+                <!-- Image mth245_6_5_4 -->
+                <figure class="diagram">
+                    <img
+                        src="images1/mth245_6_5_4.png"
+                        alt="Scatterplot with both axes labeled x and y and running from 0 to 10. Nine points are plotted at (1, 8.9), (2, 7.8), (3, 5.5), (4, 6.7), (5, 4.9), (6, 5.8), (7, 3.9), (8, 4.5), and (9, 2.8)."
+                    />
+                    <figcaption>Scatterplot for exercise 4.</figcaption>
+                </figure>
+                Is the association positive, negative, or neither? Would you describe it as strong, moderate, or weak?</li>
+            <li>Consider the scatterplot below.
+                <!-- Image mth245_6_5_5 -->
+                <figure class="diagram">
+                    <img
+                        src="images1/mth245_6_5_5.png"
+                        alt="Scatterplot with both axes labeled x and y and running from 0 to 10. Nine points are plotted at (1, 1.2), (2, 2.0), (3, 4.0), (4, 6.2), (5, 8.1), (6, 9.0), (7, 8.0), (8, 6.0), and (9, 3.8)."
+                    />
+                    <figcaption>Scatterplot for exercise 5.</figcaption>
+                </figure>
+                Does the scatterplot show a strong linear association? Explain why a correlation coefficient alone may not adequately describe this relationship.</li>
+        </ol>
+    </section>
+
+    <section aria-labelledby="ex-group-calc-corr">
+        <h3 id="ex-group-calc-corr">Calculate Correlation</h3>
+        <ol>
+            <li>Calculate the correlation coefficient \(r\) for the data.
+                <div class="table-scroll">
+                <table>
+                <caption>Data for exercise 1</caption>
+                <thead>
+                <tr><th scope="col">\(x\)</th><th scope="col">1</th><th scope="col">2</th><th scope="col">3</th><th scope="col">4</th><th scope="col">5</th></tr>
+                </thead>
+                <tbody>
+                <tr><th scope="row">\(y\)</th><td>2</td><td>4</td><td>5</td><td>4</td><td>7</td></tr>
+                </tbody>
+                </table>
+                </div></li>
+            <li>Calculate the correlation coefficient \(r\).
+                <div class="table-scroll">
+                <table>
+                <caption>Data for exercise 2</caption>
+                <thead>
+                <tr><th scope="col">\(x\)</th><th scope="col">1</th><th scope="col">2</th><th scope="col">3</th><th scope="col">4</th><th scope="col">5</th></tr>
+                </thead>
+                <tbody>
+                <tr><th scope="row">\(y\)</th><td>9</td><td>7</td><td>6</td><td>4</td><td>3</td></tr>
+                </tbody>
+                </table>
+                </div></li>
+            <li>Calculate the correlation coefficient \(r\).
+                <div class="table-scroll">
+                <table>
+                <caption>Data for exercise 3</caption>
+                <thead>
+                <tr><th scope="col">\(x\)</th><th scope="col">2</th><th scope="col">4</th><th scope="col">6</th><th scope="col">8</th><th scope="col">10</th></tr>
+                </thead>
+                <tbody>
+                <tr><th scope="row">\(y\)</th><td>1</td><td>3</td><td>2</td><td>5</td><td>4</td></tr>
+                </tbody>
+                </table>
+                </div></li>
+            <li>Calculate the correlation coefficient \(r\).
+                <div class="table-scroll">
+                <table>
+                <caption>Data for exercise 4</caption>
+                <thead>
+                <tr><th scope="col">\(x\)</th><th scope="col">1</th><th scope="col">2</th><th scope="col">3</th><th scope="col">4</th><th scope="col">5</th></tr>
+                </thead>
+                <tbody>
+                <tr><th scope="row">\(y\)</th><td>8</td><td>6</td><td>7</td><td>4</td><td>5</td></tr>
+                </tbody>
+                </table>
+                </div></li>
+        </ol>
+    </section>
+
+    <section aria-labelledby="ex-group-interp-corr">
+        <h3 id="ex-group-interp-corr">Interpret Correlation from a Scatterplot</h3>
+        <ol>
+            <li>The scatterplot below represents hours studied and exam score.
+                <!-- Image mth245_6_5_6 -->
+                <figure class="diagram">
+                    <img
+                        src="images1/mth245_6_5_6.png"
+                        alt="Scatterplot with Hours studied on the horizontal axis, running from 0 to 10, and Exam score on the vertical axis, running from 40 to 100. Nine points are plotted at (1, 48), (2, 55), (3, 61), (4, 65), (5, 70), (6, 75), (7, 80), (8, 85), and (9, 89)."
+                    />
+                    <figcaption>Hours studied and exam score.</figcaption>
+                </figure>
+                Describe the direction and strength of the linear association.</li>
+            <li>The scatterplot below represents temperature and heating energy use.
+                <!-- Image mth245_6_5_7 -->
+                <figure class="diagram">
+                    <img
+                        src="images1/mth245_6_5_7.png"
+                        alt="Scatterplot with Temperature on the horizontal axis, running from 0 to 10, and Energy use on the vertical axis, running from 0 to 10. Nine points are plotted at (1, 9.2), (2, 8.4), (3, 7.6), (4, 6.9), (5, 6.0), (6, 5.2), (7, 4.3), (8, 3.6), and (9, 2.8)."
+                    />
+                    <figcaption>Temperature and heating energy use.</figcaption>
+                </figure>
+                Describe the direction and strength of the linear association.</li>
+            <li>A scatterplot has a correlation coefficient of \(r=0.18\). Describe the direction and strength of its linear association.</li>
+            <li>A scatterplot has a correlation coefficient of \(r=-0.91\). Describe the direction and strength of its linear association. What does the negative sign tell you?</li>
+        </ol>
+    </section>
+
+    <section aria-labelledby="ex-group-r2">
+        <h3 id="ex-group-r2">Interpret the Coefficient of Determination</h3>
+        <ol>
+            <li>A regression model relating hours studied to exam score has \(r=0.80\).
+                <ol type="a">
+                    <li>Calculate \(R^2\).</li>
+                    <li>Interpret \(R^2\) in context.</li>
+                </ol></li>
+            <li>A study of advertising expenditure and monthly sales gives \(R^2=0.81\). Interpret this value in context.</li>
+            <li>A regression model has \(r=-0.70\).
+                <ol type="a">
+                    <li>Calculate \(R^2\).</li>
+                    <li>What percentage of the variation in the response variable is accounted for by the linear regression model?</li>
+                </ol></li>
+            <li>A regression model has \(R^2=0.36\). What percentage of the variation in the response variable is accounted for by the linear model? What percentage is not accounted for by the model?</li>
+        </ol>
+    </section>
+
+    <section aria-labelledby="ex-group-reg-line">
+        <h3 id="ex-group-reg-line">Calculate a Regression Line</h3>
+        <ol>
+            <li>Find the least-squares regression line for the data.
+                <div class="table-scroll">
+                <table>
+                <caption>Data for exercise 1</caption>
+                <thead>
+                <tr><th scope="col">\(x\)</th><th scope="col">1</th><th scope="col">2</th><th scope="col">3</th><th scope="col">4</th><th scope="col">5</th></tr>
+                </thead>
+                <tbody>
+                <tr><th scope="row">\(y\)</th><td>3</td><td>5</td><td>7</td><td>8</td><td>12</td></tr>
+                </tbody>
+                </table>
+                </div>
+                Give your answer in the form
+                \[\hat y=b_0+b_1x.\]</li>
+            <li>Find the least-squares regression line for the data.
+                <div class="table-scroll">
+                <table>
+                <caption>Data for exercise 2</caption>
+                <thead>
+                <tr><th scope="col">\(x\)</th><th scope="col">1</th><th scope="col">2</th><th scope="col">3</th><th scope="col">4</th><th scope="col">5</th></tr>
+                </thead>
+                <tbody>
+                <tr><th scope="row">\(y\)</th><td>12</td><td>10</td><td>9</td><td>7</td><td>6</td></tr>
+                </tbody>
+                </table>
+                </div></li>
+            <li>Find the least-squares regression line.
+                <div class="table-scroll">
+                <table>
+                <caption>Data for exercise 3</caption>
+                <thead>
+                <tr><th scope="col">\(x\)</th><th scope="col">1</th><th scope="col">2</th><th scope="col">3</th><th scope="col">4</th><th scope="col">5</th></tr>
+                </thead>
+                <tbody>
+                <tr><th scope="row">\(y\)</th><td>60</td><td>65</td><td>70</td><td>75</td><td>80</td></tr>
+                </tbody>
+                </table>
+                </div></li>
+            <li>A data set has
+                \[\bar{x}=5,\qquad \bar{y}=18,\qquad s_x=2,\qquad s_y=6,\qquad r=0.75.\]
+                Find the slope and intercept of the least-squares regression line.</li>
+        </ol>
+    </section>
+
+    <section aria-labelledby="ex-group-slope">
+        <h3 id="ex-group-slope">Interpret Slope</h3>
+        <ol>
+            <li>A regression equation relating hours studied \(x\) to exam score \(y\) is \(\hat y=52+6.5x.\) Interpret the slope in context.</li>
+            <li>A regression equation relating temperature \(x\) (in degrees Fahrenheit) to electricity use \(y\) (in kWh) is \(\hat y=420-8.2x.\) Interpret the slope in context.</li>
+            <li>A regression equation relating advertising expenditure \(x\) (in thousands of dollars) to monthly sales \(y\) (in thousands of dollars) is \(\hat y=120+4.5x.\) Interpret the slope.</li>
+            <li>A regression equation relating age of a vehicle \(x\) (in years) to its estimated value \(y\) (in thousands of dollars) is \(\hat y=28-2.1x.\) Interpret the slope.</li>
+        </ol>
+    </section>
+
+    <section aria-labelledby="ex-group-intercept">
+        <h3 id="ex-group-intercept">Interpret Intercept</h3>
+        <ol>
+            <li>A regression equation for exam score \(y\) and hours studied \(x\) is \(\hat y=55+5x.\) Interpret the intercept. Is the interpretation meaningful?</li>
+            <li>A regression equation for a child's weight \(y\) in kilograms and height \(x\) in centimeters is \(\hat y=-42+0.75x.\) Interpret the intercept. Is it meaningful in this context?</li>
+            <li>A regression equation for monthly sales \(y\) in dollars and advertising expenditure \(x\) in thousands of dollars is \(\hat y=18{,}000+3{,}200x.\) Interpret the intercept.</li>
+            <li>A regression equation relates the number of years since a company was founded \(x\) to its annual revenue \(y\): \(\hat y=250+40x,\) where revenue is measured in thousands of dollars. What does the intercept represent? Would it necessarily be appropriate to interpret the intercept as a meaningful prediction?</li>
+        </ol>
+    </section>
+
+    <section aria-labelledby="ex-group-residuals">
+        <h3 id="ex-group-residuals">Calculate Residuals</h3>
+        <ol>
+            <li>A regression line is \(\hat y=1+2x.\) For the observed point \((3,8)\), calculate the predicted value and the residual.</li>
+            <li>The regression line is \(\hat y=10-1.5x.\) For the following observations, calculate the predicted values and residuals.
+                <div class="table-scroll">
+                <table>
+                <caption>Observations for exercise 2</caption>
+                <thead>
+                <tr><th scope="col">\(x\)</th><th scope="col">2</th><th scope="col">4</th><th scope="col">6</th></tr>
+                </thead>
+                <tbody>
+                <tr><th scope="row">\(y\)</th><td>7</td><td>5</td><td>2</td></tr>
+                </tbody>
+                </table>
+                </div></li>
+            <li>A regression equation is \(\hat y=4+3x.\) An observed point is \((5,18)\). Calculate the predicted value and residual.</li>
+            <li>A regression equation is \(\hat y=25-2x.\) The observed point is \((6,10)\). Calculate the predicted value and residual. Explain what the sign of the residual means.</li>
+        </ol>
+    </section>
+
+    <section aria-labelledby="ex-group-least-squares">
+        <h3 id="ex-group-least-squares">Least Squares</h3>
+        <ol>
+            <li>Consider the data
+                <div class="table-scroll">
+                <table>
+                <caption>Data for exercise 1</caption>
+                <thead>
+                <tr><th scope="col">\(x\)</th><th scope="col">1</th><th scope="col">2</th><th scope="col">3</th><th scope="col">4</th><th scope="col">5</th></tr>
+                </thead>
+                <tbody>
+                <tr><th scope="row">\(y\)</th><td>2</td><td>3</td><td>5</td><td>4</td><td>6</td></tr>
+                </tbody>
+                </table>
+                </div>
+                Two candidate lines are
+                \[L_1:\hat y=0.9x+1.3,\qquad L_2:\hat y=0.8x+1.5.\]
+                Their SSE values are
+                \[SSE_1=1.90,\qquad SSE_2=2.05.\]
+                Which line is preferred by the least-squares criterion? Explain.</li>
+            <li>Consider the data
+                <div class="table-scroll">
+                <table>
+                <caption>Data for exercise 2</caption>
+                <thead>
+                <tr><th scope="col">\(x\)</th><th scope="col">1</th><th scope="col">2</th><th scope="col">3</th><th scope="col">4</th><th scope="col">5</th></tr>
+                </thead>
+                <tbody>
+                <tr><th scope="row">\(y\)</th><td>8</td><td>6</td><td>7</td><td>4</td><td>5</td></tr>
+                </tbody>
+                </table>
+                </div>
+                Two candidate lines are
+                \[L_1:\hat y=-0.8x+8.4,\qquad L_2:\hat y=-0.7x+8.0.\]
+                Their SSE values are
+                \[SSE_1=3.60,\qquad SSE_2=3.75.\]
+                Which line has the smaller total squared error?</li>
+            <li>Two regression lines are proposed for the same data set. Line A has \(SSE=18.4\), while Line B has \(SSE=12.7\). Which line is preferred by the least-squares criterion? Explain why.</li>
+            <li>A candidate regression line produces the following residuals:
+                \[2,\quad -1,\quad 3,\quad -2.\]
+                Calculate the SSE.</li>
+        </ol>
+    </section>
+
+    <section aria-labelledby="ex-group-prediction">
+        <h3 id="ex-group-prediction">Prediction</h3>
+        <ol>
+            <li>A regression equation is \(\hat y=50+4x.\) The observed values of \(x\) range from 2 to 8. Predict \(y\) when \(x=5\). Is this interpolation or extrapolation?</li>
+            <li>A regression equation is \(\hat y=120-3x.\) The observed values of \(x\) range from 10 to 30.
+                <ol type="a">
+                    <li>Predict \(y\) when \(x=22\).</li>
+                    <li>Predict \(y\) when \(x=35\).</li>
+                    <li>Identify which prediction is interpolation and which is extrapolation.</li>
+                    <li>Which prediction should be treated with more caution? Explain.</li>
+                </ol></li>
+            <li>A regression model is \(\hat y=18+2.5x.\) The observed \(x\) values range from 4 to 12. Predict \(y\) when \(x=8\) and state whether the prediction is interpolation or extrapolation.</li>
+            <li>A regression model is \(\hat y=90-1.2x.\) The data used to create the model had \(x\) values between 20 and 50. Predict \(y\) at \(x=60\). Explain why this prediction should be interpreted cautiously.</li>
+        </ol>
+    </section>
+
+    <section aria-labelledby="ex-group-causation">
+        <h3 id="ex-group-causation">Correlation vs. Causation</h3>
+        <ol>
+            <li>An observational study finds a strong positive correlation between the number of hours students spend on social media and their exam scores. Can the researchers conclude that social media use causes higher exam scores? Explain and identify one possible confounding variable.</li>
+            <li>An observational study finds that cities with more police officers tend to have more reported crimes. Does this correlation prove that having more police officers causes more crime? Give another possible explanation for the association.</li>
+            <li>A study finds a strong positive correlation between ice cream sales and the number of people swimming at public pools. Does this demonstrate that buying ice cream causes people to swim? Explain and identify a possible third variable.</li>
+            <li>A researcher observes that students who own laptops tend to have higher grades. The study is observational rather than experimental. Can the researcher conclude that owning a laptop causes higher grades? Explain why correlation alone is insufficient to establish causation.</li>
+        </ol>
+    </section>
+
+
+    <nav class="page-nav" aria-label="Section navigation">
+        <a class="nav-button" href="mth245_ch6_4.html">Previous: 6.4 Summary</a>
+        <a class="nav-button" href="mth245_ch7_1.html">Next: 7.1 Introduction</a>
+    </nav>
+
+</main>
+
+<script>
+    fetch('toc.html')
+        .then(function (response) {
+            if (!response.ok) { throw new Error('TOC not found'); }
+            return response.text();
+        })
+        .then(function (data) {
+            document.getElementById('toc-placeholder').innerHTML = data;
+
+            document.querySelectorAll('.toc-chapter').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var expanded = button.getAttribute('aria-expanded') === 'true';
+                    button.setAttribute('aria-expanded', String(!expanded));
+                    document.getElementById(button.getAttribute('aria-controls')).classList.toggle('open');
+                });
+            });
+
+            // Mark the current page and open its chapter
+            var page = window.location.pathname.split('/').pop();
+            var current = document.querySelector('.toc-submenu a[href="' + page + '"]');
+            if (current) {
+                current.setAttribute('aria-current', 'page');
+                var menu = current.closest('.toc-submenu');
+                menu.classList.add('open');
+                var chapterButton = document.querySelector('[aria-controls="' + menu.id + '"]');
+                if (chapterButton) { chapterButton.setAttribute('aria-expanded', 'true'); }
+            }
+        })
+        .catch(function () { /* TOC unavailable: page content still works */ });
+</script>
+
+</body>
+</html>

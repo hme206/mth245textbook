@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MTH 245 – Ch 6.3: Linear Regression</title>
+
+    <!-- MathJax configuration (single $ intentionally disabled so dollar amounts never collide with math) -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]'], ['$$', '$$']],
+                packages: {'[+]': ['color']}
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            },
+            loader: {
+                load: ['[tex]/color']
+            }
+        };
+    </script>
+    <script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+
+    <link rel="stylesheet" href="styles1.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div id="toc-placeholder"></div>
+
+<main class="container" id="main-content" tabindex="-1">
+
+    <h1>Chapter 6: Correlation and Regression</h1>
+    <h2 id="section-6-3">Section 6.3: Linear Regression</h2>
+
+    <p>Correlation measures the strength and direction of a linear relationship between two variables. However, correlation alone does not provide a way to predict one variable from another. <strong>Linear regression</strong> uses the relationship between variables to construct an equation that can be used for prediction.</p>
+
+    <section aria-labelledby="lr-model-heading">
+        <h3 id="lr-model-heading">The Linear Regression Model</h3>
+    <div class="definition-box" role="note" aria-labelledby="def-response">
+        <h4 id="def-response">Definition: Response and Predictor Variables</h4>
+        <p>In linear regression, the variable being predicted is called the <strong>response variable</strong>, often denoted by \(y\). The variable used to make the prediction is called the <strong>predictor variable</strong>, often denoted by \(x\).</p>
+        <p>The goal of linear regression is to find a line that best describes the linear relationship between \(x\) and \(y\).</p>
+    </div>
+    <div class="definition-box" role="note" aria-labelledby="def-lr-equation">
+        <h4 id="def-lr-equation">The Estimated Regression Equation</h4>
+        <p>The equation of a straight line is \(y=mx+b\), where \(m\) is the slope and \(b\) is the \(y\)-intercept.</p>
+        <p>In statistics, the estimated regression equation is written as</p>
+        \[\hat{y}=b_0+b_1x,\]
+        <p>where</p>
+        <ul>
+            <li>\(\hat{y}\) is the predicted value of the response variable,</li>
+            <li>\(b_0\) is the estimated \(y\)-intercept,</li>
+            <li>\(b_1\) is the estimated slope.</li>
+        </ul>
+        <p>The symbol \(\hat{y}\) is used because the regression equation provides an estimate of \(y\), not the exact observed value.</p>
+    </div>
+    <div class="definition-box" role="note" aria-labelledby="def-slope">
+        <h4 id="def-slope">Slope Interpretation</h4>
+        <p>The slope \(b_1\) is the predicted change in the response variable for each one-unit increase in the predictor variable.</p>
+        \[b_1=\frac{\text{change in }y}{\text{change in }x}\]
+        <p>If \(b_1>0\), the regression line has a positive slope and \(y\) tends to increase as \(x\) increases.</p>
+        <p>If \(b_1&lt;0\), the regression line has a negative slope and \(y\) tends to decrease as \(x\) increases.</p>
+    </div>
+    <div class="definition-box" role="note" aria-labelledby="def-intercept">
+        <h4 id="def-intercept">\(y\)-Intercept Interpretation</h4>
+        <p>The \(y\)-intercept \(b_0\) is the predicted value of \(y\) when \(x=0\), provided \(x=0\) is meaningful and within the context of the model.</p>
+    </div>
+    </section>
+
+    <hr class="divider" aria-hidden="true" />
+
+    <section aria-labelledby="least-squares-heading">
+        <h3 id="least-squares-heading">Least Squares Regression Line</h3>
+    <div class="definition-box" role="note" aria-labelledby="def-least-squares">
+        <h4 id="def-least-squares">Definition: Least Squares Method</h4>
+        <p>The most common method for finding the regression line is the <strong>least squares method</strong>. The least squares regression line minimizes the sum of the squared vertical distances between the observed data points and the regression line.</p>
+        <p>The residual for an observation is</p>
+        \[e=y-\hat{y}.\]
+        <p>The least squares method chooses the line that minimizes</p>
+        \[SSE=\sum (y-\hat{y})^2.\]
+        <p>This quantity is called the <strong>sum of squared errors (SSE)</strong>.</p>
+    </div>
+    <p>What does this mean? There are a lot of linear models that we can use to approximate the relationship for a data set. Some of them are good; most of them are not. If we were to try one model, we could look at the difference between each data point (\(y\)) and the prediction of the model (\(\hat{y}\)). This difference, or residual, is \(e\). We would then square all of those residuals and add them up. This sum is what we call the <strong>sum of squares</strong>.</p>
+    <section class="example" aria-labelledby="ex-6-3-1-heading">
+        <div class="example-problem">
+            <h3 id="ex-6-3-1-heading">Example 1</h3>
+            <p>Consider the following data.</p>
+            <div class="table-scroll">
+            <table>
+            <caption>Data for the least squares example</caption>
+            <thead>
+            <tr><th scope="col">\(x\)</th><th scope="col">1</th><th scope="col">2</th><th scope="col">3</th><th scope="col">4</th><th scope="col">5</th></tr>
+            </thead>
+            <tbody>
+            <tr><th scope="row">\(y\)</th><td>1</td><td>3</td><td>2</td><td>5</td><td>4</td></tr>
+            </tbody>
+            </table>
+            </div>
+            <p>Compute the residuals and the sum of squares for the model \(\hat{y}=0.6+0.8x\).</p>
+        </div>
+        <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-6-3-1">
+            <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+        </button>
+        <div id="sol-6-3-1" class="example-content">
+            <div class="solution">
+                <h4>Solution</h4>
+                <p>We can graph the model like this:</p>
+                <!-- Image mth245_6_3_1 -->
+                <figure class="diagram">
+                    <img
+                        src="images1/mth245_6_3_1.png"
+                        alt="Scatterplot with x and y axes from 0.5 to 5.5. Five blue points are plotted at (1,1), (2,3), (3,2), (4,5), and (5,4). A red line, labeled in the legend as y-hat equals 0.6 plus 0.8x, rises from lower left to upper right and passes between the points. A dashed vertical segment connects each point to the line to show its residual: the point at x = 1 lies 0.4 below the line, x = 2 lies 0.8 above, x = 3 lies 1.0 below, x = 4 lies 1.2 above, and x = 5 lies 0.6 below."
+                    />
+                    <figcaption>Observed data, the line y-hat = 0.6 + 0.8x, and the residuals (dashed segments).</figcaption>
+                </figure>
+                <p>If we were to compute the sum of squares, it would look like this:</p>
+                <div class="table-scroll">
+                <table>
+                <caption>Residuals and squared residuals for the model</caption>
+                <thead>
+                <tr><th scope="col">\(x\)</th><th scope="col">\(y\)</th><th scope="col">\(\hat y=0.6+0.8x\)</th><th scope="col">\(e=y-\hat{y}\)</th><th scope="col">\(e^2\)</th></tr>
+                </thead>
+                <tbody>
+                <tr><td>1</td><td>1</td><td>1.4</td><td>−0.4</td><td>0.16</td></tr>
+                <tr><td>2</td><td>3</td><td>2.2</td><td>0.8</td><td>0.64</td></tr>
+                <tr><td>3</td><td>2</td><td>3.0</td><td>−1.0</td><td>1</td></tr>
+                <tr><td>4</td><td>5</td><td>3.8</td><td>1.2</td><td>1.44</td></tr>
+                <tr><td>5</td><td>4</td><td>4.6</td><td>−0.6</td><td>0.36</td></tr>
+                <tr><th scope="row">Total</th><td></td><td></td><td></td><td>3.6</td></tr>
+                </tbody>
+                </table>
+                </div>
+                <p>The sum of squares for this model is 3.6. We could then try many different linear models and select the model with the lowest sum of squares. That would be our <strong>least squares regression line</strong>.</p>
+            </div>
+        </div>
+    </section>
+    </section>
+
+    <hr class="divider" aria-hidden="true" />
+
+    <section aria-labelledby="coefficients-heading">
+        <h3 id="coefficients-heading">Calculating the Regression Coefficients</h3>
+    <div class="definition-box" role="note" aria-labelledby="def-coefficients">
+        <h4 id="def-coefficients">Formulas for the Regression Coefficients</h4>
+        <p>The slope of the least squares regression line is</p>
+        \[b_1=\frac{\sum (x_i-\bar{x})(y_i-\bar{y})}{\sum (x_i-\bar{x})^2}.\]
+        <p>The intercept is</p>
+        \[b_0=\bar{y}-b_1\bar{x}.\]
+        <p>Therefore, the regression equation is</p>
+        \[\hat{y}=b_0+b_1x.\]
+        <p>An alternative formula for the slope, useful for computation, is</p>
+        \[b_1=\frac{n\sum xy-(\sum x)(\sum y)}{n\sum x^2-(\sum x)^2}.\]
+    </div>
+    <section class="example" aria-labelledby="ex-6-3-2-heading">
+        <div class="example-problem">
+            <h3 id="ex-6-3-2-heading">Example 2</h3>
+            <p>Consider the following data showing hours studied (\(x\)) and exam score (\(y\)). Find the least squares regression equation.</p>
+            <div class="table-scroll">
+            <table>
+            <caption>Hours studied and exam score</caption>
+            <thead>
+            <tr><th scope="col">\(x\)</th><th scope="col">1</th><th scope="col">2</th><th scope="col">3</th><th scope="col">4</th><th scope="col">5</th></tr>
+            </thead>
+            <tbody>
+            <tr><th scope="row">\(y\)</th><td>60</td><td>65</td><td>70</td><td>75</td><td>80</td></tr>
+            </tbody>
+            </table>
+            </div>
+        </div>
+        <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-6-3-2">
+            <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+        </button>
+        <div id="sol-6-3-2" class="example-content">
+            <div class="solution">
+                <h4>Solution</h4>
+                <p>First compute the necessary values:</p>
+                \[n=5\]
+                \[\sum x=15,\qquad \sum y=350,\]
+                \[\sum x^2=55,\qquad \sum xy=1100.\]
+                <p>The slope is</p>
+                \[b_1=\frac{n\sum xy-(\sum x)(\sum y)}{n\sum x^2-(\sum x)^2}.\]
+                <p>Substituting,</p>
+                \[b_1=\frac{5(1100)-(15)(350)}{5(55)-15^2}=\frac{5500-5250}{275-225}=\frac{250}{50}=5.\]
+                <p>The intercept is</p>
+                \[b_0=\bar{y}-b_1\bar{x}.\]
+                <p>Since</p>
+                \[\bar{x}=\frac{15}{5}=3\]
+                <p>and</p>
+                \[\bar{y}=\frac{350}{5}=70,\]
+                <p>we have</p>
+                \[b_0=70-5(3)=55.\]
+                <p>Therefore, the regression equation is</p>
+                \[\hat{y}=55+5x.\]
+            </div>
+        </div>
+    </section>
+    </section>
+
+    <section aria-labelledby="using-regression-heading">
+        <h3 id="using-regression-heading">Using the Regression Equation</h3>
+        <p>Now that we have a prediction equation, it can be used to predict new exam scores based on hours studied.</p>
+        <p>When considering a new value, it is important to determine whether the estimate involves interpolation or extrapolation.</p>
+    <div class="definition-box" role="note" aria-labelledby="def-interpolation">
+        <h4 id="def-interpolation">Definition: Interpolation</h4>
+        <p><strong>Interpolation</strong> is a prediction made within the range of observed predictor values.</p>
+    </div>
+    <div class="definition-box" role="note" aria-labelledby="def-extrapolation">
+        <h4 id="def-extrapolation">Definition: Extrapolation</h4>
+        <p><strong>Extrapolation</strong> is a prediction made outside the range of observed predictor values. Extrapolation can be unreliable because the linear relationship observed in the data may not continue outside the observed range.</p>
+    </div>
+    <p>There is no fixed amount of extrapolation that is always acceptable. In general, predictions become less reliable as we move farther beyond the range of the observed data. Extrapolation should therefore be used cautiously, particularly when there is little evidence that the observed pattern will continue outside the data range.</p>
+    <section class="example" aria-labelledby="ex-6-3-3-heading">
+        <div class="example-problem">
+            <h3 id="ex-6-3-3-heading">Example 3</h3>
+            <p>Using the regression equation \(\hat{y}=55+5x\) from Example 2, predict the exam score for a student who studies \(6\) hours. Is this interpolation or extrapolation?</p>
+        </div>
+        <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-6-3-3">
+            <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+        </button>
+        <div id="sol-6-3-3" class="example-content">
+            <div class="solution">
+                <h4>Solution</h4>
+                <p>For a student who studies \(6\) hours,</p>
+                \[\hat{y}=55+5(6)\]
+                \[\hat{y}=85.\]
+                <p>The predicted exam score is \(85\).</p>
+                <p>In this case, 6 hours constitutes an extrapolated value as it falls outside of the data range of 1–5. There is some risk associated with this value, but as it is not far beyond the original data range.</p>
+            </div>
+        </div>
+    </section>
+    </section>
+
+    <hr class="divider" aria-hidden="true" />
+
+    <section aria-labelledby="corr-reg-heading">
+        <h3 id="corr-reg-heading">Relationship Between Correlation and Regression</h3>
+    <div class="definition-box" role="note" aria-labelledby="def-corr-reg">
+        <h4 id="def-corr-reg">Slope and Correlation</h4>
+        <p>The slope of the least squares regression line is related to the Pearson correlation coefficient:</p>
+        \[b_1=r\frac{s_y}{s_x},\]
+        <p>where</p>
+        \[r=\text{Pearson correlation coefficient},\]
+        \[s_y=\text{standard deviation of }y,\]
+        <p>and</p>
+        \[s_x=\text{standard deviation of }x.\]
+        <p>Because standard deviations are always positive, the sign of the slope is always the same as the sign of the correlation coefficient.</p>
+        <ul>
+            <li>If \(r>0\), then \(b_1>0\).</li>
+            <li>If \(r&lt;0\), then \(b_1&lt;0\).</li>
+            <li>If \(r=0\), the least squares line has slope \(0\), provided \(s_x\neq0\).</li>
+        </ul>
+    </div>
+    </section>
+
+    <section aria-labelledby="r2-regression-heading">
+        <h3 id="r2-regression-heading">Coefficient of Determination in Regression</h3>
+    <div class="definition-box" role="note" aria-labelledby="def-r2-regression">
+        <h4 id="def-r2-regression">Definition: R-squared</h4>
+        <p>For simple linear regression with an intercept, the coefficient of determination is</p>
+        \[R^2=r^2.\]
+        <p>\(R^2\) represents the proportion of variation in the response variable that is accounted for by the fitted linear regression model. A large value of \(R^2\) does not by itself establish a causal relationship.</p>
+    </div>
+    <p>For example, if</p>
+    \[r=0.80,\]
+    <p>then</p>
+    \[R^2=(0.80)^2=0.64.\]
+    <p>This means that approximately \(64\%\) of the variation in \(y\) is explained by the linear relationship with \(x\).</p>
+
+    <p><strong>Note:</strong> even though \(R^2=r^2\), we use different symbols depending on the idea we are conveying. \(r\) and \(r^2\) focus on the linear association of the variables, while \(R^2\) describes the percentage of variation explained by the regression model.</p>
+    <div class="definition-box" role="note" aria-labelledby="kp-regression">
+        <h4 id="kp-regression">Key Points</h4>
+        <ul>
+            <li>Linear regression models the relationship between two quantitative variables using a straight line.</li>
+            <li>The regression equation is written as \(\hat{y}=b_0+b_1x.\)</li>
+            <li>The slope describes the predicted change in \(y\) for a one-unit increase in \(x\).</li>
+            <li>The least squares method minimizes the sum of squared residuals.</li>
+            <li>The sign of the regression slope matches the sign of the correlation coefficient.</li>
+            <li>The coefficient of determination \(R^2=r^2\) describes the proportion of variation explained by the linear model.</li>
+        </ul>
+    </div>
+    </section>
+
+    <nav class="page-nav" aria-label="Section navigation">
+        <a class="nav-button" href="mth245_ch6_2.html">Previous: 6.2 Correlation</a>
+        <a class="nav-button" href="mth245_ch6_4.html">Next: 6.4 Summary</a>
+    </nav>
+
+</main>
+
+<script>
+    function toggleExample(button) {
+        var content = button.nextElementSibling;
+        var arrow = button.querySelector('.toggle-arrow');
+        var label = button.querySelector('span:last-child');
+
+        if (content.classList.contains('open')) {
+            content.classList.remove('open');
+            arrow.classList.remove('open');
+            label.textContent = 'Show Solution';
+            button.setAttribute('aria-expanded', 'false');
+        } else {
+            content.classList.add('open');
+            arrow.classList.add('open');
+            label.textContent = 'Hide Solution';
+            button.setAttribute('aria-expanded', 'true');
+        }
+    }
+</script>
+
+<script>
+    fetch('toc.html')
+        .then(function (response) {
+            if (!response.ok) { throw new Error('TOC not found'); }
+            return response.text();
+        })
+        .then(function (data) {
+            document.getElementById('toc-placeholder').innerHTML = data;
+
+            document.querySelectorAll('.toc-chapter').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var expanded = button.getAttribute('aria-expanded') === 'true';
+                    button.setAttribute('aria-expanded', String(!expanded));
+                    document.getElementById(button.getAttribute('aria-controls')).classList.toggle('open');
+                });
+            });
+
+            // Mark the current page and open its chapter
+            var page = window.location.pathname.split('/').pop();
+            var current = document.querySelector('.toc-submenu a[href="' + page + '"]');
+            if (current) {
+                current.setAttribute('aria-current', 'page');
+                var menu = current.closest('.toc-submenu');
+                menu.classList.add('open');
+                var chapterButton = document.querySelector('[aria-controls="' + menu.id + '"]');
+                if (chapterButton) { chapterButton.setAttribute('aria-expanded', 'true'); }
+            }
+        })
+        .catch(function () { /* TOC unavailable: page content still works */ });
+</script>
+
+</body>
+</html>

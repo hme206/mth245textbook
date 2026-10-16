@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MTH 245 – Ch 10.3: Testing Unmatched Pairs</title>
+
+    <!-- MathJax configuration (single $ intentionally disabled so dollar amounts never collide with math) -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]'], ['$$', '$$']],
+                packages: {'[+]': ['color']}
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            },
+            loader: {
+                load: ['[tex]/color']
+            }
+        };
+    </script>
+    <script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+
+    <link rel="stylesheet" href="styles1.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div id="toc-placeholder"></div>
+
+<main class="container" id="main-content" tabindex="-1">
+
+    <h1>Chapter 10: Advanced Hypothesis Testing</h1>
+    <h2 id="section-10-3">Section 10.3: Testing Unmatched Pairs</h2>
+
+    <section aria-labelledby="independent-heading">
+        <h3 id="independent-heading">Independent Samples</h3>
+    <div class="definition-box" role="note" aria-labelledby="def-independent">
+        <h4 id="def-independent">Definition: Unmatched (Independent) Samples</h4>
+        <p><strong>Unmatched samples</strong> occur when the observations in one sample are independent of the observations in the other sample.</p>
+        <p>The parameter of interest is</p>
+        \[\mu_1-\mu_2,\]
+        <p>and its sample estimate is</p>
+        \[\bar{x}_1-\bar{x}_2.\]
+    </div>
+    <p>Examples include comparisons between</p>
+    <ul>
+        <li>two different schools;</li>
+        <li>two different treatments given to different groups;</li>
+        <li>customers from two different stores;</li>
+        <li>two independent demographic groups.</li>
+    </ul>
+    <p>In an independent-samples design, observations in one sample are unrelated to observations in the other sample. The two groups may receive different treatments, or they may simply represent different populations or conditions. In many cases, one group is considered the control group and receives the typical treatment while the other group is considered the experimental group and receives a new treatment.</p>
+
+    <p>For independent samples, the margin of error accounts for the variability in both samples.</p>
+    </section>
+
+    <section aria-labelledby="independent-ci-heading">
+        <h3 id="independent-ci-heading">Confidence Interval for Two Independent Means</h3>
+    <div class="definition-box" role="note" aria-labelledby="def-independent-ci">
+        <h4 id="def-independent-ci">Confidence Interval for Two Independent Means</h4>
+        <p>When the population standard deviations are unknown, a Welch two-sample \(t\) confidence interval can be used without assuming that the two population variances are equal.</p>
+        \[(\bar{x}_1-\bar{x}_2)\pm t_{\alpha/2,\nu}\sqrt{\frac{s_1^2}{n_1}+\frac{s_2^2}{n_2}}\]
+        <p>where \(\nu\) is the degrees of freedom. The Welch-Satterthwaite equation provides an approximate degrees of freedom for the Welch procedure.</p>
+        \[\nu =\dfrac{\left(\dfrac{s_1^2}{n_1}+\dfrac{s_2^2}{n_2}\right)^2}{\dfrac{\left(\dfrac{s_1^2}{n_1}\right)^2}{n_1-1}+\dfrac{\left(\dfrac{s_2^2}{n_2}\right)^2}{n_2-1}}\]
+        <p>This textbook uses the conservative \(t\) procedure with \(\nu=\min(n_1 -1,n_2 -1)\) for hand calculations. Statistical software commonly uses the Welch-Satterthwaite approximation.</p>
+    </div>
+    <section class="example" aria-labelledby="ex-10-3-1-heading">
+        <div class="example-problem">
+            <h3 id="ex-10-3-1-heading">Example 1</h3>
+            <p>A researcher compares examination scores from two independent classes.</p>
+            <p>For Class 1,</p>
+            \[n_1=25, \qquad \bar{x}_1=82, \qquad s_1=8.\]
+            <p>For Class 2,</p>
+            \[n_2=30, \qquad \bar{x}_2=77,\qquad s_2=10.\]
+            <p>Determine the confidence interval for the difference of population means at \(\alpha=0.05\).</p>
+        </div>
+        <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-10-3-1">
+            <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+        </button>
+        <div id="sol-10-3-1" class="example-content">
+            <div class="solution">
+                <h4>Solution</h4>
+                <p>Since \(c=95\%=0.95\), \(\alpha=0.05\) and \(\alpha/2=0.025\). With \(n_1=25\) and \(n_2=30\), we can use the conservative estimate \(\nu=24\). From the Student's \(t\) table, \(t_{0.025,24}=2.064\). The margin of error is</p>
+                \[E=t_{\alpha/2,\nu}\sqrt{\frac{s_1^2}{n_1}+\frac{s_2^2}{n_2}}=(2.064)\sqrt{\frac{8^2}{25}+\frac{10^2}{30}}\approx5.01.\]
+                <p>The difference is \(\bar{x}_1 -\bar{x}_2 =82-77=5\). Therefore, the confidence interval is \(5\pm5.01\), or \((-0.01,\;10.01)\). More formally, we are 95% confident that the population mean score for Class 1 minus the population mean score for Class 2 is between \(-0.01\) and \(10.01\) points.</p>
+            </div>
+        </div>
+    </section>
+    </section>
+
+    <section aria-labelledby="independent-test-heading">
+        <h3 id="independent-test-heading">Hypothesis Test for Two Independent Means</h3>
+    <div class="definition-box" role="note" aria-labelledby="def-independent-test">
+        <h4 id="def-independent-test">Hypotheses and Test Statistic</h4>
+        <p>A common hypothesis test is</p>
+        \[H_0:\mu_1-\mu_2=0 \text{ versus }H_1:\mu_1-\mu_2\neq0.\]
+        <p>One-sided tests are also possible:</p>
+        \[H_0:\mu_1-\mu_2\leq 0 \text{ versus }H_1:\mu_1-\mu_2>0\]
+        <p>or</p>
+        \[H_0:\mu_1-\mu_2\geq 0 \text{ versus }H_1:\mu_1-\mu_2&lt;0.\]
+        <p>The test statistic is</p>
+        \[t=\frac{(\bar{x}_1-\bar{x}_2)-0}{\sqrt{\dfrac{s_1^2}{n_1}+\dfrac{s_2^2}{n_2}}}\]
+        <p>with degrees of freedom \(\nu=\min(n_1 -1,n_2 -1)\).</p>
+    </div>
+    <section class="example" aria-labelledby="ex-10-3-2-heading">
+        <div class="example-problem">
+            <h3 id="ex-10-3-2-heading">Example 2</h3>
+            <p>A researcher compares examination scores from two independent classes.</p>
+            <p>For Class 1,</p>
+            \[n_1=25, \qquad \bar{x}_1=82, \qquad s_1=8.\]
+            <p>For Class 2,</p>
+            \[n_2=30, \qquad \bar{x}_2=77,\qquad s_2=10.\]
+            <p>Test whether the population means differ at \(\alpha=0.05\).</p>
+        </div>
+        <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-10-3-2">
+            <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+        </button>
+        <div id="sol-10-3-2" class="example-content">
+            <div class="solution">
+                <h4>Solution</h4>
+                <ol>
+                    <li><strong>Claim</strong> – The classes have the same means.</li>
+                    <li><strong>Complement of the claim</strong> – The classes have different means.</li>
+                    <li><strong>Hypotheses</strong> – \(H_0:\mu_1=\mu_2\), \(H_1:\mu_1\neq\mu_2\).</li>
+                    <li><strong>Significance level</strong> – \(\alpha=0.05\).</li>
+                    <li><strong>Select the test statistic</strong> – Since \(\sigma\) is unknown, \(t\).</li>
+                    <li><strong>Compute the test statistic.</strong>
+                        \[t=\frac{82-77}{\sqrt{\dfrac{8^2}{25}+\dfrac{10^2}{30}}}=\frac{5}{\sqrt{2.56+3.333}}\approx2.0596.\]
+                    </li>
+                    <li><strong>Determine the critical values</strong> – Using the conservative degrees-of-freedom approximation, \(\nu=\min(n_1 -1,n_2 -1)=\min(24,29)=24\). Therefore, \(t_c\approx\pm2.0639\).
+                        <!-- Image mth245_10_3_1 -->
+                        <figure class="diagram">
+                            <img
+                                src="images1/mth245_10_3_1.png"
+                                alt="Bell-shaped curve with both tails shaded red beyond negative 2.0639 and beyond 2.0639, each labeled alpha over 2 equals 0.025. The unshaded middle region is labeled FTR H0 equals 0.95. Dashed vertical lines mark the critical values negative 2.0639 and 2.0639. A solid black vertical marker labeled t equals 2.0596 sits just inside the right critical value, in the unshaded region."
+                            />
+                            <figcaption>Two-tailed test: the test statistic t = 2.0596 falls just short of the critical value 2.0639.</figcaption>
+                        </figure>
+                    </li>
+                    <li><strong>Decision</strong> – Since \(2.0596&lt;2.0639\), we fail to reject \(H_0\); there is insufficient evidence to conclude that the population means differ. We can see this graphically as \(t\) falls outside the critical region.</li>
+                    <li><strong>Conclusion</strong> – There is insufficient evidence at the 5% significance level to conclude that the population mean examination scores differ between the two classes.</li>
+                </ol>
+                <p>If we use the \(p\)-value method we find \(0.05&lt;p&lt;0.10\), resulting in the same conclusion, although we can see it is very close to the value for \(\alpha=0.05\).</p>
+            </div>
+        </div>
+    </section>
+    </section>
+
+    <nav class="page-nav" aria-label="Section navigation">
+        <a class="nav-button" href="mth245_ch10_2.html">Previous: 10.2 Testing Matched Pairs</a>
+        <a class="nav-button" href="mth245_ch10_4.html">Next: 10.4 Difference of Proportions</a>
+    </nav>
+
+</main>
+
+<script>
+    function toggleExample(button) {
+        var content = button.nextElementSibling;
+        var arrow = button.querySelector('.toggle-arrow');
+        var label = button.querySelector('span:last-child');
+
+        if (content.classList.contains('open')) {
+            content.classList.remove('open');
+            arrow.classList.remove('open');
+            label.textContent = 'Show Solution';
+            button.setAttribute('aria-expanded', 'false');
+        } else {
+            content.classList.add('open');
+            arrow.classList.add('open');
+            label.textContent = 'Hide Solution';
+            button.setAttribute('aria-expanded', 'true');
+        }
+    }
+</script>
+
+<script>
+    fetch('toc.html')
+        .then(function (response) {
+            if (!response.ok) { throw new Error('TOC not found'); }
+            return response.text();
+        })
+        .then(function (data) {
+            document.getElementById('toc-placeholder').innerHTML = data;
+
+            document.querySelectorAll('.toc-chapter').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var expanded = button.getAttribute('aria-expanded') === 'true';
+                    button.setAttribute('aria-expanded', String(!expanded));
+                    document.getElementById(button.getAttribute('aria-controls')).classList.toggle('open');
+                });
+            });
+
+            // Mark the current page and open its chapter
+            var page = window.location.pathname.split('/').pop();
+            var current = document.querySelector('.toc-submenu a[href="' + page + '"]');
+            if (current) {
+                current.setAttribute('aria-current', 'page');
+                var menu = current.closest('.toc-submenu');
+                menu.classList.add('open');
+                var chapterButton = document.querySelector('[aria-controls="' + menu.id + '"]');
+                if (chapterButton) { chapterButton.setAttribute('aria-expanded', 'true'); }
+            }
+        })
+        .catch(function () { /* TOC unavailable: page content still works */ });
+</script>
+
+</body>
+</html>

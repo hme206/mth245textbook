@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MTH 245 – Ch 10.5: Summary</title>
+
+    <!-- MathJax configuration (single $ intentionally disabled so dollar amounts never collide with math) -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]'], ['$$', '$$']],
+                packages: {'[+]': ['color']}
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            },
+            loader: {
+                load: ['[tex]/color']
+            }
+        };
+    </script>
+    <script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+
+    <link rel="stylesheet" href="styles1.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div id="toc-placeholder"></div>
+
+<main class="container" id="main-content" tabindex="-1">
+
+    <h1>Chapter 10: Advanced Hypothesis Testing</h1>
+    <h2 id="section-10-5">Section 10.5: Summary</h2>
+
+    <p>Statistical comparisons between two populations focus on differences between their means or proportions. The appropriate procedure depends on whether the observations are matched pairs or independent samples.</p>
+
+    <p>For matched pairs, each observation in one sample is naturally paired with an observation in the other sample. The analysis is performed on the differences within each pair, using a one-sample \(t\) procedure to construct confidence intervals and conduct hypothesis tests.</p>
+
+    <p>For independent samples, observations in one sample do not provide information about or depend on observations in the other sample. A two-sample \(t\) procedure is used to estimate and test the difference between population means. The procedure accounts for the variability in both samples.</p>
+
+    <p>When comparing two population proportions, the difference \(p_1-p_2\) is estimated using the sample proportions \(\hat{p}_1-\hat{p}_2\). Confidence intervals use the separate sample proportions, while hypothesis tests use a pooled proportion to calculate the test statistic.</p>
+
+    <p>Confidence intervals provide a range of plausible values for the difference between population parameters. Hypothesis tests determine whether to conclude that the difference is nonzero when the null hypothesis is one of no difference. For a two-sided test, a confidence interval that does not contain \(0\) corresponds to rejecting the null hypothesis of no difference.</p>
+
+    <p>Statistical significance does not necessarily imply practical significance. A hypothesis test evaluates evidence against the null hypothesis; researchers should also consider the size of the observed difference and whether that difference is meaningful in the real-world context.</p>
+
+    <nav class="page-nav" aria-label="Section navigation">
+        <a class="nav-button" href="mth245_ch10_4.html">Previous: 10.4 Difference of Proportions</a>
+        <a class="nav-button" href="mth245_ch10_6.html">Next: 10.6 Exercises</a>
+    </nav>
+
+</main>
+
+<script>
+    fetch('toc.html')
+        .then(function (response) {
+            if (!response.ok) { throw new Error('TOC not found'); }
+            return response.text();
+        })
+        .then(function (data) {
+            document.getElementById('toc-placeholder').innerHTML = data;
+
+            document.querySelectorAll('.toc-chapter').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var expanded = button.getAttribute('aria-expanded') === 'true';
+                    button.setAttribute('aria-expanded', String(!expanded));
+                    document.getElementById(button.getAttribute('aria-controls')).classList.toggle('open');
+                });
+            });
+
+            // Mark the current page and open its chapter
+            var page = window.location.pathname.split('/').pop();
+            var current = document.querySelector('.toc-submenu a[href="' + page + '"]');
+            if (current) {
+                current.setAttribute('aria-current', 'page');
+                var menu = current.closest('.toc-submenu');
+                menu.classList.add('open');
+                var chapterButton = document.querySelector('[aria-controls="' + menu.id + '"]');
+                if (chapterButton) { chapterButton.setAttribute('aria-expanded', 'true'); }
+            }
+        })
+        .catch(function () { /* TOC unavailable: page content still works */ });
+</script>
+
+</body>
+</html>

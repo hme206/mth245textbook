@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MTH 245 – Ch 8.3: Student's t-Distribution</title>
+
+    <!-- MathJax configuration (single $ intentionally disabled so dollar amounts never collide with math) -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]'], ['$$', '$$']],
+                packages: {'[+]': ['color']}
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            },
+            loader: {
+                load: ['[tex]/color']
+            }
+        };
+    </script>
+    <script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+
+    <link rel="stylesheet" href="styles1.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div id="toc-placeholder"></div>
+
+<main class="container" id="main-content" tabindex="-1">
+
+    <h1>Chapter 8: Estimation</h1>
+    <h2 id="section-8-3">Section 8.3: Student's t-Distribution</h2>
+
+    <p>In practice, the population standard deviation is rarely known. Instead, it is estimated using the sample standard deviation, \(s\).</p>
+
+    <section aria-labelledby="t-interval-heading">
+        <h3 id="t-interval-heading">The \(t\) Confidence Interval</h3>
+    <div class="definition-box" role="note" aria-labelledby="def-student-t">
+        <h4 id="def-student-t">Definition: Student's \(t\) Distribution</h4>
+        <p>Replacing \(\sigma\) with \(s\) introduces additional uncertainty. To account for this uncertainty, the <strong>Student's \(t\) distribution</strong> is used.</p>
+        <p>For a one-sample \(t\) confidence interval, the observations should come from an appropriate random sampling process and should be independent. For small samples, the population distribution should be approximately normal, with no severe outliers.</p>
+        <p>The \(t\) distribution has a shape similar to the standard normal distribution but has heavier tails. As the sample size increases, the \(t\) distribution approaches the standard normal distribution. The exact shape of the \(t\)-distribution depends on the degrees of freedom.</p>
+        <p>The confidence interval becomes</p>
+        \[\bar{x}\pm t_{\alpha/2,n-1}\frac{s}{\sqrt{n}}\]
+        <p>where</p>
+        \[t_{\alpha/2,n-1}\]
+        <p>is obtained from the Student's \(t\) distribution using \(n-1\) degrees of freedom.</p>
+    </div>
+    <section class="example" aria-labelledby="ex-8-3-1-heading">
+        <div class="example-problem">
+            <h3 id="ex-8-3-1-heading">Example 1</h3>
+            <p>Suppose \(n=16\), \(\bar{x}=74\), and \(s=8\). Construct a 95% confidence interval.</p>
+        </div>
+        <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-8-3-1">
+            <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+        </button>
+        <div id="sol-8-3-1" class="example-content">
+            <div class="solution">
+                <h4>Solution</h4>
+                <p>The degrees of freedom are \(n-1=15\). From the \(t\) table, \(t_{0.025,15}\approx2.131\).</p>
+                <p>The margin of error is</p>
+                \[E=2.131\left(\frac{8}{4}\right)=4.262.\]
+                <p>Thus, \(74\pm4.262\), or \((69.738,\;78.262)\).</p>
+                <p>We are \(95\%\) confident that the true population mean lies between 69.74 and 78.26, or more formally, in repeated sampling, approximately 95% of intervals constructed by this procedure will contain the true mean.</p>
+            </div>
+        </div>
+    </section>
+    </section>
+
+    <nav class="page-nav" aria-label="Section navigation">
+        <a class="nav-button" href="mth245_ch8_2.html">Previous: 8.2 Confidence Intervals</a>
+        <a class="nav-button" href="mth245_ch8_4.html">Next: 8.4 Proportions</a>
+    </nav>
+
+</main>
+
+<script>
+    function toggleExample(button) {
+        var content = button.nextElementSibling;
+        var arrow = button.querySelector('.toggle-arrow');
+        var label = button.querySelector('span:last-child');
+
+        if (content.classList.contains('open')) {
+            content.classList.remove('open');
+            arrow.classList.remove('open');
+            label.textContent = 'Show Solution';
+            button.setAttribute('aria-expanded', 'false');
+        } else {
+            content.classList.add('open');
+            arrow.classList.add('open');
+            label.textContent = 'Hide Solution';
+            button.setAttribute('aria-expanded', 'true');
+        }
+    }
+</script>
+
+<script>
+    fetch('toc.html')
+        .then(function (response) {
+            if (!response.ok) { throw new Error('TOC not found'); }
+            return response.text();
+        })
+        .then(function (data) {
+            document.getElementById('toc-placeholder').innerHTML = data;
+
+            document.querySelectorAll('.toc-chapter').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var expanded = button.getAttribute('aria-expanded') === 'true';
+                    button.setAttribute('aria-expanded', String(!expanded));
+                    document.getElementById(button.getAttribute('aria-controls')).classList.toggle('open');
+                });
+            });
+
+            // Mark the current page and open its chapter
+            var page = window.location.pathname.split('/').pop();
+            var current = document.querySelector('.toc-submenu a[href="' + page + '"]');
+            if (current) {
+                current.setAttribute('aria-current', 'page');
+                var menu = current.closest('.toc-submenu');
+                menu.classList.add('open');
+                var chapterButton = document.querySelector('[aria-controls="' + menu.id + '"]');
+                if (chapterButton) { chapterButton.setAttribute('aria-expanded', 'true'); }
+            }
+        })
+        .catch(function () { /* TOC unavailable: page content still works */ });
+</script>
+
+</body>
+</html>

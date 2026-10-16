@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MTH 245 – Ch 7.6: Normal Approximation to the Binomial Distribution</title>
+
+    <!-- MathJax configuration (single $ intentionally disabled so dollar amounts never collide with math) -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]'], ['$$', '$$']],
+                packages: {'[+]': ['color']}
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            },
+            loader: {
+                load: ['[tex]/color']
+            }
+        };
+    </script>
+    <script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+
+    <link rel="stylesheet" href="styles1.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div id="toc-placeholder"></div>
+
+<main class="container" id="main-content" tabindex="-1">
+
+    <h1>Chapter 7: Normal Distribution</h1>
+    <h2 id="section-7-6">Section 7.6: Normal Approximation to the Binomial Distribution</h2>
+
+    <p>The binomial distribution is a discrete probability distribution that describes the number of successes in a fixed number of independent trials. When the number of trials is small, binomial probabilities are easily computed using the binomial formula or technology. However, as the number of trials becomes large, these calculations become more cumbersome.</p>
+
+    <p>Fortunately, for sufficiently large values of \(n\), the binomial distribution is well approximated by a normal distribution. This approximation is a consequence of the Central Limit Theorem.</p>
+
+    <section aria-labelledby="conditions-heading">
+        <h3 id="conditions-heading">Conditions for the Normal Approximation</h3>
+    <div class="definition-box" role="note" aria-labelledby="def-approx-conditions">
+        <h4 id="def-approx-conditions">Conditions for the Normal Approximation</h4>
+        <p>Suppose a random variable</p>
+        \[X\sim\operatorname{Bin}(n,p),\]
+        <p>where</p>
+        \[n=\text{number of trials}\]
+        <p>and</p>
+        \[p=\text{probability of success}.\]
+        <p>The normal approximation is appropriate whenever \(np\) and \(nq\) are sufficiently large.</p>
+        <p>A commonly used rule of thumb for the normal approximation is \(np\geq 5\) and \(nq\geq 5\). More conservative guidelines may require both quantities to be at least 10.</p>
+    </div>
+    </section>
+
+    <section aria-labelledby="approx-mean-sd-heading">
+        <h3 id="approx-mean-sd-heading">Mean and Standard Deviation</h3>
+    <div class="definition-box" role="note" aria-labelledby="def-approx-mean-sd">
+        <h4 id="def-approx-mean-sd">Mean and Standard Deviation of the Approximating Normal Distribution</h4>
+        <p>A binomial random variable has</p>
+        \[\mu=np \quad\text{and}\quad \sigma=\sqrt{npq}, \quad\text{where } q=1-p.\]
+        <p>When approximating the binomial distribution with the normal distribution, we will use these values for the mean and standard deviation.</p>
+    </div>
+    </section>
+
+    <section aria-labelledby="continuity-heading">
+        <h3 id="continuity-heading">Continuity Correction</h3>
+    <div class="definition-box" role="note" aria-labelledby="def-continuity">
+        <h4 id="def-continuity">Definition: Continuity Correction</h4>
+        <p>The binomial distribution is discrete, while the normal distribution is continuous. To improve the approximation, a <strong>continuity correction</strong> is applied by shifting the endpoints by one-half unit.</p>
+    </div>
+    <p>The most common continuity corrections are summarized below.</p>
+    <div class="table-scroll">
+    <table>
+    <caption>Continuity corrections for the normal approximation</caption>
+    <thead>
+    <tr><th scope="col">Binomial Probability</th><th scope="col">Normal Approximation</th></tr>
+    </thead>
+    <tbody>
+    <tr><td>\(P(X=k)\)</td><td>\(P(k-0.5&lt;X&lt;k+0.5)\)</td></tr>
+    <tr><td>\(P(X\le k)\)</td><td>\(P(X&lt;k+0.5)\)</td></tr>
+    <tr><td>\(P(X&lt;k)\)</td><td>\(P(X&lt;k-0.5)\)</td></tr>
+    <tr><td>\(P(X\ge k)\)</td><td>\(P(X>k-0.5)\)</td></tr>
+    <tr><td>\(P(X>k)\)</td><td>\(P(X>k+0.5)\)</td></tr>
+    <tr><td>\(a\le X\le b\)</td><td>\(a-0.5&lt;X&lt;b+0.5\)</td></tr>
+    <tr><td>\(a&lt;X&lt;b\)</td><td>\(a+0.5&lt;X&lt;b-0.5\)</td></tr>
+    </tbody>
+    </table>
+    </div>
+    <p>The continuity correction accounts for the fact that each integer value of the binomial distribution represents an interval of width one on the continuous normal curve.</p>
+    <section class="example" aria-labelledby="ex-7-6-1-heading">
+        <div class="example-problem">
+            <h3 id="ex-7-6-1-heading">Example 1</h3>
+            <p>What is the probability that a fair coin lands on heads exactly 6 times during 12 flips? Use the normal approximation and compare with the binomial table.</p>
+        </div>
+        <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-7-6-1">
+            <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+        </button>
+        <div id="sol-7-6-1" class="example-content">
+            <div class="solution">
+                <h4>Solution</h4>
+                <p>This follows a binomial distribution:</p>
+                \[X\sim B(n=12,p=0.5).\]
+                <p>Specifically, \(n=12\), \(p=0.5\), and \(q=0.5\). We can confirm that the normal approximation is valid:</p>
+                \[np=12(0.5)=6\geq5\ \text{ and }nq=12(0.5)=6\geq5.\]
+                <p>We can also compute</p>
+                \[\mu=np=12(0.5)=6,\]
+                <p>and</p>
+                \[\sigma=\sqrt{npq}=\sqrt{12(0.5)(0.5)}=\sqrt{3}\approx1.732.\]
+                <p>To find the probability of exactly 6 heads, use the continuity correction:</p>
+                \[P(X=6)\approx P(5.5&lt;X&lt;6.5).\]
+                <p>Convert the endpoints to \(z\)-scores:</p>
+                \[z_1=\frac{5.5-6}{1.732}\approx-0.29,\]
+                \[z_2=\frac{6.5-6}{1.732}\approx0.29.\]
+                <p>Using the standard normal table,</p>
+                \[P(Z&lt;0.29)=0.6141\]
+                <p>and</p>
+                \[P(Z&lt;-0.29)=0.3859.\]
+                <p>Therefore,</p>
+                \[P(5.5&lt;X&lt;6.5)=0.6141-0.3859=0.2282.\]
+                <p>To confirm this approximation, we can also go to the binomial table. Using the table for \(n=12\), the column for \(p=0.5\), and the row for \(r=6\), we find \(P(X=6)=0.2256\).</p>
+                <p>The normal approximation is close with an error of about \(1.2\%\).</p>
+            </div>
+        </div>
+    </section>
+    <section class="example" aria-labelledby="ex-7-6-2-heading">
+        <div class="example-problem">
+            <h3 id="ex-7-6-2-heading">Example 2</h3>
+            <p>What is the probability that a fair coin lands on heads 8 or fewer times during 20 flips? Use the normal approximation and compare with the binomial table.</p>
+        </div>
+        <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-7-6-2">
+            <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+        </button>
+        <div id="sol-7-6-2" class="example-content">
+            <div class="solution">
+                <h4>Solution</h4>
+                <p>This follows a binomial distribution:</p>
+                \[X\sim B(n=20,p=0.5).\]
+                <p>Specifically, \(n=20\), \(p=0.5\), and \(q=0.5\). We can confirm that the normal approximation is valid:</p>
+                \[np=20(0.5)=10\geq5\ \text{ and }nq=20(0.5)=10\geq5.\]
+                <p>We can also compute</p>
+                \[\mu=np=20(0.5)=10,\]
+                <p>and</p>
+                \[\sigma=\sqrt{npq}=\sqrt{20(0.5)(0.5)}=\sqrt{5}\approx2.236.\]
+                <p>To find the probability of 8 or fewer heads, use the continuity correction:</p>
+                \[P(X\leq8)\approx P(X&lt;8.5).\]
+                <p>Convert the endpoint to a \(z\)-score:</p>
+                \[z=\frac{8.5-10}{2.236}\approx-0.67.\]
+                <p>Using the standard normal table,</p>
+                \[P(Z&lt;-0.67)=0.2514.\]
+                <p>Therefore,</p>
+                \[P(X&lt;8.5)=0.2514.\]
+                <p>To confirm this approximation, we can also go to the binomial table. Using the table for \(n=20\), the column for \(p=0.5\), and the rows for \(r=0\) through \(r=8\), we find</p>
+                \[P(X\leq8)=0.0000+0.0000+0.0002+0.0011+\cdots+0.1201=0.2517.\]
+                <p>The normal approximation is close with an error of about \(0.1\%\).</p>
+            </div>
+        </div>
+    </section>
+    <section class="example" aria-labelledby="ex-7-6-3-heading">
+        <div class="example-problem">
+            <h3 id="ex-7-6-3-heading">Example 3</h3>
+            <p>What is the probability that an unfair coin with \(60\%\) chance of heads lands on heads between 8 and 12 times, inclusive, during 20 flips? Use the normal approximation and compare with the binomial table.</p>
+        </div>
+        <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-7-6-3">
+            <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+        </button>
+        <div id="sol-7-6-3" class="example-content">
+            <div class="solution">
+                <h4>Solution</h4>
+                <p>This follows a binomial distribution:</p>
+                \[X\sim B(n=20,p=0.6).\]
+                <p>Specifically, \(n=20\), \(p=0.6\), and \(q=0.4\). We can confirm that the normal approximation is valid:</p>
+                \[np=20(0.6)=12\geq5\ \text{ and }nq=20(0.4)=8\geq5.\]
+                <p>We can also compute</p>
+                \[\mu=np=20(0.6)=12,\]
+                <p>and</p>
+                \[\sigma=\sqrt{npq}=\sqrt{20(0.6)(0.4)}=\sqrt{4.8}\approx2.191.\]
+                <p>To find the probability of between 8 and 12 heads, use the continuity correction:</p>
+                \[P(8\leq X\leq12)\approx P(7.5&lt;X&lt;12.5).\]
+                <p>Convert the endpoints to \(z\)-scores:</p>
+                \[z_1=\frac{7.5-12}{2.191}\approx-2.05,\]
+                \[z_2=\frac{12.5-12}{2.191}\approx0.23.\]
+                <p>Using the standard normal table,</p>
+                \[P(Z&lt;-2.05)=0.0202\]
+                <p>and</p>
+                \[P(Z&lt;0.23)=0.5910.\]
+                <p>Therefore,</p>
+                \[P(7.5&lt;X&lt;12.5)=0.5910-0.0202=0.5708.\]
+                <p>To confirm this approximation, we can also go to the binomial table. Using the table for \(n=20\), the column for \(p=0.6\), and the rows for \(r=8\) through \(r=12\), we find</p>
+                \[P(8\leq X\leq12)=0.0355+0.0710+0.1171+0.1597+0.1797=0.5630.\]
+                <p>The normal approximation is close with an absolute error of approximately 0.0078 and a relative error of about \(1.4\%\).</p>
+            </div>
+        </div>
+    </section>
+    <div class="definition-box" role="note" aria-labelledby="kp-approx">
+        <h4 id="kp-approx">Key Points</h4>
+        <ul>
+            <li>By the rule of thumb, a binomial distribution can often be approximated by a normal distribution when \(np\ge5\) and \(nq\ge5.\)</li>
+            <li>The approximating normal distribution has \(\mu=np\) and \(\sigma=\sqrt{npq}\).</li>
+            <li>A continuity correction improves the approximation by adjusting endpoints by \(0.5\).</li>
+            <li>A normal model should be justified by the context or data; not every variable is normally distributed.</li>
+            <li>A \(z\)-score measures how many standard deviations an observation lies above or below the mean.</li>
+            <li>The rule \(n\geq 30\) and the conditions \(np\geq 5\), \(nq\geq 5\) are guidelines, not universal guarantees.</li>
+        </ul>
+    </div>
+
+    </section>
+
+    <nav class="page-nav" aria-label="Section navigation">
+        <a class="nav-button" href="mth245_ch7_5.html">Previous: 7.5 Central Limit Theorem</a>
+        <a class="nav-button" href="mth245_ch7_7.html">Next: 7.7 Summary</a>
+    </nav>
+
+</main>
+
+<script>
+    function toggleExample(button) {
+        var content = button.nextElementSibling;
+        var arrow = button.querySelector('.toggle-arrow');
+        var label = button.querySelector('span:last-child');
+
+        if (content.classList.contains('open')) {
+            content.classList.remove('open');
+            arrow.classList.remove('open');
+            label.textContent = 'Show Solution';
+            button.setAttribute('aria-expanded', 'false');
+        } else {
+            content.classList.add('open');
+            arrow.classList.add('open');
+            label.textContent = 'Hide Solution';
+            button.setAttribute('aria-expanded', 'true');
+        }
+    }
+</script>
+
+<script>
+    fetch('toc.html')
+        .then(function (response) {
+            if (!response.ok) { throw new Error('TOC not found'); }
+            return response.text();
+        })
+        .then(function (data) {
+            document.getElementById('toc-placeholder').innerHTML = data;
+
+            document.querySelectorAll('.toc-chapter').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var expanded = button.getAttribute('aria-expanded') === 'true';
+                    button.setAttribute('aria-expanded', String(!expanded));
+                    document.getElementById(button.getAttribute('aria-controls')).classList.toggle('open');
+                });
+            });
+
+            // Mark the current page and open its chapter
+            var page = window.location.pathname.split('/').pop();
+            var current = document.querySelector('.toc-submenu a[href="' + page + '"]');
+            if (current) {
+                current.setAttribute('aria-current', 'page');
+                var menu = current.closest('.toc-submenu');
+                menu.classList.add('open');
+                var chapterButton = document.querySelector('[aria-controls="' + menu.id + '"]');
+                if (chapterButton) { chapterButton.setAttribute('aria-expanded', 'true'); }
+            }
+        })
+        .catch(function () { /* TOC unavailable: page content still works */ });
+</script>
+
+</body>
+</html>

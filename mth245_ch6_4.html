@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MTH 245 – Ch 6.4: Summary</title>
+
+    <!-- MathJax configuration (single $ intentionally disabled so dollar amounts never collide with math) -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]'], ['$$', '$$']],
+                packages: {'[+]': ['color']}
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            },
+            loader: {
+                load: ['[tex]/color']
+            }
+        };
+    </script>
+    <script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+
+    <link rel="stylesheet" href="styles1.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div id="toc-placeholder"></div>
+
+<main class="container" id="main-content" tabindex="-1">
+
+    <h1>Chapter 6: Correlation and Regression</h1>
+    <h2 id="section-6-4">Section 6.4: Summary</h2>
+
+    <p>Correlation measures the strength and direction of a linear relationship between two quantitative variables. The Pearson correlation coefficient, \(r\), ranges from \(-1\) to \(1\), with values closer to \(\pm1\) indicating stronger linear relationships. The coefficient of determination, \(R^2\), describes the proportion of variation explained by the linear relationship.</p>
+
+    <p>Linear regression uses a straight-line model to describe a relationship and make predictions. The least squares regression line, \(\hat{y}=b_0+b_1x\), minimizes the sum of squared residuals. The slope describes the predicted change in the response variable for each one-unit increase in the predictor variable.</p>
+
+    <p>Care must be taken when analyzing correlation and linear regression models. A scatterplot should be examined before interpreting a correlation or regression model. Outliers can substantially affect correlation and regression results and should be investigated. Predictions outside the observed range of the predictor variable are extrapolations and should be interpreted cautiously. Finally, correlation and regression describe associations; they do not by themselves establish causation.</p>
+
+    <p>Overall, correlation, regression, and technology provide useful tools for analyzing relationships, making predictions, and understanding variation in data.</p>
+
+    <nav class="page-nav" aria-label="Section navigation">
+        <a class="nav-button" href="mth245_ch6_3.html">Previous: 6.3 Linear Regression</a>
+        <a class="nav-button" href="mth245_ch6_5.html">Next: 6.5 Exercises</a>
+    </nav>
+
+</main>
+
+<script>
+    fetch('toc.html')
+        .then(function (response) {
+            if (!response.ok) { throw new Error('TOC not found'); }
+            return response.text();
+        })
+        .then(function (data) {
+            document.getElementById('toc-placeholder').innerHTML = data;
+
+            document.querySelectorAll('.toc-chapter').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var expanded = button.getAttribute('aria-expanded') === 'true';
+                    button.setAttribute('aria-expanded', String(!expanded));
+                    document.getElementById(button.getAttribute('aria-controls')).classList.toggle('open');
+                });
+            });
+
+            // Mark the current page and open its chapter
+            var page = window.location.pathname.split('/').pop();
+            var current = document.querySelector('.toc-submenu a[href="' + page + '"]');
+            if (current) {
+                current.setAttribute('aria-current', 'page');
+                var menu = current.closest('.toc-submenu');
+                menu.classList.add('open');
+                var chapterButton = document.querySelector('[aria-controls="' + menu.id + '"]');
+                if (chapterButton) { chapterButton.setAttribute('aria-expanded', 'true'); }
+            }
+        })
+        .catch(function () { /* TOC unavailable: page content still works */ });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MTH 245 – Ch 9.7: Summary</title>
+
+    <!-- MathJax configuration (single $ intentionally disabled so dollar amounts never collide with math) -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]'], ['$$', '$$']],
+                packages: {'[+]': ['color']}
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            },
+            loader: {
+                load: ['[tex]/color']
+            }
+        };
+    </script>
+    <script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+
+    <link rel="stylesheet" href="styles1.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div id="toc-placeholder"></div>
+
+<main class="container" id="main-content" tabindex="-1">
+
+    <h1>Chapter 9: Hypothesis Testing</h1>
+    <h2 id="section-9-7">Section 9.7: Summary</h2>
+
+    <p>Hypothesis testing uses sample data to determine whether there is sufficient evidence to support a claim about a population parameter. The null hypothesis, \(H_0\), specifies the value or condition being tested and contains the equality component, while the alternative hypothesis, \(H_1\), represents the claim being tested. Tests may be two-tailed, left-tailed, or right-tailed depending on the alternative hypothesis.</p>
+
+    <p>A hypothesis test uses a significance level \(\alpha\) to control the probability of a Type I error, which occurs when a true null hypothesis is rejected. A Type II error occurs when a false null hypothesis is not rejected, with probability \(\beta\). The power of a test is \(\text{Power}=1-\beta\).</p>
+
+    <p>The general procedure is to state the hypotheses, select \(\alpha\), verify the conditions, calculate the test statistic, determine the critical value or \(p\)-value, make a decision, and state the conclusion in context. The decision is either to reject \(H_0\) or to fail to reject \(H_0\).</p>
+
+    <p>For a population mean with known standard deviation, use</p>
+    \[z=\frac{\bar{x}-\mu_0}{\sigma/\sqrt{n}}.\]
+    <p>When the population standard deviation is unknown, use Student's \(t\) distribution:</p>
+    \[t=\frac{\bar{x}-\mu_0}{s/\sqrt{n}},\]
+    <p>with \(n-1\) degrees of freedom. For a population proportion, use</p>
+    \[z=\frac{\hat{p}-p_0}{\sqrt{p_0q_0/n}}.\]
+    <p>The traditional method compares the test statistic with critical values, while the \(p\)-value method compares the \(p\)-value with \(\alpha\). Reject \(H_0\) when the test statistic falls in the rejection region or when \(p\leq\alpha\); otherwise, fail to reject \(H_0\). Increasing the sample size generally decreases sampling variability, reduces the probability of a Type II error, and increases the power of the test for a specified alternative effect.</p>
+
+    <nav class="page-nav" aria-label="Section navigation">
+        <a class="nav-button" href="mth245_ch9_6.html">Previous: 9.6 Key Formulas</a>
+        <a class="nav-button" href="mth245_ch9_8.html">Next: 9.8 Exercises</a>
+    </nav>
+
+</main>
+
+<script>
+    fetch('toc.html')
+        .then(function (response) {
+            if (!response.ok) { throw new Error('TOC not found'); }
+            return response.text();
+        })
+        .then(function (data) {
+            document.getElementById('toc-placeholder').innerHTML = data;
+
+            document.querySelectorAll('.toc-chapter').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var expanded = button.getAttribute('aria-expanded') === 'true';
+                    button.setAttribute('aria-expanded', String(!expanded));
+                    document.getElementById(button.getAttribute('aria-controls')).classList.toggle('open');
+                });
+            });
+
+            // Mark the current page and open its chapter
+            var page = window.location.pathname.split('/').pop();
+            var current = document.querySelector('.toc-submenu a[href="' + page + '"]');
+            if (current) {
+                current.setAttribute('aria-current', 'page');
+                var menu = current.closest('.toc-submenu');
+                menu.classList.add('open');
+                var chapterButton = document.querySelector('[aria-controls="' + menu.id + '"]');
+                if (chapterButton) { chapterButton.setAttribute('aria-expanded', 'true'); }
+            }
+        })
+        .catch(function () { /* TOC unavailable: page content still works */ });
+</script>
+
+</body>
+</html>

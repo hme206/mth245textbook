@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MTH 245 – Ch 10.1: Introduction</title>
+
+    <!-- MathJax configuration (single $ intentionally disabled so dollar amounts never collide with math) -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]'], ['$$', '$$']],
+                packages: {'[+]': ['color']}
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            },
+            loader: {
+                load: ['[tex]/color']
+            }
+        };
+    </script>
+    <script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+
+    <link rel="stylesheet" href="styles1.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div id="toc-placeholder"></div>
+
+<main class="container" id="main-content" tabindex="-1">
+
+    <h1>Chapter 10: Advanced Hypothesis Testing</h1>
+    <h2 id="section-10-1">Section 10.1: Introduction</h2>
+
+    <section aria-labelledby="intro-10-1-heading">
+        <h3 id="intro-10-1-heading" class="visually-hidden">Overview</h3>
+        <p>Many statistical questions involve comparing two populations rather than making an inference about a single population. For example, we may want to determine whether a new teaching method is more effective than a traditional method, whether a treatment reduces blood pressure, or whether two populations have different proportions.</p>
+
+        <p>In these situations, the parameter of interest is a difference:</p>
+        \[\text{Difference}=\text{Parameter}_1-\text{Parameter}_2.\]
+        <p>or</p>
+        \[\mu_1-\mu_2 \quad\text{and}\quad p_1-p_2\]
+        <p>The order of the populations matters. If Population 1 and Population 2 are switched, the sign of the difference changes.</p>
+
+        <p>This chapter considers three important cases:</p>
+        <ol>
+            <li>difference of means for matched pairs,</li>
+            <li>difference of means for unmatched (independent) samples, and</li>
+            <li>difference of two population proportions.</li>
+        </ol>
+        <p>For each case, we consider both confidence intervals and hypothesis tests.</p>
+    </section>
+
+    <div class="learning-obj-box" role="note" aria-labelledby="lo-10-1-heading">
+        <h3 id="lo-10-1-heading">Learning Objectives</h3>
+        <p>After completing this chapter, students should be able to:</p>
+        <ul>
+            <li>Identify whether samples are matched or independent.</li>
+            <li>Construct confidence intervals for differences in means and proportions.</li>
+            <li>Perform hypothesis tests for matched-pairs means.</li>
+            <li>Perform hypothesis tests for two independent means.</li>
+            <li>Distinguish between matched-pairs and independent-samples designs.</li>
+            <li>Perform hypothesis tests for differences between two proportions.</li>
+            <li>Interpret the sign and meaning of a difference between two population parameters.</li>
+            <li>Interpret confidence intervals, test statistics, and \(p\)-values in context.</li>
+            <li>Select the appropriate statistical procedure for comparing two populations.</li>
+        </ul>
+    </div>
+
+    <nav class="page-nav" aria-label="Section navigation">
+        <a class="nav-button" href="mth245_ch9_8.html">Previous: 9.8 Exercises</a>
+        <a class="nav-button" href="mth245_ch10_2.html">Next: 10.2 Testing Matched Pairs</a>
+    </nav>
+
+</main>
+
+<script>
+    fetch('toc.html')
+        .then(function (response) {
+            if (!response.ok) { throw new Error('TOC not found'); }
+            return response.text();
+        })
+        .then(function (data) {
+            document.getElementById('toc-placeholder').innerHTML = data;
+
+            document.querySelectorAll('.toc-chapter').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var expanded = button.getAttribute('aria-expanded') === 'true';
+                    button.setAttribute('aria-expanded', String(!expanded));
+                    document.getElementById(button.getAttribute('aria-controls')).classList.toggle('open');
+                });
+            });
+
+            // Mark the current page and open its chapter
+            var page = window.location.pathname.split('/').pop();
+            var current = document.querySelector('.toc-submenu a[href="' + page + '"]');
+            if (current) {
+                current.setAttribute('aria-current', 'page');
+                var menu = current.closest('.toc-submenu');
+                menu.classList.add('open');
+                var chapterButton = document.querySelector('[aria-controls="' + menu.id + '"]');
+                if (chapterButton) { chapterButton.setAttribute('aria-expanded', 'true'); }
+            }
+        })
+        .catch(function () { /* TOC unavailable: page content still works */ });
+</script>
+
+</body>
+</html>

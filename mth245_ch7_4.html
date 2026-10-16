@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MTH 245 – Ch 7.4: Applications</title>
+
+    <!-- MathJax configuration (single $ intentionally disabled so dollar amounts never collide with math) -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]'], ['$$', '$$']],
+                packages: {'[+]': ['color']}
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            },
+            loader: {
+                load: ['[tex]/color']
+            }
+        };
+    </script>
+    <script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+
+    <link rel="stylesheet" href="styles1.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div id="toc-placeholder"></div>
+
+<main class="container" id="main-content" tabindex="-1">
+
+    <h1>Chapter 7: Normal Distribution</h1>
+    <h2 id="section-7-4">Section 7.4: Applications</h2>
+
+    <section class="example" aria-labelledby="ex-7-4-1-heading">
+        <div class="example-problem">
+            <h3 id="ex-7-4-1-heading">Example 1</h3>
+            <p>Consider a standard normal distribution. Approximately what percentage of data falls within the domain \(z&lt;1.24\)?</p>
+        </div>
+        <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-7-4-1">
+            <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+        </button>
+        <div id="sol-7-4-1" class="example-content">
+            <div class="solution">
+                <h4>Solution</h4>
+                <p>Using the standard normal table,</p>
+                \[P(Z&lt;1.24)=0.8925.\]
+                <p>Therefore, approximately \(89.25\%\) of the data falls below \(z=1.24\).</p>
+            </div>
+        </div>
+    </section>
+    <section class="example" aria-labelledby="ex-7-4-2-heading">
+        <div class="example-problem">
+            <h3 id="ex-7-4-2-heading">Example 2</h3>
+            <p>Consider a standard normal distribution. Approximately what percentage of data falls within the domain \(z>1.86\)?</p>
+        </div>
+        <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-7-4-2">
+            <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+        </button>
+        <div id="sol-7-4-2" class="example-content">
+            <div class="solution">
+                <h4>Solution</h4>
+                <p>Using the standard normal table,</p>
+                \[P(Z&lt;1.86)=0.9686.\]
+                <p>The area to the right of \(z=1.86\) is</p>
+                \[P(Z>1.86)=1-0.9686=0.0314.\]
+                <p>Therefore, approximately \(3.14\%\) of the data falls within the domain \(z>1.86\).</p>
+            </div>
+        </div>
+    </section>
+    <section class="example" aria-labelledby="ex-7-4-3-heading">
+        <div class="example-problem">
+            <h3 id="ex-7-4-3-heading">Example 3</h3>
+            <p>Consider a standard normal distribution. Approximately what percentage of data falls within the domain \(0.53&lt;z&lt;3.02\)?</p>
+        </div>
+        <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-7-4-3">
+            <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+        </button>
+        <div id="sol-7-4-3" class="example-content">
+            <div class="solution">
+                <h4>Solution</h4>
+                <p>Using the standard normal table,</p>
+                \[P(Z&lt;3.02)=0.9987\]
+                <p>and</p>
+                \[P(Z&lt;0.53)=0.7019.\]
+                <p>Therefore,</p>
+                \[P(0.53&lt;Z&lt;3.02)=0.9987-0.7019=0.2968,\]
+                <p>so approximately \(29.68\%\) of the data falls within the domain \(0.53&lt;z&lt;3.02\).</p>
+            </div>
+        </div>
+    </section>
+    <section class="example" aria-labelledby="ex-7-4-4-heading">
+        <div class="example-problem">
+            <h3 id="ex-7-4-4-heading">Example 4</h3>
+            <p>What z-score represents the bottom \(70\%\) of the population? What z-score represents the top \(5\%\) of the population?</p>
+        </div>
+        <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-7-4-4">
+            <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+        </button>
+        <div id="sol-7-4-4" class="example-content">
+            <div class="solution">
+                <h4>Solution</h4>
+                <p>For the bottom \(70\%\) of the population, we find the \(z\)-score such that \(P(Z&lt;z)=0.70\). Using the standard normal table, the value falls between</p>
+                \[z\approx0.52 \text{ and } z\approx0.53.\]
+                <p>Since \(P(Z&lt;z)=0.70\) falls between those values, we can round or find a linear approximation. In this text, we will round or approximate the value. Therefore, since the table gives \(z=0.52\) and \(z=0.53\) as the closest tabulated values, interpolating gives approximately \(z=0.525\).</p>
+                <p>For the top \(5\%\) of the population, we find the \(z\)-score with \(95\%\) of the data below it, or \(P(Z&lt;z)=0.95\).</p>
+                <p>Using the standard normal table, the value falls between</p>
+                \[z\approx1.64 \text{ and } z\approx1.65.\]
+                <p>Therefore, since the table gives \(z=1.64\) and \(z=1.65\) as the closest tabulated values, interpolating gives approximately \(z=1.645\). This percentage is so common we typically use \(z\approx1.645\).</p>
+            </div>
+        </div>
+    </section>
+    <section class="example" aria-labelledby="ex-7-4-5-heading">
+        <div class="example-problem">
+            <h3 id="ex-7-4-5-heading">Example 5</h3>
+            <p>Consider a normal distribution with \(\mu = 100\) and \(\sigma = 15\). Approximately what percentage of data falls within the domain \(x&lt;120\)?</p>
+        </div>
+        <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-7-4-5">
+            <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+        </button>
+        <div id="sol-7-4-5" class="example-content">
+            <div class="solution">
+                <h4>Solution</h4>
+                <p>First, convert the value \(x=120\) to a \(z\)-score.</p>
+                \[z=\frac{x-\mu}{\sigma}=\frac{120-100}{15}=\frac{20}{15}\approx1.33.\]
+                <p>Using the standard normal table,</p>
+                \[P(Z&lt;1.33)=0.9082.\]
+                <p>Therefore, approximately \(90.82\%\) of the data falls below \(x=120\).</p>
+            </div>
+        </div>
+    </section>
+    <section class="example" aria-labelledby="ex-7-4-6-heading">
+        <div class="example-problem">
+            <h3 id="ex-7-4-6-heading">Example 6</h3>
+            <p>Consider a normal distribution with \(\mu = 100\) and \(\sigma = 15\). Approximately what percentage of data falls within the domain \(x>125\)?</p>
+        </div>
+        <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-7-4-6">
+            <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+        </button>
+        <div id="sol-7-4-6" class="example-content">
+            <div class="solution">
+                <h4>Solution</h4>
+                <p>First, convert the value \(x=125\) to a \(z\)-score.</p>
+                \[z=\frac{x-\mu}{\sigma}=\frac{125-100}{15}=\frac{25}{15}\approx1.67.\]
+                <p>Using the standard normal table, \(P(Z&lt;1.67)=0.9525\), but this is the area to the left. To find the area to the right, \(P(Z>1.67)=1-0.9525=0.0475\). Therefore, approximately \(4.75\%\) of the data falls above \(x=125\).</p>
+            </div>
+        </div>
+    </section>
+    <section class="example" aria-labelledby="ex-7-4-7-heading">
+        <div class="example-problem">
+            <h3 id="ex-7-4-7-heading">Example 7</h3>
+            <p>Consider a normal distribution with \(\mu = 100\) and \(\sigma = 15\). Approximately what percentage of data falls within the domain \(105&lt;x&lt;135\)?</p>
+        </div>
+        <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-7-4-7">
+            <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+        </button>
+        <div id="sol-7-4-7" class="example-content">
+            <div class="solution">
+                <h4>Solution</h4>
+                <p>First, convert the endpoints to \(z\)-scores. For \(x=105\),</p>
+                \[z=\frac{105-100}{15}=\frac{5}{15}\approx0.33.\]
+                <p>For \(x=135\),</p>
+                \[z=\frac{135-100}{15}=\frac{35}{15}\approx2.33.\]
+                <p>Using the standard normal table, \(P(Z&lt;2.33)=0.9901\) and \(P(Z&lt;0.33)=0.6293\). Therefore,</p>
+                \[P(105&lt;X&lt;135)=P(0.33&lt;Z&lt;2.33)=0.9901-0.6293=0.3608.\]
+                <p>Thus, approximately \(36.08\%\) of the data falls within the domain \(105&lt;x&lt;135\).</p>
+            </div>
+        </div>
+    </section>
+    <section class="example" aria-labelledby="ex-7-4-8-heading">
+        <div class="example-problem">
+            <h3 id="ex-7-4-8-heading">Example 8</h3>
+            <p>Consider a normal distribution with \(\mu = 100\) and \(\sigma = 15\). What score represents the bottom \(70\%\) of the population? What score represents the top \(5\%\) of the population?</p>
+        </div>
+        <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-7-4-8">
+            <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+        </button>
+        <div id="sol-7-4-8" class="example-content">
+            <div class="solution">
+                <h4>Solution</h4>
+                <p>For the bottom \(70\%\) of the population, we first find the corresponding \(z\)-score.</p>
+                \[P(Z&lt;z)=0.70\]
+                <p>Using the standard normal table, \(z\approx0.525.\)</p>
+                <p>Convert this to an \(x\)-value using</p>
+                \[x=\mu+z\sigma=100+(0.525)(15)=107.875\approx108.\]
+                <p>Therefore, the score representing the bottom \(70\%\) of the population is approximately \(108.\)</p>
+                <p>For the top \(5\%\) of the population, we need the score with \(95\%\) of the data below it.</p>
+                \[P(Z&lt;z)=0.95.\]
+                <p>Using the standard normal table, \(z\approx1.645\).</p>
+                <p>Converting to an \(x\)-value,</p>
+                \[x=100+(1.645)(15)=124.675\approx125.\]
+                <p>Therefore, the score representing the top \(5\%\) of the population is approximately \(125\).</p>
+            </div>
+        </div>
+    </section>
+    <section class="example" aria-labelledby="ex-7-4-9-heading">
+        <div class="example-problem">
+            <h3 id="ex-7-4-9-heading">Example 9</h3>
+            <p>The battery life of a certain brand of laptop follows a normal distribution with mean 16 hours and standard deviation 5 hours. A particular battery has a life of 10.2 hours.</p>
+            <ol type="a">
+                <li>How many standard deviations below the mean is the battery life?</li>
+                <li>What is the probability that a randomly chosen battery has a life shorter than this?</li>
+            </ol>
+        </div>
+        <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-7-4-9">
+            <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+        </button>
+        <div id="sol-7-4-9" class="example-content">
+            <div class="solution">
+                <h4>Solution</h4>
+                <p>First, compute the \(z\)-score.</p>
+                \[z=\frac{x-\mu}{\sigma}=\frac{10.2-16}{5}=\frac{-5.8}{5}=-1.16.\]
+                <p>Thus, the battery life is \(1.16\) standard deviations below the mean.</p>
+                <p>Using the standard normal table, \(P(Z&lt;-1.16)=0.1230\). Therefore, the probability that a randomly chosen battery has a life shorter than 10.2 hours is approximately \(0.123\).</p>
+            </div>
+        </div>
+    </section>
+    <section class="example" aria-labelledby="ex-7-4-10-heading">
+        <div class="example-problem">
+            <h3 id="ex-7-4-10-heading">Example 10</h3>
+            <p>Weights of a certain breed of dog follow a normal distribution with mean 16 kg and variance 16 kg<sup>2</sup>. In a sample of 2000 such dogs, estimate the number that will have a weight above 13 kg.</p>
+        </div>
+        <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-7-4-10">
+            <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+        </button>
+        <div id="sol-7-4-10" class="example-content">
+            <div class="solution">
+                <h4>Solution</h4>
+                <p>The variance is \(16\text{ kg}^2\), so the standard deviation is \(\sigma=\sqrt{16}=4\text{ kg}\).</p>
+                <p>Next, convert \(x=13\) to a \(z\)-score.</p>
+                \[z=\frac{x-\mu}{\sigma}=\frac{13-16}{4}=-0.75.\]
+                <p>Using the standard normal table, \(P(Z&lt;-0.75)=0.2266\). Therefore,</p>
+                \[P(X>13)=P(Z>-0.75)=1-0.2266=0.7734.\]
+                <p>The expected number of dogs weighing more than \(13\) kg is</p>
+                \[2000(0.7734)=1546.8\approx1547.\]
+                <p>Thus, approximately 1547 dogs are expected to weigh more than \(13\) kg.</p>
+            </div>
+        </div>
+    </section>
+    <section class="example" aria-labelledby="ex-7-4-11-heading">
+        <div class="example-problem">
+            <h3 id="ex-7-4-11-heading">Example 11</h3>
+            <p>The wingspan of a species of pigeon is normally distributed with mean 60 cm and standard deviation 6 cm. A pigeon is selected at random.</p>
+            <ol type="a">
+                <li>Find the probability that its wingspan is greater than 50 cm.</li>
+                <li>Given that this pigeon's wingspan is greater than 50 cm, find the probability that it is greater than 55 cm.</li>
+            </ol>
+        </div>
+        <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-7-4-11">
+            <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+        </button>
+        <div id="sol-7-4-11" class="example-content">
+            <div class="solution">
+                <h4>Solution</h4>
+                <p>The wingspans are normally distributed with</p>
+                \[\mu=60\text{ cm}, \qquad \sigma=6\text{ cm}.\]
+                <p>For part (a), convert \(x=50\) to a \(z\)-score.</p>
+                \[z=\frac{50-60}{6}=\frac{-10}{6}\approx-1.67.\]
+                <p>Using the standard normal table, \(P(Z&lt;-1.67)=0.0475\).</p>
+                <p>Therefore, \(P(X>50)=1-0.0475=0.9525\) and \(P(X>50)\approx0.9525\).</p>
+                <p>For part (b), we want the conditional probability</p>
+                \[P(X>55\mid X>50)=\frac{P(X>55)}{P(X>50)},\]
+                <p>since every pigeon with a wingspan greater than \(55\) cm also has a wingspan greater than \(50\) cm.</p>
+                <p>First, convert \(x=55\) to a \(z\)-score.</p>
+                \[z=\frac{55-60}{6}=\frac{-5}{6}\approx-0.83.\]
+                <p>Using the standard normal table, \(P(Z&lt;-0.83)=0.2033\), so \(P(X>55)=1-0.2033=0.7967\).</p>
+                <p>From conditional probability,</p>
+                \[P(X>55\mid X>50)=\frac{0.7967}{0.9525}\approx0.8364.\]
+            </div>
+        </div>
+    </section>
+    <section class="example" aria-labelledby="ex-7-4-12-heading">
+        <div class="example-problem">
+            <h3 id="ex-7-4-12-heading">Example 12</h3>
+            <p>Grains of sand are believed to have normally distributed widths of mean 2 mm and variance 0.25 mm<sup>2</sup>.</p>
+            <ol type="a">
+                <li>Find the probability that a randomly chosen grain of sand is wider than 1.5 mm.</li>
+                <li>The sand is passed through a filter which blocks grains wider than 2.5 mm. What is the probability that a randomly chosen grain of filtered sand is wider than 1.5 mm?</li>
+            </ol>
+        </div>
+        <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-7-4-12">
+            <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+        </button>
+        <div id="sol-7-4-12" class="example-content">
+            <div class="solution">
+                <h4>Solution</h4>
+                <p>The grain widths are normally distributed with</p>
+                \[\mu=2\text{ mm}, \qquad \sigma^2=0.25\text{ mm}^2.\]
+                <p>Therefore, \(\sigma=\sqrt{0.25}=0.5\text{ mm}\).</p>
+                <p>For part (a), convert \(x=1.5\) to a \(z\)-score.</p>
+                \[z=\frac{1.5-2}{0.5}=-1.\]
+                <p>Using the standard normal table, \(P(Z&lt;-1)=0.1587\).</p>
+                <p>Therefore, \(P(X>1.5)=1-0.1587=0.8413\).</p>
+                <p>For part (b), we filter, and grains wider than 2.5 mm are removed. We need the probability that a remaining grain is wider than 1.5 mm.</p>
+                <p>This is a conditional probability:</p>
+                \[P(X>1.5\mid X&lt;2.5)=\frac{P(1.5&lt;X&lt;2.5)}{P(X&lt;2.5)}.\]
+                <p>Convert \(x=2.5\) to a \(z\)-score.</p>
+                \[z=\frac{2.5-2}{0.5}=1.\]
+                <p>Using the standard normal table, \(P(Z&lt;1)=0.8413\).</p>
+                <p>The probability between \(1.5\) mm and \(2.5\) mm is</p>
+                \[P(-1&lt;Z&lt;1)=0.8413-0.1587=0.6826.\]
+                <p>Therefore,</p>
+                \[P(X>1.5\mid X&lt;2.5)=\frac{0.6826}{0.8413}\approx0.8114.\]
+            </div>
+        </div>
+    </section>
+
+    <nav class="page-nav" aria-label="Section navigation">
+        <a class="nav-button" href="mth245_ch7_3.html">Previous: 7.3 Standard Normal Distribution</a>
+        <a class="nav-button" href="mth245_ch7_5.html">Next: 7.5 Central Limit Theorem</a>
+    </nav>
+
+</main>
+
+<script>
+    function toggleExample(button) {
+        var content = button.nextElementSibling;
+        var arrow = button.querySelector('.toggle-arrow');
+        var label = button.querySelector('span:last-child');
+
+        if (content.classList.contains('open')) {
+            content.classList.remove('open');
+            arrow.classList.remove('open');
+            label.textContent = 'Show Solution';
+            button.setAttribute('aria-expanded', 'false');
+        } else {
+            content.classList.add('open');
+            arrow.classList.add('open');
+            label.textContent = 'Hide Solution';
+            button.setAttribute('aria-expanded', 'true');
+        }
+    }
+</script>
+
+<script>
+    fetch('toc.html')
+        .then(function (response) {
+            if (!response.ok) { throw new Error('TOC not found'); }
+            return response.text();
+        })
+        .then(function (data) {
+            document.getElementById('toc-placeholder').innerHTML = data;
+
+            document.querySelectorAll('.toc-chapter').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var expanded = button.getAttribute('aria-expanded') === 'true';
+                    button.setAttribute('aria-expanded', String(!expanded));
+                    document.getElementById(button.getAttribute('aria-controls')).classList.toggle('open');
+                });
+            });
+
+            // Mark the current page and open its chapter
+            var page = window.location.pathname.split('/').pop();
+            var current = document.querySelector('.toc-submenu a[href="' + page + '"]');
+            if (current) {
+                current.setAttribute('aria-current', 'page');
+                var menu = current.closest('.toc-submenu');
+                menu.classList.add('open');
+                var chapterButton = document.querySelector('[aria-controls="' + menu.id + '"]');
+                if (chapterButton) { chapterButton.setAttribute('aria-expanded', 'true'); }
+            }
+        })
+        .catch(function () { /* TOC unavailable: page content still works */ });
+</script>
+
+</body>
+</html>

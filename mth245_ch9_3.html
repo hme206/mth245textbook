@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MTH 245 – Ch 9.3: General Steps of Hypothesis Testing</title>
+
+    <!-- MathJax configuration (single $ intentionally disabled so dollar amounts never collide with math) -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]'], ['$$', '$$']],
+                packages: {'[+]': ['color']}
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            },
+            loader: {
+                load: ['[tex]/color']
+            }
+        };
+    </script>
+    <script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+
+    <link rel="stylesheet" href="styles1.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div id="toc-placeholder"></div>
+
+<main class="container" id="main-content" tabindex="-1">
+
+    <h1>Chapter 9: Hypothesis Testing</h1>
+    <h2 id="section-9-3">Section 9.3: General Steps of Hypothesis Testing</h2>
+
+    <section aria-labelledby="steps-heading">
+        <h3 id="steps-heading">The General Steps</h3>
+        <ol>
+            <li>State the claim and express it as a statistical hypothesis.</li>
+            <li>State the competing hypothesis.</li>
+            <li>State \(H_0\) and \(H_1\). The null hypothesis contains the equality component (\(=\), \(\leq\), or \(\geq\)); the alternative contains the corresponding strict inequality (\(\neq\), \(&lt;\), or \(>\)).</li>
+            <li>Select the significance level, \(\alpha\).</li>
+            <li>Identify the appropriate test statistic and verify that the conditions for the test are satisfied.</li>
+            <li>Compute the test statistic.</li>
+            <li>Determine the critical value(s) (traditional method) or the \(p\)-value (\(p\)-value method). A sketch may help.</li>
+            <li>Decide whether to reject or fail to reject \(H_0\).</li>
+            <li>State the conclusion in context of the original problem.</li>
+        </ol>
+    </section>
+
+    <section aria-labelledby="traditional-heading">
+        <h3 id="traditional-heading">Traditional (Critical Value) Method</h3>
+        <p>The traditional method compares the test statistic with one or more critical values.</p>
+        <p>To determine the critical value(s), we analyze the type of test (left-, right-, or two-tailed) and the significance level (\(\alpha\)).</p>
+        <ul>
+            <li>If we are conducting a <strong>two-tailed test</strong>, the Type I error identified by \(\alpha\) is split evenly between the right and left tails. We can go to the normal table and find the test statistics (\(z_c\) or \(t_c\)) by finding the values of \(\alpha/2\) and \(1-\alpha/2\) on the inside of the table and looking up the values in the column and row. These values will be the same magnitude and opposite sign.</li>
+            <li>If we are conducting a <strong>left-tailed test</strong>, the Type I error identified by \(\alpha\) is found entirely in the left tail. We can go to the normal table and find the test statistic (\(z_c\) or \(t_c\)) by finding the value of \(\alpha\) on the inside of the table and looking up the values in the column and row. The value will be negative.</li>
+            <li>If we are conducting a <strong>right-tailed test</strong>, the Type I error identified by \(\alpha\) is found entirely in the right tail. We can go to the normal table and find the test statistic (\(z_c\) or \(t_c\)) by finding the value of \(1-\alpha\) on the inside of the table and looking up the values in the column and row. The value will be positive.</li>
+        </ul>
+        <p>Although going to the normal table will always work for \(z_c\), the most common values can be found in the following table:</p>
+        <div class="table-scroll">
+        <table>
+        <caption>Common critical values for z tests</caption>
+        <thead>
+        <tr><th scope="col">Level of Significance</th><th scope="col">\(1\%\)</th><th scope="col">\(5\%\)</th><th scope="col">\(10\%\)</th></tr>
+        </thead>
+        <tbody>
+        <tr><th scope="row">Critical value \(z_\alpha\) for a left-tailed test</th><td>\(-2.33\)</td><td>\(-1.645\)</td><td>\(-1.28\)</td></tr>
+        <tr><th scope="row">Critical value \(z_\alpha\) for a right-tailed test</th><td>\(2.33\)</td><td>\(1.645\)</td><td>\(1.28\)</td></tr>
+        <tr><th scope="row">Critical value \(z_{\alpha/2}\) for a two-tailed test</th><td>\(\pm 2.58\)</td><td>\(\pm 1.96\)</td><td>\(\pm 1.645\)</td></tr>
+        </tbody>
+        </table>
+        </div>
+        <p>For \(t_c\), we always have to go to the table because of the degrees of freedom.</p>
+    <div class="definition-box" role="note" aria-labelledby="def-decision-rule">
+        <h4 id="def-decision-rule">Decision Rule: Traditional Method</h4>
+        <ul>
+            <li>Reject \(H_0\) if the test statistic falls in the rejection region (the tails).</li>
+            <li>Otherwise fail to reject \(H_0\).</li>
+        </ul>
+        <p>For example, if we have a two-tailed test with \(\alpha=0.05\), the critical values are \(\pm1.96\). If \(z=2.30\), then \(2.30>1.96\) and the null hypothesis is rejected.</p>
+    </div>
+    </section>
+
+    <section aria-labelledby="pvalue-heading">
+        <h3 id="pvalue-heading">\(P\)-value Method</h3>
+    <div class="definition-box" role="note" aria-labelledby="def-pvalue">
+        <h4 id="def-pvalue">Definition: \(p\)-value</h4>
+        <p>The \(p\)-value is the probability, assuming \(H_0\) is true, of obtaining a test statistic at least as extreme as the observed test statistic in the direction specified by \(H_1\).</p>
+    </div>
+    <div class="definition-box" role="note" aria-labelledby="def-decision-rule-p">
+        <h4 id="def-decision-rule-p">Decision Rule: \(p\)-value Method</h4>
+        <ul>
+            <li>Reject \(H_0\) if \(p\leq\alpha\).</li>
+            <li>Fail to reject \(H_0\) if \(p>\alpha\).</li>
+        </ul>
+        <p>For example, if \(p=0.018\) and \(\alpha=0.05\), then \(0.018&lt;0.05\) and the null hypothesis is rejected.</p>
+    </div>
+    </section>
+
+    <section aria-labelledby="compare-methods-heading">
+        <h3 id="compare-methods-heading">Traditional Method versus \(P\)-value Method</h3>
+    <div class="table-scroll">
+    <table>
+    <caption>Comparison of the traditional method and the \(p\)-value method</caption>
+    <thead>
+    <tr><th scope="col">Traditional Method</th><th scope="col">\(P\)-value Method</th></tr>
+    </thead>
+    <tbody>
+    <tr><td>Compare test statistic with critical value(s)</td><td>Compare \(p\)-value with \(\alpha\)</td></tr>
+    <tr><td>Requires identifying rejection region</td><td>Gives a direct measure of evidence against \(H_0\)</td></tr>
+    <tr><td>Equivalent decision when calculations are consistent</td><td>Equivalent decision when calculations are consistent</td></tr>
+    </tbody>
+    </table>
+    </div>
+    </section>
+
+    <nav class="page-nav" aria-label="Section navigation">
+        <a class="nav-button" href="mth245_ch9_2.html">Previous: 9.2 Statistical Tests</a>
+        <a class="nav-button" href="mth245_ch9_4.html">Next: 9.4 Hypothesis Test for a Population Mean</a>
+    </nav>
+
+</main>
+
+<script>
+    fetch('toc.html')
+        .then(function (response) {
+            if (!response.ok) { throw new Error('TOC not found'); }
+            return response.text();
+        })
+        .then(function (data) {
+            document.getElementById('toc-placeholder').innerHTML = data;
+
+            document.querySelectorAll('.toc-chapter').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var expanded = button.getAttribute('aria-expanded') === 'true';
+                    button.setAttribute('aria-expanded', String(!expanded));
+                    document.getElementById(button.getAttribute('aria-controls')).classList.toggle('open');
+                });
+            });
+
+            // Mark the current page and open its chapter
+            var page = window.location.pathname.split('/').pop();
+            var current = document.querySelector('.toc-submenu a[href="' + page + '"]');
+            if (current) {
+                current.setAttribute('aria-current', 'page');
+                var menu = current.closest('.toc-submenu');
+                menu.classList.add('open');
+                var chapterButton = document.querySelector('[aria-controls="' + menu.id + '"]');
+                if (chapterButton) { chapterButton.setAttribute('aria-expanded', 'true'); }
+            }
+        })
+        .catch(function () { /* TOC unavailable: page content still works */ });
+</script>
+
+</body>
+</html>

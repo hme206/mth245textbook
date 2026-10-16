@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MTH 245 – Ch 10.6: Exercises</title>
+
+    <!-- MathJax configuration (single $ intentionally disabled so dollar amounts never collide with math) -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]'], ['$$', '$$']],
+                packages: {'[+]': ['color']}
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            },
+            loader: {
+                load: ['[tex]/color']
+            }
+        };
+    </script>
+    <script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+
+    <link rel="stylesheet" href="styles1.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div id="toc-placeholder"></div>
+
+<main class="container" id="main-content" tabindex="-1">
+
+    <h1>Chapter 10: Advanced Hypothesis Testing</h1>
+    <h2 id="section-10-6">Section 10.6: Exercises</h2>
+
+    <p>The following exercises review the major concepts introduced in this chapter. Show your work and simplify answers when appropriate. References such as “Problem 2” refer to the problem with that number in the same group.</p>
+
+    <section aria-labelledby="ex-group-matched">
+        <h3 id="ex-group-matched">Testing Matched Pairs</h3>
+        <p>For each problem, use an appropriate matched-pairs procedure. Unless otherwise stated, use a significance level of \(\alpha=0.05\). Define the difference as \(d=x_1-x_2.\)</p>
+        <ol>
+            <li>Explain why measurements taken from the same individuals before and after a treatment constitute a matched-pairs design. Why would it be inappropriate to treat the two samples as independent?</li>
+            <li>A researcher measures the reaction time of 10 students before and after a training program. The differences (before − after), in milliseconds, are
+                \[8,\ 5,\ 12,\ 3,\ 7,\ 10,\ 6,\ 9,\ 4,\ 11.\]
+                Calculate \(\bar d\).</li>
+            <li>For a matched-pairs sample with \(n=16\), \(\bar d=4.8\), and \(s_d=6.0\), test
+                \[H_0:\mu_d=0\qquad\text{versus}\qquad H_1:\mu_d\ne0.\]
+                Calculate the test statistic and degrees of freedom.</li>
+            <li>A study compares blood pressure before and after a treatment. The differences are defined as \(d=\text{Before}-\text{After}.\)<br />For \(n=20\), the sample statistics are \(\bar d=2.5\), \(s_d=4.0\). Test \(H_0:\mu_d=0\) versus \(H_1:\mu_d>0\) at \(\alpha=0.05\). Find the test statistic and state the decision using the critical-value method.</li>
+            <li>A researcher claims that a new study technique increases test scores by more than 3 points on average. For 25 matched students, the differences
+                \[d=\text{score after technique}-\text{score before technique}\]
+                have \(\bar d=4.1\), \(s_d=3.6\).<br />Test \(H_0:\mu_d\le3\) versus \(H_1:\mu_d>3\).<br />Calculate the test statistic and degrees of freedom.</li>
+            <li>A researcher wants to determine whether a treatment reduces blood pressure. Define \(d=\text{Before}-\text{After}.\)<br />For \(n=12\) patients, \(\bar d=6.4\), \(s_d=5.2\).<br />Test \(H_0:\mu_d=0\) versus \(H_1:\mu_d\ne0\) at \(\alpha=0.05\). Determine the critical values and decision.</li>
+            <li>A matched-pairs study produces \(n=15\), \(\bar d=-3.2\), \(s_d=5.0\).<br />Test \(H_0:\mu_d=0\) versus \(H_1:\mu_d&lt;0\) at \(\alpha=0.05\). Calculate the test statistic and determine whether \(H_0\) should be rejected.</li>
+            <li>A researcher obtains \(n=25\), \(\bar d=1.8\), \(s_d=3.6\).<br />Construct a \(95\%\) confidence interval for \(\mu_d\). Use \(t_{0.025,24}=2.064.\)</li>
+            <li>A matched-pairs experiment gives a \(95\%\) confidence interval for \(\mu_d\) of \((-1.2,\ 4.7).\)<br />For the corresponding two-sided hypothesis test \(H_0:\mu_d=0\) versus \(H_1:\mu_d\ne0,\) what decision should be made at \(\alpha=0.05\)? Explain briefly.</li>
+            <li>A researcher records the following paired measurements:
+                <div class="table-scroll">
+                <table>
+                <caption>Paired measurements for five subjects</caption>
+                <thead>
+                <tr><th scope="col">Subject</th><th scope="col">1</th><th scope="col">2</th><th scope="col">3</th><th scope="col">4</th><th scope="col">5</th></tr>
+                </thead>
+                <tbody>
+                <tr><th scope="row">Before</th><td>82</td><td>91</td><td>76</td><td>88</td><td>95</td></tr>
+                <tr><th scope="row">After</th><td>78</td><td>86</td><td>79</td><td>83</td><td>91</td></tr>
+                </tbody>
+                </table>
+                </div>
+                Define \(d=\text{Before}-\text{After}\).
+                <ol type="a">
+                    <li>Calculate the five differences.</li>
+                    <li>Calculate \(\bar d\).</li>
+                    <li>Calculate \(s_d\).</li>
+                    <li>State the appropriate hypotheses for testing whether the treatment changes the mean measurement.</li>
+                </ol></li>
+        </ol>
+    </section>
+
+    <section aria-labelledby="ex-group-unmatched">
+        <h3 id="ex-group-unmatched">Testing Unmatched Pairs</h3>
+        <p>For each problem, treat the two samples as independent unless otherwise stated. Use the two-sample \(t\) procedure and the conservative degrees-of-freedom approximation \(\nu=\min(n_1-1,n_2-1).\)</p>
+        <ol>
+            <li>Explain the difference between matched-pairs samples and unmatched (independent) samples. Give one example of each.</li>
+            <li>Two independent classes have the following examination scores:
+                \[n_1=25,\quad \bar x_1=84,\quad s_1=9,\]
+                \[n_2=30,\quad \bar x_2=79,\quad s_2=11.\]
+                Calculate the sample difference \(\bar x_1-\bar x_2\) and the standard error \(SE=\sqrt{\frac{s_1^2}{n_1}+\frac{s_2^2}{n_2}}.\)</li>
+            <li>Using the data from Problem 2, test
+                \[H_0:\mu_1-\mu_2=0\qquad\text{versus}\qquad H_1:\mu_1-\mu_2\ne0\]
+                at \(\alpha=0.05\). Calculate the test statistic and degrees of freedom.</li>
+            <li>Two independent groups have
+                \[n_1=20,\quad \bar x_1=72,\quad s_1=8,\]
+                \[n_2=22,\quad \bar x_2=68,\quad s_2=10.\]
+                Test
+                \[H_0:\mu_1-\mu_2=0\qquad\text{versus}\qquad H_1:\mu_1-\mu_2>0\]
+                at \(\alpha=0.05\). Calculate the test statistic and state the decision using the critical-value method.</li>
+            <li>A researcher compares the mean completion time for two independent groups. The results are
+                \[n_1=18,\quad \bar x_1=91,\quad s_1=7,\]
+                \[n_2=24,\quad \bar x_2=87,\quad s_2=9.\]
+                Test whether Population 1 has a larger mean than Population 2:
+                \[H_0:\mu_1-\mu_2\le0\qquad\text{versus}\qquad H_1:\mu_1-\mu_2>0.\]
+                Use \(\alpha=0.05\).</li>
+            <li>Two independent samples produce
+                \[n_1=36,\quad \bar x_1=105,\quad s_1=12,\]
+                \[n_2=40,\quad \bar x_2=100,\quad s_2=10.\]
+                Test
+                \[H_0:\mu_1-\mu_2=0\qquad\text{versus}\qquad H_1:\mu_1-\mu_2\ne0\]
+                at \(\alpha=0.05\). Calculate the test statistic and degrees of freedom.</li>
+            <li>A two-sample study gives
+                \[n_1=15,\quad \bar x_1=52,\quad s_1=6,\]
+                \[n_2=18,\quad \bar x_2=47,\quad s_2=7.\]
+                Calculate the \(95\%\) confidence interval for \(\mu_1-\mu_2\) using \(\nu=\min(n_1-1,n_2-1)\) and \(t_{0.025,14}=2.145.\)</li>
+            <li>A researcher obtains the following results:
+                \[n_1=25,\quad \bar x_1=82,\quad s_1=8,\]
+                \[n_2=30,\quad \bar x_2=77,\quad s_2=10.\]
+                Test whether the population means differ at \(\alpha=0.05\). Use \(\nu=\min(24,29)=24\) and \(t_{0.025,24}=2.064.\)</li>
+            <li>A \(95\%\) confidence interval for \(\mu_1-\mu_2\) is \((2.1,\ 9.4).\) What conclusion would you make for the corresponding two-sided hypothesis test
+                \[H_0:\mu_1-\mu_2=0\qquad\text{versus}\qquad H_1:\mu_1-\mu_2\ne0\]
+                at \(\alpha=0.05\)? Explain using the relationship between confidence intervals and hypothesis tests.</li>
+            <li>Two independent samples are summarized below:
+                <div class="table-scroll">
+                <table>
+                <caption>Summary statistics for two independent groups</caption>
+                <thead>
+                <tr><th scope="col"></th><th scope="col">Group 1</th><th scope="col">Group 2</th></tr>
+                </thead>
+                <tbody>
+                <tr><th scope="row">\(n\)</th><td>16</td><td>20</td></tr>
+                <tr><th scope="row">\(\bar x\)</th><td>74</td><td>69</td></tr>
+                <tr><th scope="row">\(s\)</th><td>5</td><td>8</td></tr>
+                </tbody>
+                </table>
+                </div>
+                Perform the following:
+                <ol type="a">
+                    <li>Calculate \(\bar x_1-\bar x_2\).</li>
+                    <li>Calculate the standard error.</li>
+                    <li>Calculate the conservative degrees of freedom.</li>
+                    <li>Calculate the test statistic for testing \(H_0:\mu_1-\mu_2=0\).</li>
+                </ol></li>
+        </ol>
+    </section>
+
+    <section aria-labelledby="ex-group-proportions">
+        <h3 id="ex-group-proportions">Difference of Proportions</h3>
+        <p>For each problem, use the two-proportion \(z\) procedure when appropriate. For hypothesis tests, use the pooled proportion \(\hat p=\frac{x_1+x_2}{n_1+n_2},\) with \(\hat q=1-\hat p.\)</p>
+        <ol>
+            <li>Explain the difference between the parameters \(\mu_1-\mu_2\) and \(p_1-p_2\). What type of data are used when comparing two population proportions?</li>
+            <li>A survey finds that 96 of 200 customers in Group 1 make a purchase, while 72 of 180 customers in Group 2 make a purchase. Calculate \(\hat p_1\), \(\hat p_2\), and \(\hat p_1-\hat p_2.\)</li>
+            <li>Using the data from Problem 2, calculate the pooled proportion \(\hat p=\frac{x_1+x_2}{n_1+n_2}\) and the pooled value \(\hat q\).</li>
+            <li>Using the data from Problem 2, test
+                \[H_0:p_1=p_2\qquad\text{versus}\qquad H_1:p_1\ne p_2\]
+                at \(\alpha=0.05\). Calculate the test statistic using
+                \[z=\frac{\hat p_1-\hat p_2}{\sqrt{\hat p\hat q\left(\frac{1}{n_1}+\frac{1}{n_2}\right)}}.\]</li>
+            <li>A company wants to determine whether the proportion of customers who purchase a product is greater at Store 1 than Store 2. Store 1 has 120 purchases among 250 customers, while Store 2 has 90 purchases among 220 customers. Test
+                \[H_0:p_1\le p_2\qquad\text{versus}\qquad H_1:p_1>p_2\]
+                at \(\alpha=0.05\).</li>
+            <li>A study compares two populations. In Population 1, 140 of 300 individuals have a particular characteristic. In Population 2, 105 of 280 individuals have the characteristic. Test
+                \[H_0:p_1=p_2\qquad\text{versus}\qquad H_1:p_1\ne p_2\]
+                at \(\alpha=0.05\). Calculate the pooled proportion, test statistic, and decision.</li>
+            <li>A survey finds
+                \[n_1=160,\quad x_1=85,\]
+                \[n_2=150,\quad x_2=72.\]
+                Construct a \(95\%\) confidence interval for \(p_1-p_2\) using
+                \[(\hat p_1-\hat p_2)\pm z_{\alpha/2}\sqrt{\frac{\hat p_1\hat q_1}{n_1}+\frac{\hat p_2\hat q_2}{n_2}},\]
+                where \(z_{0.025}=1.96\).</li>
+            <li>A two-proportion hypothesis test produces the test statistic \(z=2.35.\) For a two-sided test at \(\alpha=0.05\), state the critical values and determine whether \(H_0:p_1=p_2\) should be rejected.</li>
+            <li>A researcher tests
+                \[H_0:p_1=p_2\qquad\text{versus}\qquad H_1:p_1\ne p_2.\]
+                The resulting \(95\%\) confidence interval for \(p_1-p_2\) is \((-0.018,\ 0.074).\) What conclusion should be reached at \(\alpha=0.05\)? Explain using the confidence-interval/hypothesis-test relationship.</li>
+            <li>A company compares two advertising campaigns. Campaign 1 produces 85 purchases from 160 customers, while Campaign 2 produces 72 purchases from 150 customers.
+                <ol type="a">
+                    <li>Calculate \(\hat p_1\) and \(\hat p_2\).</li>
+                    <li>Calculate \(\hat p_1-\hat p_2\).</li>
+                    <li>Calculate the pooled proportion \(\hat p\).</li>
+                    <li>Calculate the test statistic for \(H_0:p_1=p_2\) versus \(H_1:p_1\ne p_2.\)</li>
+                    <li>Use \(\alpha=0.05\) to make a decision.</li>
+                </ol></li>
+        </ol>
+    </section>
+
+
+    <nav class="page-nav" aria-label="Section navigation">
+        <a class="nav-button" href="mth245_ch10_5.html">Previous: 10.5 Summary</a>
+    </nav>
+
+</main>
+
+<script>
+    fetch('toc.html')
+        .then(function (response) {
+            if (!response.ok) { throw new Error('TOC not found'); }
+            return response.text();
+        })
+        .then(function (data) {
+            document.getElementById('toc-placeholder').innerHTML = data;
+
+            document.querySelectorAll('.toc-chapter').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var expanded = button.getAttribute('aria-expanded') === 'true';
+                    button.setAttribute('aria-expanded', String(!expanded));
+                    document.getElementById(button.getAttribute('aria-controls')).classList.toggle('open');
+                });
+            });
+
+            // Mark the current page and open its chapter
+            var page = window.location.pathname.split('/').pop();
+            var current = document.querySelector('.toc-submenu a[href="' + page + '"]');
+            if (current) {
+                current.setAttribute('aria-current', 'page');
+                var menu = current.closest('.toc-submenu');
+                menu.classList.add('open');
+                var chapterButton = document.querySelector('[aria-controls="' + menu.id + '"]');
+                if (chapterButton) { chapterButton.setAttribute('aria-expanded', 'true'); }
+            }
+        })
+        .catch(function () { /* TOC unavailable: page content still works */ });
+</script>
+
+</body>
+</html>
