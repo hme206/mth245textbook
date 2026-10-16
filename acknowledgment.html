@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MTH 245 – Acknowledgments</title>
+
+    <link rel="stylesheet" href="styles1.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div id="toc-placeholder"></div>
+
+<main class="container" id="main-content" tabindex="-1">
+
+    <h1>Acknowledgments</h1>
+
+    <section aria-labelledby="credits-heading">
+        <h2 id="credits-heading">Credits</h2>
+        <p>This book was created by Scott Graham, Adjunct Professor of Mathematics, Camp Community College, for use in all Statistics I courses. A special thanks goes out to Heather E. Umphlett, Dean of Academic Programs and Assistant Professor of Mathematics, Camp Community College, for her assistance with proofreading, editing, and final conversion from LaTeX to HTML for digital publication.</p>
+    </section>
+
+    <section aria-labelledby="license-heading">
+        <h2 id="license-heading">License</h2>
+        <p>This text is licensed under a Creative Commons Attribution-Share Alike 4.0 United States License. To view a copy of this license, visit <a href="https://creativecommons.org/licenses/by-sa/4.0/">https://creativecommons.org/licenses/by-sa/4.0/</a> or send a letter to Creative Commons, 171 Second Street, Suite 300, San Francisco, California, 94105, USA.</p>
+        <p>You are free:</p>
+        <ul>
+            <li><strong>to Share</strong> — to copy, distribute, display, and perform the work</li>
+            <li><strong>to Remix</strong> — to make derivative works</li>
+        </ul>
+        <p>Under the following conditions:</p>
+        <ul>
+            <li><strong>Attribution.</strong> You must attribute the work in the manner specified by the author or licensor (but not in any way that suggests that they endorse you or your use of the work).</li>
+            <li><strong>Share Alike.</strong> If you alter, transform, or build upon this work, you may distribute the resulting work only under the same, similar or a compatible license.</li>
+        </ul>
+        <p>This book was written under OER commons.</p>
+    </section>
+
+    <section aria-labelledby="basis-heading">
+        <h2 id="basis-heading">Basis of This Text</h2>
+        <p>This book was based on pacing and basic principles that are outlined in <em>Understanding Basic Statistics, 6E</em> by Charles Henry Brase and Corrinne Pellillo Brase. No copyright infringements were made.</p>
+    </section>
+
+    <section aria-labelledby="ai-heading">
+        <h2 id="ai-heading">Artificial Intelligence Disclosure</h2>
+        <p>The author utilized ChatGPT (GPT-6), developed by OpenAI, to assist with the copyediting, grammatical correction, and stylistic refinement of this textbook. All core concepts, instructional structure, and substantive mathematical content were developed by the human author. The final manuscript was reviewed, fact-checked, and approved by the author, who assumes full responsibility for the accuracy and integrity of the published work.</p>
+    </section>
+
+    <nav class="page-nav" aria-label="Section navigation">
+        <a class="nav-button" href="index.html">Previous: Home</a>
+    </nav>
+
+</main>
+
+<script>
+    fetch('toc.html')
+        .then(function (response) {
+            if (!response.ok) { throw new Error('TOC not found'); }
+            return response.text();
+        })
+        .then(function (data) {
+            document.getElementById('toc-placeholder').innerHTML = data;
+
+            document.querySelectorAll('.toc-chapter').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var expanded = button.getAttribute('aria-expanded') === 'true';
+                    button.setAttribute('aria-expanded', String(!expanded));
+                    document.getElementById(button.getAttribute('aria-controls')).classList.toggle('open');
+                });
+            });
+
+            // Mark the current page and open its chapter
+            var page = window.location.pathname.split('/').pop();
+            var current = document.querySelector('.toc-submenu a[href="' + page + '"]');
+            if (current) {
+                current.setAttribute('aria-current', 'page');
+                var menu = current.closest('.toc-submenu');
+                menu.classList.add('open');
+                var chapterButton = document.querySelector('[aria-controls="' + menu.id + '"]');
+                if (chapterButton) { chapterButton.setAttribute('aria-expanded', 'true'); }
+            }
+        })
+        .catch(function () { /* TOC unavailable: page content still works */ });
+</script>
+
+</body>
+</html>
