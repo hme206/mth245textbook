@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MTH 245 – Ch 1.1: Introduction</title>
+
+    <!-- MathJax configuration (single $ intentionally disabled so dollar amounts never collide with math) -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]'], ['$$', '$$']],
+                packages: {'[+]': ['color']}
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            },
+            loader: {
+                load: ['[tex]/color']
+            }
+        };
+    </script>
+    <script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+
+    <link rel="stylesheet" href="styles1.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div id="toc-placeholder"></div>
+
+<main class="container" id="main-content" tabindex="-1">
+
+    <h1>Chapter 1: Probability Theory</h1>
+    <h2 id="section-1-1">Section 1.1: Introduction</h2>
+
+    <section aria-labelledby="intro-1-1-heading">
+        <h3 id="intro-1-1-heading" class="visually-hidden">Overview</h3>
+        <p>This chapter introduces the fundamental concepts and techniques of probability and counting. Students will learn how to describe uncertainty using sample spaces and events, calculate probabilities, analyze compound and conditional events, and distinguish between independent and dependent events. The chapter also introduces Venn diagrams, tree diagrams, permutations, combinations, and counting principles used to solve probability problems in a variety of real-world situations.</p>
+    </section>
+
+    <div class="learning-obj-box" role="note" aria-labelledby="lo-1-1-heading">
+        <h3 id="lo-1-1-heading">Learning Objectives</h3>
+        <p>After completing this chapter, you should be able to:</p>
+        <ul>
+            <li>Define random experiments, outcomes, events, and sample spaces.</li>
+            <li>Calculate probabilities using fundamental probability rules.</li>
+            <li>Analyze compound events using unions and intersections.</li>
+            <li>Calculate conditional probabilities.</li>
+            <li>Determine whether events are independent or dependent.</li>
+            <li>Use tree diagrams to analyze multistage experiments.</li>
+            <li>Use counting techniques, permutations, and combinations.</li>
+        </ul>
+    </div>
+
+    <nav class="page-nav" aria-label="Section navigation">
+        <span></span>
+        <a class="nav-button" href="mth245_ch1_2.html">Next: 1.2 What is Probability?</a>
+    </nav>
+
+</main>
+
+<script>
+    fetch('toc.html')
+        .then(function (response) {
+            if (!response.ok) { throw new Error('TOC not found'); }
+            return response.text();
+        })
+        .then(function (data) {
+            document.getElementById('toc-placeholder').innerHTML = data;
+
+            document.querySelectorAll('.toc-chapter').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var expanded = button.getAttribute('aria-expanded') === 'true';
+                    button.setAttribute('aria-expanded', String(!expanded));
+                    document.getElementById(button.getAttribute('aria-controls')).classList.toggle('open');
+                });
+            });
+
+            // Mark the current page and open its chapter
+            var page = window.location.pathname.split('/').pop();
+            var current = document.querySelector('.toc-submenu a[href="' + page + '"]');
+            if (current) {
+                current.setAttribute('aria-current', 'page');
+                var menu = current.closest('.toc-submenu');
+                menu.classList.add('open');
+                var chapterButton = document.querySelector('[aria-controls="' + menu.id + '"]');
+                if (chapterButton) { chapterButton.setAttribute('aria-expanded', 'true'); }
+            }
+        })
+        .catch(function () { /* TOC unavailable: page content still works */ });
+</script>
+
+</body>
+</html>
