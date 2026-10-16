@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MTH 245 – Ch 1.3: Compound Events</title>
+
+    <!-- MathJax configuration (single $ intentionally disabled so dollar amounts never collide with math) -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]'], ['$$', '$$']],
+                packages: {'[+]': ['color']}
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            },
+            loader: {
+                load: ['[tex]/color']
+            }
+        };
+    </script>
+    <script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+
+    <link rel="stylesheet" href="styles1.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div id="toc-placeholder"></div>
+
+<main class="container" id="main-content" tabindex="-1">
+
+    <h1>Chapter 1: Probability Theory</h1>
+    <h2 id="section-1-3">Section 1.3: Compound Events</h2>
+
+    <p>In many probability problems, we are interested in more than one event occurring. For example:</p>
+    <ul>
+        <li>What is the probability that a student passes an exam and completes an assignment?</li>
+        <li>What is the probability that a randomly selected person is employed or enrolled in school?</li>
+        <li>What is the probability that a patient tests positive given that the patient has a particular condition?</li>
+    </ul>
+
+    <div class="definition-box" role="note" aria-labelledby="def-compound">
+        <h4 id="def-compound">Definition: Compound Event</h4>
+        <p>A <strong>compound event</strong> is an event formed by combining two or more events.</p>
+    </div>
+
+    <p>To analyze compound events, we use the language of sets and develop rules for calculating probabilities.</p>
+
+    <hr class="divider" aria-hidden="true" />
+
+    <!-- ===================== COMBINING EVENTS ===================== -->
+    <section aria-labelledby="combining-heading">
+        <h3 id="combining-heading">Combining Events</h3>
+        <p>Suppose \(A\) and \(B\) are two events defined within the same sample space.</p>
+        <p>There are several ways these events can be combined.</p>
+    </section>
+
+    <!-- ===================== UNION ===================== -->
+    <section aria-labelledby="union-heading">
+        <h3 id="union-heading">The Union of Events</h3>
+
+        <div class="definition-box" role="note" aria-labelledby="def-union">
+            <h4 id="def-union">Definition: Union</h4>
+            <p>The <strong>union</strong> of events \(A\) and \(B\), written</p>
+            \[A\cup B,\]
+            <p>represents the event that \(A\) occurs, \(B\) occurs, <strong>or both occur</strong>.</p>
+            <p>The word <strong>or</strong> in probability usually includes the possibility that both events occur.</p>
+        </div>
+
+        <!-- Example 1 -->
+        <section class="example" aria-labelledby="ex-1-3-1-heading">
+            <div class="example-problem">
+                <h3 id="ex-1-3-1-heading">Example 1</h3>
+                <p>Let \(A=\{\text{students who own a laptop}\}\) and \(B=\{\text{students who own a tablet}\}\). Describe the event \(A\cup B\).</p>
+            </div>
+            <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-1-3-1">
+                <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+            </button>
+            <div id="sol-1-3-1" class="example-content">
+                <div class="solution">
+                    <h4>Solution</h4>
+                    <p>\(A\cup B\) represents students who own a laptop, a tablet, or both.</p>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- ===================== INTERSECTION ===================== -->
+    <section aria-labelledby="intersection-heading">
+        <h3 id="intersection-heading">The Intersection of Events</h3>
+
+        <div class="definition-box" role="note" aria-labelledby="def-intersection">
+            <h4 id="def-intersection">Definition: Intersection</h4>
+            <p>The <strong>intersection</strong> of events \(A\) and \(B\), written</p>
+            \[A\cap B,\]
+            <p>represents the event that both \(A\) and \(B\) occur.</p>
+            <p>The word <strong>and</strong> indicates an intersection.</p>
+        </div>
+
+        <!-- Example 2 -->
+        <section class="example" aria-labelledby="ex-1-3-2-heading">
+            <div class="example-problem">
+                <h3 id="ex-1-3-2-heading">Example 2</h3>
+                <p>Using the definitions of \(A\) and \(B\) from Example 1, describe the event \(A\cap B\).</p>
+            </div>
+            <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-1-3-2">
+                <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+            </button>
+            <div id="sol-1-3-2" class="example-content">
+                <div class="solution">
+                    <h4>Solution</h4>
+                    <p>\(A\cap B\) represents students who own both a laptop and a tablet.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="definition-box" role="note" aria-labelledby="def-xor">
+            <h4 id="def-xor">Definition: Exclusive Or (XOR)</h4>
+            <p>Occasionally, we will use an <strong>exclusive or</strong> (XOR). An exclusive or represents the event that \(A\) occurs or \(B\) occurs, but not both. It may be written as \(A\oplus B\). Alternate notations include \(A\underline{\cup}B\), \(A\veebar B\), and \(\Delta B\).</p>
+            <p>This textbook uses \(A\oplus B\). In our case, this represents students who own either a laptop or a tablet, but not both.</p>
+        </div>
+    </section>
+
+    <!-- ===================== VENN DIAGRAMS ===================== -->
+    <section aria-labelledby="venn-heading">
+        <h3 id="venn-heading">Venn Diagrams</h3>
+
+        <p>Venn diagrams provide a visual representation of relationships among events.</p>
+
+        <p>The rectangle represents the sample space \(S\). Circles represent events.</p>
+
+        <!-- Image mth245_1_3_1 -->
+        <figure class="diagram">
+            <img
+                src="images/mth245_1_3_1.png"
+                alt="Venn diagram. A large rectangle labeled S contains two overlapping circles. The left circle, shaded blue, is labeled A. The right circle, shaded red, is labeled B. The overlapping region in the middle is shaded green and labeled A intersect B."
+            />
+            <figcaption>Venn diagram of two events \(A\) and \(B\) in the sample space \(S\).</figcaption>
+        </figure>
+
+        <p>The rectangle represents the sample space \(S\). Circles represent events.</p>
+
+        <p>The region inside circle \(A\), including the overlap with \(B\), represents event \(A\).</p>
+
+        <p>The region inside circle \(B\), including the overlap with \(A\), represents event \(B\).</p>
+
+        <p>The shaded region for the <strong>union</strong> \(A\cup B\) includes all outcomes that are in \(A\) or \(B\) (or both).</p>
+
+        <p>The region for the <strong>intersection</strong> \(A\cap B\) includes only the outcomes that are in both \(A\) and \(B\).</p>
+    </section>
+
+    <!-- ===================== ADDITION RULE ===================== -->
+    <section aria-labelledby="addition-heading">
+        <h3 id="addition-heading">The Addition Rule</h3>
+
+        <div class="definition-box" role="note" aria-labelledby="def-addition">
+            <h4 id="def-addition">The Addition Rule</h4>
+            <p>When two events can occur together, the probability of their union is</p>
+            \[P(A\cup B)=P(A)+P(B)-P(A\cap B).\]
+            <p>The intersection is subtracted because outcomes belonging to both events would otherwise be counted twice.</p>
+        </div>
+
+        <!-- Example 3 -->
+        <section class="example" aria-labelledby="ex-1-3-3-heading">
+            <div class="example-problem">
+                <h3 id="ex-1-3-3-heading">Example 3</h3>
+                <p>In a class of 30 students:</p>
+                <ul>
+                    <li>19 take Physics (P),</li>
+                    <li>17 take Chemistry (C),</li>
+                    <li>15 take both.</li>
+                </ul>
+                <p>How many students take Physics, Chemistry, or both? How many take neither course?</p>
+            </div>
+            <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-1-3-3">
+                <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+            </button>
+            <div id="sol-1-3-3" class="example-content">
+                <div class="solution">
+                    <h4>Solution</h4>
+                    <p>Using the addition rule,</p>
+                    \[n(A\cup B)=19+17-15=21\]
+                    <p>Therefore, 21 students take Physics, Chemistry, or both, leaving 9 students taking neither course.</p>
+                </div>
+            </div>
+        </section>
+
+        <p>Another way of answering this type of problem as well as other types of problems is to build a Venn diagram.</p>
+
+        <!-- Example 4 -->
+        <section class="example" aria-labelledby="ex-1-3-4-heading">
+            <div class="example-problem">
+                <h3 id="ex-1-3-4-heading">Example 4</h3>
+                <p>Using the data from Example 3, build a Venn diagram and use it to find each probability for a randomly selected student.</p>
+                <ol type="a">
+                    <li>Both Physics and Chemistry</li>
+                    <li>Physics but not Chemistry</li>
+                    <li>Neither course</li>
+                    <li>At least one course</li>
+                    <li>Exactly one course</li>
+                </ol>
+            </div>
+            <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-1-3-4">
+                <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+            </button>
+            <div id="sol-1-3-4" class="example-content">
+                <div class="solution">
+                    <h4>Solution</h4>
+
+                    <!-- Image mth245_1_3_2 -->
+                    <figure class="diagram">
+                        <img
+                            src="images/mth245_1_3_2.png"
+                            alt="Venn diagram of the Physics and Chemistry data. A rectangle labeled S contains two overlapping circles, P on the left and C on the right. The part of P outside the overlap contains 4. The overlap contains 15. The part of C outside the overlap contains 2. The area inside the rectangle but outside both circles contains 9."
+                        />
+                        <figcaption>Venn diagram for the Physics (\(P\)) and Chemistry (\(C\)) data.</figcaption>
+                    </figure>
+
+                    <p>Rather than work through formulas, it is often easier to build the Venn diagram from the inside out. From the problem, we know 15 students took both classes, so 15 goes in the center section. Since we know 19 take Physics and 15 are already accounted for, 4 are left for the outside circle on the left. Similarly, 15 of the 17 Chemistry students are accounted for, leaving 2 in the outside circle on the right. Since we have a total of 30 students and we can see 21 students accounted for, 9 are in the sample space but outside of the circles.</p>
+
+                    <p>This diagram lets us compute a variety of probabilities:</p>
+                    \[
+                    \begin{aligned}
+                    &amp; P(\text{Both Physics and Chemistry})=P(P \cap C)=\frac{15}{30}=0.5 \\[6pt]
+                    &amp; P(\text{Physics but not Chemistry})=P(P \cap C^c)=\frac{4}{30}=0.133 \\[6pt]
+                    &amp; P(\text{neither})=P(P_c \cap C_c) = \frac{9}{30}=0.3 \\[6pt]
+                    &amp; P(\text{at least 1})=P(P \cup C)=\frac{4+15+2}{30}= \frac{21}{30}=0.7 \\[6pt]
+                    &amp; P(\text{exactly 1}) = P(P\oplus C)=\frac{4+2}{30}=0.2
+                    \end{aligned}
+                    \]
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- ===================== THREE EVENTS ===================== -->
+    <section aria-labelledby="three-venn-heading">
+        <h3 id="three-venn-heading">Venn Diagrams for Three Events</h3>
+
+        <p>As you can imagine, the equations get complicated with three events, so building a Venn diagram seems like an even better idea. Again, the idea is to build from the inside out.</p>
+
+        <!-- Example 5 -->
+        <section class="example" aria-labelledby="ex-1-3-5-heading">
+            <div class="example-problem">
+                <h3 id="ex-1-3-5-heading">Example 5</h3>
+                <p>30 college students were surveyed to determine their STEM classes:</p>
+                <ul>
+                    <li>11 are taking a math class</li>
+                    <li>12 are taking a science class</li>
+                    <li>16 are taking an engineering class</li>
+                    <li>5 are taking both math and science</li>
+                    <li>7 are taking both math and engineering</li>
+                    <li>6 are taking both science and engineering</li>
+                    <li>2 are taking math, science, and engineering</li>
+                </ul>
+                <p>Build a Venn diagram to organize this information.</p>
+            </div>
+            <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-1-3-5">
+                <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+            </button>
+            <div id="sol-1-3-5" class="example-content">
+                <div class="solution">
+                    <h4>Solution</h4>
+
+                    <!-- Image mth245_1_3_3 -->
+                    <figure class="diagram">
+                        <img
+                            src="images/mth245_1_3_3.png"
+                            alt="Venn diagram with three overlapping circles inside a rectangle labeled S: MTH at upper left, SCI at upper right, and ENG at the bottom. Number of students in each region: math only 1, science only 3, engineering only 5; math and science but not engineering 3; math and engineering but not science 5; science and engineering but not math 4; all three subjects 2; none of the three, outside the circles, 7."
+                        />
+                        <figcaption>Venn diagram for the three STEM classes.</figcaption>
+                    </figure>
+
+                    <p>Working from the inside, the center section has 2 students taking math, science, and engineering. If 2 are taking all three and 5 are taking math and science, then 3 must be taking math and science but not engineering. Similarly, we can fill in the 4 and 5 by analyzing science/engineering and math/engineering.</p>
+
+                    <p>By studying the 11 math students, we see 10 are accounted for, leaving 1 in math alone. Similarly, 3 and 5 are in science and engineering respectively. Finally, we have accounted for 23 students, leaving 7 outside the three circles.</p>
+                </div>
+            </div>
+        </section>
+
+        <p>From here, answering compound events problems is manageable.</p>
+    </section>
+
+    <!-- ===================== ADDITION RULE FOR THREE ===================== -->
+    <section aria-labelledby="addition-three-heading">
+        <h3 id="addition-three-heading">Addition Rule for Three Events</h3>
+
+        <p>For those that really like formulas, we can use the three event Venn diagram to develop a new formula.</p>
+
+        <div class="definition-box" role="note" aria-labelledby="def-addition-three">
+            <h4 id="def-addition-three">The Addition Rule for Three Events</h4>
+            \[P(A\cup B\cup C)=\textcolor[HTML]{0044CC}{P(A)+P(B)+P(C)}\textcolor[HTML]{B30000}{-P(A\cap B)-P(A\cap C)-P(B\cap C)}\textcolor[HTML]{1E7A19}{+P(A\cap B\cap C)}\]
+        </div>
+
+        <p>We can verify this equation by checking off regions of the Venn diagram. Adding the circles together (\(\textcolor[HTML]{0044CC}{+}\)) provides a lot of overlap. Subtracting out the two-way intersections (\(\textcolor[HTML]{B30000}{-}\)) eliminates the overlap, but completely erases the middle section. The last three-way intersection (\(\textcolor[HTML]{1E7A19}{+}\)) picks that back up again.</p>
+
+        <!-- Image mth245_1_3_4 -->
+        <figure class="diagram">
+            <img
+                src="images/mth245_1_3_4.png"
+                alt="The three-circle Venn diagram (MTH, SCI, ENG) with colored plus and minus signs in each region showing how many times that region is counted. Blue plus signs come from adding the three circles: one in each region inside only one circle, two in each region where exactly two circles overlap, and three in the center. Red minus signs come from subtracting the two-way intersections: one in each two-circle overlap region and three in the center. One green plus sign in the center comes from adding back the three-way intersection. Every region inside the circles ends up counted exactly once. A blue plus sign also appears in the area outside the circles."
+            />
+            <figcaption>Checking off the regions of the three-event Venn diagram: blue plus signs, red minus signs, and a green plus sign.</figcaption>
+        </figure>
+    </section>
+
+    <hr class="divider" aria-hidden="true" />
+
+    <!-- ===================== CONDITIONAL PROBABILITY ===================== -->
+    <section aria-labelledby="conditional-heading">
+        <h3 id="conditional-heading">Conditional Probability</h3>
+
+        <p>Sometimes the probability of an event changes because additional information is available.</p>
+
+        <p>For example:</p>
+        <ul>
+            <li>What is the probability a student passes a course given that the student attended every class?</li>
+            <li>What is the probability a person has a disease given that a test is positive?</li>
+        </ul>
+
+        <div class="definition-box" role="note" aria-labelledby="def-conditional">
+            <h4 id="def-conditional">Definition: Conditional Probability</h4>
+            <p>The probability of event \(A\) occurring given that event \(B\) has occurred is called <strong>conditional probability</strong>.</p>
+            <p>It is written</p>
+            \[P(A\mid B)\]
+            <p>and read “the probability of \(A\) given \(B\).”</p>
+            <p>The conditional probability formula is</p>
+            \[P(A\mid B)=\frac{P(A\cap B)}{P(B)},\]
+            <p>provided that</p>
+            \[P(B)>0.\]
+        </div>
+    </section>
+
+    <section aria-labelledby="understanding-heading">
+        <h3 id="understanding-heading">Understanding the Formula</h3>
+
+        <p>The formula can be understood by restricting attention to event \(B\).</p>
+
+        <p>Originally, the sample space contains all possible outcomes. Once we know that \(B\) occurred, only outcomes inside \(B\) remain possible.</p>
+
+        <p>The conditional probability asks:</p>
+        \[\text{Among outcomes in } B\text{, how many also belong to } A?\]
+        <p>Therefore,</p>
+        \[P(A\mid B)=\frac{\text{probability of both } A \text{ and } B}{\text{probability of } B}.\]
+
+        <p>This is another case where the Venn diagram can help.</p>
+
+        <!-- Example 6 -->
+        <section class="example" aria-labelledby="ex-1-3-6-heading">
+            <div class="example-problem">
+                <h3 id="ex-1-3-6-heading">Example 6</h3>
+                <p>Going back to our scheduling example (Examples 3 and 4), find \(P(\text{Chemistry given Physics})\) and \(P(\text{Physics given Chemistry})\).</p>
+            </div>
+            <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-1-3-6">
+                <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+            </button>
+            <div id="sol-1-3-6" class="example-content">
+                <div class="solution">
+                    <h4>Solution</h4>
+
+                    <!-- Image mth245_1_3_5 -->
+                    <figure class="diagram">
+                        <img
+                            src="images/mth245_1_3_5.png"
+                            alt="Venn diagram of the Physics and Chemistry data. A rectangle labeled S contains two overlapping circles, P on the left and C on the right. The part of P outside the overlap contains 4. The overlap contains 15. The part of C outside the overlap contains 2. The area inside the rectangle but outside both circles contains 9."
+                        />
+                        <figcaption>Venn diagram for the Physics (\(P\)) and Chemistry (\(C\)) data.</figcaption>
+                    </figure>
+
+                    \[
+                    \begin{aligned}
+                    &amp; P(\text{Chemistry given Physics})=P(C\mid P)=\frac{15}{19}=0.789 \\[6pt]
+                    &amp; P(\text{Physics given Chemistry})=P(P\mid C)=\frac{15}{17}=0.882
+                    \end{aligned}
+                    \]
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- ===================== MUTUALLY EXCLUSIVE ===================== -->
+    <section aria-labelledby="mutually-exclusive-heading">
+        <h3 id="mutually-exclusive-heading">Mutually Exclusive Events</h3>
+
+        <div class="definition-box" role="note" aria-labelledby="def-mutually-exclusive">
+            <h4 id="def-mutually-exclusive">Definition: Mutually Exclusive Events</h4>
+            <p>Two events are <strong>mutually exclusive</strong> (or <strong>disjoint</strong>) if they cannot occur simultaneously. In other words, the occurrence of one event prevents the occurrence of the other. If \(A\) and \(B\) are mutually exclusive, then they have no outcomes in common, and their intersection is the empty set:</p>
+            \[A \cap B = \varnothing.\]
+            <p>Consequently,</p>
+            \[P(A \cap B)=0.\]
+        </div>
+
+        <p>For example, when a single six-sided die is rolled, let \(A\) be the event that the outcome is an even number, and let \(B\) be the event that the outcome is an odd number. Since no outcome can be both even and odd, the events are mutually exclusive. Likewise, when drawing one card from a standard deck, the events “drawing a king” and “drawing a queen” are mutually exclusive because a single card cannot be both a king and a queen.</p>
+
+        <p>For mutually exclusive events, the addition rule simplifies because there is no overlap between the events. Since</p>
+        \[P(A \cap B)=0,\]
+        <p>the probability that either \(A\) or \(B\) occurs is simply</p>
+        \[P(A \cup B)=P(A)+P(B).\]
+
+        <p>The Venn diagram would look like this:</p>
+
+        <!-- Image mth245_1_3_6 -->
+        <figure class="diagram">
+            <img
+                src="images/mth245_1_3_6.png"
+                alt="Venn diagram. A rectangle labeled S contains two separate circles that do not overlap: circle A on the left and circle B on the right."
+            />
+            <figcaption>Venn diagram of two mutually exclusive events.</figcaption>
+        </figure>
+
+        <p>It is important to distinguish mutually exclusive events from independent events.</p>
+        <ul>
+            <li>Mutually exclusive events cannot occur together.</li>
+            <li>Independent events can occur together, but knowing that one occurred does not change the probability of the other.</li>
+        </ul>
+
+        <p>Mutually exclusive does not mean independent.</p>
+
+        <p>If two events have positive probabilities and are mutually exclusive, they cannot be independent.</p>
+    </section>
+
+    <!-- ===================== INDEPENDENCE ===================== -->
+    <section aria-labelledby="independence-heading">
+        <h3 id="independence-heading">Independence of Events</h3>
+
+        <div class="definition-box" role="note" aria-labelledby="def-independent">
+            <h4 id="def-independent">Definition: Independent Events</h4>
+            <p>Two events are <strong>independent</strong> if knowing that one event occurred does not change the probability of the other event.</p>
+            <p>For independent events,</p>
+            \[P(A\mid B)=P(A)\]
+            <p>and</p>
+            \[P(B\mid A)=P(B).\]
+            <p>In other words, the occurrence of \(B\) provides no additional information about \(A\).</p>
+        </div>
+
+        <h3 id="independent-examples-heading">Examples of Independent Events</h3>
+        <ul>
+            <li>Tossing a coin twice. The first toss does not affect the second toss.</li>
+            <li>Rolling two dice. The result of one roll does not affect the second roll.</li>
+            <li>Selecting two cards with replacement. If I draw the ace of spades on the first draw and put it back, I can draw it the second time.</li>
+            <li>Selecting two colored marbles from a bag with replacement. If I draw a blue marble the first time, I can draw it the second time.</li>
+            <li>Drawing two students from a class on two separate days. If a student can be selected again on the second day and the selection is random in the same way, the selections can be treated as independent.</li>
+        </ul>
+    </section>
+
+    <section aria-labelledby="dependent-heading">
+        <h3 id="dependent-heading">Dependent Events</h3>
+
+        <div class="definition-box" role="note" aria-labelledby="def-dependent">
+            <h4 id="def-dependent">Definition: Dependent Events</h4>
+            <p>Events are <strong>dependent</strong> when the occurrence of one event changes the probability of another.</p>
+        </div>
+
+        <h3 id="dependent-examples-heading">Examples of Dependent Events</h3>
+        <ul>
+            <li>Determining whether a person has a disease after receiving test results. Or more formally, let \(A\) be the event that a person has a disease and \(B\) the event that the person's test is positive. The probability of \(A\) changes when we know that \(B\) occurred, so the events may be dependent.</li>
+            <li>Having a car accident while texting.</li>
+            <li>Selecting two cards without replacement. If I draw the ace of spades on the first draw but do not put it back, I cannot draw it the second time.</li>
+            <li>Selecting two colored marbles from a bag without replacement. If I draw a blue marble the first time but do not put it back, I cannot draw it the second time.</li>
+            <li>Selecting two students from a class on the same day. If I draw a boy first, then there are fewer boys for the second draw.</li>
+        </ul>
+
+        <p>Finally there are examples that are technically dependent, but the set is so large we can treat it as independent.</p>
+        <ul>
+            <li>Drawing two soldiers from the Army for a duty. Even though drawing a male for the first position technically reduced the number of male soldiers available for the second draw, with over 450,000 soldiers, that reduction does not significantly affect the probability.</li>
+            <li>Selecting two people from a very large population without replacement may sometimes be treated as approximately independent because removing one person has a negligible effect on the probabilities for the second selection.</li>
+        </ul>
+
+        <!-- Example 7 -->
+        <section class="example" aria-labelledby="ex-1-3-7-heading">
+            <div class="example-problem">
+                <h3 id="ex-1-3-7-heading">Example 7</h3>
+                <p>Evaluate the following data for independence:</p>
+                <div class="table-scroll">
+                    <table>
+                        <caption>Language and gender of 100 students</caption>
+                        <thead>
+                            <tr><th scope="col">Language</th><th scope="col">Male</th><th scope="col">Female</th><th scope="col">Total</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><th scope="row">Spanish</th><td>45</td><td>30</td><td>75</td></tr>
+                            <tr><th scope="row">French</th><td>15</td><td>10</td><td>25</td></tr>
+                            <tr><th scope="row">Total</th><td>60</td><td>40</td><td>100</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-1-3-7">
+                <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+            </button>
+            <div id="sol-1-3-7" class="example-content">
+                <div class="solution">
+                    <h4>Solution</h4>
+                    <p>Let \(S\) represent the event that a student speaks Spanish, and let \(M\) and \(F\) represent the events that a student is male or female, respectively.</p>
+                    <p>If language and gender are independent, then the probability of speaking Spanish should be the same regardless of gender.</p>
+                    <p>The overall probability of speaking Spanish is</p>
+                    \[P(S)=\frac{75}{100}=0.75.\]
+                    <p>The conditional probability of speaking Spanish given that the student is male is</p>
+                    \[P(S\mid M)=\frac{45}{60}=0.75.\]
+                    <p>The conditional probability of speaking Spanish given that the student is female is</p>
+                    \[P(S\mid F)=\frac{30}{40}=0.75.\]
+                    <p>Since</p>
+                    \[P(S\mid M)=P(S\mid F)=P(S),\]
+                    <p>the conditional probability of speaking Spanish is the same for males and females as it is for the overall population. Therefore, the events are independent.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Example 8 -->
+        <section class="example" aria-labelledby="ex-1-3-8-heading">
+            <div class="example-problem">
+                <h3 id="ex-1-3-8-heading">Example 8</h3>
+                <p>Evaluate the following data for independence:</p>
+                <div class="table-scroll">
+                    <table>
+                        <caption>Subject area and gender of 100 students</caption>
+                        <thead>
+                            <tr><th scope="col">Language</th><th scope="col">Male</th><th scope="col">Female</th><th scope="col">Total</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><th scope="row">STEM</th><td>36</td><td>16</td><td>52</td></tr>
+                            <tr><th scope="row">Language Arts</th><td>24</td><td>24</td><td>48</td></tr>
+                            <tr><th scope="row">Total</th><td>60</td><td>40</td><td>100</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-1-3-8">
+                <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+            </button>
+            <div id="sol-1-3-8" class="example-content">
+                <div class="solution">
+                    <h4>Solution</h4>
+                    <p>Let \(S\) represent the event that a student is in STEM, and let \(M\) and \(F\) represent the events that a student is male or female, respectively.</p>
+                    <p>To determine whether the variables are independent, compare the conditional probabilities.</p>
+                    <p>The overall probability that a randomly selected student is in STEM is</p>
+                    \[P(S)=\frac{52}{100}=0.52.\]
+                    <p>The probability that a student is in STEM given that the student is male is</p>
+                    \[P(S\mid M)=\frac{36}{60}=0.60.\]
+                    <p>The probability that a student is in STEM given that the student is female is</p>
+                    \[P(S\mid F)=\frac{16}{40}=0.40.\]
+                    <p>For independence, the conditional probabilities must equal the overall probability:</p>
+                    \[P(S\mid M)=P(S\mid F)=P(S).\]
+                    <p>However,</p>
+                    \[0.60\neq0.40\neq0.52.\]
+                    <p>Because the conditional probabilities differ from the overall probability, the variables are not independent. The data show an association between gender and STEM enrollment in this sample.</p>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- ===================== MULTIPLICATION RULES ===================== -->
+    <section aria-labelledby="multiplication-heading">
+        <h3 id="multiplication-heading">Multiplication Rules</h3>
+
+        <div class="definition-box" role="note" aria-labelledby="def-multiplication">
+            <h4 id="def-multiplication">The Multiplication Rules</h4>
+            <p>If events \(A\) and \(B\) are independent, then</p>
+            \[P(A\cap B)=P(A)P(B).\]
+            <p>For any two events \(A\) and \(B\),</p>
+            \[P(A\cap B)=P(A)P(B\mid A).\]
+            <p>If \(A\) and \(B\) are independent, this simplifies to the first equation.</p>
+        </div>
+
+        <!-- Example 9 -->
+        <section class="example" aria-labelledby="ex-1-3-9-heading">
+            <div class="example-problem">
+                <h3 id="ex-1-3-9-heading">Example 9</h3>
+                <p>Consider a bag with 10 marbles: two green, three red, and five blue.</p>
+
+                <!-- Image mth245_1_3_7 -->
+                <figure class="diagram">
+                    <img
+                        src="images/mth245_1_3_7.png"
+                        alt="A rectangle representing a bag that holds ten marbles drawn as circles. The top row has two green marbles and one red marble. The middle row has two blue marbles and two red marbles. The bottom row has three blue marbles. In total there are five blue, three red, and two green marbles."
+                    />
+                    <figcaption>A bag containing 5 blue, 3 red, and 2 green marbles.</figcaption>
+                </figure>
+
+                <p>Find the probability of drawing two green marbles</p>
+                <ol type="a">
+                    <li>with replacement;</li>
+                    <li>without replacement.</li>
+                </ol>
+            </div>
+            <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-1-3-9">
+                <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+            </button>
+            <div id="sol-1-3-9" class="example-content">
+                <div class="solution">
+                    <h4>Solution</h4>
+                    <p><strong>(a) With replacement.</strong></p>
+                    \[P(\text{Two Green})=P(G)P(G)=\frac{2}{10}\cdot\frac{2}{10}=\frac{4}{100}=0.04\]
+                    <p>The probability of drawing a green marble is the same on the second draw regardless of the result of the first draw, 0.2.</p>
+                    <p><strong>(b) Without replacement.</strong></p>
+                    \[P(\text{Two Green})=P(G)P(G\mid G)=\frac{2}{10}\cdot\frac{1}{9}=\frac{2}{90}=0.022\]
+                    <p>The probability of drawing a green marble the second time is significantly less if a green marble was drawn the first time (0.111) than if a different color was drawn the first time (0.222). Without replacement the probability of drawing green on the second draw depends on the outcome of the first draw.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Example 10 -->
+        <section class="example" aria-labelledby="ex-1-3-10-heading">
+            <div class="example-problem">
+                <h3 id="ex-1-3-10-heading">Example 10</h3>
+                <p>Evaluate the following data for independence using the multiplication rule:</p>
+                <div class="table-scroll">
+                    <table>
+                        <caption>Language and gender of 100 students</caption>
+                        <thead>
+                            <tr><th scope="col">Language</th><th scope="col">Male</th><th scope="col">Female</th><th scope="col">Total</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><th scope="row">Spanish</th><td>45</td><td>30</td><td>75</td></tr>
+                            <tr><th scope="row">French</th><td>15</td><td>10</td><td>25</td></tr>
+                            <tr><th scope="row">Total</th><td>60</td><td>40</td><td>100</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-1-3-10">
+                <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+            </button>
+            <div id="sol-1-3-10" class="example-content">
+                <div class="solution">
+                    <h4>Solution</h4>
+                    <p>For independent events,</p>
+                    \[P(S\cap M)=P(S)P(M).\]
+                    <p>The observed joint probability is</p>
+                    \[P(S\cap M)=\frac{45}{100}=0.45.\]
+                    <p>The product of the marginal probabilities is</p>
+                    \[P(S)P(M)=\left(\frac{75}{100}\right)\left(\frac{60}{100}\right)\]
+                    \[=0.75(0.60)=0.45.\]
+                    <p>Because</p>
+                    \[P(S\cap M)=P(S)P(M),\]
+                    <p>the events are independent.</p>
+                    <p>Therefore, language and gender are independent in this sample.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Example 11 -->
+        <section class="example" aria-labelledby="ex-1-3-11-heading">
+            <div class="example-problem">
+                <h3 id="ex-1-3-11-heading">Example 11</h3>
+                <p>Evaluate the following data for independence using the multiplication rule:</p>
+                <div class="table-scroll">
+                    <table>
+                        <caption>Subject area and gender of 100 students</caption>
+                        <thead>
+                            <tr><th scope="col">Language</th><th scope="col">Male</th><th scope="col">Female</th><th scope="col">Total</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><th scope="row">STEM</th><td>36</td><td>16</td><td>52</td></tr>
+                            <tr><th scope="row">Language Arts</th><td>24</td><td>24</td><td>48</td></tr>
+                            <tr><th scope="row">Total</th><td>60</td><td>40</td><td>100</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-1-3-11">
+                <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+            </button>
+            <div id="sol-1-3-11" class="example-content">
+                <div class="solution">
+                    <h4>Solution</h4>
+                    <p>We can also verify this result using the multiplication rule. If \(S\) and \(M\) were independent, then</p>
+                    \[P(S\cap M)=P(S)P(M).\]
+                    <p>The observed joint probability is</p>
+                    \[P(S\cap M)=\frac{36}{100}=0.36.\]
+                    <p>The product of the marginal probabilities is</p>
+                    \[P(S)P(M)=\left(\frac{52}{100}\right)\left(\frac{60}{100}\right)\]
+                    \[=0.52(0.60)=0.312.\]
+                    <p>Because</p>
+                    \[P(S\cap M)=0.36\neq0.312=P(S)P(M),\]
+                    <p>the multiplication rule for independent events is not satisfied.</p>
+                    <p>Therefore, language and gender are not independent in this sample.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Example 12 -->
+        <section class="example" aria-labelledby="ex-1-3-12-heading">
+            <div class="example-problem">
+                <h3 id="ex-1-3-12-heading">Example 12</h3>
+                <p>The table below outlines the passengers who traveled on the RMS Titanic, including details on passenger gender, age, and survival status.</p>
+                <div class="table-scroll">
+                    <table>
+                        <caption>RMS Titanic passengers by group and survival status</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Titanic</th>
+                                <th scope="col">Men (M)</th>
+                                <th scope="col">Women (W)</th>
+                                <th scope="col">Boys (B)</th>
+                                <th scope="col">Girls (G)</th>
+                                <th scope="col">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><th scope="row">Survived (S)</th><td>332</td><td>318</td><td>29</td><td>27</td><td>706</td></tr>
+                            <tr><th scope="row">Died (D)</th><td>1360</td><td>104</td><td>35</td><td>18</td><td>1517</td></tr>
+                            <tr><th scope="row">Total</th><td>1692</td><td>422</td><td>64</td><td>45</td><td>2223</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p>Find \(P(M)\), \(P(D)\), \(P(M\cap D)\), \(P(M\cup D)\), \(P(D\mid M)\), \(P(M\mid D)\), and \(P(M\oplus D)\).</p>
+            </div>
+            <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-1-3-12">
+                <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+            </button>
+            <div id="sol-1-3-12" class="example-content">
+                <div class="solution">
+                    <h4>Solution</h4>
+                    <p>Based on this data, we can find the following:</p>
+                    \[
+                    \begin{aligned}
+                    &amp; P(M) = \frac{1692}{2223}=0.761 \\[6pt]
+                    &amp; P(D) = \frac{1517}{2223}=0.682 \\[6pt]
+                    &amp; P(M \cap D) = \frac{1360}{2223}=0.612 \\[6pt]
+                    &amp; P(M \cup D) = \frac{332+1360+104+35+18}{2223}= \frac{1849}{2223}=0.832 \\[6pt]
+                    &amp; P(D\mid M) = \frac{1360}{1692}=0.804 \\[6pt]
+                    &amp; P(M\mid D) = \frac{1360}{1517}=0.897 \\[6pt]
+                    &amp; P(M \oplus D) = \frac{332+104+35+18}{2223}= \frac{489}{2223}=0.220
+                    \end{aligned}
+                    \]
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <hr class="divider" aria-hidden="true" />
+
+    <!-- ===================== TREE DIAGRAMS ===================== -->
+    <section aria-labelledby="tree-heading">
+        <h3 id="tree-heading">Tree Diagrams</h3>
+
+        <p>Many probability experiments involve a sequence of events. For example:</p>
+        <ul>
+            <li>Selecting two cards from a deck,</li>
+            <li>Testing a product twice,</li>
+            <li>Surveying individuals from different groups,</li>
+            <li>Observing a sequence of weather conditions.</li>
+        </ul>
+
+        <div class="definition-box" role="note" aria-labelledby="def-tree">
+            <h4 id="def-tree">Definition: Tree Diagram</h4>
+            <p>A <strong>tree diagram</strong> is a graphical method for organizing the possible outcomes of a compound event. Each branch represents a possible outcome, and the probability of a particular sequence of events is found by multiplying the probabilities along the corresponding path. To find the probability of an event represented by multiple mutually exclusive paths, add the probabilities of those paths.</p>
+        </div>
+
+        <p>Tree diagrams are especially useful when events occur in stages and when the probability of a later event depends on the outcome of an earlier event.</p>
+    </section>
+
+    <section aria-labelledby="constructing-heading">
+        <h3 id="constructing-heading">Constructing a Tree Diagram</h3>
+
+        <p>A tree diagram begins with the first event. Each possible outcome of that event is represented by a branch. From each branch, additional branches represent the possible outcomes of the next event.</p>
+
+        <p>For a two-stage experiment:</p>
+        \[\text{First Event} \longrightarrow \text{Second Event} \longrightarrow \text{Final Outcome}\]
+        <p>The probability of a complete outcome is the product of the probabilities along the path.</p>
+        \[P(A\cap B)=P(A)P(B\mid A).\]
+        <p>This is the same multiplication rule for any two events.</p>
+
+        <!-- Example 13 -->
+        <section class="example" aria-labelledby="ex-1-3-13-heading">
+            <div class="example-problem">
+                <h3 id="ex-1-3-13-heading">Example 13</h3>
+                <p>One marble is drawn from each of the two bags shown below. Bag 1 contains 3 red, 2 green, and 1 blue marble. Bag 2 contains 2 red, 3 green, and 2 blue marbles.</p>
+
+                <div class="diagram-row" role="group" aria-label="The two bags of marbles">
+                    <!-- Image mth245_1_3_8 -->
+                    <figure class="diagram">
+                        <img
+                            src="images/mth245_1_3_8.png"
+                            alt="Bag 1: a rectangle holding six marbles drawn as circles. The top row has one blue marble, the middle row has two green marbles, and the bottom row has three red marbles."
+                        />
+                        <figcaption>Bag 1</figcaption>
+                    </figure>
+                    <!-- Image mth245_1_3_9 -->
+                    <figure class="diagram">
+                        <img
+                            src="images/mth245_1_3_9.png"
+                            alt="Bag 2: a rectangle holding seven marbles drawn as circles. The top row has two blue marbles, the middle row has two green marbles, and the bottom row has two red marbles and one green marble."
+                        />
+                        <figcaption>Bag 2</figcaption>
+                    </figure>
+                </div>
+
+                <p>Represent the compound event on a tree diagram and find each probability.</p>
+                <ol type="a">
+                    <li>Two blue</li>
+                    <li>No blue</li>
+                    <li>One red and one green</li>
+                    <li>Exactly one red</li>
+                    <li>At least one red</li>
+                    <li>The marbles match</li>
+                </ol>
+            </div>
+            <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-1-3-13">
+                <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+            </button>
+            <div id="sol-1-3-13" class="example-content">
+                <div class="solution">
+                    <h4>Solution</h4>
+                    <p>If we draw one marble from each bag, we can represent the compound event on a tree diagram.</p>
+
+                    <!-- Image mth245_1_3_10 -->
+                    <figure class="diagram">
+                        <img
+                            src="images/mth245_1_3_10.png"
+                            alt="Tree diagram growing from left to right. A start node has three branches for the first marble, drawn from bag 1: Red 3/6, Green 2/6, and Blue 1/6. Each of those has three branches for the second marble, drawn from bag 2: Red 2/7, Green 3/7, and Blue 2/7. The nine final outcomes are labeled with their probabilities. First red: red 6/42, green 9/42, blue 6/42. First green: red 4/42, green 6/42, blue 4/42. First blue: red 2/42, green 3/42, blue 2/42."
+                        />
+                        <figcaption>Tree diagram for drawing one marble from each bag.</figcaption>
+                    </figure>
+
+                    <p>From this tree diagram, we can answer a variety of questions quickly and efficiently. Notice the fractions are not reduced on the far right. This makes checking our math easy. All possibilities add up to \(\frac{42}{42}=1\).</p>
+
+                    <p>Based on this data, we can find the following:</p>
+                    \[
+                    \begin{aligned}
+                    &amp; P(\text{Two Blue}) = \frac{2}{42} = \frac{1}{21} \\[6pt]
+                    &amp; P(\text{No Blue}) = \frac{6}{42}+\frac{4}{42}+\frac{9}{42}+\frac{6}{42}=\frac{25}{42} \\[6pt]
+                    &amp; P(\text{One Red, One Green}) = \frac{4}{42}+\frac{9}{42}= \frac{13}{42} \\[6pt]
+                    &amp; P(\text{Exactly One Red}) = \frac{2}{42}+\frac{4}{42}+\frac{6}{42}+\frac{9}{42}=\frac{21}{42}=\frac{1}{2} \\[6pt]
+                    &amp; P(\text{At Least One Red}) = \frac{2}{42}+\frac{4}{42}+\frac{6}{42}+\frac{9}{42}+\frac{6}{42}=\frac{27}{42}=\frac{9}{14} \\[6pt]
+                    &amp; P(\text{Marbles Match}) = \frac{2}{42}+\frac{6}{42}+\frac{6}{42}=\frac{14}{42}=\frac{1}{3}
+                    \end{aligned}
+                    \]
+                </div>
+            </div>
+        </section>
+
+        <!-- Example 14 -->
+        <section class="example" aria-labelledby="ex-1-3-14-heading">
+            <div class="example-problem">
+                <h3 id="ex-1-3-14-heading">Example 14</h3>
+                <p>A bag contains 4 red marbles and 1 green marble.</p>
+
+                <!-- Image mth245_1_3_11 -->
+                <figure class="diagram">
+                    <img
+                        src="images/mth245_1_3_11.png"
+                        alt="A rectangle representing a bag that holds five marbles drawn as circles. The top row has one red marble and one green marble. The bottom row has three red marbles."
+                    />
+                    <figcaption>A bag containing 4 red marbles and 1 green marble.</figcaption>
+                </figure>
+
+                <p>Two marbles are drawn, first with replacement and then without replacement. For each case, draw a tree diagram and find each probability.</p>
+                <ol type="a">
+                    <li>Two red</li>
+                    <li>No red</li>
+                    <li>One red and one green</li>
+                    <li>The marbles match</li>
+                </ol>
+            </div>
+            <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-1-3-14">
+                <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+            </button>
+            <div id="sol-1-3-14" class="example-content">
+                <div class="solution">
+                    <h4>Solution</h4>
+
+                    <p><strong>With replacement.</strong> If we draw two marbles with replacement, we can represent the compound event on a tree diagram.</p>
+
+                    <!-- Image mth245_1_3_12 -->
+                    <figure class="diagram">
+                        <img
+                            src="images/mth245_1_3_12.png"
+                            alt="Tree diagram for drawing two marbles with replacement. The first draw is Red 4/5 or Green 1/5. After either first draw, the second draw is again Red 4/5 or Green 1/5. The four final outcomes and their probabilities are red then red 16/25, red then green 4/25, green then red 4/25, and green then green 1/25."
+                        />
+                        <figcaption>Tree diagram for drawing two marbles with replacement.</figcaption>
+                    </figure>
+
+                    <p>Based on this data, we can find the following:</p>
+                    \[
+                    \begin{aligned}
+                    &amp; P(\text{Two Red}) = \frac{16}{25} \\[6pt]
+                    &amp; P(\text{No Red}) = \frac{1}{25} \\[6pt]
+                    &amp; P(\text{One Red, One Green}) = \frac{4}{25}+\frac{4}{25}=\frac{8}{25} \\[6pt]
+                    &amp; P(\text{Marbles Match}) = \frac{16}{25}+\frac{1}{25}=\frac{17}{25}
+                    \end{aligned}
+                    \]
+                    <p>Notice that the first three are the only possibilities and the total probability adds up to 1.</p>
+
+                    <hr class="divider" role="separator" aria-hidden="true" />
+
+                    <p><strong>Without replacement.</strong> If we draw two marbles without replacement, we can represent the compound event on a tree diagram.</p>
+
+                    <!-- Image mth245_1_3_13 -->
+                    <figure class="diagram">
+                        <img
+                            src="images/mth245_1_3_13.png"
+                            alt="Tree diagram for drawing two marbles without replacement. The first draw is Red 4/5 or Green 1/5. After a red first draw, the second draw is Red 3/4 or Green 1/4. After a green first draw, the second draw is Red 4/4 or Green 0/4. The four final outcomes and their probabilities are red then red 12/20, red then green 4/20, green then red 4/20, and green then green 0/20."
+                        />
+                        <figcaption>Tree diagram for drawing two marbles without replacement.</figcaption>
+                    </figure>
+
+                    <p>Based on this data, we can find the following:</p>
+                    \[
+                    \begin{aligned}
+                    &amp; P(\text{Two Red}) = \frac{12}{20} \\[6pt]
+                    &amp; P(\text{No Red}) = \frac{0}{20} \\[6pt]
+                    &amp; P(\text{One Red, One Green}) = \frac{4}{20}+\frac{4}{20}=\frac{8}{20} \\[6pt]
+                    &amp; P(\text{Marbles Match}) = \frac{12}{20}
+                    \end{aligned}
+                    \]
+                    <p>Notice that the only outcomes with positive probability are RR, RG, and GR because the bag contains only one green marble. Drawing without replacement assigns drawing two green a probability of zero as there is only one green marble.</p>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- ===================== KEY IDEAS ===================== -->
+    <section aria-labelledby="key-ideas-heading">
+        <p>Compound events allow us to study situations involving multiple events and the relationships between them. The important ideas are:</p>
+
+        <div class="definition-box" role="note" aria-labelledby="key-ideas-heading">
+            <h4 id="key-ideas-heading">Key Ideas</h4>
+            <ul>
+                <li>The union \((A \cup B)\) represents outcomes in \(A\), \(B\), or both.</li>
+                <li>The intersection \((A \cap B)\) represents outcomes that belong to both \(A\) and \(B\).</li>
+                <li>Venn diagrams and tree diagrams provide a visual way to analyze relationships among events.</li>
+                <li>Conditional probability measures the probability of one event given that another event has occurred.</li>
+                <li>Independent events do not influence each other's probabilities.</li>
+                <li>The multiplication rule for independent events is
+                    \[P(A \cap B)=P(A)P(B).\]
+                </li>
+                <li>The multiplication rule for any two events is
+                    \[P(A \cap B)=P(A)P(B\mid A).\]
+                </li>
+            </ul>
+        </div>
+
+        <p>These concepts form the foundation for more advanced topics in probability, including Bayes' theorem, random variables, and probability distributions.</p>
+    </section>
+
+    <nav class="page-nav" aria-label="Section navigation">
+        <a class="nav-button" href="mth245_ch1_2.html">Previous: 1.2 What is Probability?</a>
+        <a class="nav-button" href="mth245_ch1_4.html">Next: 1.4 Counting Techniques</a>
+    </nav>
+
+</main>
+
+<script>
+    function toggleExample(button) {
+        var content = button.nextElementSibling;
+        var arrow = button.querySelector('.toggle-arrow');
+        var label = button.querySelector('span:last-child');
+
+        if (content.classList.contains('open')) {
+            content.classList.remove('open');
+            arrow.classList.remove('open');
+            label.textContent = 'Show Solution';
+            button.setAttribute('aria-expanded', 'false');
+        } else {
+            content.classList.add('open');
+            arrow.classList.add('open');
+            label.textContent = 'Hide Solution';
+            button.setAttribute('aria-expanded', 'true');
+        }
+    }
+</script>
+
+<script>
+    fetch('toc.html')
+        .then(function (response) {
+            if (!response.ok) { throw new Error('TOC not found'); }
+            return response.text();
+        })
+        .then(function (data) {
+            document.getElementById('toc-placeholder').innerHTML = data;
+
+            document.querySelectorAll('.toc-chapter').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var expanded = button.getAttribute('aria-expanded') === 'true';
+                    button.setAttribute('aria-expanded', String(!expanded));
+                    document.getElementById(button.getAttribute('aria-controls')).classList.toggle('open');
+                });
+            });
+
+            // Mark the current page and open its chapter
+            var page = window.location.pathname.split('/').pop();
+            var current = document.querySelector('.toc-submenu a[href="' + page + '"]');
+            if (current) {
+                current.setAttribute('aria-current', 'page');
+                var menu = current.closest('.toc-submenu');
+                menu.classList.add('open');
+                var chapterButton = document.querySelector('[aria-controls="' + menu.id + '"]');
+                if (chapterButton) { chapterButton.setAttribute('aria-expanded', 'true'); }
+            }
+        })
+        .catch(function () { /* TOC unavailable: page content still works */ });
+</script>
+
+</body>
+</html>

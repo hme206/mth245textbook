@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MTH 245 – Ch 1.6: Exercises</title>
+
+    <!-- MathJax configuration (single $ intentionally disabled so dollar amounts never collide with math) -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]'], ['$$', '$$']],
+                packages: {'[+]': ['color']}
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            },
+            loader: {
+                load: ['[tex]/color']
+            }
+        };
+    </script>
+    <script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+
+    <link rel="stylesheet" href="styles1.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div id="toc-placeholder"></div>
+
+<main class="container" id="main-content" tabindex="-1">
+
+    <h1>Chapter 1: Probability Theory</h1>
+    <h2 id="section-1-6">Section 1.6: Exercises</h2>
+
+    <p>The following exercises review the major concepts introduced in this chapter. Show your work and simplify answers when appropriate. Unless otherwise stated, assume that coins, dice, cards, and other random devices are fair and that selections are random.</p>
+
+    <section class="exercises-section" aria-labelledby="section-1-6">
+        <button class="exercises-header" onclick="toggleExercises(this)" aria-expanded="false" aria-controls="exercises-1-6-content">
+            <span class="toggle-arrow" aria-hidden="true">▼</span>
+            <span>Show Exercises</span>
+        </button>
+
+        <div id="exercises-1-6-content" class="exercises-content" role="region" aria-labelledby="section-1-6">
+
+            <!-- ===== Basic Probability: 1-5 ===== -->
+            <h3>Basic Probability</h3>
+            <ol start="1">
+                <li>A fair six-sided die is rolled once. What is the probability of rolling a 4?</li>
+                <li>A fair six-sided die is rolled once. What is the probability of rolling an even number?</li>
+                <li>A fair coin is tossed once. What is the probability of obtaining tails?</li>
+                <li>A standard deck contains 52 cards. What is the probability of drawing a heart?</li>
+                <li>A bag contains 5 red marbles, 3 blue marbles, and 2 green marbles. One marble is selected at random. What is the probability of selecting a blue marble?</li>
+            </ol>
+
+            <!-- ===== Sample Spaces and Events: 6-10 ===== -->
+            <h3>Sample Spaces and Events</h3>
+            <ol start="6">
+                <li>A coin is tossed twice. List the sample space.</li>
+                <li>A six-sided die is rolled once. Let \(A\) be the event that an odd number is rolled. List the outcomes in \(A\).</li>
+                <li>A coin is tossed and then a six-sided die is rolled. How many outcomes are in the sample space? Describe the sample space.</li>
+                <li>One card is selected from a standard deck. Describe the sample space if only the color of the card is recorded.</li>
+                <li>A spinner has four equal sections labeled \(1\), \(2\), \(3\), and \(4\). The spinner is spun twice. List the outcomes in the event that the two spins have the same number.</li>
+            </ol>
+
+            <!-- ===== Complements: 11-15 ===== -->
+            <h3>Complements</h3>
+            <ol start="11">
+                <li>If \(P(A)=0.37\), find \(P(A^c)\).</li>
+                <li>A fair six-sided die is rolled. Let \(A\) be the event of rolling a number greater than 2. Find \(P(A^c)\).</li>
+                <li>The probability that a randomly selected student owns a laptop is \(0.84\). What is the probability that the student does not own a laptop?</li>
+                <li>In a survey, 62% of respondents reported that they exercise regularly. What percentage does not exercise regularly?</li>
+                <li>The probability that a package arrives late is \(0.08\). What is the probability that the package does not arrive late?</li>
+            </ol>
+
+            <!-- ===== Unions and Intersections: 16-20 ===== -->
+            <h3>Unions and Intersections</h3>
+            <ol start="16">
+                <li>A fair die is rolled. Let \(A\) be the event of rolling an even number and \(B\) be the event of rolling a number greater than 3. List \(A\cap B\) and \(A\cup B\).</li>
+                <li>Suppose \(P(A)=0.45\), \(P(B)=0.35\), and \(P(A\cap B)=0.15\). Find \(P(A\cup B)\).</li>
+                <li>In a class of 40 students, 24 students own a laptop, 18 own a tablet, and 12 own both. How many students own a laptop or a tablet?</li>
+                <li>A standard deck of cards is used. Let \(A\) be the event of drawing a king and \(B\) be the event of drawing a heart. Find \(P(A\cap B)\) and \(P(A\cup B)\).</li>
+                <li>A die is rolled once. Let \(A\) be the event of rolling an odd number and \(B\) be the event of rolling a number less than 4. Find \(P(A\cap B)\) and \(P(A\cup B)\).</li>
+            </ol>
+
+            <!-- ===== Venn Diagrams: 21-25 ===== -->
+            <h3>Venn Diagrams</h3>
+            <p>For each problem, draw a Venn diagram before answering the questions.</p>
+            <ol start="21">
+                <li>In a class of 50 students, 28 take mathematics, 24 take science, and 15 take both. How many students take mathematics only, science only, and neither?</li>
+                <li>In a survey of 100 people, 60 drink coffee, 45 drink tea, and 25 drink both. Find the number who drink only coffee, only tea, both, and neither.</li>
+                <li>In a group of 80 students, 42 play basketball, 35 play soccer, and 18 play both. Find the number who play at least one sport and the number who play neither sport.</li>
+                <li>In a class of 60 students, 32 own a laptop, 27 own a tablet, and 14 own both. Find:
+                    <ol type="a">
+                        <li>the number who own only a laptop;</li>
+                        <li>the number who own only a tablet;</li>
+                        <li>the number who own at least one device;</li>
+                        <li>the number who own neither device.</li>
+                    </ol>
+                </li>
+                <li>In a survey of 100 students, 55 take mathematics, 48 take science, 35 take engineering, 20 take both mathematics and science, 15 take both mathematics and engineering, 12 take both science and engineering, and 5 take all three. Determine the number of students in each of the eight regions of the three-set Venn diagram.</li>
+            </ol>
+
+            <!-- ===== Conditional Probability: 26-30 ===== -->
+            <h3>Conditional Probability</h3>
+            <ol start="26">
+                <li>A class contains 30 students. Of these, 18 are taking mathematics and 12 of the mathematics students are also taking physics. Find the probability that a randomly selected mathematics student is taking physics.</li>
+                <li>In a survey of 100 students, 60 are female and 24 of the female students own a car. Find \(P(\text{car} \mid \text{female})\).</li>
+                <li>A standard deck of cards is used. Given that the card drawn is a face card, what is the probability that it is a king?</li>
+                <li>A bag contains 6 red marbles and 4 blue marbles. Two marbles are drawn without replacement. Find the probability that the second marble is blue given that the first marble was red.</li>
+                <li>In a group of 200 employees, 80 work remotely and 30 of those remote employees work in the IT department. What is the probability that a randomly selected remote employee works in IT?</li>
+            </ol>
+
+            <!-- ===== Independence: 31-35 ===== -->
+            <h3>Independence</h3>
+            <p>Determine whether the events in each problem are independent. Justify your answer.</p>
+            <ol start="31">
+                <li>A fair coin is tossed twice. Let \(A\) be the event that the first toss is heads and \(B\) be the event that the second toss is heads.</li>
+                <li>A fair die is rolled once. Let \(A\) be the event that the result is even and \(B\) be the event that the result is greater than 3. Determine whether \(A\) and \(B\) are independent.</li>
+                <li>A card is drawn from a standard deck, replaced, and a second card is drawn. Let \(A\) be the event that the first card is an ace and \(B\) be the event that the second card is an ace. Are \(A\) and \(B\) independent?</li>
+                <li>A card is drawn from a standard deck and not replaced. Let \(A\) be the event that the first card is an ace and \(B\) be the event that the second card is an ace. Are \(A\) and \(B\) independent?</li>
+                <li>The following table summarizes 100 students.
+                    <div class="table-scroll">
+                        <table>
+                            <caption>Subject area and gender of students</caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col"><span class="visually-hidden">Subject area</span></th>
+                                    <th scope="col">Male</th>
+                                    <th scope="col">Female</th>
+                                    <th scope="col">Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><th scope="row">STEM</th><td>30</td><td>20</td><td>50</td></tr>
+                                <tr><th scope="row">Non-STEM</th><td>15</td><td>10</td><td>25</td></tr>
+                                <tr><th scope="row">Total</th><td>45</td><td>30</td><td>75</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    Let \(S\) be the event that a student is in STEM and \(M\) be the event that a student is male. Determine whether \(S\) and \(M\) are independent using the multiplication rule.
+                </li>
+            </ol>
+
+            <!-- ===== Tree Diagrams: 36-40 ===== -->
+            <h3>Tree Diagrams</h3>
+            <p>Draw a tree diagram for each problem and use it to calculate the requested probability.</p>
+            <ol start="36">
+                <li>A fair coin is tossed twice. Find the probability of obtaining exactly one head.</li>
+                <li>A bag contains 4 red marbles and 6 blue marbles. Two marbles are selected with replacement. Find the probability of selecting two red marbles.</li>
+                <li>A bag contains 4 red marbles and 6 blue marbles. Two marbles are selected without replacement. Find the probability of selecting two red marbles.</li>
+                <li>A student randomly chooses one of three transportation methods to school: car with probability \(0.50\), bus with probability \(0.30\), and walking with probability \(0.20\). If the student takes the bus, the probability of being late is \(0.10\). If the student drives, the probability of being late is \(0.05\). If the student walks, the probability of being late is \(0.15\). Find the probability that the student is late.</li>
+                <li>A manufacturing process produces 90% acceptable components and 10% defective components. Two components are selected independently. Find the probability that:
+                    <ol type="a">
+                        <li>both are acceptable;</li>
+                        <li>exactly one is defective;</li>
+                        <li>at least one is defective.</li>
+                    </ol>
+                </li>
+            </ol>
+
+            <!-- ===== Counting Techniques: 41-45 ===== -->
+            <h3>Counting Techniques</h3>
+            <ol start="41">
+                <li>A restaurant offers 5 sandwiches, 4 side dishes, and 3 beverages. How many different meals can be created by selecting one sandwich, one side dish, and one beverage?</li>
+                <li>How many ways can 7 students be arranged in a single row?</li>
+                <li>Eight runners compete in a race. In how many different ways can first, second, and third place be awarded?</li>
+                <li>A committee of 5 students is selected from a group of 12 students. How many different committees are possible?</li>
+                <li>How many distinct arrangements can be made using all the letters in the word
+                    \[\text{MISSISSIPPI}?\]
+                </li>
+            </ol>
+
+            <!-- ===== Mixed and Application Problems: 46-50 ===== -->
+            <h3>Mixed and Application Problems</h3>
+            <ol start="46">
+                <li>A college surveys 200 students about whether they own a laptop and a tablet. The results are:
+                    <div class="table-scroll">
+                        <table>
+                            <caption>Laptop and tablet ownership among 200 students</caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col"><span class="visually-hidden">Laptop ownership</span></th>
+                                    <th scope="col">Tablet</th>
+                                    <th scope="col">No Tablet</th>
+                                    <th scope="col">Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><th scope="row">Laptop</th><td>70</td><td>50</td><td>120</td></tr>
+                                <tr><th scope="row">No Laptop</th><td>30</td><td>50</td><td>80</td></tr>
+                                <tr><th scope="row">Total</th><td>100</td><td>100</td><td>200</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    Find:
+                    <ol type="a">
+                        <li>\(P(\text{Laptop})\);</li>
+                        <li>\(P(\text{Tablet})\);</li>
+                        <li>\(P(\text{Laptop}\cap\text{Tablet})\);</li>
+                        <li>\(P(\text{Laptop}\cup\text{Tablet})\);</li>
+                        <li>\(P(\text{Tablet}\mid\text{Laptop})\);</li>
+                        <li>whether owning a laptop and owning a tablet are independent.</li>
+                    </ol>
+                </li>
+                <li>A standard deck of cards is shuffled. Two cards are drawn without replacement. Find the probability that both cards are aces.</li>
+                <li>A password consists of 3 letters followed by 2 digits. Letters may be repeated, and digits may be repeated. How many different passwords are possible if there are 26 letters and 10 digits?</li>
+                <li>A box contains 5 defective products and 45 nondefective products. Two products are selected without replacement. Find:
+                    <ol type="a">
+                        <li>the probability that both are nondefective;</li>
+                        <li>the probability that exactly one is defective;</li>
+                        <li>the probability that at least one is defective.</li>
+                    </ol>
+                </li>
+                <li>A school has 120 students. Forty-five students participate in athletics, 50 participate in music, and 20 participate in both. A student is selected at random.
+                    <ol type="a">
+                        <li>What is the probability that the student participates in athletics or music?</li>
+                        <li>What is the probability that the student participates in neither?</li>
+                        <li>Given that the student participates in music, what is the probability that the student also participates in athletics?</li>
+                        <li>Are participation in athletics and music mutually exclusive?</li>
+                        <li>Are the events independent? Justify your answer.</li>
+                    </ol>
+                </li>
+            </ol>
+
+        </div><!-- end exercises-content -->
+    </section>
+
+    <nav class="page-nav" aria-label="Section navigation">
+        <a class="nav-button" href="mth245_ch1_5.html">Previous: 1.5 Summary</a>
+    </nav>
+
+</main>
+
+<script>
+    function toggleExercises(button) {
+        var content = document.getElementById(button.getAttribute('aria-controls'));
+        var arrow = button.querySelector('.toggle-arrow');
+        var label = button.querySelector('span:last-child');
+
+        if (content.classList.contains('open')) {
+            content.classList.remove('open');
+            arrow.classList.remove('open');
+            label.textContent = 'Show Exercises';
+            button.setAttribute('aria-expanded', 'false');
+        } else {
+            content.classList.add('open');
+            arrow.classList.add('open');
+            label.textContent = 'Hide Exercises';
+            button.setAttribute('aria-expanded', 'true');
+        }
+    }
+</script>
+
+<script>
+    fetch('toc.html')
+        .then(function (response) {
+            if (!response.ok) { throw new Error('TOC not found'); }
+            return response.text();
+        })
+        .then(function (data) {
+            document.getElementById('toc-placeholder').innerHTML = data;
+
+            document.querySelectorAll('.toc-chapter').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var expanded = button.getAttribute('aria-expanded') === 'true';
+                    button.setAttribute('aria-expanded', String(!expanded));
+                    document.getElementById(button.getAttribute('aria-controls')).classList.toggle('open');
+                });
+            });
+
+            // Mark the current page and open its chapter
+            var page = window.location.pathname.split('/').pop();
+            var current = document.querySelector('.toc-submenu a[href="' + page + '"]');
+            if (current) {
+                current.setAttribute('aria-current', 'page');
+                var menu = current.closest('.toc-submenu');
+                menu.classList.add('open');
+                var chapterButton = document.querySelector('[aria-controls="' + menu.id + '"]');
+                if (chapterButton) { chapterButton.setAttribute('aria-expanded', 'true'); }
+            }
+        })
+        .catch(function () { /* TOC unavailable: page content still works */ });
+</script>
+
+</body>
+</html>

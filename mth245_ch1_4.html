@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MTH 245 – Ch 1.4: Counting Techniques</title>
+
+    <!-- MathJax configuration (single $ intentionally disabled so dollar amounts never collide with math) -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]'], ['$$', '$$']],
+                packages: {'[+]': ['color']}
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            },
+            loader: {
+                load: ['[tex]/color']
+            }
+        };
+    </script>
+    <script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+
+    <link rel="stylesheet" href="styles1.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div id="toc-placeholder"></div>
+
+<main class="container" id="main-content" tabindex="-1">
+
+    <h1>Chapter 1: Probability Theory</h1>
+    <h2 id="section-1-4">Section 1.4: Counting Techniques</h2>
+
+    <p>Many probability problems begin with a simple question: How many possible outcomes are there?</p>
+
+    <p>Rather than listing every possible outcome, mathematicians use <strong>combinatorics</strong>, the mathematics of counting.</p>
+
+    <p>Combinatorial methods provide efficient techniques for determining the number of possible outcomes without omission or duplication. These methods form the foundation for many probability calculations.</p>
+
+    <hr class="divider" aria-hidden="true" />
+
+    <!-- ===================== FUNDAMENTAL COUNTING PRINCIPLE ===================== -->
+    <section aria-labelledby="fcp-heading">
+        <h3 id="fcp-heading">The Fundamental Counting Principle</h3>
+
+        <div class="definition-box" role="note" aria-labelledby="def-fcp">
+            <h4 id="def-fcp">The Fundamental Counting Principle</h4>
+            <p>Suppose a process consists of several stages. If there are \(n_1\) possible choices for the first stage, \(n_2\) possible choices for the second stage for each allowable first-stage choice, and so on, then the total number of possible outcomes is</p>
+            \[n_1n_2\cdots n_k.\]
+            <p>This result is known as the <strong>Fundamental Counting Principle</strong>.</p>
+        </div>
+
+        <!-- Example 1 -->
+        <section class="example" aria-labelledby="ex-1-4-1-heading">
+            <div class="example-problem">
+                <h3 id="ex-1-4-1-heading">Example 1</h3>
+                <p>A restaurant offers</p>
+                <ul>
+                    <li>4 sandwiches,</li>
+                    <li>3 side dishes,</li>
+                    <li>5 beverages.</li>
+                </ul>
+                <p>How many different meals are possible?</p>
+            </div>
+            <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-1-4-1">
+                <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+            </button>
+            <div id="sol-1-4-1" class="example-content">
+                <div class="solution">
+                    <h4>Solution</h4>
+                    <p>The total number of meals is</p>
+                    \[4(3)(5)=60.\]
+                    <p>Therefore, 60 different meals are possible.</p>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- ===================== FACTORIAL ===================== -->
+    <section aria-labelledby="factorial-heading">
+        <h3 id="factorial-heading">Factorial Notation</h3>
+
+        <p>Many counting formulas involve the product of consecutive positive integers. The <strong>factorial</strong> function provides a convenient notation for these products.</p>
+
+        <div class="definition-box" role="note" aria-labelledby="def-factorial">
+            <h4 id="def-factorial">Definition: Factorial</h4>
+            <p>For any positive integer \(n\),</p>
+            \[n!=n(n-1)(n-2)\cdots3\cdot2\cdot1.\]
+            <p>By definition,</p>
+            \[0!=1 \quad\text{and}\quad 1!=1.\]
+        </div>
+
+        <!-- Example 2 -->
+        <section class="example" aria-labelledby="ex-1-4-2-heading">
+            <div class="example-problem">
+                <h3 id="ex-1-4-2-heading">Example 2</h3>
+                <p>Evaluate each expression.</p>
+                <ol type="a">
+                    <li>\(5!\)</li>
+                    <li>\(8!\)</li>
+                    <li>\(\dfrac{7!}{5!}\)</li>
+                </ol>
+            </div>
+            <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-1-4-2">
+                <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+            </button>
+            <div id="sol-1-4-2" class="example-content">
+                <div class="solution">
+                    <h4>Solution</h4>
+                    \[5!=5(4)(3)(2)(1)=120\]
+                    \[8!=40320\]
+                    \[\frac{7!}{5!}=\frac{7\cdot6\cdot5!}{5!}=42.\]
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- ===================== PERMUTATIONS OF n ===================== -->
+    <section aria-labelledby="perm-n-heading">
+        <h3 id="perm-n-heading">Permutations of \(n\) Objects</h3>
+
+        <div class="definition-box" role="note" aria-labelledby="def-perm-n">
+            <h4 id="def-perm-n">Definition: Permutation</h4>
+            <p>A <strong>permutation</strong> is an arrangement in which order is important.</p>
+            <p>If all \(n\) distinct objects are arranged, then</p>
+            \[{}_nP_n=n!\]
+            <p>since there are</p>
+            \[n(n-1)(n-2)\cdots2(1)=n!\]
+            <p>possible arrangements.</p>
+        </div>
+
+        <!-- Example 3 -->
+        <section class="example" aria-labelledby="ex-1-4-3-heading">
+            <div class="example-problem">
+                <h3 id="ex-1-4-3-heading">Example 3</h3>
+                <p>How many ways can five students stand in a line?</p>
+            </div>
+            <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-1-4-3">
+                <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+            </button>
+            <div id="sol-1-4-3" class="example-content">
+                <div class="solution">
+                    <h4>Solution</h4>
+                    \[{}_5P_5=5!=120.\]
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- ===================== PERMUTATIONS OF r ===================== -->
+    <section aria-labelledby="perm-r-heading">
+        <h3 id="perm-r-heading">Permutations of \(r\) Objects</h3>
+
+        <div class="definition-box" role="note" aria-labelledby="def-perm-r">
+            <h4 id="def-perm-r">Permutations of \(r\) Objects</h4>
+            <p>Suppose only \(r\) objects are selected from \(n\) distinct objects and order matters.</p>
+            <p>The number of possible arrangements is</p>
+            \[{}_nP_r=\frac{n!}{(n-r)!}.\]
+        </div>
+
+        <!-- Example 4 -->
+        <section class="example" aria-labelledby="ex-1-4-4-heading">
+            <div class="example-problem">
+                <h3 id="ex-1-4-4-heading">Example 4</h3>
+                <p>Eight runners compete for first, second, and third place. Determine the number of possible finishes.</p>
+            </div>
+            <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-1-4-4">
+                <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+            </button>
+            <div id="sol-1-4-4" class="example-content">
+                <div class="solution">
+                    <h4>Solution</h4>
+                    \[{}_8P_3=\frac{8!}{5!}=8(7)(6)=336.\]
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- ===================== REPEATED OBJECTS ===================== -->
+    <section aria-labelledby="repeated-heading">
+        <h3 id="repeated-heading">Permutations with Repeated Objects</h3>
+
+        <p>When identical objects occur, exchanging identical objects does not produce a new arrangement.</p>
+
+        <div class="definition-box" role="note" aria-labelledby="def-repeated">
+            <h4 id="def-repeated">Permutations with Repeated Objects</h4>
+            <p>If \(n\) objects contain</p>
+            \[n_1,n_2,\ldots,n_k\]
+            <p>identical objects of various types, then the number of distinct arrangements is</p>
+            \[\frac{n!}{n_1!n_2!\cdots n_k!}\]
+        </div>
+
+        <!-- Example 5 -->
+        <section class="example" aria-labelledby="ex-1-4-5-heading">
+            <div class="example-problem">
+                <h3 id="ex-1-4-5-heading">Example 5</h3>
+                <p>Determine the number of distinct arrangements of the letters in</p>
+                \[\text{STATISTICS}.\]
+            </div>
+            <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-1-4-5">
+                <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+            </button>
+            <div id="sol-1-4-5" class="example-content">
+                <div class="solution">
+                    <h4>Solution</h4>
+                    <p>STATISTICS contains 10 letters: 3 S's, 3 T's, 2 I's, 1 A, and 1 C.</p>
+                    <p>Therefore,</p>
+                    \[\frac{10!}{3!3!2!}=50400.\]
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- ===================== COMBINATIONS ===================== -->
+    <section aria-labelledby="combinations-heading">
+        <h3 id="combinations-heading">Combinations</h3>
+
+        <div class="definition-box" role="note" aria-labelledby="def-combination">
+            <h4 id="def-combination">Definition: Combination</h4>
+            <p>A <strong>combination</strong> is a selection in which order is not important.</p>
+            <p>The number of ways to choose \(r\) objects from \(n\) distinct objects is</p>
+            \[{}_nC_r=\binom{n}{r}=\frac{n!}{r!(n-r)!}.\]
+        </div>
+
+        <p>Notice that there are two common notations for representing combinations: \({}_{n}C_{r}\) and \(\binom{n}{r}\).</p>
+
+        <!-- Example 6 -->
+        <section class="example" aria-labelledby="ex-1-4-6-heading">
+            <div class="example-problem">
+                <h3 id="ex-1-4-6-heading">Example 6</h3>
+                <p>A committee of four students is selected from ten students. Determine the number of possible committees.</p>
+            </div>
+            <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-1-4-6">
+                <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+            </button>
+            <div id="sol-1-4-6" class="example-content">
+                <div class="solution">
+                    <h4>Solution</h4>
+                    \[\binom{10}{4}=\frac{10!}{4!6!}=210.\]
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- ===================== PERMUTATIONS VS COMBINATIONS ===================== -->
+    <section aria-labelledby="perm-vs-comb-heading">
+        <h3 id="perm-vs-comb-heading">Permutations versus Combinations</h3>
+
+        <p>A useful question to ask is, does changing the order produce a different outcome?</p>
+
+        <p>If the answer is</p>
+        <ul>
+            <li>Yes, use a permutation.</li>
+            <li>No, use a combination.</li>
+        </ul>
+
+        <div class="table-scroll">
+            <table>
+                <caption>Choosing between permutations and combinations</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Situation</th>
+                        <th scope="col">Order Matters?</th>
+                        <th scope="col">Method</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><th scope="row">Selection of Class Officers</th><td>Yes</td><td>Permutation</td></tr>
+                    <tr><th scope="row">Race Finish</th><td>Yes</td><td>Permutation</td></tr>
+                    <tr><th scope="row">Seating Arrangement</th><td>Yes</td><td>Permutation</td></tr>
+                    <tr><th scope="row">Committee</th><td>No</td><td>Combination</td></tr>
+                    <tr><th scope="row">Jury Selection</th><td>No</td><td>Combination</td></tr>
+                    <tr><th scope="row">Lottery Numbers</th><td>No</td><td>Combination</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- ===================== PASCAL'S TRIANGLE ===================== -->
+    <section aria-labelledby="pascal-heading">
+        <h3 id="pascal-heading">Pascal's Triangle</h3>
+
+        <p>A useful tool for computing combinations is <strong>Pascal's Triangle</strong>. This is a simple numerical pattern that generates every combination without directly using the combination formula.</p>
+
+        <p>The triangle begins with a single 1. Each subsequent row begins and ends with 1, and every interior entry is obtained by adding the two entries directly above it.</p>
+
+        \[
+        \begin{array}{ccccccccccccc}
+        &amp;&amp;&amp;&amp;&amp;&amp;1\\[2mm]
+        &amp;&amp;&amp;&amp;&amp;1&amp;&amp;1\\[2mm]
+        &amp;&amp;&amp;&amp;1&amp;&amp;2&amp;&amp;1\\[2mm]
+        &amp;&amp;&amp;1&amp;&amp;3&amp;&amp;3&amp;&amp;1\\[2mm]
+        &amp;&amp;1&amp;&amp;4&amp;&amp;6&amp;&amp;4&amp;&amp;1\\[2mm]
+        &amp;1&amp;&amp;5&amp;&amp;10&amp;&amp;10&amp;&amp;5&amp;&amp;1\\[2mm]
+        1&amp;&amp;6&amp;&amp;15&amp;&amp;20&amp;&amp;15&amp;&amp;6&amp;&amp;1
+        \end{array}
+        \]
+
+        <p>For example,</p>
+        \[6=3+3,\qquad 10=4+6,\qquad 20=10+10.\]
+        <p>Thus, every interior number is the sum of the two numbers immediately above it.</p>
+    </section>
+
+    <section aria-labelledby="pascal-comb-heading">
+        <h3 id="pascal-comb-heading">Relationship to Combinations</h3>
+
+        <p>Each row of Pascal's Triangle contains the combinations for a fixed value of \(n\). Specifically, if the top row is numbered 0, then \({}_{n}C_{r}\) is the \((r+1)\)st entry of row \(n\).</p>
+
+        <p>For example, the row</p>
+        \[1\qquad5\qquad10\qquad10\qquad5\qquad1\]
+        <p>corresponds to</p>
+        \[
+        {}_{5}C_{0},\;
+        {}_{5}C_{1},\;
+        {}_{5}C_{2},\;
+        {}_{5}C_{3},\;
+        {}_{5}C_{4},\;
+        {}_{5}C_{5}.
+        \]
+        <p>Evaluating each combination,</p>
+        \[
+        \begin{aligned}
+        {}_{5}C_{0} &amp;=1,\\
+        {}_{5}C_{1} &amp;=5,\\
+        {}_{5}C_{2} &amp;=10,\\
+        {}_{5}C_{3} &amp;=10,\\
+        {}_{5}C_{4} &amp;=5,\\
+        {}_{5}C_{5} &amp;=1.
+        \end{aligned}
+        \]
+        <p>Notice that these values exactly match the entries in Pascal's Triangle.</p>
+    </section>
+
+    <section aria-labelledby="pascal-perm-heading">
+        <h3 id="pascal-perm-heading">Relationship to Permutations</h3>
+
+        <p>Recall that the permutation formula is</p>
+        \[{}_nP_r=\frac{n!}{(n-r)!},\]
+        <p>while the combination formula is</p>
+        \[{}_nC_r=\frac{n!}{r!(n-r)!}.\]
+        <p>Comparing these formulas shows that</p>
+        \[{}_nP_r=r!\,{}_{n}C_{r}.\]
+        <p>Thus, a permutation can be viewed as a two-step process:</p>
+        <ol>
+            <li>Select \(r\) objects from \(n\) objects.</li>
+            <li>Arrange the selected objects in every possible order.</li>
+        </ol>
+        <p>Since there are \({}_{n}C_{r}\) ways to select the objects and \(r!\) ways to arrange them,</p>
+        \[{}_nP_r=r!\,{}_{n}C_{r}.\]
+
+        <!-- Example 7 -->
+        <section class="example" aria-labelledby="ex-1-4-7-heading">
+            <div class="example-problem">
+                <h3 id="ex-1-4-7-heading">Example 7</h3>
+                <p>How many ways can three officers (president, vice president, and secretary) be chosen from eight students?</p>
+            </div>
+            <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-1-4-7">
+                <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+            </button>
+            <div id="sol-1-4-7" class="example-content">
+                <div class="solution">
+                    <h4>Solution</h4>
+                    <p><strong>Method 1:</strong></p>
+                    <p>Use permutations.</p>
+                    \[{}_8P_3=\frac{8!}{5!}=336.\]
+                    <p><strong>Method 2:</strong></p>
+                    <p>First choose three students.</p>
+                    \[{}_{8}C_{3}=56.\]
+                    <p>Next arrange the three officers.</p>
+                    \[3!=6.\]
+                    <p>Therefore,</p>
+                    \[56(6)=336.\]
+                    <p>Both methods produce the same answer.</p>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- ===================== FORMULA SUMMARY ===================== -->
+    <section aria-labelledby="formula-summary-heading">
+        <h3 id="formula-summary-heading">Summary of Counting Formulas</h3>
+
+        <p>The principal counting formulas introduced in this section are summarized below.</p>
+
+        <div class="table-scroll">
+            <table>
+                <caption>Counting techniques and their formulas</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Counting Technique</th>
+                        <th scope="col">Formula</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><th scope="row">Factorial</th><td>\(\displaystyle n!=n(n-1)(n-2)\cdots2\cdot1\)</td></tr>
+                    <tr><th scope="row">Fundamental Counting Principle</th><td>\(\displaystyle n_1n_2\cdots n_k\)</td></tr>
+                    <tr><th scope="row">Combinations</th><td>\(\displaystyle {}_nC_r=\binom{n}{r}=\frac{n!}{r!(n-r)!}\)</td></tr>
+                    <tr><th scope="row">Permutations of \(r\) Objects</th><td>\(\displaystyle {}_nP_r=\frac{n!}{(n-r)!}\)</td></tr>
+                    <tr><th scope="row">Permutations of All \(n\) Objects</th><td>\(\displaystyle {}_nP_n=n!\)</td></tr>
+                    <tr><th scope="row">Permutations with Repeated Objects</th><td>\(\displaystyle \frac{n!}{n_1!n_2!\cdots n_k!}\)</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="definition-box" role="note" aria-labelledby="questions-heading">
+            <h4 id="questions-heading">Questions to Ask When Solving a Counting Problem</h4>
+            <ol>
+                <li>Is the process completed in several stages? If so, consider the <strong>Fundamental Counting Principle</strong>.</li>
+                <li>Are all objects being arranged? If so, use \(\mathbf{{}_nP_n=n!}\).</li>
+                <li>Are only \(r\) objects being arranged? If so, use \(\mathbf{{}_nP_r}\).</li>
+                <li>Are some objects identical? If so, use the formula for <strong>permutations with repeated objects</strong>.</li>
+                <li>Does the order of the selected objects matter?
+                    <ul>
+                        <li>If <strong>yes</strong>, use a <strong>permutation</strong>.</li>
+                        <li>If <strong>no</strong>, use a <strong>combination</strong>.</li>
+                    </ul>
+                </li>
+                <li>Pascal's Triangle provides a convenient method for determining combinations as well as permutations using \({}_{n}P_{r}=r! \cdot {}_{n}C_{r}\).</li>
+            </ol>
+        </div>
+    </section>
+
+    <nav class="page-nav" aria-label="Section navigation">
+        <a class="nav-button" href="mth245_ch1_3.html">Previous: 1.3 Compound Events</a>
+        <a class="nav-button" href="mth245_ch1_5.html">Next: 1.5 Summary</a>
+    </nav>
+
+</main>
+
+<script>
+    function toggleExample(button) {
+        var content = button.nextElementSibling;
+        var arrow = button.querySelector('.toggle-arrow');
+        var label = button.querySelector('span:last-child');
+
+        if (content.classList.contains('open')) {
+            content.classList.remove('open');
+            arrow.classList.remove('open');
+            label.textContent = 'Show Solution';
+            button.setAttribute('aria-expanded', 'false');
+        } else {
+            content.classList.add('open');
+            arrow.classList.add('open');
+            label.textContent = 'Hide Solution';
+            button.setAttribute('aria-expanded', 'true');
+        }
+    }
+</script>
+
+<script>
+    fetch('toc.html')
+        .then(function (response) {
+            if (!response.ok) { throw new Error('TOC not found'); }
+            return response.text();
+        })
+        .then(function (data) {
+            document.getElementById('toc-placeholder').innerHTML = data;
+
+            document.querySelectorAll('.toc-chapter').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var expanded = button.getAttribute('aria-expanded') === 'true';
+                    button.setAttribute('aria-expanded', String(!expanded));
+                    document.getElementById(button.getAttribute('aria-controls')).classList.toggle('open');
+                });
+            });
+
+            // Mark the current page and open its chapter
+            var page = window.location.pathname.split('/').pop();
+            var current = document.querySelector('.toc-submenu a[href="' + page + '"]');
+            if (current) {
+                current.setAttribute('aria-current', 'page');
+                var menu = current.closest('.toc-submenu');
+                menu.classList.add('open');
+                var chapterButton = document.querySelector('[aria-controls="' + menu.id + '"]');
+                if (chapterButton) { chapterButton.setAttribute('aria-expanded', 'true'); }
+            }
+        })
+        .catch(function () { /* TOC unavailable: page content still works */ });
+</script>
+
+</body>
+</html>
