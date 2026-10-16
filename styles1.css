@@ -1,67 +1,132 @@
 /* ==========================================================
-   styles1.css PATCH: TOC (WCAG 2.1 AA)
-   Append to the end of styles1.css so these rules override
-   the earlier ones. Nothing above needs to be deleted.
+   styles1.css PATCH 2: page styles and WCAG 2.1 AA fixes
+   Append to the end of styles1.css (after the TOC patch).
    ========================================================== */
 
-/* Long chapter lists must scroll (reflow / keyboard access) */
-.side-toc {
-    overflow-y: auto;
-    overflow-x: hidden;
+/* ---- Skip link (visible only when focused) ---- */
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    z-index: 1000;
+    background: #000000;
+    color: #ffffff;
+    padding: 10px 16px;
+    font-weight: bold;
 }
 
-/* Darker green: about 5.4:1 on white, about 5:1 on #f0f8ed */
-.toc-title,
-.toc-chapter:hover,
-.toc-chapter:focus,
-.toc-submenu a:hover,
-.toc-submenu a:focus {
+.skip-link:focus {
+    left: 10px;
+    top: 10px;
+}
+
+main:focus {
+    outline: none;
+}
+
+/* ---- Contrast: #33AB2B on white is only about 3:1.
+        #1E7A19 is about 5.4:1 on white. ---- */
+h1, h2, h3, h4,
+.definition-box h3, .definition-box h4,
+.example-problem h3,
+.solution h4,
+.subsection-title,
+.learning-obj-box h3 {
     color: #1E7A19;
 }
 
-/* Part headings (non-clickable group labels) */
-.toc-part {
-    margin-bottom: 1rem;
+/* White text on the green buttons needs the darker green */
+.solution-header,
+.exercises-header,
+.self-check-btn {
+    background-color: #1E7A19;
+    color: #ffffff;
 }
 
-.toc-part-title {
-    font-size: 0.85em;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    color: #1E7A19;
-    margin: 1rem 0 0.25rem 0;
-    border-bottom: 1px solid #33AB2B;
-    padding-bottom: 3px;
+.solution-header:hover,
+.exercises-header:hover,
+.self-check-btn:hover {
+    background-color: #155c12;
 }
 
-/* Visible keyboard focus (replaces outline: none) */
-.toc-chapter:focus-visible,
-.toc-submenu a:focus-visible,
-.toc-footer a:focus-visible,
-.nav-button:focus-visible {
-    outline: 3px solid #1E7A19;
-    outline-offset: 2px;
-}
-
-.nav-button:hover,
-.nav-button:focus {
+/* ---- Visible keyboard focus ---- */
+.solution-header:focus-visible,
+.exercises-header:focus-visible,
+.self-check-btn:focus-visible {
     outline: 3px solid #000000;
     outline-offset: 2px;
 }
 
-/* Current page indicator (set via aria-current="page") */
-.toc-submenu a[aria-current="page"] {
-    font-weight: bold;
-    text-decoration: underline;
+a:focus-visible {
+    outline: 3px solid #1E7A19;
+    outline-offset: 2px;
 }
 
-/* Footer inside the TOC */
-.toc-footer {
+/* ---- Learning objectives box (used in the sample, missing from styles1.css) ---- */
+.learning-obj-box {
+    background-color: #f0f8ed;
+    border: 2px solid #1E7A19;
+    border-radius: 6px;
+    padding: 20px 25px;
+    margin: 30px 0;
+}
+
+.learning-obj-box h3 {
+    margin-top: 0;
+}
+
+/* ---- h4 titles inside definition boxes ---- */
+.definition-box h4 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+/* ---- Figures ---- */
+.diagram img {
+    max-width: 100%;
+    height: auto;
+}
+
+.diagram figcaption {
+    font-style: italic;
+    color: #555555;
+    font-size: 0.9em;
+    margin-top: 0.4rem;
     text-align: center;
-    font-size: 0.85em;
-    margin-top: 1.5rem;
 }
 
-.toc-footer a {
+/* ---- Wide math scrolls inside itself so the page never scrolls sideways ---- */
+mjx-container[display="true"] {
+    overflow-x: auto;
+    overflow-y: hidden;
+    max-width: 100%;
+}
+
+/* ---- Tables ---- */
+.table-scroll {
+    overflow-x: auto;
+    margin: 1.25rem 0;
+}
+
+table caption {
+    caption-side: top;
+    font-weight: bold;
     color: #1E7A19;
+    text-align: center;
+    padding-bottom: 0.4rem;
+}
+
+table th {
+    color: #1E7A19;
+}
+
+/* ---- Previous / Next navigation ---- */
+.page-nav {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 2px dashed #1E7A19;
 }
