@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MTH 245 – Ch 1.5: Summary</title>
+
+    <link rel="stylesheet" href="styles1.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div id="toc-placeholder"></div>
+
+<main class="container" id="main-content" tabindex="-1">
+
+    <h1>Chapter 1: Probability Theory</h1>
+    <h2 id="section-1-5">Section 1.5: Summary</h2>
+
+    <p>Probability is the study of uncertainty and measures how likely an event is to occur. Probabilities range from 0 to 1, with 0 meaning impossible and 1 meaning certain. A sample space contains all possible outcomes, while an event is a collection of outcomes.</p>
+
+    <p>Compound events involve multiple events. The union means “or,” while the intersection means “and.” Venn diagrams and tree diagrams help visualize these relationships. The addition rule is used for unions, and conditional probability describes the probability of one event given another.</p>
+
+    <p>Events can be mutually exclusive or independent. Mutually exclusive events cannot happen at the same time, while independent events do not affect each other. Multiplication rules are used to find the probability that events occur together, especially when dealing with dependent or independent events.</p>
+
+    <p>Counting techniques help determine how many possible outcomes exist. The Fundamental Counting Principle multiplies the number of choices at each stage. Factorials, permutations, and combinations are also important: permutations are used when order matters, while combinations are used when order does not matter.</p>
+
+    <p>Together, these ideas provide the basic tools needed to calculate probabilities, analyze compound events, and solve counting problems.</p>
+
+    <nav class="page-nav" aria-label="Section navigation">
+        <a class="nav-button" href="mth245_ch1_4.html">Previous: 1.4 Counting Techniques</a>
+        <a class="nav-button" href="mth245_ch1_6.html">Next: 1.6 Exercises</a>
+    </nav>
+
+</main>
+
+<script>
+    fetch('toc.html')
+        .then(function (response) {
+            if (!response.ok) { throw new Error('TOC not found'); }
+            return response.text();
+        })
+        .then(function (data) {
+            document.getElementById('toc-placeholder').innerHTML = data;
+
+            document.querySelectorAll('.toc-chapter').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var expanded = button.getAttribute('aria-expanded') === 'true';
+                    button.setAttribute('aria-expanded', String(!expanded));
+                    document.getElementById(button.getAttribute('aria-controls')).classList.toggle('open');
+                });
+            });
+
+            // Mark the current page and open its chapter
+            var page = window.location.pathname.split('/').pop();
+            var current = document.querySelector('.toc-submenu a[href="' + page + '"]');
+            if (current) {
+                current.setAttribute('aria-current', 'page');
+                var menu = current.closest('.toc-submenu');
+                menu.classList.add('open');
+                var chapterButton = document.querySelector('[aria-controls="' + menu.id + '"]');
+                if (chapterButton) { chapterButton.setAttribute('aria-expanded', 'true'); }
+            }
+        })
+        .catch(function () { /* TOC unavailable: page content still works */ });
+</script>
+
+</body>
+</html>
