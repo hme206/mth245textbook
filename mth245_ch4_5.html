@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MTH 245 – Ch 4.5: Stem-and-Leaf Graphs</title>
+
+    <!-- MathJax configuration (single $ intentionally disabled so dollar amounts never collide with math) -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]'], ['$$', '$$']],
+                packages: {'[+]': ['color']}
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            },
+            loader: {
+                load: ['[tex]/color']
+            }
+        };
+    </script>
+    <script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+
+    <link rel="stylesheet" href="styles1.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div id="toc-placeholder"></div>
+
+<main class="container" id="main-content" tabindex="-1">
+
+    <h1>Chapter 4: Pictures of Data</h1>
+    <h2 id="section-4-5">Section 4.5: Stem-and-Leaf Graphs</h2>
+
+    <div class="definition-box" role="note" aria-labelledby="def-stem-leaf">
+        <h3 id="def-stem-leaf">Definition: Stem-and-Leaf Plot</h3>
+        <p>A <strong>stem-and-leaf plot</strong> is a method for organizing numerical data while preserving the original values. It separates each data value into two parts: the <strong>stem</strong>, which contains the leading digit(s), and the <strong>leaf</strong>, which contains the final digit.</p>
+    </div>
+    <p>A stem-and-leaf plot helps display the shape of a data distribution, including the center, spread, clusters, gaps, and possible outliers.</p>
+
+    <p>For example, consider the following test scores:</p>
+    \[62,\ 65,\ 67,\ 71,\ 73,\ 73,\ 76,\ 81,\ 84,\ 88,\ 92,\ 95\]
+    <p>Using the tens digit as the stem and the ones digit as the leaf:</p>
+    <div class="table-scroll">
+    <table>
+    <caption>Stem-and-leaf plot of 12 test scores</caption>
+    <thead>
+    <tr><th scope="col">Stem</th><th scope="col">Leaves</th></tr>
+    </thead>
+    <tbody>
+    <tr><th scope="row">6</th><td>2 &nbsp;5 &nbsp;7</td></tr>
+    <tr><th scope="row">7</th><td>1 &nbsp;3 &nbsp;3 &nbsp;6</td></tr>
+    <tr><th scope="row">8</th><td>1 &nbsp;4 &nbsp;8</td></tr>
+    <tr><th scope="row">9</th><td>2 &nbsp;5</td></tr>
+    </tbody>
+    </table>
+    </div>
+    <p><strong>Key:</strong> \(7|3=73\)</p>
+    <p><strong>Interpretation:</strong></p>
+    <ul>
+        <li>There are 12 observations in the data set.</li>
+        <li>The lowest score is 62.</li>
+        <li>The highest score is 95.</li>
+        <li>Most scores are in the 70s and 80s.</li>
+        <li>The data are concentrated around the middle values with fewer observations at the extremes.</li>
+    </ul>
+    <p>The overall shape of a stem-and-leaf plot can resemble a histogram turned on its side. Unlike a histogram, however, the stem-and-leaf plot preserves the individual observations.</p>
+
+    <nav class="page-nav" aria-label="Section navigation">
+        <a class="nav-button" href="mth245_ch4_4.html">Previous: 4.4 Additional Charts</a>
+        <a class="nav-button" href="mth245_ch4_6.html">Next: 4.6 Summary</a>
+    </nav>
+
+</main>
+
+<script>
+    fetch('toc.html')
+        .then(function (response) {
+            if (!response.ok) { throw new Error('TOC not found'); }
+            return response.text();
+        })
+        .then(function (data) {
+            document.getElementById('toc-placeholder').innerHTML = data;
+
+            document.querySelectorAll('.toc-chapter').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var expanded = button.getAttribute('aria-expanded') === 'true';
+                    button.setAttribute('aria-expanded', String(!expanded));
+                    document.getElementById(button.getAttribute('aria-controls')).classList.toggle('open');
+                });
+            });
+
+            // Mark the current page and open its chapter
+            var page = window.location.pathname.split('/').pop();
+            var current = document.querySelector('.toc-submenu a[href="' + page + '"]');
+            if (current) {
+                current.setAttribute('aria-current', 'page');
+                var menu = current.closest('.toc-submenu');
+                menu.classList.add('open');
+                var chapterButton = document.querySelector('[aria-controls="' + menu.id + '"]');
+                if (chapterButton) { chapterButton.setAttribute('aria-expanded', 'true'); }
+            }
+        })
+        .catch(function () { /* TOC unavailable: page content still works */ });
+</script>
+
+</body>
+</html>

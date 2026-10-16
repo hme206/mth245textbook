@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MTH 245 – Ch 3.1: Introduction</title>
+
+    <link rel="stylesheet" href="styles1.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div id="toc-placeholder"></div>
+
+<main class="container" id="main-content" tabindex="-1">
+
+    <h1>Chapter 3: Introduction to Statistics</h1>
+    <h2 id="section-3-1">Section 3.1: Introduction</h2>
+
+    <section aria-labelledby="intro-3-1-heading">
+        <h3 id="intro-3-1-heading" class="visually-hidden">Overview</h3>
+        <p>Statistics is the study of data and the methods used to collect, organize, analyze, interpret, and present information. It provides systematic methods for describing patterns, evaluating evidence, and making informed decisions in situations involving uncertainty. From medicine and business to education, science, and government, statistical methods are used to answer questions and draw meaningful conclusions from data. This chapter introduces the fundamental concepts of statistics, including populations and samples, types of data, sampling methods, and the basic principles of statistical study and experimental design.</p>
+    </section>
+
+    <div class="learning-obj-box" role="note" aria-labelledby="lo-3-1-heading">
+        <h3 id="lo-3-1-heading">Learning Objectives</h3>
+        <p>After completing this chapter, you should be able to:</p>
+        <ul>
+            <li>Define statistics as a field of study.</li>
+            <li>Distinguish between a population and a sample.</li>
+            <li>Differentiate between a census and a survey.</li>
+            <li>Distinguish between a parameter and a statistic.</li>
+            <li>Classify data as categorical or quantitative.</li>
+            <li>Distinguish between qualitative and quantitative variables and between discrete and continuous variables.</li>
+            <li>Identify the four levels of measurement.</li>
+            <li>Differentiate between descriptive and inferential statistics.</li>
+            <li>Distinguish among common sampling techniques.</li>
+            <li>Identify sources of sampling bias.</li>
+            <li>Differentiate between sampling error and nonsampling error.</li>
+            <li>Differentiate between an observational study and an experiment.</li>
+            <li>Explain the roles of treatment and control groups.</li>
+            <li>Describe the placebo, Hawthorne, and Rosenthal effects.</li>
+            <li>Distinguish between single-blind and double-blind experiments.</li>
+            <li>Distinguish between random sampling and random assignment.</li>
+        </ul>
+    </div>
+
+    <nav class="page-nav" aria-label="Section navigation">
+        <a class="nav-button" href="mth245_ch2_6.html">Previous: 2.6 Exercises</a>
+        <a class="nav-button" href="mth245_ch3_2.html">Next: 3.2 Overview and Definitions</a>
+    </nav>
+
+</main>
+
+<script>
+    fetch('toc.html')
+        .then(function (response) {
+            if (!response.ok) { throw new Error('TOC not found'); }
+            return response.text();
+        })
+        .then(function (data) {
+            document.getElementById('toc-placeholder').innerHTML = data;
+
+            document.querySelectorAll('.toc-chapter').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var expanded = button.getAttribute('aria-expanded') === 'true';
+                    button.setAttribute('aria-expanded', String(!expanded));
+                    document.getElementById(button.getAttribute('aria-controls')).classList.toggle('open');
+                });
+            });
+
+            // Mark the current page and open its chapter
+            var page = window.location.pathname.split('/').pop();
+            var current = document.querySelector('.toc-submenu a[href="' + page + '"]');
+            if (current) {
+                current.setAttribute('aria-current', 'page');
+                var menu = current.closest('.toc-submenu');
+                menu.classList.add('open');
+                var chapterButton = document.querySelector('[aria-controls="' + menu.id + '"]');
+                if (chapterButton) { chapterButton.setAttribute('aria-expanded', 'true'); }
+            }
+        })
+        .catch(function () { /* TOC unavailable: page content still works */ });
+</script>
+
+</body>
+</html>

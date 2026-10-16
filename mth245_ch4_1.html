@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MTH 245 – Ch 4.1: Introduction</title>
+
+    <link rel="stylesheet" href="styles1.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div id="toc-placeholder"></div>
+
+<main class="container" id="main-content" tabindex="-1">
+
+    <h1>Chapter 4: Pictures of Data</h1>
+    <h2 id="section-4-1">Section 4.1: Introduction</h2>
+
+    <section aria-labelledby="intro-4-1-heading">
+        <h3 id="intro-4-1-heading" class="visually-hidden">Overview</h3>
+        <p>Statistics provides tools for organizing, summarizing, and communicating information contained in data. When a data set contains many observations, individual values can be difficult to interpret and important patterns may be hidden. Frequency distributions and graphical displays organize the data so that patterns, comparisons, trends, and unusual features are easier to recognize.</p>
+
+        <p>A graph describes the data that were collected. It does not, by itself, determine whether the data represent the larger population. A misleading sample can produce a misleading graph even when the graph is constructed correctly.</p>
+    </section>
+
+    <div class="learning-obj-box" role="note" aria-labelledby="lo-4-1-heading">
+        <h3 id="lo-4-1-heading">Learning Objectives</h3>
+        <p>After completing this chapter, you should be able to:</p>
+        <ul>
+            <li>Construct frequency distributions for categorical and quantitative data.</li>
+            <li>Determine class widths, class limits, and class boundaries for grouped data.</li>
+            <li>Calculate and interpret frequency, relative frequency, cumulative frequency, and cumulative relative frequency.</li>
+            <li>Construct and interpret bar charts and histograms.</li>
+            <li>Distinguish between bar charts and histograms and identify when each is appropriate.</li>
+            <li>Describe the shape of a distribution using terms such as symmetric, positively skewed, negatively skewed, uniform, unimodal, bimodal, and multimodal.</li>
+            <li>Identify and investigate potential outliers in a data set.</li>
+            <li>Construct and interpret Pareto charts, circle graphs, and time-series graphs.</li>
+            <li>Construct and interpret stem-and-leaf plots while preserving the original observations.</li>
+            <li>Use frequency distributions and graphical displays to identify patterns, trends, clusters, gaps, and unusual observations in data.</li>
+        </ul>
+    </div>
+
+    <nav class="page-nav" aria-label="Section navigation">
+        <a class="nav-button" href="mth245_ch3_6.html">Previous: 3.6 Exercises</a>
+        <a class="nav-button" href="mth245_ch4_2.html">Next: 4.2 Frequency Distributions</a>
+    </nav>
+
+</main>
+
+<script>
+    fetch('toc.html')
+        .then(function (response) {
+            if (!response.ok) { throw new Error('TOC not found'); }
+            return response.text();
+        })
+        .then(function (data) {
+            document.getElementById('toc-placeholder').innerHTML = data;
+
+            document.querySelectorAll('.toc-chapter').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var expanded = button.getAttribute('aria-expanded') === 'true';
+                    button.setAttribute('aria-expanded', String(!expanded));
+                    document.getElementById(button.getAttribute('aria-controls')).classList.toggle('open');
+                });
+            });
+
+            // Mark the current page and open its chapter
+            var page = window.location.pathname.split('/').pop();
+            var current = document.querySelector('.toc-submenu a[href="' + page + '"]');
+            if (current) {
+                current.setAttribute('aria-current', 'page');
+                var menu = current.closest('.toc-submenu');
+                menu.classList.add('open');
+                var chapterButton = document.querySelector('[aria-controls="' + menu.id + '"]');
+                if (chapterButton) { chapterButton.setAttribute('aria-expanded', 'true'); }
+            }
+        })
+        .catch(function () { /* TOC unavailable: page content still works */ });
+</script>
+
+</body>
+</html>

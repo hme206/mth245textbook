@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MTH 245 – Ch 2.4: Using Binomial Probability Tables</title>
+
+    <!-- MathJax configuration (single $ intentionally disabled so dollar amounts never collide with math) -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]'], ['$$', '$$']],
+                packages: {'[+]': ['color']}
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            },
+            loader: {
+                load: ['[tex]/color']
+            }
+        };
+    </script>
+    <script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+
+    <link rel="stylesheet" href="styles1.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div id="toc-placeholder"></div>
+
+<main class="container" id="main-content" tabindex="-1">
+
+    <h1>Chapter 2: Binomial Probability Distribution</h1>
+    <h2 id="section-2-4">Section 2.4: Using Binomial Probability Tables</h2>
+
+    <p>The binomial probability formula</p>
+    \[P(X=x)=\binom{n}{x}p^xq^{n-x}\]
+    <p>can be used to find any individual binomial probability. However, when many probabilities are needed, a binomial probability table provides a convenient alternative.</p>
+
+    <p>The binomial tables in this text list the individual probabilities</p>
+    \[P(X=x)\]
+    <p>for different values of the number of trials \(n\) and probability of success \(p\).</p>
+
+    <p>Each entry in the table represents the probability of obtaining exactly \(x\) successes. This works well in that the results of our formulas can be found in the table.</p>
+
+    <p>Other textbooks may use binomial tables that list the cumulative probability</p>
+    \[P(X\le x),\]
+    <p>rather than the probability of a single value. It is important to identify which type of table you are using.</p>
+
+    <hr class="divider" aria-hidden="true" />
+
+    <!-- ===================== READING A TABLE ===================== -->
+    <section aria-labelledby="reading-table-heading">
+        <h3 id="reading-table-heading">Reading a Binomial Probability Table</h3>
+
+        <p>A binomial probability table is organized by:</p>
+        <ul>
+            <li>\(n\): the number of trials,</li>
+            <li>\(p\): the probability of success on each trial,</li>
+            <li>\(x\): the number of successes.</li>
+        </ul>
+
+        <div class="definition-box" role="note" aria-labelledby="def-using-table">
+            <h4 id="def-using-table">To Use the Table</h4>
+            <ol>
+                <li>Locate the section of the table for the desired number of trials, \(n\), in the first column.</li>
+                <li>Locate the desired probability of success, \(p\), across the first row.</li>
+                <li>Find the row corresponding to the desired number of successes, \(x\), in the second column.</li>
+                <li>Read the value of \(P(X=x)\).</li>
+            </ol>
+        </div>
+
+        <p>The table used in this textbook gives individual probabilities \(P(X=x)\), not cumulative probabilities \(P(X\leq x)\).</p>
+
+        <!-- Example 1 -->
+        <section class="example" aria-labelledby="ex-2-4-1-heading">
+            <div class="example-problem">
+                <h3 id="ex-2-4-1-heading">Example 1</h3>
+                <p>Suppose</p>
+                \[X\sim\text{Bin}(10,0.40).\]
+                <p>Use a binomial probability table to find</p>
+                \[P(X=3).\]
+            </div>
+            <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-2-4-1">
+                <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+            </button>
+            <div id="sol-2-4-1" class="example-content">
+                <div class="solution">
+                    <h4>Solution</h4>
+                    <p>The binomial experiment has \(n=10\) trials and a probability of success of \(p=0.40\).</p>
+
+                    <p>Locate \(n=10\) in the table in the left-hand column. The applicable portion is below:</p>
+
+                    <div class="table-scroll">
+<table>
+<caption>Binomial probabilities for n = 10 trials. The column p = 0.40 and the row r = 3 are highlighted, and the entry 0.2150 is in bold.</caption>
+<thead>
+<tr><th rowspan="2" scope="col">\(n\)</th><th rowspan="2" scope="col">\(r\)</th><th colspan="11" scope="colgroup">\(p\)</th></tr>
+<tr><th scope="col">0.01</th><th scope="col">0.05</th><th scope="col">0.10</th><th scope="col">0.15</th><th scope="col">0.20</th><th scope="col">0.25</th><th scope="col">0.30</th><th scope="col">0.35</th><th scope="col" class="col-highlight">0.40</th><th scope="col">0.45</th><th scope="col">0.50</th></tr>
+</thead>
+<tbody>
+<tr><th scope="rowgroup" rowspan="11">10</th><th scope="row">0</th><td>0.9044</td><td>0.5987</td><td>0.3487</td><td>0.1969</td><td>0.1074</td><td>0.0563</td><td>0.0282</td><td>0.0135</td><td class="col-highlight">0.0060</td><td>0.0025</td><td>0.0010</td></tr>
+<tr><th scope="row">1</th><td>0.0914</td><td>0.3151</td><td>0.3874</td><td>0.3474</td><td>0.2684</td><td>0.1877</td><td>0.1211</td><td>0.0725</td><td class="col-highlight">0.0403</td><td>0.0207</td><td>0.0098</td></tr>
+<tr><th scope="row">2</th><td>0.0042</td><td>0.0746</td><td>0.1937</td><td>0.2759</td><td>0.3020</td><td>0.2816</td><td>0.2335</td><td>0.1757</td><td class="col-highlight">0.1209</td><td>0.0763</td><td>0.0439</td></tr>
+<tr class="highlighted"><th scope="row">3</th><td>0.0001</td><td>0.0105</td><td>0.0574</td><td>0.1298</td><td>0.2013</td><td>0.2503</td><td>0.2668</td><td>0.2522</td><td class="col-highlight"><strong>0.2150</strong></td><td>0.1665</td><td>0.1172</td></tr>
+<tr><th scope="row">4</th><td>0.0000</td><td>0.0010</td><td>0.0112</td><td>0.0401</td><td>0.0881</td><td>0.1460</td><td>0.2001</td><td>0.2377</td><td class="col-highlight">0.2508</td><td>0.2384</td><td>0.2051</td></tr>
+<tr><th scope="row">5</th><td>0.0000</td><td>0.0001</td><td>0.0015</td><td>0.0085</td><td>0.0264</td><td>0.0584</td><td>0.1029</td><td>0.1536</td><td class="col-highlight">0.2007</td><td>0.2340</td><td>0.2461</td></tr>
+<tr><th scope="row">6</th><td>0.0000</td><td>0.0000</td><td>0.0001</td><td>0.0012</td><td>0.0055</td><td>0.0162</td><td>0.0368</td><td>0.0689</td><td class="col-highlight">0.1115</td><td>0.1596</td><td>0.2051</td></tr>
+<tr><th scope="row">7</th><td>0.0000</td><td>0.0000</td><td>0.0000</td><td>0.0001</td><td>0.0008</td><td>0.0031</td><td>0.0090</td><td>0.0212</td><td class="col-highlight">0.0425</td><td>0.0746</td><td>0.1172</td></tr>
+<tr><th scope="row">8</th><td>0.0000</td><td>0.0000</td><td>0.0000</td><td>0.0000</td><td>0.0001</td><td>0.0004</td><td>0.0014</td><td>0.0043</td><td class="col-highlight">0.0106</td><td>0.0229</td><td>0.0439</td></tr>
+<tr><th scope="row">9</th><td>0.0000</td><td>0.0000</td><td>0.0000</td><td>0.0000</td><td>0.0000</td><td>0.0000</td><td>0.0001</td><td>0.0005</td><td class="col-highlight">0.0016</td><td>0.0042</td><td>0.0098</td></tr>
+<tr><th scope="row">10</th><td>0.0000</td><td>0.0000</td><td>0.0000</td><td>0.0000</td><td>0.0000</td><td>0.0000</td><td>0.0000</td><td>0.0000</td><td class="col-highlight">0.0001</td><td>0.0003</td><td>0.0010</td></tr>
+</tbody>
+</table>
+</div>
+
+                    <p>Identify \(p=0.40\) in the first row and \(x=3\) in the second column. Go to the cell in the appropriate row and column and read</p>
+                    \[P(X=3)=0.2150.\]
+                    <p>Therefore,</p>
+                    \[P(X=3)=0.2150\]
+                </div>
+            </div>
+        </section>
+
+        <p>Because binomial outcomes are mutually exclusive, probabilities can be added. For example,</p>
+        \[P(X=2\text{ or }X=3)\]
+        <p>is found by adding the two individual probabilities:</p>
+        \[P(X=2\text{ or }X=3)=P(X=2)+P(X=3)=0.1209+0.2150=0.3759\]
+
+        <!-- Example 2 -->
+        <section class="example" aria-labelledby="ex-2-4-2-heading">
+            <div class="example-problem">
+                <h3 id="ex-2-4-2-heading">Example 2</h3>
+                <p>A basketball player makes a free throw with probability \(0.80\). If the player attempts six free throws, find the probability of making</p>
+                <ul>
+                    <li>exactly five shots,</li>
+                    <li>at least one shot,</li>
+                    <li>more than four shots,</li>
+                    <li>strictly between one and five shots.</li>
+                </ul>
+            </div>
+            <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-2-4-2">
+                <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+            </button>
+            <div id="sol-2-4-2" class="example-content">
+                <div class="solution">
+                    <h4>Solution</h4>
+                    <p>Locate the section of the table for the desired number of trials for \(n=6\). Below is a portion of the correct table:</p>
+
+                    <div class="table-scroll">
+<table>
+<caption>Binomial probabilities for n = 6 trials. The column p = 0.80 is highlighted.</caption>
+<thead>
+<tr><th rowspan="2" scope="col">\(n\)</th><th rowspan="2" scope="col">\(r\)</th><th colspan="8" scope="colgroup">\(p\)</th></tr>
+<tr><th scope="col">0.60</th><th scope="col">0.65</th><th scope="col">0.70</th><th scope="col">0.75</th><th scope="col" class="col-highlight">0.80</th><th scope="col">0.85</th><th scope="col">0.90</th><th scope="col">0.95</th></tr>
+</thead>
+<tbody>
+<tr><th scope="rowgroup" rowspan="7">6</th><th scope="row">0</th><td>0.0041</td><td>0.0018</td><td>0.0007</td><td>0.0002</td><td class="col-highlight">0.0001</td><td>0.0000</td><td>0.0000</td><td>0.0000</td></tr>
+<tr><th scope="row">1</th><td>0.0369</td><td>0.0205</td><td>0.0102</td><td>0.0044</td><td class="col-highlight">0.0015</td><td>0.0004</td><td>0.0001</td><td>0.0000</td></tr>
+<tr><th scope="row">2</th><td>0.1382</td><td>0.0951</td><td>0.0595</td><td>0.0330</td><td class="col-highlight">0.0154</td><td>0.0055</td><td>0.0012</td><td>0.0001</td></tr>
+<tr><th scope="row">3</th><td>0.2765</td><td>0.2355</td><td>0.1852</td><td>0.1318</td><td class="col-highlight">0.0819</td><td>0.0415</td><td>0.0146</td><td>0.0021</td></tr>
+<tr><th scope="row">4</th><td>0.3110</td><td>0.3280</td><td>0.3241</td><td>0.2966</td><td class="col-highlight">0.2458</td><td>0.1762</td><td>0.0984</td><td>0.0305</td></tr>
+<tr><th scope="row">5</th><td>0.1866</td><td>0.2437</td><td>0.3025</td><td>0.3560</td><td class="col-highlight">0.3932</td><td>0.3993</td><td>0.3543</td><td>0.2321</td></tr>
+<tr><th scope="row">6</th><td>0.0467</td><td>0.0754</td><td>0.1176</td><td>0.1780</td><td class="col-highlight">0.2621</td><td>0.3771</td><td>0.5314</td><td>0.7351</td></tr>
+</tbody>
+</table>
+</div>
+
+                    <p>We then located the desired probability of success, \(p=0.8\), across the first row (highlighted). Then we read the appropriate values based on \(r\).</p>
+                    <ul>
+                        <li>Exactly five shots: \(P(X=5)=0.3932\).</li>
+                        <li>At least one shot: \(P(X\geq 1)=1-0.0001=0.9999\), or</li>
+                        <li>At least one shot: \(P(X\geq 1)=0.0015+0.0154+0.0819+0.2458+0.3932=0.9999\).</li>
+                        <li>More than four shots: \(P(X&gt;4)=0.3932+0.2621=0.6553\).</li>
+                        <li>Between one and five shots: \(P(1&lt;X&lt;5)=0.0154+0.0819+0.2458=0.3431\).</li>
+                    </ul>
+                    <p>Comparing these values with those found in prior sections, we can see that they are basically the same. In some cases, we will see a small difference in the last digit we save due to rounding errors.</p>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- ===================== SUMMARY OF TABLE CALCULATIONS ===================== -->
+    <section aria-labelledby="table-calcs-heading">
+        <h3 id="table-calcs-heading">Summary of Binomial Table Calculations</h3>
+
+        <div class="table-scroll">
+            <table>
+                <caption>How to find each type of probability from a binomial table</caption>
+                <thead>
+                    <tr><th scope="col">Probability</th><th scope="col">Calculation</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>\(P(X=x)\)</td><td>Read directly from table</td></tr>
+                    <tr><td>\(P(X\le x)\)</td><td>\(P(0)+P(1)+\cdots+P(x)\)</td></tr>
+                    <tr><td>\(P(X&lt;x)\)</td><td>\(P(0)+P(1)+\cdots+P(x-1)\)</td></tr>
+                    <tr><td>\(P(X\ge x)\)</td><td>\(P(x)+P(x+1)+\cdots+P(n)\)</td></tr>
+                    <tr><td>\(P(X&gt;x)\)</td><td>\(P(x+1)+P(x+2)+\cdots+P(n)\)</td></tr>
+                    <tr><td>\(P(a\le X\le b)\)</td><td>\(P(a)+P(a+1)+\cdots+P(b)\)</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="definition-box" role="note" aria-labelledby="key-ideas-2-4-heading">
+            <h4 id="key-ideas-2-4-heading">Key Ideas</h4>
+            <p>A binomial probability table provides individual values of</p>
+            \[P(X=x).\]
+            <p>To solve more complicated probability questions:</p>
+            <ul>
+                <li>add probabilities for mutually exclusive outcomes,</li>
+                <li>use the complement rule when it reduces the number of calculations,</li>
+                <li>carefully translate phrases such as “at most,” “at least,” and “between” into mathematical notation.</li>
+            </ul>
+            <p>The use of binomial tables reinforces the relationship between individual probabilities and the complete binomial probability distribution.</p>
+        </div>
+    </section>
+
+    <nav class="page-nav" aria-label="Section navigation">
+        <a class="nav-button" href="mth245_ch2_3.html">Previous: 2.3 Binomial Distribution</a>
+        <a class="nav-button" href="mth245_ch2_5.html">Next: 2.5 Summary</a>
+    </nav>
+
+</main>
+
+<script>
+    function toggleExample(button) {
+        var content = button.nextElementSibling;
+        var arrow = button.querySelector('.toggle-arrow');
+        var label = button.querySelector('span:last-child');
+
+        if (content.classList.contains('open')) {
+            content.classList.remove('open');
+            arrow.classList.remove('open');
+            label.textContent = 'Show Solution';
+            button.setAttribute('aria-expanded', 'false');
+        } else {
+            content.classList.add('open');
+            arrow.classList.add('open');
+            label.textContent = 'Hide Solution';
+            button.setAttribute('aria-expanded', 'true');
+        }
+    }
+</script>
+
+<script>
+    fetch('toc.html')
+        .then(function (response) {
+            if (!response.ok) { throw new Error('TOC not found'); }
+            return response.text();
+        })
+        .then(function (data) {
+            document.getElementById('toc-placeholder').innerHTML = data;
+
+            document.querySelectorAll('.toc-chapter').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var expanded = button.getAttribute('aria-expanded') === 'true';
+                    button.setAttribute('aria-expanded', String(!expanded));
+                    document.getElementById(button.getAttribute('aria-controls')).classList.toggle('open');
+                });
+            });
+
+            // Mark the current page and open its chapter
+            var page = window.location.pathname.split('/').pop();
+            var current = document.querySelector('.toc-submenu a[href="' + page + '"]');
+            if (current) {
+                current.setAttribute('aria-current', 'page');
+                var menu = current.closest('.toc-submenu');
+                menu.classList.add('open');
+                var chapterButton = document.querySelector('[aria-controls="' + menu.id + '"]');
+                if (chapterButton) { chapterButton.setAttribute('aria-expanded', 'true'); }
+            }
+        })
+        .catch(function () { /* TOC unavailable: page content still works */ });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MTH 245 – Ch 3.6: Exercises</title>
+
+    <!-- MathJax configuration (single $ intentionally disabled so dollar amounts never collide with math) -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]'], ['$$', '$$']],
+                packages: {'[+]': ['color']}
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            },
+            loader: {
+                load: ['[tex]/color']
+            }
+        };
+    </script>
+    <script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+
+    <link rel="stylesheet" href="styles1.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div id="toc-placeholder"></div>
+
+<main class="container" id="main-content" tabindex="-1">
+
+    <h1>Chapter 3: Introduction to Statistics</h1>
+    <h2 id="section-3-6">Section 3.6: Exercises</h2>
+
+    <p>The following exercises review the major concepts introduced in this chapter. Show your work and simplify answers when appropriate.</p>
+
+    <section aria-labelledby="ex-group-overview">
+        <h3 id="ex-group-overview">Overview and Definitions</h3>
+        <ol>
+            <li>What is the primary purpose of statistics?
+                <ol type="a">
+                    <li>To eliminate uncertainty</li>
+                    <li>To collect, organize, analyze, interpret, and present data</li>
+                    <li>To prove that a hypothesis is true</li>
+                    <li>To study only numerical data</li>
+                </ol></li>
+            <li>Which of the following is <strong>not</strong> listed as a major goal of statistics?
+                <ol type="a">
+                    <li>Evaluating evidence</li>
+                    <li>Identifying patterns</li>
+                    <li>Making informed decisions</li>
+                    <li>Eliminating all sampling variability</li>
+                </ol></li>
+            <li>Which of the following is an example of statistics being used in medicine?
+                <ol type="a">
+                    <li>Measuring the effectiveness of a medication</li>
+                    <li>Designing a building</li>
+                    <li>Writing a computer program</li>
+                    <li>Translating a medical document</li>
+                </ol></li>
+            <li>Define a <strong>population</strong> in statistics.</li>
+            <li>Define a <strong>sample</strong>.</li>
+            <li>A researcher wants to determine the average age of all students at a university. She randomly selects 500 students and records their ages. Identify the:
+                <ul>
+                    <li>Population</li>
+                    <li>Sample</li>
+                </ul></li>
+            <li>A researcher collects information from <strong>every member</strong> of a population. Is this a census or a sample survey?</li>
+            <li>A researcher collects information from 1,000 randomly selected members of a population. Is this a census or a sample survey?</li>
+            <li>What is a <strong>parameter</strong>?</li>
+            <li>What is a <strong>statistic</strong>?</li>
+            <li>The average height of <strong>every student at a university</strong> is 68.4 inches. Is 68.4 a parameter or a statistic?</li>
+            <li>The average height of <strong>100 randomly selected students</strong> is 67.9 inches. Is 67.9 a parameter or a statistic?</li>
+            <li>Match each symbol with its usual meaning:
+                \[\mu,\quad \sigma,\quad \bar{x},\quad s\]
+                <ol type="a">
+                    <li>Sample mean</li>
+                    <li>Population standard deviation</li>
+                    <li>Population mean</li>
+                    <li>Sample standard deviation</li>
+                </ol></li>
+            <li>What is the difference between <strong>categorical</strong> and <strong>quantitative</strong> data?</li>
+            <li>Classify each variable as categorical or quantitative:
+                <ol type="a">
+                    <li>Eye color</li>
+                    <li>Height</li>
+                    <li>Blood type</li>
+                    <li>Annual income</li>
+                </ol></li>
+            <li>A school records students' college majors. Is this categorical or quantitative data?</li>
+            <li>A researcher records the number of children in each household. Is this categorical or quantitative data?</li>
+            <li>Is hair color a qualitative or quantitative variable?</li>
+            <li>Is weight a qualitative or quantitative variable?</li>
+            <li>Explain the general relationship between qualitative variables and categorical data.</li>
+            <li>What is the difference between a <strong>discrete</strong> and a <strong>continuous</strong> variable?</li>
+            <li>Classify each variable as discrete or continuous:
+                <ol type="a">
+                    <li>Number of students in a classroom</li>
+                    <li>Height of a student</li>
+                    <li>Number of defective products</li>
+                    <li>Temperature</li>
+                </ol></li>
+            <li>A stopwatch records a runner's time to complete a race. Is time discrete or continuous?</li>
+            <li>Identify the level of measurement for each variable:
+                <ol type="a">
+                    <li>Eye color</li>
+                    <li>Class rank</li>
+                    <li>Temperature in Celsius</li>
+                    <li>Weight</li>
+                </ol></li>
+            <li>Explain why \(20^\circ\mathrm{C}\) cannot meaningfully be described as “twice as warm” as \(10^\circ\mathrm{C}\).</li>
+        </ol>
+    </section>
+
+    <section aria-labelledby="ex-group-sampling">
+        <h3 id="ex-group-sampling">Data Collection and Sampling</h3>
+        <ol>
+            <li>What is a <strong>sampling frame</strong>?</li>
+            <li>A university uses its student directory as the list from which it selects students for a survey. What is the sampling frame?</li>
+            <li>A researcher assigns every student a number and uses a random-number generator to select 50 students. What sampling method is being used?</li>
+            <li>A researcher surveys whichever students happen to be standing in the cafeteria. What sampling method is this?</li>
+            <li>A researcher randomly selects a starting point on a customer list and then selects every 20th customer. What sampling method is this?</li>
+            <li>A university divides students into freshmen, sophomores, juniors, and seniors and randomly selects students from each group. What sampling method is this?</li>
+            <li>A researcher randomly selects five elementary schools and surveys every student in those schools. What sampling method is this?</li>
+            <li>A survey requires 100 males and 100 females, and interviewers select people conveniently until both quotas are filled. What sampling method is this?</li>
+            <li>A national survey randomly selects states, then counties within those states, then households within those counties. What type of sampling is this?</li>
+            <li>What is <strong>undercoverage</strong>?</li>
+            <li>An online-only survey about internet access excludes people without internet access. What type of problem could this create?</li>
+            <li>What is <strong>sampling error</strong>?</li>
+            <li>Which of the following is a <strong>nonsampling error</strong>?
+                <ol type="a">
+                    <li>Different random samples produce different sample means</li>
+                    <li>A respondent misunderstands a survey question</li>
+                    <li>Random variation between samples</li>
+                    <li>A larger sample produces a slightly different statistic</li>
+                </ol></li>
+        </ol>
+    </section>
+
+    <section aria-labelledby="ex-group-experimental">
+        <h3 id="ex-group-experimental">Experimental Design</h3>
+        <ol>
+            <li>What is an <strong>observational study</strong>?</li>
+            <li>What is an <strong>experiment</strong>?</li>
+            <li>Researchers record the smoking habits and lung health of 5,000 people without assigning anyone to smoke or not smoke. Is this an observational study or an experiment?</li>
+            <li>Researchers randomly assign patients to receive either a new medication or the current medication. Is this an observational study or an experiment?</li>
+            <li>Why are observational studies generally unable to establish cause-and-effect relationships?</li>
+            <li>What is a <strong>treatment group</strong>?</li>
+            <li>What is a <strong>control group</strong>?</li>
+            <li>Researchers compare two exercise programs, but participants in one program are substantially younger than participants in the other. Why might age be a confounding variable?</li>
+            <li>What is the purpose of random assignment in an experiment?</li>
+            <li>A researcher divides students into groups based on grade level and then randomly assigns students within each grade level to one of two teaching methods. What experimental design is this?
+                <ol type="a">
+                    <li>Completely randomized design</li>
+                    <li>Randomized block design</li>
+                    <li>Convenience design</li>
+                    <li>Cluster sampling</li>
+                </ol></li>
+            <li>Identify the effect described in each situation.
+                <ol type="a">
+                    <li>Participants report improvement because they believe they received an effective treatment.</li>
+                    <li>Employees change their behavior because they know they are being observed.</li>
+                    <li>Researchers unintentionally influence participants because of their expectations.</li>
+                </ol>
+                Choose from:
+                <ul>
+                    <li>Placebo effect</li>
+                    <li>Hawthorne effect</li>
+                    <li>Rosenthal effect</li>
+                </ul></li>
+            <li>What is the difference between a <strong>single-blind</strong> and a <strong>double-blind</strong> experiment?</li>
+        </ol>
+    </section>
+
+
+    <nav class="page-nav" aria-label="Section navigation">
+        <a class="nav-button" href="mth245_ch3_5.html">Previous: 3.5 Summary</a>
+        <a class="nav-button" href="mth245_ch4_1.html">Next: 4.1 Introduction</a>
+    </nav>
+
+</main>
+
+<script>
+    fetch('toc.html')
+        .then(function (response) {
+            if (!response.ok) { throw new Error('TOC not found'); }
+            return response.text();
+        })
+        .then(function (data) {
+            document.getElementById('toc-placeholder').innerHTML = data;
+
+            document.querySelectorAll('.toc-chapter').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var expanded = button.getAttribute('aria-expanded') === 'true';
+                    button.setAttribute('aria-expanded', String(!expanded));
+                    document.getElementById(button.getAttribute('aria-controls')).classList.toggle('open');
+                });
+            });
+
+            // Mark the current page and open its chapter
+            var page = window.location.pathname.split('/').pop();
+            var current = document.querySelector('.toc-submenu a[href="' + page + '"]');
+            if (current) {
+                current.setAttribute('aria-current', 'page');
+                var menu = current.closest('.toc-submenu');
+                menu.classList.add('open');
+                var chapterButton = document.querySelector('[aria-controls="' + menu.id + '"]');
+                if (chapterButton) { chapterButton.setAttribute('aria-expanded', 'true'); }
+            }
+        })
+        .catch(function () { /* TOC unavailable: page content still works */ });
+</script>
+
+</body>
+</html>

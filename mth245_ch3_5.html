@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MTH 245 – Ch 3.5: Summary</title>
+
+    <link rel="stylesheet" href="styles1.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div id="toc-placeholder"></div>
+
+<main class="container" id="main-content" tabindex="-1">
+
+    <h1>Chapter 3: Introduction to Statistics</h1>
+    <h2 id="section-3-5">Section 3.5: Summary</h2>
+
+    <p>Statistics is the science of collecting, organizing, analyzing, interpreting, and presenting data. It helps researchers and decision-makers identify patterns, answer questions, evaluate evidence, and make predictions. Statistical methods are widely used in fields such as medicine, business, education, government, and science.</p>
+
+    <p>A statistical study begins by identifying the population of interest. A population includes all individuals or objects being studied, while a sample is a subset selected from that population. Researchers may conduct a census by studying the entire population or use a sample survey to collect information from only part of the population. Parameters describe populations, whereas statistics describe samples and are often used to estimate unknown population parameters.</p>
+
+    <p>Data can be classified as categorical or numerical. Categorical data describe groups or classifications, while numerical data represent quantities. Variables may also be qualitative or quantitative, with quantitative variables further classified as discrete or continuous. The four levels of measurement—nominal, ordinal, interval, and ratio—determine what types of comparisons and statistical analyses are appropriate.</p>
+
+    <p>The quality of statistical conclusions depends heavily on how data are collected. Common sampling methods include simple random, systematic, stratified, cluster, quota, convenience, and multistage sampling. Poor sampling can introduce undercoverage and bias. Sampling variability occurs because different samples from the same population can produce different sample statistics. Sampling bias can occur when the sampling method systematically favors or excludes certain members of the population.</p>
+
+    <p>Statistical studies may be observational or experimental. In an observational study, researchers observe subjects without imposing treatments, whereas an experiment deliberately applies treatments to determine their effects. Well-designed experiments use principles such as control, randomization, replication, blocking, and, when appropriate, blinding to reduce bias, confounding, and unexplained variation.</p>
+
+    <p>Finally, statistics is commonly divided into descriptive and inferential statistics. Descriptive statistics organize and summarize collected data using tables, graphs, and numerical measures. Inferential statistics use sample data to draw conclusions or make predictions about a larger population. Together, these methods provide a foundation for understanding data and making informed decisions under uncertainty.</p>
+
+    <nav class="page-nav" aria-label="Section navigation">
+        <a class="nav-button" href="mth245_ch3_4.html">Previous: 3.4 Experimental Data</a>
+        <a class="nav-button" href="mth245_ch3_6.html">Next: 3.6 Exercises</a>
+    </nav>
+
+</main>
+
+<script>
+    fetch('toc.html')
+        .then(function (response) {
+            if (!response.ok) { throw new Error('TOC not found'); }
+            return response.text();
+        })
+        .then(function (data) {
+            document.getElementById('toc-placeholder').innerHTML = data;
+
+            document.querySelectorAll('.toc-chapter').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var expanded = button.getAttribute('aria-expanded') === 'true';
+                    button.setAttribute('aria-expanded', String(!expanded));
+                    document.getElementById(button.getAttribute('aria-controls')).classList.toggle('open');
+                });
+            });
+
+            // Mark the current page and open its chapter
+            var page = window.location.pathname.split('/').pop();
+            var current = document.querySelector('.toc-submenu a[href="' + page + '"]');
+            if (current) {
+                current.setAttribute('aria-current', 'page');
+                var menu = current.closest('.toc-submenu');
+                menu.classList.add('open');
+                var chapterButton = document.querySelector('[aria-controls="' + menu.id + '"]');
+                if (chapterButton) { chapterButton.setAttribute('aria-expanded', 'true'); }
+            }
+        })
+        .catch(function () { /* TOC unavailable: page content still works */ });
+</script>
+
+</body>
+</html>

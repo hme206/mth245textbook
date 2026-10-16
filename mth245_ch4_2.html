@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MTH 245 – Ch 4.2: Frequency Distributions</title>
+
+    <!-- MathJax configuration (single $ intentionally disabled so dollar amounts never collide with math) -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]'], ['$$', '$$']],
+                packages: {'[+]': ['color']}
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            },
+            loader: {
+                load: ['[tex]/color']
+            }
+        };
+    </script>
+    <script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+
+    <link rel="stylesheet" href="styles1.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div id="toc-placeholder"></div>
+
+<main class="container" id="main-content" tabindex="-1">
+
+    <h1>Chapter 4: Pictures of Data</h1>
+    <h2 id="section-4-2">Section 4.2: Frequency Distributions</h2>
+
+    <p>Raw data are often difficult to interpret, especially when many observations have been collected. One of the first steps in descriptive statistics is to organize the data into tables and graphs that summarize the important features of the data.</p>
+
+    <p>Frequency distributions organize data into meaningful categories or intervals, making patterns easier to recognize.</p>
+
+    <div class="definition-box" role="note" aria-labelledby="def-freq-dist">
+        <h3 id="def-freq-dist">Definition: Frequency Distribution</h3>
+        <p>A <strong>frequency distribution</strong> is a table that summarizes data by listing each category or class together with the number of observations that fall within that category.</p>
+    </div>
+    <p>Frequency distributions may be constructed for either categorical or numerical data.</p>
+
+    <hr class="divider" aria-hidden="true" />
+
+    <section aria-labelledby="categorical-fd-heading">
+        <h3 id="categorical-fd-heading">Frequency Distributions for Categorical Data</h3>
+        <p>For categorical data, each category is listed along with its frequency. It is common to include a tally column to help count the number in each group.</p>
+        <p><strong>Example:</strong> The favorite school subject of 30 students is recorded.</p>
+        <div class="table-scroll">
+        <table>
+        <caption>Favorite school subject of 30 students</caption>
+        <thead>
+        <tr><th scope="col">Subject</th><th scope="col">Tally</th><th scope="col">Frequency</th></tr>
+        </thead>
+        <tbody>
+        <tr><th scope="row">Mathematics</th><td><span aria-hidden="true">✓✓✓✓✓✓✓✓✓</span><span class="visually-hidden">9 tally marks</span></td><td>9</td></tr>
+        <tr><th scope="row">Science</th><td><span aria-hidden="true">✓✓✓✓✓✓✓</span><span class="visually-hidden">7 tally marks</span></td><td>7</td></tr>
+        <tr><th scope="row">English</th><td><span aria-hidden="true">✓✓✓✓✓✓</span><span class="visually-hidden">6 tally marks</span></td><td>6</td></tr>
+        <tr><th scope="row">History</th><td><span aria-hidden="true">✓✓✓✓✓</span><span class="visually-hidden">5 tally marks</span></td><td>5</td></tr>
+        <tr><th scope="row">Art</th><td><span aria-hidden="true">✓✓✓</span><span class="visually-hidden">3 tally marks</span></td><td>3</td></tr>
+        </tbody>
+        </table>
+        </div>
+        <p>This table shows that Mathematics was the most frequently selected subject.</p>
+
+        <p>In some cases, discrete quantitative data with a small number of values may also be treated in this manner. When a discrete variable has only a small number of possible values, each value can be treated as a separate category. For example, if we were analyzing the number of goals scored in professional soccer games, values of \(\{0, 1, 2, 3, 4, 5, \ldots\}\) would suffice.</p>
+    </section>
+
+    <section aria-labelledby="grouped-fd-heading">
+        <h3 id="grouped-fd-heading">Grouped Frequency Distributions</h3>
+    <div class="definition-box" role="note" aria-labelledby="def-classes">
+        <h4 id="def-classes">Definition: Classes</h4>
+        <p>When numerical data contain many different values, observations are grouped into intervals called <strong>classes</strong>.</p>
+        <p>Each class contains a specified range of values, and the number of observations in each class is recorded.</p>
+    </div>
+    <div class="definition-box" role="note" aria-labelledby="steps-grouped">
+        <h4 id="steps-grouped">Steps for Constructing a Grouped Frequency Distribution</h4>
+        <ol>
+            <li>Determine the minimum and maximum values.</li>
+            <li>Compute the range.</li>
+            <li>Select the desired number of classes.</li>
+            <li>Determine the class width.</li>
+            <li>Construct the class limits.</li>
+            <li>Count the observations in each class.</li>
+        </ol>
+    </div>
+    <p>There is no single correct number of classes. In many introductory applications, between 5 and 10 classes provides a useful summary, but the appropriate number depends on the data and the purpose of the display.</p>
+
+    <p>Too few classes may hide important features of the data, while too many classes may obscure overall patterns.</p>
+
+    <div class="definition-box" role="note" aria-labelledby="def-class-width">
+        <h4 id="def-class-width">Range and Class Width</h4>
+        <p>The range of a data set is</p>
+        \[\text{Range}=\text{Maximum}-\text{Minimum}.\]
+        <p>The <strong>class width</strong> is approximately</p>
+        \[\text{Class Width}=\frac{\text{Range}}{\text{Number of Classes}}\]
+        <p>The result is usually rounded up to a convenient value.</p>
+    </div>
+    <section class="example" aria-labelledby="ex-4-2-1-heading">
+        <div class="example-problem">
+            <h3 id="ex-4-2-1-heading">Example 1</h3>
+            <p>Suppose the smallest observation is 18 and the largest observation is 92. If six classes are desired, find a convenient class width.</p>
+        </div>
+        <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-4-2-1">
+            <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+        </button>
+        <div id="sol-4-2-1" class="example-content">
+            <div class="solution">
+                <h4>Solution</h4>
+                <p>The range is</p>
+                \[\text{Range}=92-18=74.\]
+                <p>The approximate class width is</p>
+                \[\frac{74}{6}=12.33.\]
+                <p>Rounding upward gives a convenient class width of</p>
+                \[13.\]
+            </div>
+        </div>
+    </section>
+    <p>Rounding the class width upward may cause the total span of the classes to exceed the observed range. This is acceptable as long as every observation belongs to exactly one class.</p>
+    </section>
+
+    <hr class="divider" aria-hidden="true" />
+
+    <section aria-labelledby="limits-heading">
+        <h3 id="limits-heading">Class Limits and Class Boundaries</h3>
+    <div class="definition-box" role="note" aria-labelledby="def-class-limits">
+        <h4 id="def-class-limits">Definition: Class Limits</h4>
+        <p>The <strong>class limits</strong> are the smallest and largest values that may belong to each class. The lower class limit is the smallest value that can belong to the class, and the upper class limit is the largest.</p>
+    </div>
+    <p>For example, a class width of 13 starting at 18 gives these classes:</p>
+    <div class="table-scroll">
+    <table>
+    <caption>Class limits for a class width of 13</caption>
+    <thead>
+    <tr><th scope="col">Class limits</th></tr>
+    </thead>
+    <tbody>
+    <tr><td>18–30</td></tr>
+    <tr><td>31–43</td></tr>
+    <tr><td>44–56</td></tr>
+    <tr><td>57–69</td></tr>
+    <tr><td>70–82</td></tr>
+    <tr><td>83–95</td></tr>
+    </tbody>
+    </table>
+    </div>
+    <p>Here,</p>
+    <ul>
+        <li>18 and 30 are the lower and upper limits of the first class.</li>
+        <li>31 and 43 are the lower and upper limits of the second class.</li>
+    </ul>
+    <p>The choice of class limits should reflect the context of the data. For example, examination scores are often naturally grouped according to letter-grade categories.</p>
+
+    <p>For example, when studying grades, the boundaries would probably align with the grade boundaries rather than even class widths. On a traditional 10-point scale, the prior data set would probably look more like this:</p>
+    <div class="table-scroll">
+    <table>
+    <caption>Class limits aligned with letter grades</caption>
+    <thead>
+    <tr><th scope="col">Class limits</th></tr>
+    </thead>
+    <tbody>
+    <tr><td>0–59</td></tr>
+    <tr><td>60–69</td></tr>
+    <tr><td>70–79</td></tr>
+    <tr><td>80–89</td></tr>
+    <tr><td>90–100</td></tr>
+    </tbody>
+    </table>
+    </div>
+    <div class="definition-box" role="note" aria-labelledby="def-class-boundaries">
+        <h4 id="def-class-boundaries">Definition: Class Boundaries</h4>
+        <p><strong>Class boundaries</strong> create adjacent, non-overlapping intervals with no gaps between classes.</p>
+        <p>For data measured to the nearest unit, the class 18–30 has boundaries 17.5–30.5. Similarly, the class 31–43 has boundaries 30.5–43.5.</p>
+    </div>
+    <p>Notice that adjacent classes now share a common boundary. We can compare the values in one table:</p>
+    <div class="table-scroll">
+    <table>
+    <caption>Class limits and class boundaries</caption>
+    <thead>
+    <tr><th scope="col">Limits</th><th scope="col">Boundaries</th></tr>
+    </thead>
+    <tbody>
+    <tr><td>18–30</td><td>17.5–30.5</td></tr>
+    <tr><td>31–43</td><td>30.5–43.5</td></tr>
+    <tr><td>44–56</td><td>43.5–56.5</td></tr>
+    <tr><td>57–69</td><td>56.5–69.5</td></tr>
+    <tr><td>70–82</td><td>69.5–82.5</td></tr>
+    <tr><td>83–95</td><td>82.5–95.5</td></tr>
+    </tbody>
+    </table>
+    </div>
+    </section>
+
+    <hr class="divider" aria-hidden="true" />
+
+    <section aria-labelledby="rel-cum-heading">
+        <h3 id="rel-cum-heading">Relative and Cumulative Frequency</h3>
+    <div class="definition-box" role="note" aria-labelledby="def-rel-freq">
+        <h4 id="def-rel-freq">Definition: Relative Frequency</h4>
+        <p>The <strong>relative frequency</strong> of a class is the proportion (or percentage) of observations that fall within that class.</p>
+        \[\text{Relative Frequency}=\frac{\text{Class Frequency}}{\text{Total Number of Observations}}\]
+        <p>Relative frequencies always sum to 1 (or 100%). Relative frequency can be expressed as a decimal, fraction, or percentage.</p>
+    </div>
+    <div class="definition-box" role="note" aria-labelledby="def-cum-freq">
+        <h4 id="def-cum-freq">Definition: Cumulative Frequency</h4>
+        <p>The <strong>cumulative frequency</strong> for a class is obtained by adding the frequencies for that class and all preceding classes.</p>
+        <p>For an ordered quantitative distribution, the cumulative frequency tells us how many observations are at or below the upper boundary of a given class.</p>
+        <p>The final cumulative frequency always equals the total number of observations.</p>
+    </div>
+    <div class="definition-box" role="note" aria-labelledby="def-cum-rel-freq">
+        <h4 id="def-cum-rel-freq">Definition: Cumulative Relative Frequency</h4>
+        <p>The <strong>cumulative relative frequency</strong> is the running total of the relative frequencies.</p>
+        <p>For an ordered quantitative distribution, cumulative relative frequency represents the proportion of observations at or below a given class.</p>
+        <p>The final cumulative relative frequency is always 1 (or 100%).</p>
+    </div>
+    <p><strong>Example:</strong> Suppose examination scores for 30 students are grouped into five classes based on letter grades.</p>
+    <div class="table-scroll">
+    <table>
+    <caption>Frequency distribution of examination scores for 30 students</caption>
+    <thead>
+    <tr><th scope="col">Class</th><th scope="col">Freq</th><th scope="col">Cum Freq</th><th scope="col">Rel Freq</th><th scope="col">Cum Rel Freq</th></tr>
+    </thead>
+    <tbody>
+    <tr><th scope="row">0–59</th><td>6</td><td>6</td><td>0.200</td><td>0.200</td></tr>
+    <tr><th scope="row">60–69</th><td>7</td><td>13</td><td>0.233</td><td>0.433</td></tr>
+    <tr><th scope="row">70–79</th><td>9</td><td>22</td><td>0.300</td><td>0.733</td></tr>
+    <tr><th scope="row">80–89</th><td>6</td><td>28</td><td>0.200</td><td>0.933</td></tr>
+    <tr><th scope="row">90–100</th><td>2</td><td>30</td><td>0.067</td><td>1.000</td></tr>
+    <tr><th scope="row">Total</th><td>30</td><td></td><td>1.000</td><td></td></tr>
+    </tbody>
+    </table>
+    </div>
+    <p>Because relative frequencies are often rounded, their displayed values may not sum to exactly 1.000 even though the unrounded relative frequencies do.</p>
+    </section>
+
+    <nav class="page-nav" aria-label="Section navigation">
+        <a class="nav-button" href="mth245_ch4_1.html">Previous: 4.1 Introduction</a>
+        <a class="nav-button" href="mth245_ch4_3.html">Next: 4.3 Bar Charts and Histograms</a>
+    </nav>
+
+</main>
+
+<script>
+    function toggleExample(button) {
+        var content = button.nextElementSibling;
+        var arrow = button.querySelector('.toggle-arrow');
+        var label = button.querySelector('span:last-child');
+
+        if (content.classList.contains('open')) {
+            content.classList.remove('open');
+            arrow.classList.remove('open');
+            label.textContent = 'Show Solution';
+            button.setAttribute('aria-expanded', 'false');
+        } else {
+            content.classList.add('open');
+            arrow.classList.add('open');
+            label.textContent = 'Hide Solution';
+            button.setAttribute('aria-expanded', 'true');
+        }
+    }
+</script>
+
+<script>
+    fetch('toc.html')
+        .then(function (response) {
+            if (!response.ok) { throw new Error('TOC not found'); }
+            return response.text();
+        })
+        .then(function (data) {
+            document.getElementById('toc-placeholder').innerHTML = data;
+
+            document.querySelectorAll('.toc-chapter').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var expanded = button.getAttribute('aria-expanded') === 'true';
+                    button.setAttribute('aria-expanded', String(!expanded));
+                    document.getElementById(button.getAttribute('aria-controls')).classList.toggle('open');
+                });
+            });
+
+            // Mark the current page and open its chapter
+            var page = window.location.pathname.split('/').pop();
+            var current = document.querySelector('.toc-submenu a[href="' + page + '"]');
+            if (current) {
+                current.setAttribute('aria-current', 'page');
+                var menu = current.closest('.toc-submenu');
+                menu.classList.add('open');
+                var chapterButton = document.querySelector('[aria-controls="' + menu.id + '"]');
+                if (chapterButton) { chapterButton.setAttribute('aria-expanded', 'true'); }
+            }
+        })
+        .catch(function () { /* TOC unavailable: page content still works */ });
+</script>
+
+</body>
+</html>

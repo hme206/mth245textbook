@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MTH 245 – Ch 3.4: Experimental Data</title>
+
+    <link rel="stylesheet" href="styles1.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div id="toc-placeholder"></div>
+
+<main class="container" id="main-content" tabindex="-1">
+
+    <h1>Chapter 3: Introduction to Statistics</h1>
+    <h2 id="section-3-4">Section 3.4: Experimental Data</h2>
+
+    <section aria-labelledby="obs-exp-heading">
+        <h3 id="obs-exp-heading">Observational Studies and Experiments</h3>
+        <p>There are two primary methods of conducting statistical studies.</p>
+    <div class="definition-box" role="note" aria-labelledby="def-observational">
+        <h4 id="def-observational">Definition: Observational Study</h4>
+        <p>An <strong>observational study</strong> is one in which researchers observe subjects and record information without attempting to influence the responses.</p>
+    </div>
+    <p>Observational studies are useful when it is unethical, impractical, or impossible to impose treatments.</p>
+    <p>Examples include:</p>
+    <ul>
+        <li>Studying the relationship between smoking and lung disease.</li>
+        <li>Recording the daily temperatures in a city.</li>
+        <li>Observing wildlife in a national park.</li>
+    </ul>
+    <p>Observational studies can identify associations between variables but generally cannot establish cause-and-effect relationships.</p>
+    <div class="definition-box" role="note" aria-labelledby="def-experiment">
+        <h4 id="def-experiment">Definition: Experiment</h4>
+        <p>An <strong>experiment</strong> is a study in which researchers deliberately impose one or more treatments on subjects and observe the responses.</p>
+    </div>
+    <p>Experiments are designed to provide evidence about whether a treatment causes a change in a response variable.</p>
+    <p>Examples include:</p>
+    <ul>
+        <li>Comparing two blood pressure medications.</li>
+        <li>Testing the effectiveness of a new fertilizer.</li>
+        <li>Evaluating a new teaching method.</li>
+    </ul>
+    <p>Well-designed experiments allow researchers to make conclusions about cause-and-effect relationships.</p>
+    </section>
+
+    <section aria-labelledby="treatment-control-heading">
+        <h3 id="treatment-control-heading">Treatment and Control Groups</h3>
+        <p>Experiments often compare two or more groups.</p>
+    <div class="definition-box" role="note" aria-labelledby="def-treatment">
+        <h4 id="def-treatment">Definition: Treatment Group</h4>
+        <p>A <strong>treatment group</strong>, or treatment groups, receives the experimental treatment or condition being studied.</p>
+    </div>
+    <div class="definition-box" role="note" aria-labelledby="def-control">
+        <h4 id="def-control">Definition: Control Group</h4>
+        <p>A <strong>control group</strong> receives no treatment, the current standard treatment, or a placebo and serves as a basis for comparison.</p>
+    </div>
+    <p>Comparing the responses of the treatment and control groups helps researchers compare the responses associated with the different conditions.</p>
+    </section>
+
+    <section aria-labelledby="confounding-heading">
+        <h3 id="confounding-heading">Confounding Variables</h3>
+    <div class="definition-box" role="note" aria-labelledby="def-confounding">
+        <h4 id="def-confounding">Definition: Confounding Variable</h4>
+        <p>A <strong>confounding variable</strong> is a variable whose effects cannot be separated from the effect of the treatment or explanatory variable, making it difficult to determine the treatment's effect on the response.</p>
+    </div>
+    <p>For example, suppose researchers compare two exercise programs but one group is considerably younger than the other. Age may influence the results, making it difficult to determine whether differences are due to the exercise programs or to age.</p>
+    <p>Careful experimental design attempts to minimize the effects of confounding variables.</p>
+    </section>
+
+    <hr class="divider" aria-hidden="true" />
+
+    <section aria-labelledby="randomization-heading">
+        <h3 id="randomization-heading">Randomization</h3>
+        <p>Random assignment of subjects to treatment groups helps produce comparable groups and reduces the influence of confounding variables.</p>
+        <p>Randomization does not eliminate variability or guarantee identical treatment groups. Instead, it tends to balance known and unknown characteristics across treatment groups, reducing the risk that systematic differences between groups will confound the treatment comparison.</p>
+    <div class="definition-box" role="note" aria-labelledby="def-crd">
+        <h4 id="def-crd">Definition: Completely Randomized Design</h4>
+        <p>A <strong>completely randomized design</strong> randomly assigns all experimental subjects to the available treatment groups.</p>
+    </div>
+    <p><strong>Example:</strong> One hundred patients are randomly assigned to receive either a new medication or the current medication.</p>
+    <p>Sometimes researchers recognize that subjects differ in important ways before the experiment begins.</p>
+    <div class="definition-box" role="note" aria-labelledby="def-block">
+        <h4 id="def-block">Definition: Block</h4>
+        <p>A <strong>block</strong> is a group of experimental subjects that are similar with respect to a characteristic expected to affect the response variable.</p>
+    </div>
+    <p>Common blocking variables include:</p>
+    <ul>
+        <li>Age</li>
+        <li>Gender</li>
+        <li>Geographic region</li>
+        <li>Educational level</li>
+    </ul>
+    <div class="definition-box" role="note" aria-labelledby="def-rbd">
+        <h4 id="def-rbd">Definition: Randomized Block Design</h4>
+        <p>A <strong>randomized block design</strong> divides subjects into homogeneous blocks and then randomly assigns treatments within each block.</p>
+    </div>
+    <p>Blocking reduces variation caused by known differences among subjects, allowing a more precise comparison of treatments.</p>
+    <p>Blocking is not the same as random assignment. Subjects are first grouped into blocks and then randomly assigned to treatments within each block.</p>
+    <p><strong>Example:</strong> A researcher studying two teaching methods divides students into blocks based on grade level. Within each grade level, students are randomly assigned to one of the two teaching methods.</p>
+    </section>
+
+    <section aria-labelledby="bias-heading">
+        <h3 id="bias-heading">Unintended Sources of Bias</h3>
+    <div class="definition-box" role="note" aria-labelledby="def-placebo-effect">
+        <h4 id="def-placebo-effect">Definition: Placebo Effect</h4>
+        <p>The <strong>placebo effect</strong> refers to changes in a participant's response that may occur because the participant expects to receive an effective treatment, rather than because of the treatment's active ingredient.</p>
+    </div>
+    <div class="definition-box" role="note" aria-labelledby="def-placebo">
+        <h4 id="def-placebo">Definition: Placebo</h4>
+        <p>A <strong>placebo</strong> is an inactive treatment designed to resemble the actual treatment.</p>
+    </div>
+    <p>For example, participants receiving a sugar pill may report reduced symptoms simply because they believe they are receiving medication.</p>
+    <div class="definition-box" role="note" aria-labelledby="def-hawthorne">
+        <h4 id="def-hawthorne">Definition: Hawthorne Effect</h4>
+        <p>The <strong>Hawthorne effect</strong> occurs when individuals modify their behavior because they know they are being observed. The term is commonly used to describe changes in behavior associated with awareness of being observed or participating in a study.</p>
+    </div>
+    <p>For example, workers may temporarily increase productivity simply because they know they are participating in a study.</p>
+    <div class="definition-box" role="note" aria-labelledby="def-rosenthal">
+        <h4 id="def-rosenthal">Definition: Rosenthal Effect</h4>
+        <p>The <strong>Rosenthal effect</strong>, also called the <strong>experimenter expectancy effect</strong>, occurs when researchers unintentionally influence the behavior or responses of participants because of their expectations.</p>
+    </div>
+    <p>For example, an instructor who believes certain students will perform well may unknowingly provide them with additional encouragement.</p>
+    </section>
+
+    <section aria-labelledby="blinding-heading">
+        <h3 id="blinding-heading">Blinding</h3>
+        <p>Blinding helps reduce bias during an experiment.</p>
+    <div class="definition-box" role="note" aria-labelledby="def-single-blind">
+        <h4 id="def-single-blind">Definition: Single-Blind Experiment</h4>
+        <p>In a <strong>single-blind experiment</strong>, participants do not know which treatment or experimental condition they receive.</p>
+    </div>
+    <p>Single blinding helps reduce the placebo effect.</p>
+    <div class="definition-box" role="note" aria-labelledby="def-double-blind">
+        <h4 id="def-double-blind">Definition: Double-Blind Experiment</h4>
+        <p>A <strong>double-blind experiment</strong> is one in which neither the participants nor the researchers directly interacting with the participants know who is receiving the treatment.</p>
+    </div>
+    <p>Double-blind designs can reduce both participant expectancy effects and researcher expectancy effects and are commonly used in clinical research when practical.</p>
+    </section>
+
+    <section aria-labelledby="good-experiment-heading">
+        <h3 id="good-experiment-heading">Characteristics of a Good Experiment</h3>
+        <p>Well-designed experiments typically include the following principles:</p>
+    <ol>
+        <li><strong>Control</strong> — Keep conditions other than the treatment as consistent as practical.</li>
+        <li><strong>Randomization</strong> — Use random assignment to treatment groups to reduce systematic differences between groups.</li>
+        <li><strong>Replication</strong> — Apply each treatment to multiple experimental units so that random variation can be assessed and treatment effects can be estimated more reliably. Increasing the number of experimental units generally reduces the influence of random variation on estimated treatment differences.</li>
+        <li><strong>Blinding</strong> — When appropriate, conceal treatment assignments from participants and/or researchers to reduce expectancy-related bias.</li>
+    </ol>
+        <p>Following these principles improves the reliability and validity of experimental results.</p>
+    </section>
+
+    <nav class="page-nav" aria-label="Section navigation">
+        <a class="nav-button" href="mth245_ch3_3.html">Previous: 3.3 Data Collection and Sampling</a>
+        <a class="nav-button" href="mth245_ch3_5.html">Next: 3.5 Summary</a>
+    </nav>
+
+</main>
+
+<script>
+    fetch('toc.html')
+        .then(function (response) {
+            if (!response.ok) { throw new Error('TOC not found'); }
+            return response.text();
+        })
+        .then(function (data) {
+            document.getElementById('toc-placeholder').innerHTML = data;
+
+            document.querySelectorAll('.toc-chapter').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var expanded = button.getAttribute('aria-expanded') === 'true';
+                    button.setAttribute('aria-expanded', String(!expanded));
+                    document.getElementById(button.getAttribute('aria-controls')).classList.toggle('open');
+                });
+            });
+
+            // Mark the current page and open its chapter
+            var page = window.location.pathname.split('/').pop();
+            var current = document.querySelector('.toc-submenu a[href="' + page + '"]');
+            if (current) {
+                current.setAttribute('aria-current', 'page');
+                var menu = current.closest('.toc-submenu');
+                menu.classList.add('open');
+                var chapterButton = document.querySelector('[aria-controls="' + menu.id + '"]');
+                if (chapterButton) { chapterButton.setAttribute('aria-expanded', 'true'); }
+            }
+        })
+        .catch(function () { /* TOC unavailable: page content still works */ });
+</script>
+
+</body>
+</html>

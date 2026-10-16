@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MTH 245 – Ch 2.6: Exercises</title>
+
+    <!-- MathJax configuration (single $ intentionally disabled so dollar amounts never collide with math) -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]'], ['$$', '$$']],
+                packages: {'[+]': ['color']}
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            },
+            loader: {
+                load: ['[tex]/color']
+            }
+        };
+    </script>
+    <script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+
+    <link rel="stylesheet" href="styles1.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div id="toc-placeholder"></div>
+
+<main class="container" id="main-content" tabindex="-1">
+
+    <h1>Chapter 2: Binomial Probability Distribution</h1>
+    <h2 id="section-2-6">Section 2.6: Exercises</h2>
+
+    <p>The following exercises review the major concepts introduced in this chapter. Show your work and simplify answers when appropriate. References such as “Exercise 4” refer to the exercise with that number in the same group.</p>
+
+    <!-- ===== Random Variables and Probability Distributions ===== -->
+    <section aria-labelledby="ex-group-rv">
+        <h3 id="ex-group-rv">Random Variables and Probability Distributions</h3>
+        <ol>
+            <li>Determine whether each random variable is discrete or continuous.
+                <ol type="a">
+                    <li>The number of students absent from a class.</li>
+                    <li>The amount of time a student spends completing a homework assignment.</li>
+                    <li>The number of defective items in a shipment of 100 items.</li>
+                    <li>The temperature recorded at noon.</li>
+                </ol>
+            </li>
+            <li>A random experiment consists of flipping a coin four times. Let \(X\) be the number of heads obtained. List all possible values of \(X\).</li>
+            <li>A store records the number of customers who enter during each hour. Is this variable discrete or continuous? Explain.</li>
+            <li>A probability distribution for \(X\) is shown below.
+                <div class="table-scroll">
+<table>
+<caption>Probability distribution of \(X\) for Exercise 4</caption>
+<tbody>
+<tr><th scope="row">\(x\)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td></tr>
+<tr><th scope="row">\(P(X=x)\)</th><td>0.10</td><td>0.25</td><td>0.30</td><td>0.20</td><td>0.15</td></tr>
+</tbody>
+</table>
+</div>
+                Verify that this is a valid probability distribution.
+            </li>
+            <li>For the distribution in Exercise 4, find \(P(X=2)\) and \(P(X\leq2)\).</li>
+            <li>For the distribution in Exercise 4, find \(P(X&gt;2)\) and \(P(1\leq X\leq3)\).</li>
+            <li>The following table is proposed as a probability distribution.
+                <div class="table-scroll">
+<table>
+<caption>Proposed probability distribution of \(X\) for Exercise 7</caption>
+<tbody>
+<tr><th scope="row">\(x\)</th><td>0</td><td>1</td><td>2</td><td>3</td></tr>
+<tr><th scope="row">\(P(X=x)\)</th><td>0.20</td><td>0.35</td><td>0.30</td><td>0.25</td></tr>
+</tbody>
+</table>
+</div>
+                Is it valid? Explain.
+            </li>
+            <li>A continuous random variable has
+                \[
+                f(x)=
+                \begin{cases}
+                0.25,&amp;0\leq x\leq4,\\
+                0,&amp;\text{otherwise}.
+                \end{cases}
+                \]
+                Verify that the total area under the density curve is 1.
+            </li>
+            <li>For the random variable in Exercise 8, find \(P(1\leq X\leq3)\).</li>
+            <li>Explain why \(P(X=2)=0\) for the continuous random variable in Exercise 8.</li>
+            <li>State whether each statement is true or false. If false, correct it.
+                <ol type="a">
+                    <li>A PMF is used for a continuous random variable.</li>
+                    <li>A PDF gives probabilities through areas under the density curve.</li>
+                    <li>The probabilities of all possible values of a discrete random variable must sum to 1.</li>
+                    <li>For a continuous random variable, \(P(X=x)\) can be positive.</li>
+                </ol>
+            </li>
+            <li>A discrete random variable has
+                <div class="table-scroll">
+<table>
+<caption>Probability distribution of \(X\) for Exercise 12</caption>
+<tbody>
+<tr><th scope="row">\(x\)</th><td>0</td><td>1</td><td>2</td><td>3</td></tr>
+<tr><th scope="row">\(P(X=x)\)</th><td>0.15</td><td>0.25</td><td>0.40</td><td>0.20</td></tr>
+</tbody>
+</table>
+</div>
+                Find \(P(X\leq1)\) and \(P(X\geq2)\).
+            </li>
+            <li>In your own words, explain the main difference between a PMF and a PDF.</li>
+        </ol>
+    </section>
+
+    <!-- ===== Mean, Variance, and Standard Deviation ===== -->
+    <section aria-labelledby="ex-group-mean">
+        <h3 id="ex-group-mean">Mean, Variance, and Standard Deviation</h3>
+        <ol>
+            <li>For the probability distribution
+                <div class="table-scroll">
+<table>
+<caption>Probability distribution of \(X\) for Exercise 1</caption>
+<tbody>
+<tr><th scope="row">\(x\)</th><td>0</td><td>1</td><td>2</td><td>3</td></tr>
+<tr><th scope="row">\(P(X=x)\)</th><td>0.20</td><td>0.30</td><td>0.40</td><td>0.10</td></tr>
+</tbody>
+</table>
+</div>
+                calculate \(E(X)\).
+            </li>
+            <li>For the distribution in Exercise 1, calculate \(E(X^2)\).</li>
+            <li>For the distribution in Exercise 1, calculate the variance and standard deviation.</li>
+            <li>Consider
+                <div class="table-scroll">
+<table>
+<caption>Probability distribution of \(X\) for Exercise 4</caption>
+<tbody>
+<tr><th scope="row">\(x\)</th><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+<tr><th scope="row">\(P(X=x)\)</th><td>0.10</td><td>0.20</td><td>0.30</td><td>0.25</td><td>0.15</td></tr>
+</tbody>
+</table>
+</div>
+                Find the mean, variance, and standard deviation.
+            </li>
+            <li>A random variable has mean \(12\) and variance \(9\). Find its standard deviation. If the units are dollars, interpret the standard deviation.</li>
+            <li>A random variable has
+                <div class="table-scroll">
+<table>
+<caption>Probability distribution of \(X\) for Exercise 6</caption>
+<tbody>
+<tr><th scope="row">\(x\)</th><td>2</td><td>4</td><td>8</td></tr>
+<tr><th scope="row">\(P(X=x)\)</th><td>0.25</td><td>0.50</td><td>0.25</td></tr>
+</tbody>
+</table>
+</div>
+                Find the expected value and standard deviation.
+            </li>
+            <li>Explain what the expected value represents in the long run.</li>
+            <li>Explain the difference between variance and standard deviation, including their units.</li>
+        </ol>
+    </section>
+
+    <!-- ===== Transformations and Combining Random Variables ===== -->
+    <section aria-labelledby="ex-group-transform">
+        <h3 id="ex-group-transform">Transformations and Combining Random Variables</h3>
+        <ol>
+            <li>Suppose \(X\) has mean \(10\) and standard deviation \(3\). Let \(Y=X+7\). Find the mean and standard deviation of \(Y\).</li>
+            <li>Suppose \(X\) has mean \(10\) and standard deviation \(3\). Let \(Y=4X-2\). Find the mean, variance, and standard deviation of \(Y\).</li>
+            <li>Suppose \(X\) has variance \(16\). Let \(Y=-3X+5\). Find \(\operatorname{Var}(Y)\) and \(\sigma_Y\).</li>
+            <li>Explain why adding a constant changes the mean but does not change the standard deviation.</li>
+            <li>Independent random variables \(X\) and \(Y\) have means \(8\) and \(12\) and standard deviations \(2\) and \(3\). Let \(Z=X+Y\). Find the mean and standard deviation of \(Z\).</li>
+            <li>Independent random variables \(X\) and \(Y\) have means \(20\) and \(5\) and standard deviations \(4\) and \(2\). Let
+                \[
+                Z=2X-3Y+7.
+                \]
+                Find the mean, variance, and standard deviation.
+            </li>
+            <li>Suppose \(X\) and \(Y\) are independent, with \(\operatorname{Var}(X)=9\) and \(\operatorname{Var}(Y)=16\). Find \(\operatorname{Var}(X+Y)\).</li>
+            <li>Explain why the variance addition rule used in this section requires independence.</li>
+        </ol>
+    </section>
+
+    <!-- ===== Binomial Experiments ===== -->
+    <section aria-labelledby="ex-group-binexp">
+        <h3 id="ex-group-binexp">Binomial Experiments</h3>
+        <ol>
+            <li>Determine whether each experiment is binomial. Explain.
+                <ol type="a">
+                    <li>A fair coin is flipped 12 times and the number of heads is recorded.</li>
+                    <li>A die is rolled once and the number shown is recorded.</li>
+                    <li>A product is inspected 20 times, with each inspection classified as defective or not defective, with constant probability of a defect.</li>
+                    <li>Students are selected without replacement from a small class, and the number who own a particular calculator is recorded.</li>
+                </ol>
+            </li>
+            <li>State the four conditions required for a binomial experiment.</li>
+            <li>A basketball player makes a free throw with probability \(0.75\) and attempts 10 free throws. Explain why the number made can be modeled by a binomial distribution.</li>
+            <li>For Exercise 3, identify \(n\), \(p\), and \(q\).</li>
+            <li>A manufacturer knows that 4% of its products are defective. An inspector randomly selects 25 products and records the number defective. Is a binomial model reasonable? Explain.</li>
+        </ol>
+    </section>
+
+    <!-- ===== Binomial Probabilities ===== -->
+    <section aria-labelledby="ex-group-binprob">
+        <h3 id="ex-group-binprob">Binomial Probabilities</h3>
+        <ol>
+            <li>A fair coin is tossed 8 times. Find the probability of exactly 5 heads.</li>
+            <li>A basketball player makes a free throw with probability \(0.80\). In 6 attempts, find the probability of exactly 4 makes.</li>
+            <li>For Exercise 2, find the probability of at most 2 makes.</li>
+            <li>For Exercise 2, find the probability of at least 5 makes.</li>
+            <li>For Exercise 2, find the probability of more than 4 makes.</li>
+            <li>For Exercise 2, find the probability of fewer than 3 makes.</li>
+            <li>For Exercise 2, find the probability of between 2 and 5 makes, inclusive.</li>
+            <li>A machine produces an acceptable item with probability \(0.90\). If 10 items are selected independently, find the probability that exactly 8 are acceptable.</li>
+            <li>For Exercise 8, find the probability that at least 9 items are acceptable.</li>
+            <li>A survey reports that 60% of randomly selected customers would recommend a business. If 12 customers are selected independently, find the probability that more than 8 would recommend it.</li>
+            <li>A student guesses on 10 multiple-choice questions, each with four choices. Find the probability of exactly 3 correct answers.</li>
+        </ol>
+    </section>
+
+    <!-- ===== Binomial Mean and Standard Deviation ===== -->
+    <section aria-labelledby="ex-group-binmean">
+        <h3 id="ex-group-binmean">Binomial Mean and Standard Deviation</h3>
+        <ol>
+            <li>Let \(X\sim\operatorname{Bin}(20,0.30)\). Find the mean, variance, and standard deviation.</li>
+            <li>Let \(X\sim\operatorname{Bin}(50,0.60)\). Find the mean and standard deviation.</li>
+            <li>A salesperson makes a successful sale on 25% of calls. In 40 independent calls, find the expected number of successful sales and the standard deviation.</li>
+        </ol>
+    </section>
+
+    <!-- ===== Binomial Probability Tables ===== -->
+    <section aria-labelledby="ex-group-bintables">
+        <h3 id="ex-group-bintables">Binomial Probability Tables</h3>
+        <ol>
+            <li>Suppose \(X\sim\operatorname{Bin}(10,0.40)\). Use the binomial probability table to find \(P(X=3)\).</li>
+            <li>Suppose \(X\sim\operatorname{Bin}(6,0.80)\). Use the table to find \(P(X=5)\) and \(P(X=6)\), then find \(P(X&gt;4)\).</li>
+            <li>Suppose \(X\sim\operatorname{Bin}(6,0.80)\). Use the table to find \(P(1&lt;X&lt;5)\).</li>
+        </ol>
+    </section>
+
+    <nav class="page-nav" aria-label="Section navigation">
+        <a class="nav-button" href="mth245_ch2_5.html">Previous: 2.5 Summary</a>
+        <a class="nav-button" href="mth245_ch3_1.html">Next: 3.1 Introduction</a>
+    </nav>
+
+</main>
+
+<script>
+    fetch('toc.html')
+        .then(function (response) {
+            if (!response.ok) { throw new Error('TOC not found'); }
+            return response.text();
+        })
+        .then(function (data) {
+            document.getElementById('toc-placeholder').innerHTML = data;
+
+            document.querySelectorAll('.toc-chapter').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var expanded = button.getAttribute('aria-expanded') === 'true';
+                    button.setAttribute('aria-expanded', String(!expanded));
+                    document.getElementById(button.getAttribute('aria-controls')).classList.toggle('open');
+                });
+            });
+
+            // Mark the current page and open its chapter
+            var page = window.location.pathname.split('/').pop();
+            var current = document.querySelector('.toc-submenu a[href="' + page + '"]');
+            if (current) {
+                current.setAttribute('aria-current', 'page');
+                var menu = current.closest('.toc-submenu');
+                menu.classList.add('open');
+                var chapterButton = document.querySelector('[aria-controls="' + menu.id + '"]');
+                if (chapterButton) { chapterButton.setAttribute('aria-expanded', 'true'); }
+            }
+        })
+        .catch(function () { /* TOC unavailable: page content still works */ });
+</script>
+
+</body>
+</html>

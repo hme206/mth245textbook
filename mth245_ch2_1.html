@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MTH 245 – Ch 2.1: Introduction</title>
+
+    <link rel="stylesheet" href="styles1.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div id="toc-placeholder"></div>
+
+<main class="container" id="main-content" tabindex="-1">
+
+    <h1>Chapter 2: Binomial Probability Distribution</h1>
+    <h2 id="section-2-1">Section 2.1: Introduction</h2>
+
+    <section aria-labelledby="intro-2-1-heading">
+        <h3 id="intro-2-1-heading" class="visually-hidden">Overview</h3>
+        <p>This chapter introduces random variables, probability distributions, and the binomial distribution. It explains how random variables can be discrete or continuous and how probabilities are represented using probability mass functions and probability density functions. It develops key measures such as expected value, variance, and standard deviation before applying these concepts to binomial experiments and probability calculations.</p>
+    </section>
+
+    <div class="learning-obj-box" role="note" aria-labelledby="lo-2-1-heading">
+        <h3 id="lo-2-1-heading">Learning Objectives</h3>
+        <p>After completing this chapter, you should be able to:</p>
+        <ul>
+            <li>Define a <strong>random variable</strong> and distinguish between discrete and continuous random variables.</li>
+            <li>Identify and interpret <strong>probability mass functions (PMFs)</strong> and <strong>probability density functions (PDFs)</strong>.</li>
+            <li>Calculate and interpret the <strong>mean (expected value)</strong>, <strong>variance</strong>, and <strong>standard deviation</strong> of a random variable.</li>
+            <li>Apply rules for the <strong>mean and variance of linear transformations</strong> and combinations of independent random variables.</li>
+            <li>Identify the conditions required for a <strong>binomial experiment</strong>.</li>
+            <li>Use the <strong>binomial probability formula</strong> to calculate probabilities of obtaining a specified number of successes.</li>
+            <li>Interpret probability statements such as <strong>exactly</strong>, <strong>at most</strong>, <strong>at least</strong>, <strong>more than</strong>, and <strong>between</strong>.</li>
+            <li>Calculate the <strong>mean, variance, and standard deviation</strong> of a binomial random variable.</li>
+            <li>Use <strong>binomial probability tables</strong> to find individual and combined probabilities.</li>
+            <li>Apply the <strong>complement rule</strong> to simplify binomial probability calculations.</li>
+        </ul>
+    </div>
+
+    <nav class="page-nav" aria-label="Section navigation">
+        <a class="nav-button" href="mth245_ch1_6.html">Previous: 1.6 Exercises</a>
+        <a class="nav-button" href="mth245_ch2_2.html">Next: 2.2 Random Variable</a>
+    </nav>
+
+</main>
+
+<script>
+    fetch('toc.html')
+        .then(function (response) {
+            if (!response.ok) { throw new Error('TOC not found'); }
+            return response.text();
+        })
+        .then(function (data) {
+            document.getElementById('toc-placeholder').innerHTML = data;
+
+            document.querySelectorAll('.toc-chapter').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var expanded = button.getAttribute('aria-expanded') === 'true';
+                    button.setAttribute('aria-expanded', String(!expanded));
+                    document.getElementById(button.getAttribute('aria-controls')).classList.toggle('open');
+                });
+            });
+
+            // Mark the current page and open its chapter
+            var page = window.location.pathname.split('/').pop();
+            var current = document.querySelector('.toc-submenu a[href="' + page + '"]');
+            if (current) {
+                current.setAttribute('aria-current', 'page');
+                var menu = current.closest('.toc-submenu');
+                menu.classList.add('open');
+                var chapterButton = document.querySelector('[aria-controls="' + menu.id + '"]');
+                if (chapterButton) { chapterButton.setAttribute('aria-expanded', 'true'); }
+            }
+        })
+        .catch(function () { /* TOC unavailable: page content still works */ });
+</script>
+
+</body>
+</html>

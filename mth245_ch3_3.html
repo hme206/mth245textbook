@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MTH 245 – Ch 3.3: Data Collection and Sampling</title>
+
+    <!-- MathJax configuration (single $ intentionally disabled so dollar amounts never collide with math) -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]'], ['$$', '$$']],
+                packages: {'[+]': ['color']}
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            },
+            loader: {
+                load: ['[tex]/color']
+            }
+        };
+    </script>
+    <script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+
+    <link rel="stylesheet" href="styles1.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div id="toc-placeholder"></div>
+
+<main class="container" id="main-content" tabindex="-1">
+
+    <h1>Chapter 3: Introduction to Statistics</h1>
+    <h2 id="section-3-3">Section 3.3: Data Collection and Sampling</h2>
+
+    <p>The quality of any statistical analysis depends on the quality of the data collected. Even the most sophisticated statistical methods cannot overcome poorly collected or biased data. Therefore, careful planning of the data collection process is one of the most important steps in a statistical study.</p>
+
+    <p>Data may be collected through:</p>
+    <ul>
+        <li>Surveys</li>
+        <li>Experiments</li>
+        <li>Observational studies</li>
+        <li>Existing databases and records</li>
+    </ul>
+    <p>When studying a large population, researchers usually select a sample rather than collecting data from every member of the population.</p>
+
+    <hr class="divider" aria-hidden="true" />
+
+    <section aria-labelledby="frame-heading">
+        <h3 id="frame-heading">Sampling Frame</h3>
+    <div class="definition-box" role="note" aria-labelledby="def-frame">
+        <h4 id="def-frame">Definition: Sampling Frame</h4>
+        <p>A <strong>sampling frame</strong> is the list or collection of all population members from which a sample is selected.</p>
+    </div>
+    <p>Ideally, the sampling frame contains every member of the population exactly once. In practice, however, some individuals may be omitted or duplicated.</p>
+    <p>Differences between the target population and the sampling frame can create undercoverage.</p>
+    <p>Examples include:</p>
+    <ul>
+        <li>A university's student directory</li>
+        <li>A voter registration list</li>
+        <li>A customer database</li>
+        <li>A list of households within a city</li>
+    </ul>
+    <p>An incomplete sampling frame may produce a sample that is not representative of the population.</p>
+    </section>
+
+    <section aria-labelledby="techniques-heading">
+        <h3 id="techniques-heading">Sampling Techniques</h3>
+        <p>Numerous methods exist for selecting a sample. Some methods produce more representative samples than others.</p>
+    <div class="definition-box" role="note" aria-labelledby="def-srs">
+        <h4 id="def-srs">Definition: Simple Random Sample</h4>
+        <p>A <strong>simple random sample</strong> is a sample in which every possible sample of the same size has an equal chance of being selected.</p>
+    </div>
+    <p>Simple random sampling is often accomplished using random number generators or random number tables.</p>
+    <p><strong>Example:</strong> Select 50 students from a university by assigning every student a number and using a random number generator.</p>
+    <p>A simple random sample gives every possible sample of the specified size an equal probability of selection; this is stronger than simply giving every individual an equal chance of being selected.</p>
+    <div class="definition-box" role="note" aria-labelledby="def-convenience">
+        <h4 id="def-convenience">Definition: Convenience Sample</h4>
+        <p>A <strong>convenience sample</strong> consists of individuals who are easiest to reach.</p>
+    </div>
+    <p>Convenience samples are inexpensive and easy to obtain but can produce biased results because they may not represent the population.</p>
+    <p><strong>Example:</strong> Surveying students who happen to be in the campus cafeteria.</p>
+    <div class="definition-box" role="note" aria-labelledby="def-systematic">
+        <h4 id="def-systematic">Definition: Systematic Sample</h4>
+        <p>A <strong>systematic sample</strong> is obtained by selecting every \(k\)th individual from a list after choosing a random starting point.</p>
+    </div>
+    <p>For example, if every 20th customer is selected after a random start, the sample is systematic.</p>
+    <p>Systematic sampling can be problematic if the sampling frame has a periodic pattern that aligns with the sampling interval.</p>
+    <div class="definition-box" role="note" aria-labelledby="def-quota">
+        <h4 id="def-quota">Definition: Quota Sample</h4>
+        <p>A <strong>quota sample</strong> divides the population into categories and selects individuals until predetermined quotas are reached.</p>
+    </div>
+    <p>Unlike stratified sampling, individuals within each category are usually selected by convenience rather than randomly.</p>
+    <p>Quota sampling can make the sample resemble the population on selected characteristics while still being subject to selection bias.</p>
+    <p><strong>Example:</strong> A survey requires 100 males and 100 females. Interviewers continue selecting participants until each quota has been filled.</p>
+    <div class="definition-box" role="note" aria-labelledby="def-stratified">
+        <h4 id="def-stratified">Definition: Stratified Sample</h4>
+        <p>A <strong>stratified sample</strong> divides the population into homogeneous groups, called <strong>strata</strong>, and then randomly samples from each stratum.</p>
+    </div>
+    <p>The purpose of stratification is often to ensure that important subgroups are represented in the sample.</p>
+    <p><strong>Example:</strong> A university population is divided into freshmen, sophomores, juniors, and seniors. A simple random sample is selected from each class.</p>
+    <div class="definition-box" role="note" aria-labelledby="def-cluster">
+        <h4 id="def-cluster">Definition: Cluster Sample</h4>
+        <p>A <strong>cluster sample</strong> divides the population into naturally occurring groups, called <strong>clusters</strong>, and randomly selects clusters for study.</p>
+    </div>
+    <p>In a one-stage cluster sample, every individual within each selected cluster is included in the sample.</p>
+    <p><strong>Example:</strong> Randomly selecting several elementary schools and surveying every student in the selected schools.</p>
+    <div class="definition-box" role="note" aria-labelledby="def-multistage">
+        <h4 id="def-multistage">Definition: Multistage Sampling</h4>
+        <p><strong>Multistage sampling</strong> combines two or more sampling methods to obtain a sample.</p>
+    </div>
+    <p>Large national surveys often use multistage sampling because it is practical and cost-effective.</p>
+    <p><strong>Example:</strong></p>
+    <ol>
+        <li>Randomly select states.</li>
+        <li>Randomly select counties within each state.</li>
+        <li>Randomly select households within each county.</li>
+        <li>Randomly select one individual from each household.</li>
+    </ol>
+    </section>
+
+    <section aria-labelledby="comparison-heading">
+        <h3 id="comparison-heading">Comparison of Sampling Methods</h3>
+        <div class="table-scroll">
+            <table>
+                <caption>Comparison of sampling methods</caption>
+                <thead>
+                    <tr><th scope="col">Method</th><th scope="col">Description</th></tr>
+                </thead>
+                <tbody>
+                    <tr><th scope="row">Simple Random</th><td>Every possible sample of the specified size has an equal probability of selection.</td></tr>
+                    <tr><th scope="row">Convenience</th><td>Select the easiest individuals to reach.</td></tr>
+                    <tr><th scope="row">Systematic</th><td>Select every \(k\)th individual after a random start.</td></tr>
+                    <tr><th scope="row">Quota</th><td>Fill predetermined category quotas using nonrandom selection.</td></tr>
+                    <tr><th scope="row">Stratified</th><td>Randomly sample within each homogeneous subgroup.</td></tr>
+                    <tr><th scope="row">Cluster</th><td>Randomly select entire naturally occurring groups.</td></tr>
+                    <tr><th scope="row">Multistage</th><td>Combine several sampling methods in stages.</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <hr class="divider" aria-hidden="true" />
+
+    <section aria-labelledby="errors-heading">
+        <h3 id="errors-heading">Undercoverage, Sampling Error, and Nonsampling Error</h3>
+    <div class="definition-box" role="note" aria-labelledby="def-undercoverage">
+        <h4 id="def-undercoverage">Definition: Undercoverage</h4>
+        <p><strong>Undercoverage</strong> occurs when some members of the population have little or no chance of being selected for the sample. This can lead to biased results because important portions of the population are omitted.</p>
+    </div>
+    <p>For example, an online survey conducted using an internet-only sampling frame may exclude individuals without internet access, creating undercoverage.</p>
+    <div class="definition-box" role="note" aria-labelledby="def-sampling-error">
+        <h4 id="def-sampling-error">Definition: Sampling Error</h4>
+        <p><strong>Sampling error</strong> is the natural variation in a sample statistic from one sample to another when samples are drawn from the same population. The difference between a sample statistic and the corresponding population parameter is one consequence of this sampling variability.</p>
+    </div>
+    <p>The variability of a well-designed random-sample statistic generally decreases as sample size increases. Increasing sample size, however, does not eliminate bias caused by a flawed sampling method.</p>
+    <p><strong>Example:</strong> The average height of a sample of 100 students is unlikely to equal the exact average height of all students at the university.</p>
+    <div class="definition-box" role="note" aria-labelledby="def-nonsampling-error">
+        <h4 id="def-nonsampling-error">Definition: Nonsampling Error</h4>
+        <p><strong>Nonsampling error</strong> refers to errors that occur during data collection, recording, processing, or analysis and are not caused by sampling.</p>
+    </div>
+    <p>Common sources include:</p>
+    <ul>
+        <li>Measurement errors</li>
+        <li>Recording mistakes</li>
+        <li>Data entry errors</li>
+        <li>Nonresponse/Voluntary response</li>
+        <li>Faulty recall</li>
+        <li>Poorly worded survey questions</li>
+        <li>Interviewer bias</li>
+    </ul>
+    <p>Unlike sampling error, nonsampling error cannot necessarily be reduced simply by increasing the sample size.</p>
+    </section>
+
+    <nav class="page-nav" aria-label="Section navigation">
+        <a class="nav-button" href="mth245_ch3_2.html">Previous: 3.2 Overview and Definitions</a>
+        <a class="nav-button" href="mth245_ch3_4.html">Next: 3.4 Experimental Data</a>
+    </nav>
+
+</main>
+
+<script>
+    fetch('toc.html')
+        .then(function (response) {
+            if (!response.ok) { throw new Error('TOC not found'); }
+            return response.text();
+        })
+        .then(function (data) {
+            document.getElementById('toc-placeholder').innerHTML = data;
+
+            document.querySelectorAll('.toc-chapter').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var expanded = button.getAttribute('aria-expanded') === 'true';
+                    button.setAttribute('aria-expanded', String(!expanded));
+                    document.getElementById(button.getAttribute('aria-controls')).classList.toggle('open');
+                });
+            });
+
+            // Mark the current page and open its chapter
+            var page = window.location.pathname.split('/').pop();
+            var current = document.querySelector('.toc-submenu a[href="' + page + '"]');
+            if (current) {
+                current.setAttribute('aria-current', 'page');
+                var menu = current.closest('.toc-submenu');
+                menu.classList.add('open');
+                var chapterButton = document.querySelector('[aria-controls="' + menu.id + '"]');
+                if (chapterButton) { chapterButton.setAttribute('aria-expanded', 'true'); }
+            }
+        })
+        .catch(function () { /* TOC unavailable: page content still works */ });
+</script>
+
+</body>
+</html>

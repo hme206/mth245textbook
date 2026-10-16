@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MTH 245 – Ch 3.2: Overview and Definitions</title>
+
+    <!-- MathJax configuration (single $ intentionally disabled so dollar amounts never collide with math) -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]'], ['$$', '$$']],
+                packages: {'[+]': ['color']}
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            },
+            loader: {
+                load: ['[tex]/color']
+            }
+        };
+    </script>
+    <script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+
+    <link rel="stylesheet" href="styles1.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div id="toc-placeholder"></div>
+
+<main class="container" id="main-content" tabindex="-1">
+
+    <h1>Chapter 3: Introduction to Statistics</h1>
+    <h2 id="section-3-2">Section 3.2: Overview and Definitions</h2>
+
+    <section aria-labelledby="what-is-stats-heading">
+        <h3 id="what-is-stats-heading">What Is Statistics?</h3>
+    <div class="definition-box" role="note" aria-labelledby="def-statistics">
+        <h4 id="def-statistics">Definition: Statistics</h4>
+        <p><strong>Statistics</strong> is the science of collecting, organizing, analyzing, interpreting, and presenting data to aid in decision making. Statistical methods are used in nearly every field to understand patterns, answer questions, and make decisions based on data.</p>
+    </div>
+    <p>Examples of the use of statistics include:</p>
+    <ul>
+        <li>Physicians evaluating the effectiveness of new medications.</li>
+        <li>Manufacturers monitoring product quality.</li>
+        <li>Businesses studying customer preferences.</li>
+        <li>Governments analyzing census data.</li>
+        <li>Educators measuring student achievement.</li>
+        <li>Scientists conducting experiments.</li>
+    </ul>
+    <p>Because data are encountered in almost every discipline, an understanding of statistical methods is an essential part of modern quantitative literacy.</p>
+    </section>
+
+    <hr class="divider" aria-hidden="true" />
+
+    <section aria-labelledby="pop-sample-heading">
+        <h3 id="pop-sample-heading">Population and Sample</h3>
+        <p>An important first step in a statistical study is to identify the population of interest. The population is defined by the research question, not necessarily by the individuals who are easiest to study.</p>
+    <div class="definition-box" role="note" aria-labelledby="def-population">
+        <h4 id="def-population">Definition: Population</h4>
+        <p>A <strong>population</strong> is the complete collection of individuals, objects, or measurements of interest in a statistical study.</p>
+    </div>
+    <p>Examples include:</p>
+    <ul>
+        <li>If a researcher wants to estimate the impact of an advertising campaign on a state-wide election, the population is all registered voters in that state.</li>
+        <li>If a researcher wants to estimate the average age of all students enrolled at a university, the population is all students enrolled at that university.</li>
+        <li>If a researcher wants to estimate average fuel mileage of all cars in a calendar year, the population is every automobile produced during that particular year.</li>
+    </ul>
+    <p>Studying an entire population is often impractical because populations may be very large, expensive to study, or constantly changing. Instead, researchers typically examine a subset of the population.</p>
+    <div class="definition-box" role="note" aria-labelledby="def-sample">
+        <h4 id="def-sample">Definition: Sample</h4>
+        <p>A <strong>sample</strong> is a subset of a population selected for study.</p>
+    </div>
+    <p>An appropriately selected sample can provide useful information about the population while requiring less time and expense than studying the entire population.</p>
+    </section>
+
+    <section aria-labelledby="census-heading">
+        <h3 id="census-heading">Census and Survey</h3>
+        <p>There are two common methods for collecting data.</p>
+    <div class="definition-box" role="note" aria-labelledby="def-census">
+        <h4 id="def-census">Definition: Census</h4>
+        <p>A <strong>census</strong> collects information from every member of the population.</p>
+    </div>
+    <p>Because every member of the defined population is included, a census can provide information about the entire population without sampling variability. However, a census can still contain nonsampling errors.</p>
+    <div class="definition-box" role="note" aria-labelledby="def-survey">
+        <h4 id="def-survey">Definition: Sample Survey</h4>
+        <p>A <strong>sample survey</strong> collects information from only a sample of the population.</p>
+    </div>
+    <p>When a sample is selected using an appropriate sampling method, it can provide useful information about the population.</p>
+    </section>
+
+    <section aria-labelledby="param-stat-heading">
+        <h3 id="param-stat-heading">Parameters and Statistics</h3>
+        <p>Two important terms in statistics describe numerical summaries.</p>
+    <div class="definition-box" role="note" aria-labelledby="def-parameter">
+        <h4 id="def-parameter">Definition: Parameter</h4>
+        <p>A <strong>parameter</strong> is a numerical characteristic of a population.</p>
+    </div>
+    <p>Examples include:</p>
+    \[
+    \begin{aligned}
+    \mu &amp;= \text{population mean}\\
+    \sigma &amp;= \text{population standard deviation}\\
+    \sigma^2 &amp;= \text{population variance}
+    \end{aligned}
+    \]
+    <p>Because parameters describe entire populations, they are usually unknown.</p>
+    <div class="definition-box" role="note" aria-labelledby="def-statistic">
+        <h4 id="def-statistic">Definition: Statistic</h4>
+        <p>A <strong>statistic</strong> is a numerical characteristic computed from a sample.</p>
+    </div>
+    <p>Examples include:</p>
+    \[
+    \begin{aligned}
+    \bar{x} &amp;= \text{sample mean}\\
+    s &amp;= \text{sample standard deviation}\\
+    s^2 &amp;= \text{sample variance}
+    \end{aligned}
+    \]
+    <p>Sample statistics can be used to estimate unknown population parameters.</p>
+
+    <p>Remember:</p>
+    \[\text{Parameter} \rightarrow \text{Population}\]
+    \[\text{Statistic} \rightarrow \text{Sample}\]
+    </section>
+
+    <hr class="divider" aria-hidden="true" />
+
+    <section aria-labelledby="types-data-heading">
+        <h3 id="types-data-heading">Types of Data</h3>
+        <p>Data may be classified according to the type of information they represent.</p>
+    <div class="definition-box" role="note" aria-labelledby="def-categorical">
+        <h4 id="def-categorical">Definition: Categorical Data</h4>
+        <p><strong>Categorical data</strong> consist of observations that can be grouped into categories or classifications.</p>
+    </div>
+    <p>Examples include:</p>
+    <ul>
+        <li>Eye color</li>
+        <li>Political affiliation</li>
+        <li>Blood type</li>
+        <li>College major</li>
+    </ul>
+    <p>Arithmetic operations such as addition and averaging are generally not meaningful for categorical data.</p>
+    <p>Categories may be represented by numerical codes, but those codes do not necessarily have numerical meaning.</p>
+    <p>For example:</p>
+    <p>1 = “Freshman”, 2 = “Sophomore”, 3 = “Junior”, 4 = “Senior”</p>
+    <p>Coding class year this way does not mean that averaging the class year codes necessarily produces meaningful information.</p>
+    <div class="definition-box" role="note" aria-labelledby="def-quantitative">
+        <h4 id="def-quantitative">Definition: Quantitative Data</h4>
+        <p><strong>Quantitative data</strong> consist of numerical values obtained by counting or measuring. These are sometimes referred to as numerical data.</p>
+    </div>
+    <p>Examples include:</p>
+    <ul>
+        <li>Age</li>
+        <li>Height</li>
+        <li>Income</li>
+        <li>Test score</li>
+    </ul>
+    <p>Because numerical data represent quantities, arithmetic operations are often meaningful.</p>
+    </section>
+
+    <section aria-labelledby="variables-heading">
+        <h3 id="variables-heading">Qualitative and Quantitative Variables</h3>
+        <p>Variables are commonly classified as qualitative or quantitative.</p>
+    <div class="definition-box" role="note" aria-labelledby="def-qualitative">
+        <h4 id="def-qualitative">Definition: Qualitative Variable</h4>
+        <p>A <strong>qualitative variable</strong> describes a characteristic or quality and produces categorical data.</p>
+    </div>
+    <p>Examples include:</p>
+    <ul>
+        <li>Hair color</li>
+        <li>Gender</li>
+        <li>Marital status</li>
+    </ul>
+    <div class="definition-box" role="note" aria-labelledby="def-quant-variable">
+        <h4 id="def-quant-variable">Definition: Quantitative Variable</h4>
+        <p>A <strong>quantitative variable</strong> measures a numerical quantity and produces numerical data.</p>
+    </div>
+    <p>Examples include:</p>
+    <ul>
+        <li>Weight</li>
+        <li>Temperature</li>
+        <li>Number of children</li>
+        <li>Annual income</li>
+    </ul>
+    <p>Categorical and qualitative are commonly used to describe the same general type of variable, while numerical and quantitative variables produce numerical measurements or counts.</p>
+    </section>
+
+    <section aria-labelledby="discrete-continuous-heading">
+        <h3 id="discrete-continuous-heading">Discrete and Continuous Variables</h3>
+        <p>Quantitative variables are further classified as discrete or continuous.</p>
+    <div class="definition-box" role="note" aria-labelledby="def-discrete-var">
+        <h4 id="def-discrete-var">Definition: Discrete Variable</h4>
+        <p>A <strong>discrete variable</strong> assumes only countable values.</p>
+        <p>Discrete variables usually result from counting.</p>
+    </div>
+    <p>Examples include:</p>
+    <ul>
+        <li>Number of students in a classroom</li>
+        <li>Number of defective products</li>
+        <li>Number of automobile accidents</li>
+    </ul>
+    <div class="definition-box" role="note" aria-labelledby="def-continuous-var">
+        <h4 id="def-continuous-var">Definition: Continuous Variable</h4>
+        <p>A <strong>continuous variable</strong> can take any value within an interval of real numbers.</p>
+        <p>Continuous variables usually result from measurement.</p>
+    </div>
+    <p>Examples include:</p>
+    <ul>
+        <li>Height</li>
+        <li>Weight</li>
+        <li>Time</li>
+        <li>Temperature</li>
+    </ul>
+    </section>
+
+    <hr class="divider" aria-hidden="true" />
+
+    <section aria-labelledby="levels-heading">
+        <h3 id="levels-heading">Levels of Measurement</h3>
+        <p>The level of measurement helps determine which comparisons and statistical analyses are appropriate.</p>
+
+        <h4 id="nominal-heading">Nominal Level</h4>
+        <p>At the <strong>nominal level</strong>, observations are classified into categories having no natural ordering.</p>
+        <p>Examples include:</p>
+        <ul>
+            <li>Blood type</li>
+            <li>Eye color</li>
+            <li>College major</li>
+        </ul>
+
+        <h4 id="ordinal-heading">Ordinal Level</h4>
+        <p><strong>Ordinal</strong> data have categories with a meaningful order, but the differences between adjacent categories cannot be assumed to be equal.</p>
+        <p>Examples include:</p>
+        <ul>
+            <li>Class rank</li>
+            <li>Letter grades</li>
+            <li>Customer satisfaction ratings</li>
+        </ul>
+        <p>As an example, the difference between:</p>
+        <p>“neutral” \(\rightarrow\) “satisfied”</p>
+        <p>cannot automatically be treated as the same numerical distance as:</p>
+        <p>“satisfied” \(\rightarrow\) “very satisfied.”</p>
+
+        <h4 id="interval-heading">Interval Level</h4>
+        <p><strong>Interval</strong> data have meaningful differences between observations but lack a true zero point.</p>
+        <p>Examples include:</p>
+        <ul>
+            <li>Temperature measured in degrees Celsius</li>
+            <li>Temperature measured in degrees Fahrenheit</li>
+        </ul>
+        <p>Because there is no true zero, statements involving ratios are not meaningful. For example, 20°C is not twice as warm as 10°C.</p>
+
+        <h4 id="ratio-heading">Ratio Level</h4>
+        <p><strong>Ratio</strong> data possess all the properties of interval data and also have a true zero.</p>
+        <p>Examples include:</p>
+        <ul>
+            <li>Height</li>
+            <li>Weight</li>
+            <li>Age</li>
+            <li>Distance</li>
+            <li>Income</li>
+        </ul>
+        <p>Ratios are meaningful. For example, an object weighing 20 kilograms has twice the mass of an object weighing 10 kilograms.</p>
+    </section>
+
+    <hr class="divider" aria-hidden="true" />
+
+    <section aria-labelledby="desc-inf-heading">
+        <h3 id="desc-inf-heading">Descriptive and Inferential Statistics</h3>
+        <p>Statistics is traditionally divided into two major branches.</p>
+    <div class="definition-box" role="note" aria-labelledby="def-descriptive">
+        <h4 id="def-descriptive">Definition: Descriptive Statistics</h4>
+        <p><strong>Descriptive statistics</strong> consist of methods used to organize, summarize, and present data.</p>
+    </div>
+    <p>Examples include:</p>
+    <ul>
+        <li>Tables</li>
+        <li>Graphs</li>
+        <li>Measures of center</li>
+        <li>Measures of variability</li>
+    </ul>
+    <p>Descriptive statistics describe the data that have been collected without drawing conclusions beyond those data.</p>
+    <div class="definition-box" role="note" aria-labelledby="def-inferential">
+        <h4 id="def-inferential">Definition: Inferential Statistics</h4>
+        <p><strong>Inferential statistics</strong> consist of methods used to draw conclusions or make predictions about a population using sample data.</p>
+    </div>
+    <p>Inferential statistics include procedures such as:</p>
+    <ul>
+        <li>Estimating population parameters.</li>
+        <li>Constructing confidence intervals.</li>
+        <li>Testing hypotheses.</li>
+        <li>Making predictions.</li>
+    </ul>
+    <p>Because conclusions are based on samples rather than entire populations, inferential statistics always involve some degree of uncertainty.</p>
+    <p>Descriptive statistics summarize the data actually observed, while inferential statistics use sample data to make statements about a broader population or process.</p>
+    </section>
+
+    <nav class="page-nav" aria-label="Section navigation">
+        <a class="nav-button" href="mth245_ch3_1.html">Previous: 3.1 Introduction</a>
+        <a class="nav-button" href="mth245_ch3_3.html">Next: 3.3 Data Collection and Sampling</a>
+    </nav>
+
+</main>
+
+<script>
+    fetch('toc.html')
+        .then(function (response) {
+            if (!response.ok) { throw new Error('TOC not found'); }
+            return response.text();
+        })
+        .then(function (data) {
+            document.getElementById('toc-placeholder').innerHTML = data;
+
+            document.querySelectorAll('.toc-chapter').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var expanded = button.getAttribute('aria-expanded') === 'true';
+                    button.setAttribute('aria-expanded', String(!expanded));
+                    document.getElementById(button.getAttribute('aria-controls')).classList.toggle('open');
+                });
+            });
+
+            // Mark the current page and open its chapter
+            var page = window.location.pathname.split('/').pop();
+            var current = document.querySelector('.toc-submenu a[href="' + page + '"]');
+            if (current) {
+                current.setAttribute('aria-current', 'page');
+                var menu = current.closest('.toc-submenu');
+                menu.classList.add('open');
+                var chapterButton = document.querySelector('[aria-controls="' + menu.id + '"]');
+                if (chapterButton) { chapterButton.setAttribute('aria-expanded', 'true'); }
+            }
+        })
+        .catch(function () { /* TOC unavailable: page content still works */ });
+</script>
+
+</body>
+</html>

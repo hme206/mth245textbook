@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MTH 245 – Ch 4.4: Additional Charts</title>
+
+    <!-- MathJax configuration (single $ intentionally disabled so dollar amounts never collide with math) -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]'], ['$$', '$$']],
+                packages: {'[+]': ['color']}
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            },
+            loader: {
+                load: ['[tex]/color']
+            }
+        };
+    </script>
+    <script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+
+    <link rel="stylesheet" href="styles1.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div id="toc-placeholder"></div>
+
+<main class="container" id="main-content" tabindex="-1">
+
+    <h1>Chapter 4: Pictures of Data</h1>
+    <h2 id="section-4-4">Section 4.4: Additional Charts</h2>
+
+    <section aria-labelledby="pareto-heading">
+        <h3 id="pareto-heading">Pareto Charts</h3>
+    <div class="definition-box" role="note" aria-labelledby="def-pareto">
+        <h4 id="def-pareto">Definition: Pareto Chart</h4>
+        <p>A <strong>Pareto chart</strong> is a special type of bar chart in which the categories are arranged from the highest frequency to the lowest frequency, rather than in their natural order.</p>
+    </div>
+    <p>Using the grade data from earlier,</p>
+    <div class="table-scroll">
+    <table>
+    <caption>Letter-grade frequencies for 30 students</caption>
+    <thead>
+    <tr><th scope="col">Class</th><th scope="col">Freq</th></tr>
+    </thead>
+    <tbody>
+    <tr><th scope="row">A</th><td>2</td></tr>
+    <tr><th scope="row">B</th><td>6</td></tr>
+    <tr><th scope="row">C</th><td>9</td></tr>
+    <tr><th scope="row">D</th><td>7</td></tr>
+    <tr><th scope="row">F</th><td>6</td></tr>
+    <tr><th scope="row">Total</th><td>30</td></tr>
+    </tbody>
+    </table>
+    </div>
+    <p>we can build the following:</p>
+    <!-- Image mth245_4_4_1 -->
+    <figure class="diagram">
+        <img
+            src="images1/mth245_4_4_1.png"
+            alt="Pareto chart of letter grades. The horizontal axis lists the grades in order from highest to lowest frequency: C, D, B, F, A. The vertical axis is labeled Frequency and runs from 0 to 10. The bar heights are C 9, D 7, B 6, F 6, and A 2."
+        />
+        <figcaption>Pareto chart of the letter-grade data.</figcaption>
+    </figure>
+    <p>The Pareto chart is named after the Italian economist Vilfredo Pareto, who observed an unequal distribution of wealth in Italy. The term <strong>Pareto Principle</strong> is now commonly used as a general description of situations in which a relatively small number of categories account for a relatively large proportion of an outcome. The percentages need not be exactly 80% and 20%.</p>
+
+    <p>For example, a quality-control Pareto chart may reveal that a small number of defect categories account for a large proportion of reported defects. The purpose of the chart is to identify categories that contribute substantially to the total, not to assume that an 80/20 relationship must exist.</p>
+
+    <p>A Pareto chart can help identify categories that account for a large proportion of an observed outcome and may therefore deserve further investigation.</p>
+    </section>
+
+    <section aria-labelledby="circle-heading">
+        <h3 id="circle-heading">Circle Graphs</h3>
+    <div class="definition-box" role="note" aria-labelledby="def-circle">
+        <h4 id="def-circle">Definition: Circle Graph</h4>
+        <p>A <strong>circle graph</strong>, also called a <strong>pie chart</strong>, is a graph used to show how a whole is divided into parts. The entire circle represents 100% (or \(360^\circ\)), and each sector (slice) represents the proportion of the total for one category. The size of each sector is determined by its relative frequency or percentage.</p>
+    </div>
+    <p>Using the grade data from earlier,</p>
+    <div class="table-scroll">
+    <table>
+    <caption>Letter-grade frequencies for 30 students</caption>
+    <thead>
+    <tr><th scope="col">Class</th><th scope="col">Freq</th></tr>
+    </thead>
+    <tbody>
+    <tr><th scope="row">A</th><td>2</td></tr>
+    <tr><th scope="row">B</th><td>6</td></tr>
+    <tr><th scope="row">C</th><td>9</td></tr>
+    <tr><th scope="row">D</th><td>7</td></tr>
+    <tr><th scope="row">F</th><td>6</td></tr>
+    <tr><th scope="row">Total</th><td>30</td></tr>
+    </tbody>
+    </table>
+    </div>
+    <p>we can build the following:</p>
+    <!-- Image mth245_4_4_2 -->
+    <figure class="diagram">
+        <img
+            src="images1/mth245_4_4_2.png"
+            alt="Circle graph (pie chart) of the letter-grade distribution for 30 students. The slices and their labels are C 30 percent, D about 23.3 percent, B 20 percent, F 20 percent, and A about 6.7 percent."
+        />
+        <figcaption>Circle graph of the letter-grade data.</figcaption>
+    </figure>
+    </section>
+
+    <section aria-labelledby="time-series-heading">
+        <h3 id="time-series-heading">Time-Series Graphs</h3>
+    <div class="definition-box" role="note" aria-labelledby="def-time-series">
+        <h4 id="def-time-series">Definition: Time-Series Graph</h4>
+        <p>A <strong>time-series graph</strong> is a type of line graph used to display how a variable changes over a period of time. The horizontal axis (x-axis) represents time intervals, such as years, months, days, or hours. The vertical axis (y-axis) represents the measured quantity or value being observed.</p>
+    </div>
+    <p>Individual data points are plotted at each time period and connected with line segments to show the pattern of change. A time-series graph helps identify:</p>
+    <ul>
+        <li><strong>Trends:</strong> Long-term increases or decreases over time.</li>
+        <li><strong>Patterns:</strong> Repeated behaviors or cycles.</li>
+        <li><strong>Fluctuations:</strong> Short-term rises and falls.</li>
+        <li><strong>Periods of rapid change:</strong> Times when values increase or decrease quickly.</li>
+    </ul>
+    <p>For example, a time-series graph of U.S. population over the last 100 years shows a general long-term trend, indicating that the population has steadily increased from one census period to the next.</p>
+    <!-- Image mth245_4_4_3 -->
+    <figure class="diagram">
+        <img
+            src="images1/mth245_4_4_3.png"
+            alt="Time-series line graph of U.S. population in millions by census year, from 1930 to 2020. The horizontal axis is labeled Year with a tick every ten years. The vertical axis is labeled Population (millions) and runs from 100 to 350. The line rises steadily: 123.2 in 1930, 132.2 in 1940, 151.3 in 1950, 179.3 in 1960, 203.2 in 1970, 226.5 in 1980, 248.7 in 1990, 281.4 in 2000, 308.7 in 2010, and 331.4 in 2020."
+        />
+        <figcaption>U.S. population by census year, 1930–2020.</figcaption>
+    </figure>
+    <p>Important features of a time-series graph include:</p>
+    <ol>
+        <li>Time is placed on the horizontal axis.</li>
+        <li>The measured variable is placed on the vertical axis.</li>
+        <li>Data points are connected in chronological order.</li>
+        <li>The direction of the line indicates whether the measured variable is increasing or decreasing over time. The steepness of the line reflects the rate of change, provided the time intervals and vertical scale are interpreted consistently.</li>
+    </ol>
+    <p>Time-series graphs are commonly used for population growth, stock prices, weather patterns, sales trends, economic indicators, and other measurements collected over time.</p>
+    </section>
+
+    <nav class="page-nav" aria-label="Section navigation">
+        <a class="nav-button" href="mth245_ch4_3.html">Previous: 4.3 Bar Charts and Histograms</a>
+        <a class="nav-button" href="mth245_ch4_5.html">Next: 4.5 Stem-and-Leaf Graphs</a>
+    </nav>
+
+</main>
+
+<script>
+    fetch('toc.html')
+        .then(function (response) {
+            if (!response.ok) { throw new Error('TOC not found'); }
+            return response.text();
+        })
+        .then(function (data) {
+            document.getElementById('toc-placeholder').innerHTML = data;
+
+            document.querySelectorAll('.toc-chapter').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var expanded = button.getAttribute('aria-expanded') === 'true';
+                    button.setAttribute('aria-expanded', String(!expanded));
+                    document.getElementById(button.getAttribute('aria-controls')).classList.toggle('open');
+                });
+            });
+
+            // Mark the current page and open its chapter
+            var page = window.location.pathname.split('/').pop();
+            var current = document.querySelector('.toc-submenu a[href="' + page + '"]');
+            if (current) {
+                current.setAttribute('aria-current', 'page');
+                var menu = current.closest('.toc-submenu');
+                menu.classList.add('open');
+                var chapterButton = document.querySelector('[aria-controls="' + menu.id + '"]');
+                if (chapterButton) { chapterButton.setAttribute('aria-expanded', 'true'); }
+            }
+        })
+        .catch(function () { /* TOC unavailable: page content still works */ });
+</script>
+
+</body>
+</html>

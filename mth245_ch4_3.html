@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MTH 245 – Ch 4.3: Bar Charts and Histograms</title>
+
+    <link rel="stylesheet" href="styles1.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div id="toc-placeholder"></div>
+
+<main class="container" id="main-content" tabindex="-1">
+
+    <h1>Chapter 4: Pictures of Data</h1>
+    <h2 id="section-4-3">Section 4.3: Bar Charts and Histograms</h2>
+
+    <section aria-labelledby="bar-charts-heading">
+        <h3 id="bar-charts-heading">Bar Charts</h3>
+    <div class="definition-box" role="note" aria-labelledby="def-bar-chart">
+        <h4 id="def-bar-chart">Definition: Bar Chart</h4>
+        <p>A <strong>bar chart</strong> is used to display categorical data.</p>
+        <p>Each category is represented by a separate bar whose height is proportional to its frequency or relative frequency.</p>
+    </div>
+    <p>Important characteristics of a bar chart include:</p>
+    <ul>
+        <li>Bars are separated by spaces.</li>
+        <li>Categories may be arranged alphabetically or by frequency.</li>
+        <li>For nominal categorical data, the order of the categories is generally not meaningful. For ordinal data, categories should usually be displayed in their natural order.</li>
+    </ul>
+    <p>Using the “favorite school subject” data from above:</p>
+    <!-- Image mth245_4_3_1 -->
+    <figure class="diagram">
+        <img
+            src="images1/mth245_4_3_1.png"
+            alt="Bar chart of the favorite school subject of 30 students. The horizontal axis lists the categories Math, Science, English, History, and Art. The vertical axis is labeled Frequency and runs from 0 to 10. The bar heights are Math 9, Science 7, English 6, History 5, and Art 3."
+        />
+        <figcaption>Frequency bar chart of favorite school subject.</figcaption>
+    </figure>
+    <p>Similarly, we could show this as a relative frequency bar chart.</p>
+    <!-- Image mth245_4_3_2 -->
+    <figure class="diagram">
+        <img
+            src="images1/mth245_4_3_2.png"
+            alt="Bar chart of the relative frequency of each favorite school subject. The horizontal axis lists Math, Science, English, History, and Art. The vertical axis is labeled Relative Frequency and runs from 0 to 0.35. The bar heights are Math 0.300, Science 0.233, English 0.200, History 0.167, and Art 0.100."
+        />
+        <figcaption>Relative frequency bar chart of favorite school subject.</figcaption>
+    </figure>
+    <p>In the case of categorical data at the ordinal level, bar charts can be presented as cumulative as well. Consider the grade data above converted from scores to letter grades:</p>
+    <div class="table-scroll">
+    <table>
+    <caption>Letter-grade distribution for 30 students</caption>
+    <thead>
+    <tr><th scope="col">Class</th><th scope="col">Freq</th><th scope="col">Cum Freq</th><th scope="col">Rel Freq</th><th scope="col">Cum Rel Freq</th></tr>
+    </thead>
+    <tbody>
+    <tr><th scope="row">A</th><td>2</td><td>2</td><td>0.067</td><td>0.067</td></tr>
+    <tr><th scope="row">B</th><td>6</td><td>8</td><td>0.200</td><td>0.267</td></tr>
+    <tr><th scope="row">C</th><td>9</td><td>17</td><td>0.300</td><td>0.567</td></tr>
+    <tr><th scope="row">D</th><td>7</td><td>24</td><td>0.233</td><td>0.800</td></tr>
+    <tr><th scope="row">F</th><td>6</td><td>30</td><td>0.200</td><td>1.000</td></tr>
+    <tr><th scope="row">Total</th><td>30</td><td></td><td>1.000</td><td></td></tr>
+    </tbody>
+    </table>
+    </div>
+    <p>Because letter grades have a meaningful order, cumulative frequency and cumulative relative frequency can also be displayed meaningfully.</p>
+    <!-- Image mth245_4_3_3 -->
+    <figure class="diagram">
+        <img
+            src="images1/mth245_4_3_3.png"
+            alt="Bar chart of the number of students earning each letter grade. The horizontal axis lists A, B, C, D, and F. The vertical axis is labeled Frequency and runs from 0 to 10. The bar heights are A 2, B 6, C 9, D 7, and F 6."
+        />
+        <figcaption>Frequency bar chart of letter grades.</figcaption>
+    </figure>
+    <!-- Image mth245_4_3_4 -->
+    <figure class="diagram">
+        <img
+            src="images1/mth245_4_3_4.png"
+            alt="Bar chart of the relative frequency of each letter grade. The horizontal axis lists A, B, C, D, and F. The vertical axis is labeled Relative Frequency. The bar heights are A 0.067, B 0.200, C 0.300, D 0.233, and F 0.200."
+        />
+        <figcaption>Relative frequency bar chart of letter grades.</figcaption>
+    </figure>
+    <!-- Image mth245_4_3_5 -->
+    <figure class="diagram">
+        <img
+            src="images1/mth245_4_3_5.png"
+            alt="Bar chart of the cumulative frequency of letter grades. The horizontal axis lists A, B, C, D, and F. The vertical axis is labeled Cumulative Frequency and runs from 0 to 35. The bar heights increase from A 2, to B 8, C 17, D 24, and F 30."
+        />
+        <figcaption>Cumulative frequency bar chart of letter grades.</figcaption>
+    </figure>
+    <!-- Image mth245_4_3_6 -->
+    <figure class="diagram">
+        <img
+            src="images1/mth245_4_3_6.png"
+            alt="Bar chart of the cumulative relative frequency of letter grades. The horizontal axis lists A, B, C, D, and F. The vertical axis is labeled Cumulative Relative Frequency and runs up to 1.1. The bar heights increase from A 0.067, to B 0.267, C 0.567, D 0.800, and F 1.000."
+        />
+        <figcaption>Cumulative relative frequency bar chart of letter grades.</figcaption>
+    </figure>
+    </section>
+
+    <hr class="divider" aria-hidden="true" />
+
+    <section aria-labelledby="histograms-heading">
+        <h3 id="histograms-heading">Histograms and Ogives</h3>
+    <div class="definition-box" role="note" aria-labelledby="def-histogram">
+        <h4 id="def-histogram">Definition: Histogram</h4>
+        <p>A <strong>histogram</strong> displays quantitative data that have been grouped into classes.</p>
+        <p>Unlike a bar chart,</p>
+        <ul>
+            <li>adjacent bars touch one another,</li>
+            <li>the horizontal axis represents numerical intervals,</li>
+            <li>the area of each bar is proportional to its frequency.</li>
+        </ul>
+    </div>
+    <p>When all classes have the same width, the height of each bar is proportional to frequency. When class widths differ, the area of each bar is proportional to frequency, and the height represents frequency density.</p>
+
+    <p>Histograms provide a visual summary of the distribution of numerical data. They are commonly used for ordinary frequency and relative-frequency displays.</p>
+
+    <div class="definition-box" role="note" aria-labelledby="def-ogive">
+        <h4 id="def-ogive">Definition: Ogive</h4>
+        <p>An <strong>ogive</strong>, also called a <strong>cumulative frequency graph</strong>, is a graph that shows the cumulative frequency of data. It is constructed by plotting cumulative frequencies against the corresponding class boundaries and connecting the points with line segments.</p>
+    </div>
+    <section class="example" aria-labelledby="ex-4-3-1-heading">
+        <div class="example-problem">
+            <h3 id="ex-4-3-1-heading">Example 1</h3>
+            <p>Construct the following four displays for the grouped data:</p>
+            <ol>
+                <li>a frequency histogram,</li>
+                <li>a relative-frequency histogram,</li>
+                <li>a cumulative-frequency graph (ogive), and</li>
+                <li>a cumulative-relative-frequency graph.</li>
+            </ol>
+            <div class="table-scroll">
+            <table>
+            <caption>Grouped frequency distribution of 30 scores</caption>
+            <thead>
+            <tr><th scope="col">Class</th><th scope="col">Freq</th><th scope="col">Cum Freq</th><th scope="col">Rel Freq</th><th scope="col">Cum Rel Freq</th></tr>
+            </thead>
+            <tbody>
+            <tr><th scope="row">40–49</th><td>2</td><td>2</td><td>0.067</td><td>0.067</td></tr>
+            <tr><th scope="row">50–59</th><td>4</td><td>6</td><td>0.133</td><td>0.200</td></tr>
+            <tr><th scope="row">60–69</th><td>7</td><td>13</td><td>0.233</td><td>0.433</td></tr>
+            <tr><th scope="row">70–79</th><td>9</td><td>22</td><td>0.300</td><td>0.733</td></tr>
+            <tr><th scope="row">80–89</th><td>6</td><td>28</td><td>0.200</td><td>0.933</td></tr>
+            <tr><th scope="row">90–99</th><td>2</td><td>30</td><td>0.067</td><td>1.000</td></tr>
+            <tr><th scope="row">Total</th><td>30</td><td></td><td>1.000</td><td></td></tr>
+            </tbody>
+            </table>
+            </div>
+        </div>
+        <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-4-3-1">
+            <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+        </button>
+        <div id="sol-4-3-1" class="example-content">
+            <div class="solution">
+                <h4>Solution</h4>
+                <!-- Image mth245_4_3_7 -->
+                <figure class="diagram">
+                    <img
+                        src="images1/mth245_4_3_7.png"
+                        alt="Frequency histogram. The horizontal axis is labeled Class with the intervals 40 to 49, 50 to 59, 60 to 69, 70 to 79, 80 to 89, and 90 to 99. The vertical axis is labeled Frequency and runs from 0 to 10. The bar heights are 2, 4, 7, 9, 6, and 2."
+                    />
+                    <figcaption>Frequency histogram.</figcaption>
+                </figure>
+                <!-- Image mth245_4_3_8 -->
+                <figure class="diagram">
+                    <img
+                        src="images1/mth245_4_3_8.png"
+                        alt="Cumulative frequency graph. The horizontal axis is labeled Class with the intervals 40 to 49 through 90 to 99. The vertical axis is labeled Cumulative Frequency and runs from 0 to 32. The bars rise from 2 to 6, 13, 22, 28, and 30."
+                    />
+                    <figcaption>Cumulative frequency graph.</figcaption>
+                </figure>
+                <!-- Image mth245_4_3_9 -->
+                <figure class="diagram">
+                    <img
+                        src="images1/mth245_4_3_9.png"
+                        alt="Relative frequency graph. The horizontal axis is labeled Class with the intervals 40 to 49 through 90 to 99. The vertical axis is labeled Relative Frequency and runs from 0 to 0.35. Points joined by line segments are at 0.067, 0.133, 0.233, 0.300, 0.200, and 0.067, rising to a peak at the 70 to 79 class and then falling."
+                    />
+                    <figcaption>Relative frequency graph.</figcaption>
+                </figure>
+                <!-- Image mth245_4_3_10 -->
+                <figure class="diagram">
+                    <img
+                        src="images1/mth245_4_3_10.png"
+                        alt="Cumulative relative frequency graph. The horizontal axis is labeled Class with the intervals 40 to 49 through 90 to 99. The vertical axis is labeled Cumulative Relative Frequency and runs from 0 to 1.05. Points joined by line segments rise steadily through 0.067, 0.200, 0.433, 0.733, 0.933, and 1.000."
+                    />
+                    <figcaption>Cumulative relative frequency graph.</figcaption>
+                </figure>
+            </div>
+        </div>
+    </section>
+    </section>
+
+    <hr class="divider" aria-hidden="true" />
+
+    <section aria-labelledby="shape-heading">
+        <h3 id="shape-heading">Shape of a Distribution</h3>
+
+        <h4 id="skewness-heading">Skewness</h4>
+        <p><strong>Skewness</strong> describes the overall appearance, or shape, of a histogram.</p>
+
+        <p>A distribution is <strong>symmetric</strong> if the left and right sides are approximately mirror images.</p>
+        <p>Many naturally occurring measurements produce approximately symmetric distributions.</p>
+
+        <p>A distribution is <strong>positively skewed</strong> (or <strong>right-skewed</strong>) if the tail extends farther toward larger values.</p>
+        <p>Common examples include incomes and home prices.</p>
+
+        <p>A distribution is <strong>negatively skewed</strong> (or <strong>left-skewed</strong>) if the tail extends farther toward smaller values.</p>
+        <p>Scores on relatively easy examinations often produce negatively skewed distributions.</p>
+
+        <p>We will define these in further detail in the next chapter after we have formally discussed measures of center.</p>
+
+        <h4 id="modality-heading">Modality</h4>
+        <p>A <strong>unimodal</strong> distribution has one prominent peak. A mound-shaped distribution is a type of unimodal distribution that rises to a central peak and decreases toward both ends.</p>
+        <p>A <strong>uniform</strong> or <strong>rectangular</strong> distribution has approximately the same frequency across its classes.</p>
+        <p>A <strong>bimodal</strong> distribution may suggest that the data contain two distinct subgroups, although other processes can also produce multiple peaks.</p>
+        <p>A <strong>multimodal</strong> distribution may suggest the presence of several subgroups or processes affecting the data.</p>
+
+        <h4 id="outliers-heading">Outliers</h4>
+        <p>Occasionally, one or more observations differ substantially from the majority of the data. These unusual observations are called <strong>outliers</strong>.</p>
+        <p>Outliers may result from</p>
+        <ul>
+            <li>recording or measurement errors,</li>
+            <li>unusual but valid observations,</li>
+            <li>observations from a different population.</li>
+        </ul>
+        <p>Outliers should be investigated carefully before deciding whether they should be included in the analysis.</p>
+        <p>An outlier is not automatically an error. An unusual observation should be investigated to determine whether it represents a data-entry error, a measurement problem, a legitimate unusual case, or a member of a different population.</p>
+
+        <div class="definition-box" role="note" aria-labelledby="key-ideas-4-3-heading">
+            <h4 id="key-ideas-4-3-heading">Key Ideas</h4>
+            <p>Frequency distributions organize raw data into meaningful classes, making patterns easier to recognize. Numerical frequency distributions are constructed by selecting appropriate class widths, class limits, and class boundaries. Frequency, cumulative frequency, relative frequency, and cumulative relative frequency each provide useful summaries of the data.</p>
+            <p>Bar charts summarize categorical data, whereas histograms summarize grouped quantitative data. Histograms also reveal important characteristics of a distribution, including its center, spread, shape, and possible outliers.</p>
+            <p>Common distribution shapes include symmetric, positively skewed, negatively skewed, mound-shaped (unimodal), uniform, bimodal, and multimodal.</p>
+        </div>
+    </section>
+
+    <nav class="page-nav" aria-label="Section navigation">
+        <a class="nav-button" href="mth245_ch4_2.html">Previous: 4.2 Frequency Distributions</a>
+        <a class="nav-button" href="mth245_ch4_4.html">Next: 4.4 Additional Charts</a>
+    </nav>
+
+</main>
+
+<script>
+    function toggleExample(button) {
+        var content = button.nextElementSibling;
+        var arrow = button.querySelector('.toggle-arrow');
+        var label = button.querySelector('span:last-child');
+
+        if (content.classList.contains('open')) {
+            content.classList.remove('open');
+            arrow.classList.remove('open');
+            label.textContent = 'Show Solution';
+            button.setAttribute('aria-expanded', 'false');
+        } else {
+            content.classList.add('open');
+            arrow.classList.add('open');
+            label.textContent = 'Hide Solution';
+            button.setAttribute('aria-expanded', 'true');
+        }
+    }
+</script>
+
+<script>
+    fetch('toc.html')
+        .then(function (response) {
+            if (!response.ok) { throw new Error('TOC not found'); }
+            return response.text();
+        })
+        .then(function (data) {
+            document.getElementById('toc-placeholder').innerHTML = data;
+
+            document.querySelectorAll('.toc-chapter').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var expanded = button.getAttribute('aria-expanded') === 'true';
+                    button.setAttribute('aria-expanded', String(!expanded));
+                    document.getElementById(button.getAttribute('aria-controls')).classList.toggle('open');
+                });
+            });
+
+            // Mark the current page and open its chapter
+            var page = window.location.pathname.split('/').pop();
+            var current = document.querySelector('.toc-submenu a[href="' + page + '"]');
+            if (current) {
+                current.setAttribute('aria-current', 'page');
+                var menu = current.closest('.toc-submenu');
+                menu.classList.add('open');
+                var chapterButton = document.querySelector('[aria-controls="' + menu.id + '"]');
+                if (chapterButton) { chapterButton.setAttribute('aria-expanded', 'true'); }
+            }
+        })
+        .catch(function () { /* TOC unavailable: page content still works */ });
+</script>
+
+</body>
+</html>

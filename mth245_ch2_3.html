@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MTH 245 – Ch 2.3: Binomial Distribution</title>
+
+    <!-- MathJax configuration (single $ intentionally disabled so dollar amounts never collide with math) -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]'], ['$$', '$$']],
+                packages: {'[+]': ['color']}
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            },
+            loader: {
+                load: ['[tex]/color']
+            }
+        };
+    </script>
+    <script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+
+    <link rel="stylesheet" href="styles1.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div id="toc-placeholder"></div>
+
+<main class="container" id="main-content" tabindex="-1">
+
+    <h1>Chapter 2: Binomial Probability Distribution</h1>
+    <h2 id="section-2-3">Section 2.3: Binomial Distribution</h2>
+
+    <!-- ===================== BINOMIAL EXPERIMENTS ===================== -->
+    <section aria-labelledby="binomial-experiments-heading">
+        <h3 id="binomial-experiments-heading">Binomial Experiments</h3>
+
+        <p>Many probability experiments consist of a fixed number of identical trials, where each trial results in one of two possible outcomes. Such experiments are called <strong>binomial experiments</strong>.</p>
+
+        <div class="definition-box" role="note" aria-labelledby="def-binomial">
+            <h4 id="def-binomial">Definition: Binomial Experiment</h4>
+            <p>A <strong>binomial experiment</strong> satisfies the following four conditions:</p>
+            <ol>
+                <li>The experiment consists of a fixed number of trials, \(n\).</li>
+                <li>Each trial has only two possible outcomes: success and failure.</li>
+                <li>The trials are independent.</li>
+                <li>The probability of success, \(p\), remains constant for every trial.</li>
+            </ol>
+            <p>If</p>
+            \[p=P(\text{success}),\]
+            <p>then</p>
+            \[q=P(\text{failure})=1-p.\]
+            <p>The random variable</p>
+            \[X=\text{number of successes in }n\text{ trials}\]
+            <p>is called a <strong>binomial random variable</strong>.</p>
+        </div>
+    </section>
+
+    <section aria-labelledby="binomial-examples-heading">
+        <h3 id="binomial-examples-heading">Examples of Binomial Experiments</h3>
+
+        <p>The following are examples of binomial experiments.</p>
+        <ul>
+            <li>Flipping a coin 20 times and counting the number of heads.</li>
+            <li>Inspecting 15 products and counting the number of defective items.</li>
+            <li>Surveying 100 randomly selected voters from a large population and counting the number who support a proposal.</li>
+            <li>Rolling a die 12 times and counting the number of sixes.</li>
+        </ul>
+
+        <p>The following are <strong>not</strong> binomial experiments.</p>
+        <ul>
+            <li>Rolling one die and recording the number obtained (more than two outcomes).</li>
+            <li>Drawing cards without replacement (drawing cards without replacement generally does not produce independent trials, so an exact binomial model is not appropriate).</li>
+            <li>Measuring students' heights (continuous variable).</li>
+            <li>Playing games in a post-season tournament (number of trials are not fixed).</li>
+        </ul>
+    </section>
+
+    <hr class="divider" aria-hidden="true" />
+
+    <!-- ===================== BINOMIAL FORMULA ===================== -->
+    <section aria-labelledby="binomial-formula-heading">
+        <h3 id="binomial-formula-heading">Binomial Probability Formula</h3>
+
+        <div class="definition-box" role="note" aria-labelledby="def-binomial-formula">
+            <h4 id="def-binomial-formula">The Binomial Probability Formula</h4>
+            <p>Suppose a binomial experiment consists of</p>
+            \[n\]
+            <p>independent trials with probability of success</p>
+            \[p.\]
+            <p>Then the probability of obtaining exactly</p>
+            \[x\]
+            <p>successes is</p>
+            \[P(X=x)=\binom{n}{x}p^xq^{\,n-x},\]
+            <p>where</p>
+            \[q=1-p.\]
+        </div>
+
+        <p>The quantity</p>
+        \[\binom{n}{x}\]
+        <p>counts the number of ways to choose the successful trials. This is the same as the combination \({}_{n}C_{r}\) found in our prior chapter.</p>
+
+        <p>The term \(p^xq^{\,n-x}\) gives the probability of one particular sequence containing \(x\) successes and \(n-x\) failures, while \(\binom{n}{x}\) counts the number of such sequences.</p>
+
+        <!-- Example 1 -->
+        <section class="example" aria-labelledby="ex-2-3-1-heading">
+            <div class="example-problem">
+                <h3 id="ex-2-3-1-heading">Example 1</h3>
+                <p>A fair coin is tossed five times. Find the probability of obtaining exactly three heads.</p>
+            </div>
+            <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-2-3-1">
+                <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+            </button>
+            <div id="sol-2-3-1" class="example-content">
+                <div class="solution">
+                    <h4>Solution</h4>
+                    <p>Let</p>
+                    \[X=\text{number of heads}.\]
+                    <p>Since</p>
+                    \[n=5,\qquad x=3,\qquad p=0.5,\qquad q=0.5,\]
+                    <p>the binomial probability is</p>
+                    \[P(X=3)=\binom{5}{3}(0.5)^3(0.5)^2=10(0.5)^5=10(0.03125)=0.3125.\]
+                    <p>Therefore,</p>
+                    \[P(X=3)=0.3125.\]
+                    <p>There are \(\binom{n}{x}=10\) possible sequences containing exactly three heads.</p>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- ===================== SOLVING PROBLEMS ===================== -->
+    <section aria-labelledby="solving-heading">
+        <h3 id="solving-heading">Solving Binomial Probability Problems</h3>
+
+        <p>Binomial problems often ask for probabilities involving several possible values of the random variable.</p>
+
+        <p>To find the probability of exactly \(x\) successes,</p>
+        \[P(X=x),\]
+        <p>use the binomial formula directly.</p>
+
+        <p>“At most” means less than or equal to.</p>
+        <p>For example,</p>
+        \[P(X\le3)=P(0)+P(1)+P(2)+P(3).\]
+        <p>“At least” means greater than or equal to.</p>
+        <p>For example,</p>
+        \[P(X\ge4)=P(4)+P(5)+\cdots+P(n).\]
+        <p>Often it is easier to use the complement:</p>
+        \[P(X\ge4)=1-P(X\le3).\]
+        <p>For inclusive values,</p>
+        \[P(2\le X\le5)=P(2)+P(3)+P(4)+P(5).\]
+
+        <div class="table-scroll">
+            <table>
+                <caption>Translating wording into symbols</caption>
+                <thead>
+                    <tr><th scope="col">Wording</th><th scope="col">Symbol</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>exactly 4</td><td>\(X=4\)</td></tr>
+                    <tr><td>at most 4</td><td>\(X\le4\)</td></tr>
+                    <tr><td>at least 4</td><td>\(X\ge4\)</td></tr>
+                    <tr><td>fewer than 4</td><td>\(X&lt;4\)</td></tr>
+                    <tr><td>more than 4</td><td>\(X&gt;4\)</td></tr>
+                    <tr><td>no more than 4</td><td>\(X\le4\)</td></tr>
+                    <tr><td>no fewer than 4</td><td>\(X\ge4\)</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Example 2 -->
+        <section class="example" aria-labelledby="ex-2-3-2-heading">
+            <div class="example-problem">
+                <h3 id="ex-2-3-2-heading">Example 2</h3>
+                <p>A basketball player makes a free throw with probability \(0.80\). If the player attempts six free throws, find the probability of making exactly five shots.</p>
+            </div>
+            <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-2-3-2">
+                <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+            </button>
+            <div id="sol-2-3-2" class="example-content">
+                <div class="solution">
+                    <h4>Solution</h4>
+                    <p>\(X\) denotes the number of successful free throws made by the player out of \(n=6\) attempts with the probability of success of each shot \(p=0.80\), and the probability of failure of each shot \(q=0.20\). That gives us</p>
+                    \[X \sim \text{Bin}(6,0.80).\]
+                    <p>We are required to find</p>
+                    \[P(X=5).\]
+                    <p>Applying the binomial probability formula,</p>
+                    \[P(X=5)=\binom{6}{5}(0.80)^5(0.20)=6(0.32768)(0.20)=0.3932.\]
+                    \[P(X=5)\approx0.3932.\]
+                </div>
+            </div>
+        </section>
+
+        <!-- Example 3 -->
+        <section class="example" aria-labelledby="ex-2-3-3-heading">
+            <div class="example-problem">
+                <h3 id="ex-2-3-3-heading">Example 3</h3>
+                <p>A basketball player makes a free throw with probability \(0.80\). If the player attempts six free throws, find the probability of making at least one shot.</p>
+            </div>
+            <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-2-3-3">
+                <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+            </button>
+            <div id="sol-2-3-3" class="example-content">
+                <div class="solution">
+                    <h4>Solution</h4>
+                    <p>\(X\) still denotes the number of successful free throws made by the player out of \(n=6\) attempts with the probability of success of each shot \(p=0.80\), and the probability of failure of each shot \(q=0.20\). That still gives us</p>
+                    \[X \sim \text{Bin}(6,0.80).\]
+                    <p>We are required to find</p>
+                    \[P(X\ge1).\]
+                    <p>Using the complement rule,</p>
+                    \[P(X\ge1)=1-P(X=0).\]
+                    <p>Applying the binomial probability formula,</p>
+                    \[P(X=x)=\binom{n}{x}p^x(1-p)^{\,n-x},\]
+                    <p>where \(n=6\), \(p=0.80\), and \(x=0\),</p>
+                    \[P(X=0)=\binom{6}{0}(0.80)^0(0.20)^6=1(1)(0.20)^6=0.000064.\]
+                    <p>Therefore,</p>
+                    \[P(X\ge1)=1-P(X=0)=1-0.000064=0.999936.\]
+                    <p>Hence, the probability that the player makes at least one free throw is</p>
+                    \[P(X\ge1)=0.999936\approx0.9999.\]
+                    <p>The complement is especially useful here because “at least one” includes six possible values: 1, 2, 3, 4, 5, 6. The complement contains only one value, 0.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Example 4 -->
+        <section class="example" aria-labelledby="ex-2-3-4-heading">
+            <div class="example-problem">
+                <h3 id="ex-2-3-4-heading">Example 4</h3>
+                <p>A basketball player makes a free throw with probability \(0.80\). If the player attempts six free throws, find the probability of making more than four shots.</p>
+            </div>
+            <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-2-3-4">
+                <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+            </button>
+            <div id="sol-2-3-4" class="example-content">
+                <div class="solution">
+                    <h4>Solution</h4>
+                    <p>\(X\) still denotes the number of successful free throws made by the player out of \(n=6\) attempts with the probability of success of each shot \(p=0.80\), and the probability of failure of each shot \(q=0.20\). That still gives us</p>
+                    \[X \sim \text{Bin}(6,0.80).\]
+                    <p>We are required to find</p>
+                    \[P(X&gt;4)=P(X=5)+P(X=6).\]
+                    <p>Using the binomial probability formula,</p>
+                    \[P(X=x)=\binom{n}{x}p^x(1-p)^{\,n-x},\]
+                    <p>where \(n=6\) and \(p=0.80\),</p>
+                    \[P(X=5)=\binom{6}{5}(0.80)^5(0.20)^1=6(0.32768)(0.20)=0.393216,\]
+                    <p>and</p>
+                    \[P(X=6)=\binom{6}{6}(0.80)^6(0.20)^0=(0.80)^6=0.262144.\]
+                    <p>Therefore,</p>
+                    \[P(X&gt;4)=P(X=5)+P(X=6)=0.393216+0.262144=0.65536.\]
+                    <p>Hence, the probability that the player makes more than four free throws is</p>
+                    \[P(X&gt;4)=0.65536\approx0.6554.\]
+                    <p>Notice that “more than 4” excludes 4, so the possible values are 5 and 6.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Example 5 -->
+        <section class="example" aria-labelledby="ex-2-3-5-heading">
+            <div class="example-problem">
+                <h3 id="ex-2-3-5-heading">Example 5</h3>
+                <p>A basketball player makes a free throw with probability \(0.80\). If the player attempts six free throws, find the probability of making strictly between one and five shots.</p>
+            </div>
+            <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-2-3-5">
+                <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+            </button>
+            <div id="sol-2-3-5" class="example-content">
+                <div class="solution">
+                    <h4>Solution</h4>
+                    <p>\(X\) still denotes the number of successful free throws made by the player out of \(n=6\) attempts with the probability of success of each shot \(p=0.80\), and the probability of failure of each shot \(q=0.20\). That still gives us</p>
+                    \[X \sim \text{Bin}(6,0.80).\]
+                    <p>We are required to find</p>
+                    \[P(1&lt;X&lt;5)=P(X=2)+P(X=3)+P(X=4).\]
+                    <p>Using the binomial probability formula,</p>
+                    \[P(X=x)=\binom{n}{x}p^x(1-p)^{\,n-x},\]
+                    <p>where \(n=6\) and \(p=0.80\),</p>
+                    \[P(X=2)=\binom{6}{2}(0.80)^2(0.20)^4=15(0.64)(0.0016)=0.01536,\]
+                    \[P(X=3)=\binom{6}{3}(0.80)^3(0.20)^3=20(0.512)(0.008)=0.08192,\]
+                    <p>and</p>
+                    \[P(X=4)=\binom{6}{4}(0.80)^4(0.20)^2=15(0.4096)(0.04)=0.24576.\]
+                    <p>Therefore,</p>
+                    \[P(1&lt;X&lt;5)=0.01536+0.08192+0.24576=0.34304.\]
+                    <p>Hence, the probability that the player makes strictly between one and five free throws is</p>
+                    \[P(1&lt;X&lt;5)=0.34304\approx0.3430.\]
+                    <p>If you want the endpoints included, it is clearer to state “between and including 1 and 5.”</p>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- ===================== MEAN AND SD ===================== -->
+    <section aria-labelledby="binomial-mean-heading">
+        <h3 id="binomial-mean-heading">Mean and Standard Deviation</h3>
+
+        <div class="definition-box" role="note" aria-labelledby="def-binomial-mean">
+            <h4 id="def-binomial-mean">Mean, Variance, and Standard Deviation of a Binomial Random Variable</h4>
+            <p>For a binomial random variable \(X\sim\text{Bin}(n,p)\), the mean, variance, and standard deviation are</p>
+            \[ \mu=np, \quad \sigma^2=npq, \quad \sigma=\sqrt{npq}.\]
+        </div>
+
+        <p>These formulas eliminate the need to compute the mean and variance from the entire probability distribution.</p>
+
+        <!-- Example 6 -->
+        <section class="example" aria-labelledby="ex-2-3-6-heading">
+            <div class="example-problem">
+                <h3 id="ex-2-3-6-heading">Example 6</h3>
+                <p>Suppose</p>
+                \[X\sim\text{Bin}(6,0.80).\]
+                <p>Find the mean, variance, and standard deviation.</p>
+            </div>
+            <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-2-3-6">
+                <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+            </button>
+            <div id="sol-2-3-6" class="example-content">
+                <div class="solution">
+                    <h4>Solution</h4>
+                    <p>The mean is</p>
+                    \[\mu=np=(6)(0.80)=4.80.\]
+                    <p>Note that the mean does not have to be a possible value of \(X\); it represents the long-term average outcome.</p>
+                    <p>The variance is</p>
+                    \[\sigma^2=npq=(6)(0.80)(0.20)=0.960.\]
+                    <p>Therefore,</p>
+                    \[\sigma=\sqrt{0.96}\approx0.980.\]
+                    <p>Thus,</p>
+                    \[\mu=4.8,\qquad\sigma^2=0.96,\qquad\sigma\approx0.98.\]
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- ===================== KEY IDEAS ===================== -->
+    <section aria-labelledby="key-ideas-2-3-heading">
+        <div class="definition-box" role="note" aria-labelledby="key-ideas-2-3-heading">
+            <h4 id="key-ideas-2-3-heading">Key Ideas</h4>
+            <p>A binomial experiment has</p>
+            <ol>
+                <li>The experiment consists of a fixed number of trials, \(n\).</li>
+                <li>Each trial has only two possible outcomes: success and failure.</li>
+                <li>The trials are independent.</li>
+                <li>The probability of success, \(p\), remains constant for every trial.</li>
+            </ol>
+            <p>Always identify whether the problem asks for <strong>exactly</strong>, <strong>at most</strong>, <strong>at least</strong>, <strong>between</strong>, <strong>more than</strong>, or <strong>fewer than</strong> a specified number of successes before selecting the appropriate probability calculation.</p>
+        </div>
+    </section>
+
+    <nav class="page-nav" aria-label="Section navigation">
+        <a class="nav-button" href="mth245_ch2_2.html">Previous: 2.2 Random Variable</a>
+        <a class="nav-button" href="mth245_ch2_4.html">Next: 2.4 Using Binomial Probability Tables</a>
+    </nav>
+
+</main>
+
+<script>
+    function toggleExample(button) {
+        var content = button.nextElementSibling;
+        var arrow = button.querySelector('.toggle-arrow');
+        var label = button.querySelector('span:last-child');
+
+        if (content.classList.contains('open')) {
+            content.classList.remove('open');
+            arrow.classList.remove('open');
+            label.textContent = 'Show Solution';
+            button.setAttribute('aria-expanded', 'false');
+        } else {
+            content.classList.add('open');
+            arrow.classList.add('open');
+            label.textContent = 'Hide Solution';
+            button.setAttribute('aria-expanded', 'true');
+        }
+    }
+</script>
+
+<script>
+    fetch('toc.html')
+        .then(function (response) {
+            if (!response.ok) { throw new Error('TOC not found'); }
+            return response.text();
+        })
+        .then(function (data) {
+            document.getElementById('toc-placeholder').innerHTML = data;
+
+            document.querySelectorAll('.toc-chapter').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var expanded = button.getAttribute('aria-expanded') === 'true';
+                    button.setAttribute('aria-expanded', String(!expanded));
+                    document.getElementById(button.getAttribute('aria-controls')).classList.toggle('open');
+                });
+            });
+
+            // Mark the current page and open its chapter
+            var page = window.location.pathname.split('/').pop();
+            var current = document.querySelector('.toc-submenu a[href="' + page + '"]');
+            if (current) {
+                current.setAttribute('aria-current', 'page');
+                var menu = current.closest('.toc-submenu');
+                menu.classList.add('open');
+                var chapterButton = document.querySelector('[aria-controls="' + menu.id + '"]');
+                if (chapterButton) { chapterButton.setAttribute('aria-expanded', 'true'); }
+            }
+        })
+        .catch(function () { /* TOC unavailable: page content still works */ });
+</script>
+
+</body>
+</html>

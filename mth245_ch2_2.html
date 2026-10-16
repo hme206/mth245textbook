@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MTH 245 – Ch 2.2: Random Variable</title>
+
+    <!-- MathJax configuration (single $ intentionally disabled so dollar amounts never collide with math) -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]'], ['$$', '$$']],
+                packages: {'[+]': ['color']}
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            },
+            loader: {
+                load: ['[tex]/color']
+            }
+        };
+    </script>
+    <script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+
+    <link rel="stylesheet" href="styles1.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div id="toc-placeholder"></div>
+
+<main class="container" id="main-content" tabindex="-1">
+
+    <h1>Chapter 2: Binomial Probability Distribution</h1>
+    <h2 id="section-2-2">Section 2.2: Random Variable</h2>
+
+    <p>Many probability experiments produce numerical outcomes. For example:</p>
+    <ul>
+        <li>the number of defective products in a sample,</li>
+        <li>the number of customers arriving at a store,</li>
+        <li>the amount of rainfall in a day,</li>
+        <li>the waiting time for a service.</li>
+    </ul>
+    <p>That said, a random variable does not necessarily mean that the original outcome itself is numerical. Flipping a coin is an example. A Head and a Tail might be assigned values of 1 and 0.</p>
+
+    <hr class="divider" aria-hidden="true" />
+
+    <!-- ===================== RANDOM VARIABLE ===================== -->
+    <section aria-labelledby="rv-heading">
+        <h3 id="rv-heading">Random Variables</h3>
+
+        <div class="definition-box" role="note" aria-labelledby="def-rv">
+            <h4 id="def-rv">Definition: Random Variable</h4>
+            <p>A <strong>random variable</strong> assigns a numerical value to each outcome of a random experiment. A random variable is a variable whose value is determined by the outcome of a random experiment.</p>
+        </div>
+
+        <p>The random variable is usually represented by an uppercase letter such as \(X\) or \(Y\), while a particular value of the random variable is represented by a lowercase letter such as \(x\) or \(y\).</p>
+
+        <!-- Example 1 -->
+        <section class="example" aria-labelledby="ex-2-2-1-heading">
+            <div class="example-problem">
+                <h3 id="ex-2-2-1-heading">Example 1</h3>
+                <p>Let \(X\) be the number of heads obtained when three coins are flipped. List the possible values of \(X\) and explain why \(X\) is a random variable.</p>
+            </div>
+            <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-2-2-1">
+                <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+            </button>
+            <div id="sol-2-2-1" class="example-content">
+                <div class="solution">
+                    <h4>Solution</h4>
+                    <p>For example, let</p>
+                    \[X=\text{number of heads obtained when three coins are flipped}.\]
+                    <p>The possible values of \(X\) are</p>
+                    \[X=0,1,2,3.\]
+                    <p>Because these values are determined by chance, \(X\) is a random variable. Notice that \(X\) is the number of heads, not the outcome of the three coin flips themselves.</p>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- ===================== DISCRETE ===================== -->
+    <section aria-labelledby="discrete-heading">
+        <h3 id="discrete-heading">Discrete Random Variables</h3>
+
+        <div class="definition-box" role="note" aria-labelledby="def-discrete">
+            <h4 id="def-discrete">Definition: Discrete Random Variable</h4>
+            <p>A random variable is <strong>discrete</strong> if its possible values form a finite or countably infinite set.</p>
+            <p>Discrete random variables typically represent counts.</p>
+        </div>
+
+        <p>Examples include:</p>
+        <ul>
+            <li>number of students absent from a class,</li>
+            <li>number of defective items in a shipment,</li>
+            <li>number of successes in a fixed number of trials.</li>
+        </ul>
+
+        <p>A discrete random variable has a probability distribution that lists each possible value and its associated probability.</p>
+
+        <div class="table-scroll">
+            <table>
+                <caption>A probability distribution for a discrete random variable</caption>
+                <thead>
+                    <tr><th scope="col">\(x\)</th><th scope="col">\(P(X=x)\)</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>0</td><td>0.20</td></tr>
+                    <tr><td>1</td><td>0.35</td></tr>
+                    <tr><td>2</td><td>0.30</td></tr>
+                    <tr><td>3</td><td>0.15</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <p>For any discrete probability distribution,</p>
+        \[P(X=x)\geq0\]
+        <p>and</p>
+        \[\sum P(X=x)=1.\]
+        <p>Before using a table as a probability distribution, verify that every probability is nonnegative and that the probabilities sum to 1.</p>
+    </section>
+
+    <!-- ===================== CONTINUOUS ===================== -->
+    <section aria-labelledby="continuous-heading">
+        <h3 id="continuous-heading">Continuous Random Variables</h3>
+
+        <div class="definition-box" role="note" aria-labelledby="def-continuous">
+            <h4 id="def-continuous">Definition: Continuous Random Variable</h4>
+            <p>A random variable is called <strong>continuous</strong> if it can take any value within an interval of real numbers. Continuous random variables usually represent measurements.</p>
+        </div>
+
+        <p>Examples include:</p>
+        <ul>
+            <li>height,</li>
+            <li>weight,</li>
+            <li>temperature,</li>
+            <li>time,</li>
+            <li>distance.</li>
+        </ul>
+
+        <p>A continuous random variable can take any value within an interval of real numbers.</p>
+
+        <p>For example, the time required to complete a task may be</p>
+        \[
+        4.2\text{ minutes},\quad
+        4.23\text{ minutes},\quad
+        4.231\text{ minutes},
+        \]
+        <p>and so on.</p>
+
+        <p>Because individual values have probability zero for continuous variables, probabilities are calculated over intervals using probability density functions.</p>
+
+        <p>A probability density function gives probability through area; the height of the density curve at a particular point is not itself a probability.</p>
+    </section>
+
+    <!-- ===================== PROBABILITY DISTRIBUTIONS ===================== -->
+    <section aria-labelledby="distributions-heading">
+        <h3 id="distributions-heading">Probability Distributions</h3>
+
+        <div class="definition-box" role="note" aria-labelledby="def-distribution">
+            <h4 id="def-distribution">Definition: Probability Distribution</h4>
+            <p>A <strong>probability distribution</strong> describes how probabilities are assigned to the possible values of a random variable.</p>
+        </div>
+
+        <p>For a discrete random variable, the probability distribution can be represented by a probability mass function (PMF),</p>
+        \[P(X=x).\]
+        <p>The probability distribution provides information about the behavior and likelihood of possible outcomes.</p>
+    </section>
+
+    <hr class="divider" aria-hidden="true" />
+
+    <!-- ===================== PMF AND PDF ===================== -->
+    <section aria-labelledby="pmf-pdf-heading">
+        <h3 id="pmf-pdf-heading">Probability Mass Functions and Probability Density Functions</h3>
+
+        <p>The probability distribution of a random variable describes how probabilities are assigned to its possible values. The form of the distribution depends on whether the random variable is discrete or continuous.</p>
+
+        <div class="definition-box" role="note" aria-labelledby="def-pmf">
+            <h4 id="def-pmf">Definition: Probability Mass Function (PMF)</h4>
+            <p>A <strong>probability mass function (PMF)</strong> is used to describe the probability distribution of a <em>discrete</em> random variable. We think of it as a mass function because all of the probability is collected on certain discrete values.</p>
+            <p>For a discrete random variable \(X\), the probability mass function is</p>
+            \[P(X=x),\]
+            <p>which gives the probability that the random variable assumes the value \(x\).</p>
+            <p>The PMF has the following properties:</p>
+            <ol>
+                <li>\(P(X=x)\ge0\) for every possible value of \(x\).</li>
+                <li>\(\sum P(X=x)=1.\)</li>
+                <li>The probability of an event is the sum of the probabilities of all possible values of \(X\) contained in that event.</li>
+            </ol>
+        </div>
+
+        <!-- Example 2 -->
+        <section class="example" aria-labelledby="ex-2-2-2-heading">
+            <div class="example-problem">
+                <h3 id="ex-2-2-2-heading">Example 2</h3>
+                <p>Suppose the probability distribution of \(X\) is shown below. Display this PMF graphically, then find \(P(X=2)\) and \(P(X\le1)\).</p>
+                <div class="table-scroll">
+<table>
+<caption>Probability distribution of \(X\)</caption>
+<tbody>
+<tr><th scope="row">\(x\)</th><td>0</td><td>1</td><td>2</td><td>3</td></tr>
+<tr><th scope="row">\(P(X=x)\)</th><td>0.10</td><td>0.30</td><td>0.40</td><td>0.20</td></tr>
+</tbody>
+</table>
+</div>
+            </div>
+            <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-2-2-2">
+                <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+            </button>
+            <div id="sol-2-2-2" class="example-content">
+                <div class="solution">
+                    <h4>Solution</h4>
+                    <p>This PMF can be shown graphically:</p>
+
+                    <!-- Image mth245_2_2_1 -->
+                    <figure class="diagram">
+                        <img
+                            src="images1/mth245_2_2_1.png"
+                            alt="Bar chart of a probability mass function. The horizontal axis is labeled x with the values 0, 1, 2, and 3. The vertical axis is labeled P of X equals x and runs from 0 to 0.5. The four blue bars have heights 0.10 at x equals 0, 0.30 at x equals 1, 0.40 at x equals 2, and 0.20 at x equals 3."
+                        />
+                        <figcaption>Bar chart of the PMF of \(X\).</figcaption>
+                    </figure>
+
+                    <p>We think of it as a mass function because all of the probability is collected on certain discrete values. Notice that all of the probability is on the values \(\{0, 1, 2, 3\}\) and nowhere else.</p>
+
+                    <p>From this PMF, we can determine</p>
+                    \[P(X=2)=0.40,\]
+                    <p>the probability of the value 2.</p>
+
+                    <p>We can also see that</p>
+                    \[P(X\le1)=0.10+0.30=0.40.\]
+                    <p>This gives us all of the probability at and below 1.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="definition-box" role="note" aria-labelledby="def-pdf">
+            <h4 id="def-pdf">Definition: Probability Density Function (PDF)</h4>
+            <p>A <strong>probability density function (PDF)</strong> is used to describe the probability distribution of a <strong>continuous</strong> random variable. Unlike a PMF, a PDF does not assign probabilities to individual values.</p>
+            <p>Instead, probabilities are determined by the area under the density curve.</p>
+            <p>The probability density function is denoted by</p>
+            \[f(x).\]
+            <p>A probability density function satisfies the following properties:</p>
+            <ol>
+                <li>\(f(x)\ge0\) for all values of \(x\).</li>
+                <li>The total area under the curve is
+                    \[\int_{-\infty}^{\infty} f(x)\,dx=1.\]
+                </li>
+                <li>The probability that \(X\) lies between two values is
+                    \[P(a\le X\le b)=\int_a^b f(x)\,dx.\]
+                </li>
+            </ol>
+        </div>
+
+        <p>The symbol \(\int_a^b f(x)\,dx\) is a way of finding the area under the curve between \(a\) and \(b\) on the \(x\)-axis. The integral notation describes the general mathematical definition. In this course, we will find probabilities geometrically when the density function produces familiar shapes such as rectangles and triangles. In later courses, Calculus can be used to find areas of more complex distributions.</p>
+
+        <p>Since a continuous random variable can assume infinitely many values,</p>
+        \[P(X=x)=0\]
+        <p>for every individual value of \(x\).</p>
+
+        <p>This result often surprises students. Although the probability of any single value is zero, the probability that the random variable falls within an interval can be positive. For a continuous random variable, probability is associated with intervals or regions rather than individual points.</p>
+
+        <!-- Example 3 -->
+        <section class="example" aria-labelledby="ex-2-2-3-heading">
+            <div class="example-problem">
+                <h3 id="ex-2-2-3-heading">Example 3</h3>
+                <p>Suppose the continuous random variable \(X\) has probability density function</p>
+                \[
+                f(x)=
+                \begin{cases}
+                0.3x+0.2, &amp; 0\le x\le 2,\\[6pt]
+                0, &amp; \text{otherwise}.
+                \end{cases}
+                \]
+                <p>Verify that \(f\) is a valid probability density function, then find \(P(0.5&lt;X&lt;1.5)\).</p>
+            </div>
+            <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-2-2-3">
+                <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+            </button>
+            <div id="sol-2-2-3" class="example-content">
+                <div class="solution">
+                    <h4>Solution</h4>
+                    <p>The PDF can be shown graphically.</p>
+
+                    <!-- Image mth245_2_2_2 -->
+                    <figure class="diagram">
+                        <img
+                            src="images1/mth245_2_2_2.png"
+                            alt="Graph of the density function f of x equals 0.3x plus 0.2. The horizontal axis is x, from negative 0.5 to 2.5, and the vertical axis is f of x, from 0 to 1. The density is zero outside the interval from 0 to 2, so the graph runs along the x-axis there. Between 0 and 2 it is a straight blue line rising from 0.2 at x equals 0 to 0.8 at x equals 2, with filled dots at both endpoints. The whole region under the line from 0 to 2, a trapezoid, is shaded light blue."
+                        />
+                        <figcaption>The density function \(f(x)=0.3x+0.2\) on \(0\le x\le 2\), with the total area shaded.</figcaption>
+                    </figure>
+
+                    <p>We can verify that the function is nonnegative and that the total area under the density curve is 1 by finding the area of the trapezoid:</p>
+                    \[\text{Area}=\frac{1}{2}(b_1+b_2)h=\frac{1}{2}(0.2+0.8)(2)=\frac{1}{2}(1)(2)=1.\]
+                    <p>Therefore this is a valid probability density function.</p>
+
+                    <p>To find the probability of an event, we would need to know the start and stop points. Trying to find</p>
+                    \[P(X=1)\]
+                    <p>would give us 0 because the area of the infinitely thin trapezoid would be 0. For a more realistic scenario,</p>
+                    \[P(0.5&lt;X&lt;1.5)\]
+                    <p>would look something like this:</p>
+
+                    <!-- Image mth245_2_2_3 -->
+                    <figure class="diagram">
+                        <img
+                            src="images1/mth245_2_2_3.png"
+                            alt="The same graph of the density function f of x equals 0.3x plus 0.2 on the interval from 0 to 2, but only the region under the line between x equals 0.5 and x equals 1.5 is shaded light blue. At those two x values the line has heights 0.35 and 0.65."
+                        />
+                        <figcaption>The area representing \(P(0.5&lt;X&lt;1.5)\).</figcaption>
+                    </figure>
+
+                    <p>Finding the area of the shaded region, we get:</p>
+                    \[P(0.5&lt;X&lt;1.5)=\frac12(b_1+b_2)h=\frac12(0.35+0.65)(1)=\frac12(1)(1)=0.50.\]
+
+                    <p>Notice that \(P(0.5&lt;X&lt;1.5)=P(0.5\leq X\leq 1.5)\) because \(P(X=0.5)=P(X=1.5)=0\). Mathematically, the endpoints do not affect the calculations for a continuous distribution.</p>
+
+                    <p>This helps explain why we think of probability as a density function for continuous variables; the probability is not collected at individual points but spread thickly or thinly across regions.</p>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- ===================== COMPARING ===================== -->
+    <section aria-labelledby="comparing-heading">
+        <h3 id="comparing-heading">Comparing PMFs and PDFs</h3>
+
+        <div class="table-scroll">
+            <table>
+                <caption>Comparison of PMFs and PDFs</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Discrete Random Variable (PMF)</th>
+                        <th scope="col">Continuous Random Variable (PDF)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Uses a probability mass function \(P(X=x)\)</td>
+                        <td>Uses a probability density function \(f(x)\)</td>
+                    </tr>
+                    <tr>
+                        <td>Probabilities are assigned to individual values</td>
+                        <td>Probabilities for intervals are found from areas under the density curve.</td>
+                    </tr>
+                    <tr>
+                        <td>Probabilities are added</td>
+                        <td>Probabilities are found from areas under the density curve.</td>
+                    </tr>
+                    <tr>
+                        <td>\(P(X=x)\) may be greater than zero</td>
+                        <td>\(P(X=x)=0\) for every value of \(x\)</td>
+                    </tr>
+                    <tr>
+                        <td>\(\displaystyle \sum P(X=x)=1\)</td>
+                        <td>\(\displaystyle \int_{-\infty}^{\infty}f(x)\,dx=1\)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <hr class="divider" aria-hidden="true" />
+
+    <!-- ===================== MEAN ===================== -->
+    <section aria-labelledby="mean-heading">
+        <h3 id="mean-heading">Mean of a Discrete Random Variable</h3>
+
+        <div class="definition-box" role="note" aria-labelledby="def-mean">
+            <h4 id="def-mean">Definition: Mean (Expected Value)</h4>
+            <p>The mean of a random variable is also called the <strong>expected value</strong>.</p>
+            <p>The expected value represents the long-run average value of the random variable after many repetitions of the experiment.</p>
+            <p>For a discrete random variable,</p>
+            \[\mu_X=E(X)=\sum xP(X=x)\]
+            <p>where \(x\) represents a possible value of the random variable.</p>
+        </div>
+
+        <p>The expected value has the same units as the random variable.</p>
+    </section>
+
+    <!-- ===================== VARIANCE ===================== -->
+    <section aria-labelledby="variance-heading">
+        <h3 id="variance-heading">Variance and Standard Deviation</h3>
+
+        <div class="definition-box" role="note" aria-labelledby="def-variance">
+            <h4 id="def-variance">Definition: Variance and Standard Deviation</h4>
+            <p>The variance measures the average squared distance of values from the mean.</p>
+            <p>For a discrete random variable,</p>
+            \[\sigma_X^2=\sum (x-\mu_X)^2P(X=x)\]
+            <p>The standard deviation is the square root of the variance:</p>
+            \[\sigma_X=\sqrt{\sigma_X^2}\]
+            <p>The standard deviation measures the typical distance between observed values and the mean.</p>
+            <p>An equivalent formula for variance is</p>
+            \[\sigma_X^2=E(X^2)-[E(X)]^2\]
+            <p>where</p>
+            \[E(X^2)=\sum x^2P(X=x).\]
+        </div>
+
+        <p>Variance is measured in squared units, while standard deviation has the same units as the random variable.</p>
+
+        <!-- Example 4 -->
+        <section class="example" aria-labelledby="ex-2-2-4-heading">
+            <div class="example-problem">
+                <h3 id="ex-2-2-4-heading">Example 4</h3>
+                <p>Consider the probability distribution below. Find the mean, variance, and standard deviation of \(X\).</p>
+                <div class="table-scroll">
+<table>
+<caption>Probability distribution of \(X\)</caption>
+<tbody>
+<tr><th scope="row">\(x\)</th><td>0</td><td>1</td><td>2</td><td>3</td></tr>
+<tr><th scope="row">\(P(X=x)\)</th><td>0.2</td><td>0.3</td><td>0.4</td><td>0.1</td></tr>
+</tbody>
+</table>
+</div>
+            </div>
+            <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-2-2-4">
+                <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+            </button>
+            <div id="sol-2-2-4" class="example-content">
+                <div class="solution">
+                    <h4>Solution</h4>
+                    <p>First, find the mean:</p>
+                    \[\mu_X=E(X)=\sum xP(X=x)\]
+                    \[\mu_X=0(0.2)+1(0.3)+2(0.4)+3(0.1)=0+0.3+0.8+0.3=1.4.\]
+                    <p>Next, compute \(E(X^2)\):</p>
+                    \[E(X^2)=\sum x^2P(X=x)\]
+                    \[E(X^2)=0^2(0.2)+1^2(0.3)+2^2(0.4)+3^2(0.1)=0+0.3+1.6+0.9=2.8.\]
+                    <p>The variance is</p>
+                    \[\sigma_X^2=E(X^2)-[E(X)]^2=2.8-(1.4)^2=2.8-1.96=0.84.\]
+                    <p>Therefore,</p>
+                    \[\sigma_X^2=0.84\]
+                    <p>The standard deviation is</p>
+                    \[\sigma_X=\sqrt{0.84}\approx0.9165.\]
+                    <p>Therefore,</p>
+                    \[\sigma_X\approx0.917\]
+
+                    <p>Another technique for keeping track of all of these values is to compute these values in a table.</p>
+                    <div class="table-scroll">
+                        <table>
+                            <caption>Computing the mean and \(E(X^2)\) in a table</caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col">\(x\)</th>
+                                    <th scope="col">\(P(X=x)\)</th>
+                                    <th scope="col">\(xP(X=x)\)</th>
+                                    <th scope="col">\(x^2P(X=x)\)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>0</td><td>0.2</td><td>0.0</td><td>0.0</td></tr>
+                                <tr><td>1</td><td>0.3</td><td>0.3</td><td>0.3</td></tr>
+                                <tr><td>2</td><td>0.4</td><td>0.8</td><td>1.6</td></tr>
+                                <tr><td>3</td><td>0.1</td><td>0.3</td><td>0.9</td></tr>
+                                <tr><th scope="row">Total</th><td>1.0</td><td>1.4</td><td>2.8</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p>From the table, we can see:</p>
+                    \[\mu_X=1.4\]
+                    <p>and</p>
+                    \[E(X^2)=2.8.\]
+                    <p>The variance is</p>
+                    \[\sigma_X^2=E(X^2)-[E(X)]^2=2.8-(1.4)^2=0.84.\]
+                    <p>The standard deviation is</p>
+                    \[\sigma_X=\sqrt{0.84}\approx0.917.\]
+                    <p>Therefore,</p>
+                    \[\sigma_X^2=0.84\]
+                    <p>and</p>
+                    \[\sigma_X\approx0.917.\]
+
+                    <p>The expected value of 1.4 means that over many repetitions, the average value of \(X\) would approach 1.4. The standard deviation of approximately 0.917 describes the typical spread of values around the mean.</p>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <hr class="divider" aria-hidden="true" />
+
+    <!-- ===================== LINEAR COMBINATIONS ===================== -->
+    <section aria-labelledby="linear-heading">
+        <h3 id="linear-heading">Linear Combinations of Random Variables</h3>
+
+        <p>Many statistical models involve combining random variables.</p>
+
+        <div class="definition-box" role="note" aria-labelledby="def-linear-mean">
+            <h4 id="def-linear-mean">Mean of a Linear Transformation</h4>
+            <p>Suppose</p>
+            \[Y=aX+b\]
+            <p>where \(a\) and \(b\) are constants.</p>
+            <p>The mean changes according to</p>
+            \[E(aX+b)=aE(X)+b\]
+            <p>Therefore,</p>
+            \[\mu_Y=a\mu_X+b\]
+        </div>
+    </section>
+
+    <section aria-labelledby="effect-heading">
+        <h3 id="effect-heading">Effect on Variance and Standard Deviation</h3>
+
+        <div class="definition-box" role="note" aria-labelledby="def-linear-var">
+            <h4 id="def-linear-var">Variance and Standard Deviation of a Linear Transformation</h4>
+            <p>Adding a constant shifts every value by the same amount but does not change the spread.</p>
+            <p>Therefore,</p>
+            \[\operatorname{Var}(X+b)=\operatorname{Var}(X)\]
+            <p>Multiplying every value by \(a\) multiplies the standard deviation by \(\lvert a \rvert\) and the variance by \(a^2\):</p>
+            \[\operatorname{Var}(aX)=a^2\operatorname{Var}(X)\]
+            <p>Thus,</p>
+            \[\operatorname{Var}(aX+b)=a^2\operatorname{Var}(X)\]
+            <p>The standard deviation becomes</p>
+            \[\sigma_{aX+b}=|a|\sigma_X\]
+        </div>
+    </section>
+
+    <section aria-labelledby="combining-heading">
+        <h3 id="combining-heading">Combining Two Random Variables</h3>
+
+        <div class="definition-box" role="note" aria-labelledby="def-combining">
+            <h4 id="def-combining">Sums of Random Variables</h4>
+            <p>Suppose</p>
+            \[Y=X_1+X_2.\]
+            <p>The mean always follows the addition rule:</p>
+            \[\mu_Y=\mu_1+\mu_2\]
+            <p>This rule holds whether or not the random variables are independent.</p>
+            <p>For independent random variables,</p>
+            \[\sigma_Y^2=\sigma_1^2+\sigma_2^2\]
+            <p>and therefore,</p>
+            \[\sigma_Y=\sqrt{\sigma_1^2+\sigma_2^2}\]
+            <p>More generally, for</p>
+            \[Y=aX_1+bX_2,\]
+            <p>the variance is</p>
+            \[\operatorname{Var}(Y)=a^2\operatorname{Var}(X_1)+b^2\operatorname{Var}(X_2)\]
+            <p>when \(X_1\) and \(X_2\) are independent.</p>
+        </div>
+
+        <p>If \(X_1\) and \(X_2\) are not independent, an additional covariance term is required. That topic is beyond the scope of this chapter.</p>
+
+        <!-- Example 5 -->
+        <section class="example" aria-labelledby="ex-2-2-5-heading">
+            <div class="example-problem">
+                <h3 id="ex-2-2-5-heading">Example 5</h3>
+                <p>Suppose \(X\) and \(Y\) are independent discrete random variables with</p>
+                \[\mu_X=4,\qquad \sigma_X=1.5\]
+                <p>and</p>
+                \[\mu_Y=6,\qquad \sigma_Y=2.\]
+                <p>Let</p>
+                \[Z=3X+2Y-5.\]
+                <p>Find the mean, variance, and standard deviation of \(Z\).</p>
+            </div>
+            <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-2-2-5">
+                <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+            </button>
+            <div id="sol-2-2-5" class="example-content">
+                <div class="solution">
+                    <h4>Solution</h4>
+                    <p>For a linear combination of random variables,</p>
+                    \[Z=aX+bY+c,\]
+                    <p>the mean is</p>
+                    \[\mu_Z=a\mu_X+b\mu_Y+c.\]
+                    <p>Substituting the given values,</p>
+                    \[\mu_Z=3(4)+2(6)-5=12+12-5=19.\]
+                    <p>Therefore,</p>
+                    \[\mu_Z=19\]
+                    <p>For independent random variables, the variance of a linear combination is</p>
+                    \[\sigma_Z^2=a^2\sigma_X^2+b^2\sigma_Y^2.\]
+                    <p>Since</p>
+                    \[\sigma_X^2=(1.5)^2=2.25\]
+                    <p>and</p>
+                    \[\sigma_Y^2=(2)^2=4,\]
+                    <p>we have</p>
+                    \[\sigma_Z^2=3^2(2.25)+2^2(4)=9(2.25)+4(4)=20.25+16=36.25.\]
+                    <p>Therefore,</p>
+                    \[\sigma_Z^2=36.25\]
+                    <p>The standard deviation is</p>
+                    \[\sigma_Z=\sqrt{36.25}\approx6.021.\]
+                    <p>Therefore,</p>
+                    \[\sigma_Z\approx6.021\]
+                    <p>Thus, \(Z\) has an expected value of 19 and a standard deviation of approximately 6.021.</p>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- ===================== KEY IDEAS ===================== -->
+    <section aria-labelledby="key-ideas-2-2-heading">
+        <div class="definition-box" role="note" aria-labelledby="key-ideas-2-2-heading">
+            <h4 id="key-ideas-2-2-heading">Key Ideas</h4>
+            <p>A random variable assigns numerical values to outcomes of a random experiment.</p>
+            <ul>
+                <li>Discrete random variables have countable possible values.</li>
+                <li>Continuous random variables can take any value in an interval.</li>
+            </ul>
+            <p>For a discrete random variable:</p>
+            \[\mu_X=E(X)=\sum xP(X=x)\]
+            \[\sigma_X^2=\sum(x-\mu_X)^2P(X=x)\]
+            \[\sigma_X=\sqrt{\sigma_X^2}\]
+            <p>For linear transformations:</p>
+            \[E(aX+b)=aE(X)+b\]
+            \[\operatorname{Var}(aX+b)=a^2\operatorname{Var}(X)\]
+            \[\sigma_{aX+b}=|a|\sigma_X\]
+            <p>For independent random variables:</p>
+            \[\operatorname{Var}(X+Y)=\operatorname{Var}(X)+\operatorname{Var}(Y).\]
+        </div>
+    </section>
+
+    <nav class="page-nav" aria-label="Section navigation">
+        <a class="nav-button" href="mth245_ch2_1.html">Previous: 2.1 Introduction</a>
+        <a class="nav-button" href="mth245_ch2_3.html">Next: 2.3 Binomial Distribution</a>
+    </nav>
+
+</main>
+
+<script>
+    function toggleExample(button) {
+        var content = button.nextElementSibling;
+        var arrow = button.querySelector('.toggle-arrow');
+        var label = button.querySelector('span:last-child');
+
+        if (content.classList.contains('open')) {
+            content.classList.remove('open');
+            arrow.classList.remove('open');
+            label.textContent = 'Show Solution';
+            button.setAttribute('aria-expanded', 'false');
+        } else {
+            content.classList.add('open');
+            arrow.classList.add('open');
+            label.textContent = 'Hide Solution';
+            button.setAttribute('aria-expanded', 'true');
+        }
+    }
+</script>
+
+<script>
+    fetch('toc.html')
+        .then(function (response) {
+            if (!response.ok) { throw new Error('TOC not found'); }
+            return response.text();
+        })
+        .then(function (data) {
+            document.getElementById('toc-placeholder').innerHTML = data;
+
+            document.querySelectorAll('.toc-chapter').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var expanded = button.getAttribute('aria-expanded') === 'true';
+                    button.setAttribute('aria-expanded', String(!expanded));
+                    document.getElementById(button.getAttribute('aria-controls')).classList.toggle('open');
+                });
+            });
+
+            // Mark the current page and open its chapter
+            var page = window.location.pathname.split('/').pop();
+            var current = document.querySelector('.toc-submenu a[href="' + page + '"]');
+            if (current) {
+                current.setAttribute('aria-current', 'page');
+                var menu = current.closest('.toc-submenu');
+                menu.classList.add('open');
+                var chapterButton = document.querySelector('[aria-controls="' + menu.id + '"]');
+                if (chapterButton) { chapterButton.setAttribute('aria-expanded', 'true'); }
+            }
+        })
+        .catch(function () { /* TOC unavailable: page content still works */ });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MTH 245 – Ch 4.6: Summary</title>
+
+    <link rel="stylesheet" href="styles1.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div id="toc-placeholder"></div>
+
+<main class="container" id="main-content" tabindex="-1">
+
+    <h1>Chapter 4: Pictures of Data</h1>
+    <h2 id="section-4-6">Section 4.6: Summary</h2>
+
+    <p>Frequency distributions provide a systematic way to organize raw data into categories or numerical intervals. For numerical data with many different values, observations can be grouped into classes. Important features of a grouped frequency distribution include class width, class limits, and class boundaries. Frequency, relative frequency, cumulative frequency, and cumulative relative frequency provide different ways to summarize how observations are distributed.</p>
+
+    <p>Graphs provide visual methods for communicating the information contained in a data set. Bar charts are primarily used for categorical data, while histograms are used for quantitative data grouped into numerical intervals. Cumulative frequency and cumulative relative frequency are meaningful when the classes have a natural order and are commonly displayed with cumulative-frequency graphs (ogives).</p>
+
+    <p>The shape of a distribution can be described in several ways. A distribution may be symmetric, positively skewed, or negatively skewed. It may also be unimodal, uniform, bimodal, or multimodal depending on the number and arrangement of its prominent peaks. Outliers are observations that differ substantially from the majority of the data and should be investigated carefully before deciding how they should be handled.</p>
+
+    <p>Several other graphical methods are useful for particular types of data. Pareto charts arrange categories from highest to lowest frequency, while circle graphs show how a whole is divided into parts. Time-series graphs display changes in a variable over time and can reveal trends, patterns, and fluctuations.</p>
+
+    <p>Stem-and-leaf plots organize numerical data while preserving the original observations. By separating each value into a stem and a leaf, these plots provide a compact display of the distribution while allowing individual data values to remain visible. Together, these methods provide a foundation for organizing, visualizing, and interpreting data.</p>
+
+    <nav class="page-nav" aria-label="Section navigation">
+        <a class="nav-button" href="mth245_ch4_5.html">Previous: 4.5 Stem-and-Leaf Graphs</a>
+        <a class="nav-button" href="mth245_ch4_7.html">Next: 4.7 Exercises</a>
+    </nav>
+
+</main>
+
+<script>
+    fetch('toc.html')
+        .then(function (response) {
+            if (!response.ok) { throw new Error('TOC not found'); }
+            return response.text();
+        })
+        .then(function (data) {
+            document.getElementById('toc-placeholder').innerHTML = data;
+
+            document.querySelectorAll('.toc-chapter').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var expanded = button.getAttribute('aria-expanded') === 'true';
+                    button.setAttribute('aria-expanded', String(!expanded));
+                    document.getElementById(button.getAttribute('aria-controls')).classList.toggle('open');
+                });
+            });
+
+            // Mark the current page and open its chapter
+            var page = window.location.pathname.split('/').pop();
+            var current = document.querySelector('.toc-submenu a[href="' + page + '"]');
+            if (current) {
+                current.setAttribute('aria-current', 'page');
+                var menu = current.closest('.toc-submenu');
+                menu.classList.add('open');
+                var chapterButton = document.querySelector('[aria-controls="' + menu.id + '"]');
+                if (chapterButton) { chapterButton.setAttribute('aria-expanded', 'true'); }
+            }
+        })
+        .catch(function () { /* TOC unavailable: page content still works */ });
+</script>
+
+</body>
+</html>
