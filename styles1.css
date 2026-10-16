@@ -509,6 +509,12 @@ strong {
     font-weight: bold;
 }
 
+blockquote {
+    margin: 0 0 15px 20px;
+    padding-left: 15px;
+    border-left: 3px solid #33AB2B;
+}
+
 em {
     font-style: italic;
 }
