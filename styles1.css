@@ -577,6 +577,12 @@ table tr.highlighted {
     background-color: #ffff99;
 }
 
+/* Highlighted column in binomial probability tables */
+table th.col-highlight,
+table td.col-highlight {
+    background-color: #ffff99;
+}
+
 .subsection-title {
     color: #1E7A19;
     font-size: 1.3em;
@@ -613,6 +619,32 @@ mjx-container[display="true"] {
 .tight-list li {
     margin-bottom: 0.3rem !important; /* override MathJax padding/margin */
     line-height: 1.3 !important;       /* slightly tighter line spacing */
+}
+
+/* =========================
+   COVER IMAGE (index page)
+   ========================= */
+.hero-image-section {
+    width: 100%;
+    text-align: center;
+    margin: 2rem auto 4rem auto;
+}
+
+.hero-math-image {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+    border-radius: 12px;
+    object-fit: contain;
+}
+
+.hero-image-section figcaption {
+    font-style: italic;
+    color: #555555;
+    font-size: 0.9em;
+    margin-top: 0.5rem;
 }
 
 /* =========================
