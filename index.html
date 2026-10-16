@@ -1,161 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MTH 245 – Statistics I</title>
 
-    <title>Precalculus </title>
-
-    <link rel="stylesheet" href="styles.css">
-
-    <!-- MathJax configuration -->
-    <script>
-        window.MathJax = {
-            tex: {
-                inlineMath: [['\\(', '\\)']],
-                displayMath: [['\\[', '\\]']]
-            }
-        };
-    </script>
-
-    <script
-        id="MathJax-script"
-        async
-        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-    </script>
-    <style>
-.hero-image-section {
-    width: 100%;
-    text-align: center;
-    margin: 2rem auto 4rem auto;
-}
-
-.hero-math-image {
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-
-    margin: 0 auto;
-
-    border-radius: 12px;
-    object-fit: contain;
-}
-</style>
+    <link rel="stylesheet" href="styles1.css" />
 </head>
-
 <body>
 
-    <!-- Sidebar Table of Contents -->
-    <aside id="toc-placeholder"></aside>
+<a class="skip-link" href="#main-content">Skip to main content</a>
 
-    <!-- Main Textbook Content -->
-    <main class="container textbook-layout">
+<!-- Sidebar Table of Contents (loaded from toc.html) -->
+<div id="toc-placeholder"></div>
 
-        <!-- Textbook Cover/Header -->
-        <header class="textbook-header">
+<!-- Main Textbook Content -->
+<main class="container textbook-layout" id="main-content" tabindex="-1">
 
-            <h1 class="textbook-title">
-               Statistis I
-            </h1>
+    <!-- Textbook Cover/Header -->
+    <header class="textbook-header">
+        <h1 class="textbook-title">Statistics I</h1>
+        <div class="textbook-author">
+            <p>Written by: Scott Graham</p>
+        </div>
+    </header>
 
-            <div class="textbook-author">
-                <p>Written by: Scott Graham 
-            </div>
-        
-        </header>
-<figure class="hero-image-section">
+    <figure class="hero-image-section">
+        <img
+            src="images1/precalccover.png"
+            alt="Mathematics textbook banner featuring equations and graphs"
+            class="hero-math-image"
+        />
+        <figcaption>
+            Exploring mathematics through modeling, visualization, and application.
+        </figcaption>
+    </figure>
 
-    <img
-        src="images/precalccover.png"
-        alt="Mathematics textbook banner featuring equations and graphs"
-        class="hero-math-image"
-    >
+    <!-- Welcome Section -->
+    <section class="front-matter" aria-labelledby="welcome-heading">
+        <h2 id="welcome-heading">Welcome</h2>
+        <p>This course is designed to match the required curriculum for the Virginia Community College System (VCCS) MTH 245 curriculum. A MyOpenMath Support course can also be found with homework assignments, quizzes, and tests. This textbook is covered under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. Please see the <a href="acknowledgment.html">Acknowledgments page</a> for more information.</p>
 
-    <figcaption>
-        Exploring mathematics through modeling, visualization, and application.
-    </figcaption>
+        <p><a class="nav-button" href="mth245_ch1_1.html">Start with Chapter 1</a></p>
+    </section>
 
-</figure>
-        <!-- Welcome Section -->
-        <section class="front-matter">
+    <!-- Course Topics -->
+    <section class="chapter-overview" aria-labelledby="topics-heading">
+        <h2 id="topics-heading">Topics Covered</h2>
 
-            <h2>Welcome</h2>
-            This course is designed to match the required curriculum for the Virginia Community College Systems (VCCS) MTH 245 curriculum. A MyOpenMath Support course can also be found with homework assignments, quizzes, and tests. This textbook is covered under CC-BY_SA 4.0. Please see the Acknowledgment page for more information. 
+        <h3>Part: Probability</h3>
+        <ol class="chapter-list">
+            <li>Probability Theory</li>
+            <li>Binomial Probability Distribution</li>
+        </ol>
 
+        <h3>Part: Descriptive Statistics</h3>
+        <ol class="chapter-list" start="3">
+            <li>Introduction to Statistics</li>
+            <li>Pictures of Data</li>
+            <li>Measures of Center and Spread</li>
+            <li>Correlation and Regression</li>
+        </ol>
 
-        </section>
+        <h3>Part: Inferential Statistics</h3>
+        <ol class="chapter-list" start="7">
+            <li>Normal Distribution</li>
+            <li>Estimation</li>
+            <li>Hypothesis Testing</li>
+            <li>Advanced Hypothesis Testing</li>
+        </ol>
 
-        <!-- Course Topics -->
-        <section class="chapter-overview">
+        <h3>Part: Resources</h3>
+        <ol class="chapter-list" type="A">
+            <li>Technology</li>
+            <li>Formulas</li>
+            <li>Tables</li>
+            <li>Glossary</li>
+        </ol>
+    </section>
 
-            <h2>Topics Covered</h2>
+</main>
 
-            <nav aria-label="Chapter Overview">
+<script>
+    // Load TOC
+    fetch('toc.html')
+        .then(function (response) {
+            if (!response.ok) { throw new Error('TOC not found'); }
+            return response.text();
+        })
+        .then(function (data) {
+            document.getElementById('toc-placeholder').innerHTML = data;
 
-                <ol class="chapter-list">
-
-                    <li>Functions & Graphs</li>
-                    <li>Polynomials & Rational Functions</li>
-                    <li>Exponential & Logarithmic Functions</li>
-                    <li>Systems of Equations</li>
-                    <li>Trigonometric Equations</li>
-                    <li>Analytic Trigonometry</li>
-                    <li>Conics</li>
-                    <li>Supplemental Information</li>
-
-                </ol>
-
-            </nav>
-
-        </section>
-
-    </main>
-
-    <script>
-
-        // Load TOC
-        fetch('toc.html')
-            .then(response => response.text())
-            .then(data => {
-
-                document.getElementById('toc-placeholder').innerHTML = data;
-
-                // Initialize chapter buttons
-                const chapterButtons =
-                    document.querySelectorAll(".toc-chapter");
-
-                chapterButtons.forEach(button => {
-
-                    button.addEventListener("click", () => {
-
-                        const expanded =
-                            button.getAttribute("aria-expanded") === "true";
-
-                        button.setAttribute("aria-expanded", !expanded);
-
-                        const submenu = button.nextElementSibling;
-
-                        submenu.classList.toggle("open");
-
-                    });
-
+            document.querySelectorAll('.toc-chapter').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var expanded = button.getAttribute('aria-expanded') === 'true';
+                    button.setAttribute('aria-expanded', String(!expanded));
+                    document.getElementById(button.getAttribute('aria-controls')).classList.toggle('open');
                 });
-
             });
-
-        // Example toggle function
-        function toggleExample(button) {
-
-            const content =
-                button.nextElementSibling;
-
-            content.classList.toggle("open");
-
-        }
-
-    </script>
+        })
+        .catch(function () { /* TOC unavailable: page content still works */ });
+</script>
 
 </body>
 </html>
