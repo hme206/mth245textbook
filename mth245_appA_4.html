@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MTH 245 – Appendix A.4: Desmos</title>
+
+    <!-- MathJax configuration (single $ intentionally disabled so dollar amounts never collide with math) -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]'], ['$$', '$$']],
+                packages: {'[+]': ['color']}
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            },
+            loader: {
+                load: ['[tex]/color']
+            }
+        };
+    </script>
+    <script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+
+    <link rel="stylesheet" href="styles1.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div id="toc-placeholder"></div>
+
+<main class="container" id="main-content" tabindex="-1">
+
+    <h1>Appendix A: Technology</h1>
+    <h2 id="section-A-4">Section A.4: Desmos</h2>
+
+    <p>Desmos is a free, web-based graphing calculator that includes powerful tools for statistics and regression. It can quickly generate tables, scatter plots, regression models, and summary statistics, making it an excellent companion for learning introductory statistics.</p>
+
+    <section aria-labelledby="desmos-data-heading">
+        <h3 id="desmos-data-heading">Entering Data</h3>
+        <p>To enter data:</p>
+        <ol>
+            <li>Open the Desmos Graphing Calculator.</li>
+            <li>Click the <strong>+</strong> button and select <strong>Table</strong>, or click an empty expression line and type <code>table</code>.</li>
+            <li>Enter the explanatory variable values in the first column (<code>x1</code>).</li>
+            <li>Enter the response variable values in the second column (<code>y1</code>).</li>
+        </ol>
+        <p>As the data are entered, Desmos automatically displays a scatter plot.</p>
+    </section>
+
+    <section aria-labelledby="desmos-summary-heading">
+        <h3 id="desmos-summary-heading">Summary Statistics</h3>
+        <p>For a single variable stored in <code>x1</code>, Desmos can compute common summary statistics by entering expressions such as</p>
+        <p><code>mean(x_1)</code>, <code>median(x_1)</code>, <code>stdev(x_1)</code>, <code>stdevp(x_1)</code>, <code>quartile(x_1,1)</code>, <code>quartile(x_1,3)</code>,</p>
+        <p>or <code>min(x_1)</code> and <code>max(x_1)</code>.</p>
+        <p>These commands provide the quantities needed to compute measures of center, spread, and the five-number summary.</p>
+    </section>
+
+    <section aria-labelledby="desmos-regression-heading">
+        <h3 id="desmos-regression-heading">Regression</h3>
+        <p>To fit a least squares regression line, enter the expression</p>
+        <p><code>y_1 ~ m x_1 + b</code></p>
+        <p>The symbol “~” (tilde) tells Desmos to perform a regression rather than graph an equation.</p>
+        <p>Desmos computes and displays the values of \(m\) (the slope) and \(b\) (the intercept), giving the regression equation</p>
+        \[\hat y=mx+b.\]
+        <p>The regression line is automatically drawn on the scatter plot.</p>
+        <p>After performing the regression, Desmos displays the coefficient of determination, \(R^2\), which represents the proportion of the variability in the response variable accounted for by the fitted linear model.</p>
+        <p>Once the regression equation has been computed, predicted values can be found by evaluating \(mx+b\) for any desired value of \(x\). Additional functions may also be defined to evaluate the regression equation at specific points.</p>
+        <p>Because the graphs update instantly as data are edited, Desmos is particularly useful for exploring how changes in the data affect the regression line and the strength of the linear relationship.</p>
+        <p>No matter which technology is used, the goal remains the same: to understand the data, interpret the results correctly, and communicate meaningful conclusions. Technology is an essential tool for modern statistics, but statistical thinking—not button pressing—is what transforms numerical output into useful information.</p>
+    </section>
+
+    <nav class="page-nav" aria-label="Section navigation">
+        <a class="nav-button" href="mth245_appA_3.html">Previous: A.3 TI-84 Graphing Calculator</a>
+        <a class="nav-button" href="mth245_appA_5.html">Next: A.5 Key Points</a>
+    </nav>
+
+</main>
+
+<script>
+    fetch('toc.html')
+        .then(function (response) {
+            if (!response.ok) { throw new Error('TOC not found'); }
+            return response.text();
+        })
+        .then(function (data) {
+            document.getElementById('toc-placeholder').innerHTML = data;
+
+            document.querySelectorAll('.toc-chapter').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var expanded = button.getAttribute('aria-expanded') === 'true';
+                    button.setAttribute('aria-expanded', String(!expanded));
+                    document.getElementById(button.getAttribute('aria-controls')).classList.toggle('open');
+                });
+            });
+
+            // Mark the current page and open its chapter
+            var page = window.location.pathname.split('/').pop();
+            var current = document.querySelector('.toc-submenu a[href="' + page + '"]');
+            if (current) {
+                current.setAttribute('aria-current', 'page');
+                var menu = current.closest('.toc-submenu');
+                menu.classList.add('open');
+                var chapterButton = document.querySelector('[aria-controls="' + menu.id + '"]');
+                if (chapterButton) { chapterButton.setAttribute('aria-expanded', 'true'); }
+            }
+        })
+        .catch(function () { /* TOC unavailable: page content still works */ });
+</script>
+
+</body>
+</html>

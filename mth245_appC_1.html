@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MTH 245 – Appendix C.1: Pascal's Triangle</title>
+
+    <link rel="stylesheet" href="styles1.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div id="toc-placeholder"></div>
+
+<main class="container" id="main-content" tabindex="-1">
+
+    <h1>Appendix C: Tables</h1>
+    <h2 id="section-C-1">Section C.1: Pascal's Triangle</h2>
+
+    <div class="table-scroll" role="region" aria-labelledby="cap-pascal" tabindex="0">
+        <table class="table-dense pascal">
+        <caption id="cap-pascal">Pascal's Triangle, rows 0 through 10. Each row begins and ends with 1, and each interior entry is the sum of the two entries above it.</caption>
+        <thead><tr><th scope="col">Row</th><th scope="col">Entries</th></tr></thead>
+        <tbody>
+            <tr><th scope="row">0</th><td>1</td></tr>
+            <tr><th scope="row">1</th><td>1&emsp;1</td></tr>
+            <tr><th scope="row">2</th><td>1&emsp;2&emsp;1</td></tr>
+            <tr><th scope="row">3</th><td>1&emsp;3&emsp;3&emsp;1</td></tr>
+            <tr><th scope="row">4</th><td>1&emsp;4&emsp;6&emsp;4&emsp;1</td></tr>
+            <tr><th scope="row">5</th><td>1&emsp;5&emsp;10&emsp;10&emsp;5&emsp;1</td></tr>
+            <tr><th scope="row">6</th><td>1&emsp;6&emsp;15&emsp;20&emsp;15&emsp;6&emsp;1</td></tr>
+            <tr><th scope="row">7</th><td>1&emsp;7&emsp;21&emsp;35&emsp;35&emsp;21&emsp;7&emsp;1</td></tr>
+            <tr><th scope="row">8</th><td>1&emsp;8&emsp;28&emsp;56&emsp;70&emsp;56&emsp;28&emsp;8&emsp;1</td></tr>
+            <tr><th scope="row">9</th><td>1&emsp;9&emsp;36&emsp;84&emsp;126&emsp;126&emsp;84&emsp;36&emsp;9&emsp;1</td></tr>
+            <tr><th scope="row">10</th><td>1&emsp;10&emsp;45&emsp;120&emsp;210&emsp;252&emsp;210&emsp;120&emsp;45&emsp;10&emsp;1</td></tr>
+        </tbody>
+        </table>
+    </div>
+
+    <nav class="page-nav" aria-label="Section navigation">
+        <a class="nav-button" href="mth245_appB.html">Previous: Appendix B: Formulas</a>
+        <a class="nav-button" href="mth245_appC_2.html">Next: C.2 Binomial Probability Coefficients (nCr)</a>
+    </nav>
+
+</main>
+
+<script>
+    fetch('toc.html')
+        .then(function (response) {
+            if (!response.ok) { throw new Error('TOC not found'); }
+            return response.text();
+        })
+        .then(function (data) {
+            document.getElementById('toc-placeholder').innerHTML = data;
+
+            document.querySelectorAll('.toc-chapter').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var expanded = button.getAttribute('aria-expanded') === 'true';
+                    button.setAttribute('aria-expanded', String(!expanded));
+                    document.getElementById(button.getAttribute('aria-controls')).classList.toggle('open');
+                });
+            });
+
+            // Mark the current page and open its chapter
+            var page = window.location.pathname.split('/').pop();
+            var current = document.querySelector('.toc-submenu a[href="' + page + '"]');
+            if (current) {
+                current.setAttribute('aria-current', 'page');
+                var menu = current.closest('.toc-submenu');
+                menu.classList.add('open');
+                var chapterButton = document.querySelector('[aria-controls="' + menu.id + '"]');
+                if (chapterButton) { chapterButton.setAttribute('aria-expanded', 'true'); }
+            }
+        })
+        .catch(function () { /* TOC unavailable: page content still works */ });
+</script>
+
+</body>
+</html>

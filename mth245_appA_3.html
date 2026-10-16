@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MTH 245 – Appendix A.3: TI-84 Graphing Calculator</title>
+
+    <!-- MathJax configuration (single $ intentionally disabled so dollar amounts never collide with math) -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]'], ['$$', '$$']],
+                packages: {'[+]': ['color']}
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            },
+            loader: {
+                load: ['[tex]/color']
+            }
+        };
+    </script>
+    <script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+
+    <link rel="stylesheet" href="styles1.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div id="toc-placeholder"></div>
+
+<main class="container" id="main-content" tabindex="-1">
+
+    <h1>Appendix A: Technology</h1>
+    <h2 id="section-A-3">Section A.3: TI-84 Graphing Calculator</h2>
+
+    <p>The TI-84 graphing calculator includes built-in statistical functions for one-variable statistics, two-variable statistics, correlation, and linear regression. Before beginning, it is good practice to clear any existing lists.</p>
+
+    <section aria-labelledby="ti84-data-heading">
+        <h3 id="ti84-data-heading">Entering Data</h3>
+        <ol>
+            <li>Press <kbd>STAT</kbd>.</li>
+            <li>Select <kbd>1:Edit…</kbd> and press <kbd>ENTER</kbd>.</li>
+            <li>Enter the explanatory variable values into list <kbd>L1</kbd>.</li>
+            <li>Enter the response variable values into list <kbd>L2</kbd>. For one-variable statistics, only <kbd>L1</kbd> is needed.</li>
+        </ol>
+    </section>
+
+    <section aria-labelledby="ti84-summary-heading">
+        <h3 id="ti84-summary-heading">Summary Statistics</h3>
+        <p>To compute summary statistics such as the mean, standard deviation, and quartiles:</p>
+        <ol>
+            <li>Press <kbd>STAT</kbd>.</li>
+            <li>Move to the <kbd>CALC</kbd> menu.</li>
+            <li>Select <kbd>1:1-Var Stats</kbd>.</li>
+            <li>Enter <kbd>L1</kbd> (usually by pressing <kbd>2ND</kbd> <kbd>1</kbd>).</li>
+            <li>Press <kbd>ENTER</kbd>.</li>
+        </ol>
+        <p>The calculator displays:</p>
+        <ul>
+            <li>\(n\) — number of observations,</li>
+            <li>\(\bar{x}\) — sample mean,</li>
+            <li>\(\Sigma x\) — sum of the observations,</li>
+            <li>\(\Sigma x^2\) — sum of the squared observations,</li>
+            <li>\(S_x\) — sample standard deviation,</li>
+            <li>\(\sigma_x\) — population standard deviation,</li>
+            <li>\(\min X\) — minimum value,</li>
+            <li>\(Q_1\) — first quartile,</li>
+            <li>Med — median,</li>
+            <li>\(Q_3\) — third quartile,</li>
+            <li>\(\max X\) — maximum value.</li>
+        </ul>
+        <p>The sample variance is \(S_x^2\), and the population variance is \(\sigma_x^2\).</p>
+    </section>
+
+    <section aria-labelledby="ti84-scatter-heading">
+        <h3 id="ti84-scatter-heading">Scatter Plots</h3>
+        <p>To display a scatter plot:</p>
+        <ol>
+            <li>Press <kbd>2ND</kbd> <kbd>Y=</kbd> (<kbd>STAT PLOT</kbd>).</li>
+            <li>Select <kbd>Plot1</kbd>.</li>
+            <li>Turn the plot <kbd>On</kbd>.</li>
+            <li>Choose the scatter plot icon.</li>
+            <li>Set <kbd>Xlist</kbd> to <kbd>L1</kbd>.</li>
+            <li>Set <kbd>Ylist</kbd> to <kbd>L2</kbd>.</li>
+            <li>Press <kbd>ZOOM</kbd>.</li>
+            <li>Select <kbd>9:ZoomStat</kbd>.</li>
+        </ol>
+    </section>
+
+    <section aria-labelledby="ti84-regression-heading">
+        <h3 id="ti84-regression-heading">Correlation and Regression</h3>
+        <p>By default, many TI-84 calculators do not display the correlation coefficient. To enable it:</p>
+        <ol>
+            <li>Press <kbd>2ND</kbd> <kbd>0</kbd> (<kbd>CATALOG</kbd>).</li>
+            <li>Scroll to <kbd>DiagnosticOn</kbd>.</li>
+            <li>Press <kbd>ENTER</kbd> twice.</li>
+        </ol>
+        <p>This setting only needs to be enabled once unless the calculator memory is reset.</p>
+        <p>To compute the least squares regression line:</p>
+        <ol>
+            <li>Press <kbd>STAT</kbd>.</li>
+            <li>Move to the <kbd>CALC</kbd> menu.</li>
+            <li>Select <kbd>4:LinReg(ax+b)</kbd> (or <kbd>8:LinReg(a+bx)</kbd>, depending on the calculator's settings).</li>
+            <li>Enter <kbd>L1,L2</kbd> using <kbd>2ND</kbd> <kbd>1</kbd>, <kbd>,</kbd>, and <kbd>2ND</kbd> <kbd>2</kbd>.</li>
+            <li>Press <kbd>ENTER</kbd>.</li>
+        </ol>
+        <p>The calculator reports:</p>
+        <ul>
+            <li>the slope,</li>
+            <li>the intercept,</li>
+            <li>Pearson's correlation coefficient, \(r\) (if diagnostics are enabled),</li>
+            <li>the coefficient of determination, \(R^2=r^2\).</li>
+        </ul>
+        <p>To display the regression line together with the scatter plot:</p>
+        <ol>
+            <li>At the end of the <kbd>LinReg</kbd> command, append <kbd>,Y1</kbd> by pressing <kbd>VARS</kbd>, selecting <kbd>Y-VARS</kbd>, then <kbd>Function</kbd>, and finally <kbd>Y1</kbd>.</li>
+            <li>Press <kbd>ENTER</kbd>. The regression equation is stored in <kbd>Y1</kbd>.</li>
+            <li>Press <kbd>GRAPH</kbd>.</li>
+        </ol>
+        <p>The calculator displays both the scatter plot and the least squares regression line.</p>
+        <p>The TI-84 can quickly compute and graph many of the statistical procedures introduced in this text, including:</p>
+        <ul>
+            <li>one-variable summary statistics,</li>
+            <li>the five-number summary,</li>
+            <li>scatter plots,</li>
+            <li>Pearson's correlation coefficient, \(r\),</li>
+            <li>the coefficient of determination, \(R^2\),</li>
+            <li>least squares regression equations, and</li>
+            <li>regression graphs.</li>
+        </ul>
+        <p>Although the calculator performs these computations automatically, it remains important to understand the underlying statistical concepts in order to interpret the results correctly.</p>
+        <p>Menu names and keystrokes may vary slightly by calculator model or operating-system version.</p>
+    </section>
+
+    <nav class="page-nav" aria-label="Section navigation">
+        <a class="nav-button" href="mth245_appA_2.html">Previous: A.2 TI-30X IIS Scientific Calculator</a>
+        <a class="nav-button" href="mth245_appA_4.html">Next: A.4 Desmos</a>
+    </nav>
+
+</main>
+
+<script>
+    fetch('toc.html')
+        .then(function (response) {
+            if (!response.ok) { throw new Error('TOC not found'); }
+            return response.text();
+        })
+        .then(function (data) {
+            document.getElementById('toc-placeholder').innerHTML = data;
+
+            document.querySelectorAll('.toc-chapter').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var expanded = button.getAttribute('aria-expanded') === 'true';
+                    button.setAttribute('aria-expanded', String(!expanded));
+                    document.getElementById(button.getAttribute('aria-controls')).classList.toggle('open');
+                });
+            });
+
+            // Mark the current page and open its chapter
+            var page = window.location.pathname.split('/').pop();
+            var current = document.querySelector('.toc-submenu a[href="' + page + '"]');
+            if (current) {
+                current.setAttribute('aria-current', 'page');
+                var menu = current.closest('.toc-submenu');
+                menu.classList.add('open');
+                var chapterButton = document.querySelector('[aria-controls="' + menu.id + '"]');
+                if (chapterButton) { chapterButton.setAttribute('aria-expanded', 'true'); }
+            }
+        })
+        .catch(function () { /* TOC unavailable: page content still works */ });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MTH 245 – Appendix A.2: TI-30X IIS Scientific Calculator</title>
+
+    <!-- MathJax configuration (single $ intentionally disabled so dollar amounts never collide with math) -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]'], ['$$', '$$']],
+                packages: {'[+]': ['color']}
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            },
+            loader: {
+                load: ['[tex]/color']
+            }
+        };
+    </script>
+    <script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+
+    <link rel="stylesheet" href="styles1.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div id="toc-placeholder"></div>
+
+<main class="container" id="main-content" tabindex="-1">
+
+    <h1>Appendix A: Technology</h1>
+    <h2 id="section-A-2">Section A.2: TI-30X IIS Scientific Calculator</h2>
+
+    <p>The TI-30X IIS scientific calculator can compute summary statistics such as the mean, variance, and standard deviation for one-variable data.</p>
+
+    <p>TI-30X IIS scientific calculators include a one-variable statistics mode that computes summary statistics for a list of data values.</p>
+
+    <section aria-labelledby="ti30-onevar-heading">
+        <h3 id="ti30-onevar-heading">One-Variable Statistics: Measures of Center and Spread</h3>
+        <p>To enter data for measures of center and spread:</p>
+        <ol>
+            <li>Enter the statistics mode by pressing <kbd>2nd</kbd> <kbd>STAT</kbd>.</li>
+            <li>Select <strong>1-Variable Statistics</strong>.</li>
+            <li>Press <kbd>DATA</kbd>.</li>
+            <li>Enter each data value and frequency, pressing the down arrow key after each value.</li>
+        </ol>
+        <p>After all data have been entered, press <kbd>STATVAR</kbd>. The right and left arrows will scroll through:</p>
+        <ul>
+            <li>\(n\): number of observations,</li>
+            <li>\(\bar{x}\): sample mean,</li>
+            <li>\(s_x\): sample standard deviation,</li>
+            <li>\(\sigma_x\): population standard deviation,</li>
+            <li>\(\Sigma X\): sum of the observations,</li>
+            <li>\(\Sigma X^2\): sum of the squared observations.</li>
+        </ul>
+        <p>The sample and population variances are obtained by squaring the sample and population standard deviations.</p>
+
+        <p>To exit the statistics mode, press <kbd>2nd</kbd> <kbd>EXIT STAT</kbd>, select Y, and press <kbd>ENTER</kbd>.</p>
+    </section>
+
+    <section aria-labelledby="ti30-twovar-heading">
+        <h3 id="ti30-twovar-heading">Two-Variable Statistics: Correlation and Linear Regression</h3>
+        <p>To enter data for correlation or linear regression:</p>
+        <ol>
+            <li>Enter the statistics mode by pressing <kbd>2nd</kbd> <kbd>STAT</kbd>.</li>
+            <li>Select <strong>2-Variable Statistics</strong>.</li>
+            <li>Press <kbd>DATA</kbd>.</li>
+            <li>Enter each data value, pressing the down arrow key after each value.</li>
+        </ol>
+        <p>After all data have been entered, press <kbd>STATVAR</kbd>. The right and left arrows will scroll through:</p>
+        <ul>
+            <li>\(n\): number of observations,</li>
+            <li>\(\bar{x}\): sample mean for \(x\),</li>
+            <li>\(s_x\): sample standard deviation for \(x\),</li>
+            <li>\(\sigma_x\): population standard deviation for \(x\),</li>
+            <li>\(\bar{y}\): sample mean for \(y\),</li>
+            <li>\(s_y\): sample standard deviation for \(y\),</li>
+            <li>\(\sigma_y\): population standard deviation for \(y\),</li>
+            <li>\(\Sigma X\): sum of the observations for \(x\),</li>
+            <li>\(\Sigma X^2\): sum of the squared observations for \(x\),</li>
+            <li>\(\Sigma Y\): sum of the observations for \(y\),</li>
+            <li>\(\Sigma Y^2\): sum of the squared observations for \(y\),</li>
+            <li>\(\Sigma XY\): sum of the products \(xy\),</li>
+            <li>\(a\): slope of regression model,</li>
+            <li>\(b\): \(y\)-intercept of regression model,</li>
+            <li>\(r\): Pearson correlation coefficient.</li>
+        </ul>
+        <p>The calculator's \(x'\) function can be used to estimate \(x\) for a specified \(y\)-value, while the \(y'\) function estimates \(y\) for a specified \(x\)-value. Care must be taken as these are inverse/prediction operations, not automatically equivalent to fitting a separate regression of \(x\) on \(y\).</p>
+
+        <p>The sample and population variances are obtained by squaring the sample and population standard deviations.</p>
+
+        <p>To exit the statistics mode, press <kbd>2nd</kbd> <kbd>EXIT STAT</kbd>, select Y, and press <kbd>ENTER</kbd>.</p>
+    </section>
+
+    <nav class="page-nav" aria-label="Section navigation">
+        <a class="nav-button" href="mth245_appA_1.html">Previous: A.1 Introduction</a>
+        <a class="nav-button" href="mth245_appA_3.html">Next: A.3 TI-84 Graphing Calculator</a>
+    </nav>
+
+</main>
+
+<script>
+    fetch('toc.html')
+        .then(function (response) {
+            if (!response.ok) { throw new Error('TOC not found'); }
+            return response.text();
+        })
+        .then(function (data) {
+            document.getElementById('toc-placeholder').innerHTML = data;
+
+            document.querySelectorAll('.toc-chapter').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var expanded = button.getAttribute('aria-expanded') === 'true';
+                    button.setAttribute('aria-expanded', String(!expanded));
+                    document.getElementById(button.getAttribute('aria-controls')).classList.toggle('open');
+                });
+            });
+
+            // Mark the current page and open its chapter
+            var page = window.location.pathname.split('/').pop();
+            var current = document.querySelector('.toc-submenu a[href="' + page + '"]');
+            if (current) {
+                current.setAttribute('aria-current', 'page');
+                var menu = current.closest('.toc-submenu');
+                menu.classList.add('open');
+                var chapterButton = document.querySelector('[aria-controls="' + menu.id + '"]');
+                if (chapterButton) { chapterButton.setAttribute('aria-expanded', 'true'); }
+            }
+        })
+        .catch(function () { /* TOC unavailable: page content still works */ });
+</script>
+
+</body>
+</html>

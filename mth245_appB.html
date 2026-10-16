@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MTH 245 – Appendix B: Formulas</title>
+
+    <!-- MathJax configuration (single $ intentionally disabled so dollar amounts never collide with math) -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]'], ['$$', '$$']],
+                packages: {'[+]': ['color']}
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            },
+            loader: {
+                load: ['[tex]/color']
+            }
+        };
+    </script>
+    <script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+
+    <link rel="stylesheet" href="styles1.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div id="toc-placeholder"></div>
+
+<main class="container" id="main-content" tabindex="-1">
+
+    <h1>Appendix B: Formulas</h1>
+
+    <section aria-labelledby="f-prob-heading">
+        <h2 id="f-prob-heading">Probability Theory</h2>
+    <dl class="formula-list">
+        <dt>Complementary Events</dt>
+        <dd>\(P(A_c)=1-P(A)\)</dd>
+        <dt>Multiplication Rule, Independent Events</dt>
+        <dd>\(P(A\cap B)=P(A)P(B)\)</dd>
+        <dt>General Multiplication Rule</dt>
+        <dd>\(P(A\cap B)=P(A)P(B\mid A)=P(B)P(A\mid B)\)</dd>
+        <dt>Addition Rule, Mutually Exclusive Events</dt>
+        <dd>\(P(A\cup B)=P(A)+P(B)\)</dd>
+        <dt>General Addition Rule</dt>
+        <dd>\(P(A\cup B)=P(A)+P(B)-P(A\cap B)\)</dd>
+        <dt>Permutations</dt>
+        <dd>\({}_nP_r=\dfrac{n!}{(n-r)!}\)</dd>
+        <dt>Combinations</dt>
+        <dd>\({}_nC_r=\dfrac{n!}{r!(n-r)!}\)</dd>
+        <dt>Discrete Probability Distribution</dt>
+        <dd>\(\mu=\sum xP(x)\), \(\quad\sigma=\sqrt{\sum (x-\mu)^2P(x)}\)</dd>
+        <dt>Binomial Distribution</dt>
+        <dd>\(P(r)={}_nC_r\,p^rq^{n-r}\)</dd>
+        <dt>Binomial Mean</dt>
+        <dd>\(\mu=E(x)=np\)</dd>
+        <dt>Binomial Standard Deviation</dt>
+        <dd>\(\sigma=\sqrt{npq}\)</dd>
+        <dt>Correlation</dt>
+        <dd>\[r=\frac{n\sum xy-(\sum x)(\sum y)}{\sqrt{n\sum x^2-(\sum x)^2}\,\sqrt{n\sum y^2-(\sum y)^2}}\]</dd>
+        <dt>Linear Regression</dt>
+        <dd>\[\hat y=b_0+b_1x,\qquad b_1=\frac{n\sum (xy)-(\sum x)(\sum y)}{n\sum x^2-(\sum x)^2},\qquad b_0=\bar{y}-b_1\bar{x}\]</dd>
+    </dl>
+    </section>
+
+    <section aria-labelledby="f-desc-heading">
+        <h2 id="f-desc-heading">Descriptive Statistics</h2>
+    <dl class="formula-list">
+        <dt>Population Mean</dt>
+        <dd>\(\mu=\dfrac{\sum x}{N}\)</dd>
+        <dt>Sample Mean</dt>
+        <dd>\(\bar{x}=\dfrac{\sum x}{n}\)</dd>
+        <dt>Weighted Sample Mean</dt>
+        <dd>\(\bar{x}_w=\dfrac{\sum wx}{\sum w}\)</dd>
+        <dt>Grouped Data Sample Mean</dt>
+        <dd>\(\bar{x}=\dfrac{\sum xf}{n}\), where \(n=\sum f\)</dd>
+        <dt>Population Variance</dt>
+        <dd>\[\sigma^2=\frac{\sum(x-\mu)^2}{N}=\frac{\sum x^2}{N}-\mu^2\]</dd>
+        <dt>Sample Variance</dt>
+        <dd>\[s^2=\frac{\sum(x-\bar{x})^2}{n-1}=\frac{\sum x^2-\frac{\left(\sum x\right)^2}{n}}{n-1}\]</dd>
+        <dt>Population Standard Deviation</dt>
+        <dd>\[\sigma=\sqrt{\frac{\sum(x-\mu)^2}{N}}=\sqrt{\frac{\sum x^2}{N}-\mu^2}\]</dd>
+        <dt>Sample Standard Deviation</dt>
+        <dd>\[s=\sqrt{\frac{\sum(x-\bar{x})^2}{n-1}}=\sqrt{\frac{\sum x^2-\frac{(\sum x)^2}{n}}{n-1}}\]</dd>
+        <dt>Grouped Data Sample Standard Deviation</dt>
+        <dd>\[s=\sqrt{\frac{\sum(x-\bar{x})^2f}{n-1}}=\sqrt{\frac{\sum x^2f-\frac{(\sum xf)^2}{n}}{n-1}}\]</dd>
+        <dt>Sample Coefficient of Variation</dt>
+        <dd>\(\text{CV}=\dfrac{s}{\bar{x}}\cdot 100\%\)</dd>
+    </dl>
+    </section>
+
+    <section aria-labelledby="f-inf-heading">
+        <h2 id="f-inf-heading">Inferential Statistics</h2>
+    <dl class="formula-list">
+        <dt>Normal Distribution</dt>
+        <dd>\(x=z\sigma+\mu\) and \(z=\dfrac{x-\mu}{\sigma}\)</dd>
+        <dt>\(\bar x\) Distribution</dt>
+        <dd>\(\sigma_{\bar x}=\dfrac{\sigma}{\sqrt{n}}\), \(\quad z=\dfrac{\bar x-\mu}{\sigma / \sqrt{n}}\)</dd>
+        <dt>\(\hat p\) Distribution</dt>
+        <dd>\(\sigma_{\hat p}=\sqrt{\dfrac{pq}{n}}\)</dd>
+        <dt>For \(\mu\) (Mean): use \(z\) when \(\sigma\) is known, \(t\) when \(\sigma\) is unknown</dt>
+        <dd>\[\mu=\bar x \pm E,\qquad E=z_c\frac{\sigma}{\sqrt{n}}\ \text{ or }\ E=t_c\frac{s}{\sqrt{n}}\]\[z=\frac{\bar x-\mu_0}{\sigma / \sqrt{n}}\ \text{ or }\ t=\frac{\bar x-\mu_0}{s / \sqrt{n}}\]</dd>
+        <dt>For \(p\) (Proportions)</dt>
+        <dd><p>(\(n\hat{p}\ge5\) and \(n\hat{q}\ge5\) for confidence intervals)<br />(\(np_0\ge5\) and \(nq_0\ge5\) for hypothesis tests)</p>
+        \[p=\hat p \pm E,\qquad E=z_{\alpha/2}\sqrt{\frac{\hat p \hat q}{n}},\qquad \hat q=1-\hat p,\qquad z=\frac{\hat p-p_0}{\sqrt{p_0q_0/n}}\]</dd>
+        <dt>For \(d\) (matched pairs)</dt>
+        <dd>\[\mu_d=\bar{d}\pm E,\qquad E=t_c\frac{s_d}{\sqrt{n}},\qquad t=\frac{\bar{d}-d_0}{s_d/\sqrt{n}}\]\[s_d=\sqrt{\frac{\sum(d-\bar{d})^2}{n-1}}=\sqrt{\frac{n(\sum d^2)-(\sum d)^2}{n(n-1)}}\]</dd>
+        <dt>Difference of Means (unmatched pairs): use \(z\) when \(\sigma\) is known, \(t\) when \(\sigma\) is unknown</dt>
+        <dd>\[\mu_1-\mu_2=(\bar x_1-\bar x_2)\pm E\]\[E=z_c\sqrt{\frac{\sigma_1^2}{n_1}+\frac{\sigma_2^2}{n_2}}\ \text{ or }\ E=t_c\sqrt{\frac{s_1^2}{n_1}+\frac{s_2^2}{n_2}}\]\[z=\frac{\bar x_1-\bar x_2}{\sqrt{\frac{\sigma_1^2}{n_1}+\frac{\sigma_2^2}{n_2}}}\ \text{ or }\ t=\frac{\bar x_1-\bar x_2}{\sqrt{\frac{s_1^2}{n_1}+\frac{s_2^2}{n_2}}}\]</dd>
+        <dt>Difference of Proportions</dt>
+        <dd>\[p_1-p_2=(\hat p_1-\hat p_2)\pm E,\qquad E=z_c\sqrt{\frac{\hat p_1 \hat q_1}{n_1}+\frac{\hat p_2 \hat q_2}{n_2}}\]\[z=\frac{\hat p_1-\hat p_2}{\sqrt{\frac{\bar p \bar q}{n_1}+\frac{\bar p \bar q}{n_2}}}\]\[\bar p=\frac{x_1+x_2}{n_1+n_2},\qquad\bar q=1-\bar p,\qquad\hat p_1=\frac{x_1}{n_1},\qquad\hat p_2=\frac{x_2}{n_2}\]</dd>
+        <dt>Sample Size for Estimating Means</dt>
+        <dd>\[n=\left(\frac{z_c\sigma}{E}\right)^2\]</dd>
+        <dt>Sample Size for Estimating Proportions</dt>
+        <dd><p>With a preliminary estimate for \(p\):</p>
+        \[n=pq\left(\frac{z_c}{E}\right)^2\]
+        <p>Without a preliminary estimate for \(p\):</p>
+        \[n=\frac{1}{4}\left(\frac{z_c}{E}\right)^2\]</dd>
+    </dl>
+    </section>
+
+    <nav class="page-nav" aria-label="Section navigation">
+        <a class="nav-button" href="mth245_appA_6.html">Previous: A.6 Summary</a>
+        <a class="nav-button" href="mth245_appC_1.html">Next: C.1 Pascal's Triangle</a>
+    </nav>
+
+</main>
+
+<script>
+    fetch('toc.html')
+        .then(function (response) {
+            if (!response.ok) { throw new Error('TOC not found'); }
+            return response.text();
+        })
+        .then(function (data) {
+            document.getElementById('toc-placeholder').innerHTML = data;
+
+            document.querySelectorAll('.toc-chapter').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var expanded = button.getAttribute('aria-expanded') === 'true';
+                    button.setAttribute('aria-expanded', String(!expanded));
+                    document.getElementById(button.getAttribute('aria-controls')).classList.toggle('open');
+                });
+            });
+
+            // Mark the current page and open its chapter
+            var page = window.location.pathname.split('/').pop();
+            var current = document.querySelector('.toc-submenu a[href="' + page + '"]');
+            if (current) {
+                current.setAttribute('aria-current', 'page');
+                var menu = current.closest('.toc-submenu');
+                menu.classList.add('open');
+                var chapterButton = document.querySelector('[aria-controls="' + menu.id + '"]');
+                if (chapterButton) { chapterButton.setAttribute('aria-expanded', 'true'); }
+            }
+        })
+        .catch(function () { /* TOC unavailable: page content still works */ });
+</script>
+
+</body>
+</html>

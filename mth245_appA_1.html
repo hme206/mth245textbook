@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MTH 245 – Appendix A.1: Introduction</title>
+
+    <!-- MathJax configuration (single $ intentionally disabled so dollar amounts never collide with math) -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]'], ['$$', '$$']],
+                packages: {'[+]': ['color']}
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            },
+            loader: {
+                load: ['[tex]/color']
+            }
+        };
+    </script>
+    <script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+
+    <link rel="stylesheet" href="styles1.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div id="toc-placeholder"></div>
+
+<main class="container" id="main-content" tabindex="-1">
+
+    <h1>Appendix A: Technology</h1>
+    <h2 id="section-A-1">Section A.1: Introduction</h2>
+
+    <p>Modern technology has made statistical calculations faster and more accessible than ever before. Scientific calculators, graphing calculators, spreadsheets, and online graphing tools can compute descriptive statistics, create graphs, and perform regression analyses in a matter of seconds. While these tools are invaluable, they should be viewed as aids to statistical reasoning rather than replacements for it.</p>
+
+    <p>Throughout this text, emphasis has been placed on understanding the mathematical ideas behind statistical procedures. Learning how to compute quantities such as the mean, median, variance, standard deviation, Pearson's correlation coefficient, the coefficient of determination, and the least squares regression line by hand develops an understanding of what these measures represent and how they are constructed. Once these ideas are understood, technology can be used confidently to perform calculations quickly and accurately on larger data sets.</p>
+
+    <p>For example, technology can be used to compute:</p>
+    <ul>
+        <li>the arithmetic mean, median, and other measures of center,</li>
+        <li>the population or sample variance,</li>
+        <li>the population or sample standard deviation,</li>
+        <li>Pearson's correlation coefficient, \(r\),</li>
+        <li>the coefficient of determination, \(R^2\), and</li>
+        <li>the least squares regression equation.</li>
+    </ul>
+
+    <p>Although technology performs the calculations, it does not determine whether the results are appropriate or meaningful. A calculator cannot decide whether the data represent a population or a sample, whether a mean or median is the better measure of center, whether a regression model is appropriate, or whether a reported result makes sense in context. These decisions require statistical reasoning.</p>
+
+    <p>As you work through the examples and exercises in this text, first learn the underlying concepts and manual procedures on small data sets. Once you understand the mathematics and interpretation, use technology to verify your work and to analyze larger data sets that would be impractical to compute by hand.</p>
+
+    <p>Several technologies are commonly used in introductory statistics courses.</p>
+
+    <nav class="page-nav" aria-label="Section navigation">
+        <a class="nav-button" href="mth245_ch10_6.html">Previous: 10.6 Exercises</a>
+        <a class="nav-button" href="mth245_appA_2.html">Next: A.2 TI-30X IIS Scientific Calculator</a>
+    </nav>
+
+</main>
+
+<script>
+    fetch('toc.html')
+        .then(function (response) {
+            if (!response.ok) { throw new Error('TOC not found'); }
+            return response.text();
+        })
+        .then(function (data) {
+            document.getElementById('toc-placeholder').innerHTML = data;
+
+            document.querySelectorAll('.toc-chapter').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var expanded = button.getAttribute('aria-expanded') === 'true';
+                    button.setAttribute('aria-expanded', String(!expanded));
+                    document.getElementById(button.getAttribute('aria-controls')).classList.toggle('open');
+                });
+            });
+
+            // Mark the current page and open its chapter
+            var page = window.location.pathname.split('/').pop();
+            var current = document.querySelector('.toc-submenu a[href="' + page + '"]');
+            if (current) {
+                current.setAttribute('aria-current', 'page');
+                var menu = current.closest('.toc-submenu');
+                menu.classList.add('open');
+                var chapterButton = document.querySelector('[aria-controls="' + menu.id + '"]');
+                if (chapterButton) { chapterButton.setAttribute('aria-expanded', 'true'); }
+            }
+        })
+        .catch(function () { /* TOC unavailable: page content still works */ });
+</script>
+
+</body>
+</html>
