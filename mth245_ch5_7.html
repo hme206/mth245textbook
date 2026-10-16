@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MTH 245 – Ch 5.7: Exercises</title>
+
+    <!-- MathJax configuration (single $ intentionally disabled so dollar amounts never collide with math) -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]'], ['$$', '$$']],
+                packages: {'[+]': ['color']}
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            },
+            loader: {
+                load: ['[tex]/color']
+            }
+        };
+    </script>
+    <script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+
+    <link rel="stylesheet" href="styles1.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div id="toc-placeholder"></div>
+
+<main class="container" id="main-content" tabindex="-1">
+
+    <h1>Chapter 5: Measures of Center and Spread</h1>
+    <h2 id="section-5-7">Section 5.7: Exercises</h2>
+
+    <p>The following exercises review the major concepts introduced in this chapter. Show your work and simplify answers when appropriate.</p>
+
+    <section aria-labelledby="ex-group-center">
+        <h3 id="ex-group-center">Measures of Center</h3>
+        <ol>
+            <li>Find the mode of the data set:
+                \[4,\ 7,\ 5,\ 4,\ 9,\ 7,\ 4,\ 6,\ 8,\ 4,\ 7.\]</li>
+            <li>Find the mode of the data set:
+                \[12,\ 15,\ 11,\ 15,\ 18,\ 12,\ 15,\ 14,\ 11,\ 15,\ 13,\ 12.\]</li>
+            <li>Classify the following data set as unimodal, bimodal, multimodal, or having no mode:
+                \[2,\ 3,\ 3,\ 4,\ 5,\ 5,\ 6,\ 7.\]</li>
+            <li>Classify the following data set as unimodal, bimodal, multimodal, or having no mode:
+                \[10,\ 12,\ 12,\ 13,\ 14,\ 14,\ 15,\ 15,\ 16,\ 17.\]</li>
+            <li>Find the median:
+                \[14,\ 8,\ 11,\ 19,\ 7,\ 13,\ 10,\ 16,\ 9.\]</li>
+            <li>Find the median:
+                \[22,\ 17,\ 31,\ 14,\ 26,\ 19,\ 35,\ 21,\ 28,\ 16.\]</li>
+            <li>Calculate the arithmetic mean of:
+                \[6,\ 9,\ 12,\ 15,\ 18.\]</li>
+            <li>Calculate the arithmetic mean of:
+                \[72,\ 81,\ 65,\ 94,\ 88,\ 77,\ 83,\ 90.\]</li>
+            <li>A data set has a mean of \(72\) and a median of \(64\). Is the distribution more likely to be positively skewed or negatively skewed? Explain your reasoning.</li>
+            <li>A distribution of household incomes contains several extremely large values. Which measure of center, the mean or median, would generally be more resistant to the effect of these unusually large observations? Explain why.</li>
+            <li>Calculate the geometric mean of:
+                \[2,\ 8,\ 32.\]</li>
+            <li>Calculate the harmonic mean of:
+                \[3,\ 6,\ 12.\]</li>
+            <li>Calculate the \(20\%\) trimmed mean of:
+                \[4,\ 7,\ 8,\ 10,\ 11,\ 12,\ 13,\ 15,\ 16,\ 20.\]</li>
+            <li>Calculate the \(10\%\) trimmed mean of the following 20 observations:
+                \[52,\ 61,\ 64,\ 67,\ 70,\ 71,\ 72,\ 74,\ 75,\ 77,\ 78,\ 80,\ 81,\ 83,\ 84,\ 86,\ 88,\ 90,\ 94,\ 110.\]</li>
+            <li>A student's course grade is based on tests worth \(50\%\), homework worth \(20\%\), and a final exam worth \(30\%\). The averages are 84, 92, and 78, respectively. Calculate the weighted mean.</li>
+            <li>A store sells three products at the following prices and quantities:
+                <div class="table-scroll">
+                <table>
+                <caption>Prices and quantities sold</caption>
+                <thead>
+                <tr><th scope="col">Price</th><th scope="col">Quantity Sold</th></tr>
+                </thead>
+                <tbody>
+                <tr><td>$12</td><td>5</td></tr>
+                <tr><td>$15</td><td>8</td></tr>
+                <tr><td>$20</td><td>3</td></tr>
+                </tbody>
+                </table>
+                </div>
+                Calculate the weighted mean selling price.</li>
+        </ol>
+    </section>
+
+    <section aria-labelledby="ex-group-spread">
+        <h3 id="ex-group-spread">Measures of Spread</h3>
+        <ol>
+            <li>Calculate the range of:
+                \[18,\ 24,\ 31,\ 15,\ 27,\ 22,\ 35.\]</li>
+            <li>Calculate the range of:
+                \[102,\ 98,\ 115,\ 87,\ 121,\ 109,\ 95,\ 130.\]</li>
+            <li>Treat the following data as an entire population. Calculate the population variance:
+                \[2,\ 4,\ 6,\ 8,\ 10.\]</li>
+            <li>Treat the following data as an entire population. Calculate the population variance:
+                \[5,\ 7,\ 8,\ 10,\ 15.\]</li>
+            <li>Treat the following data as a population. Calculate the population standard deviation:
+                \[4,\ 6,\ 8,\ 10,\ 12.\]</li>
+            <li>A population has values
+                \[20,\ 22,\ 24,\ 26,\ 28.\]
+                Calculate the population standard deviation.</li>
+            <li>Treat the following observations as a sample from a larger population. Calculate the sample variance:
+                \[3,\ 5,\ 7,\ 9,\ 11.\]</li>
+            <li>Calculate the sample variance for:
+                \[12,\ 15,\ 18,\ 21.\]</li>
+            <li>Calculate the sample standard deviation of:
+                \[5,\ 8,\ 10,\ 13,\ 14.\]</li>
+            <li>A sample consists of:
+                \[20,\ 24,\ 28,\ 32,\ 36,\ 40.\]
+                Calculate the sample standard deviation.</li>
+            <li>Two data sets have the same mean of \(50\). Data Set A has a standard deviation of \(3\), while Data Set B has a standard deviation of \(12\). Which data set has observations that are more tightly clustered around its mean? Explain.</li>
+            <li>A data set has a mean of \(80\) and a standard deviation of \(5\). In practical terms, what does the standard deviation tell you about the data?</li>
+            <li>A population has mean \(\mu=50\) and standard deviation \(\sigma=4\). Calculate the coefficient of variation as a percentage.</li>
+            <li>Machine A produces parts with mean length \(20\) cm and standard deviation \(1.2\) cm. Machine B produces parts with mean length \(80\) cm and standard deviation \(3.2\) cm. Calculate the coefficient of variation for each machine.</li>
+        </ol>
+    </section>
+
+    <section aria-labelledby="ex-group-rules">
+        <h3 id="ex-group-rules">Distributional Rules</h3>
+        <ol>
+            <li>A data set is approximately bell-shaped and has a range of \(36\). Use the Range Rule of Thumb to estimate its standard deviation.</li>
+            <li>A sample of approximately bell-shaped data has a minimum value of \(42\) and a maximum value of \(98\). Use the Range Rule of Thumb to estimate the sample standard deviation.</li>
+            <li>A data set is strongly right-skewed and has several extreme observations. Should the Range Rule of Thumb be used to estimate the standard deviation? Explain.</li>
+            <li>A data set is approximately bell-shaped with no obvious extreme values. Explain why the Range Rule of Thumb is more appropriate for this data set than for a strongly skewed data set.</li>
+            <li>A population has mean \(\mu=70\) and standard deviation \(\sigma=8\). Using Chebyshev's Theorem, determine the minimum percentage of observations that lie within \(2\) standard deviations of the mean. Also determine the interval.</li>
+            <li>A data set has mean \(\bar{x}=120\) and standard deviation \(s=15\). Using Chebyshev's Theorem, determine the minimum percentage of observations that lie within \(3\) standard deviations of the mean.</li>
+            <li>A distribution is approximately bell-shaped. Compare the percentage predicted by the Empirical Rule with the minimum percentage guaranteed by Chebyshev's Theorem within \(2\) standard deviations of the mean.</li>
+            <li>Explain why Chebyshev's Theorem can be applied to a strongly skewed distribution while the Empirical Rule should not be applied unless the distribution is approximately bell-shaped.</li>
+        </ol>
+    </section>
+
+    <section aria-labelledby="ex-group-quantiles">
+        <h3 id="ex-group-quantiles">Quantiles</h3>
+        <ol>
+            <li>Using the chapter's median-of-halves method, calculate \(Q_1\), \(Q_2\), and \(Q_3\) for:
+                \[4,\ 7,\ 9,\ 10,\ 12,\ 14,\ 15,\ 18,\ 20,\ 23,\ 25,\ 30.\]</li>
+            <li>Using the chapter's median-of-halves method, calculate \(Q_1\), \(Q_2\), and \(Q_3\) for:
+                \[52,\ 55,\ 61,\ 64,\ 68,\ 70,\ 73,\ 77,\ 81,\ 84,\ 89,\ 95,\ 101.\]</li>
+            <li>An ordered data set contains 20 observations. Determine which decile corresponds to a value for which \(30\%\) of the observations are below it.</li>
+            <li>A student's score is above \(87.5\%\) of the observations in an ordered data set. Between which two deciles does this score fall?</li>
+            <li>Consider the ordered data set:
+                \[52,\ 60,\ 71,\ 71,\ 74,\ 77,\ 77,\ 80,\ 87,\ 87,\ 88,\ 88,\ 88,\ 89,\ 89,\ 89,\ 89,\ 90,\ 90,\ 91,\ 91,\ 92,\ 92,\ 96.\]
+                A score of \(89\) is higher than 14 of the 24 observations. Using the chapter's method, determine approximately which percentile the score represents.</li>
+            <li>A data set contains 30 observations. A particular value is greater than 27 of the observations. Calculate the proportion of observations below that value and use the chapter's percentile convention to determine the approximate percentile.</li>
+            <li>A data set has \(Q_1=18\) and \(Q_3=42\). Calculate the interquartile range.</li>
+            <li>Using the median-of-halves method, calculate the IQR of:
+                \[5,\ 8,\ 11,\ 13,\ 15,\ 17,\ 19,\ 22,\ 25,\ 28,\ 31,\ 35.\]</li>
+            <li>Construct the five-number summary for:
+                \[12,\ 15,\ 18,\ 19,\ 22,\ 24,\ 27,\ 30,\ 31,\ 35,\ 38,\ 42.\]</li>
+            <li>Construct the five-number summary for:
+                \[41,\ 45,\ 48,\ 52,\ 54,\ 57,\ 60,\ 63,\ 66,\ 70,\ 74,\ 79,\ 85.\]</li>
+        </ol>
+    </section>
+
+    <section aria-labelledby="ex-group-boxplots">
+        <h3 id="ex-group-boxplots">Boxplots</h3>
+        <ol>
+            <li>Using the five-number summary
+                \[(10,\ 18,\ 25,\ 32,\ 40),\]
+                construct a box-and-whisker plot. Clearly label the minimum, \(Q_1\), median, \(Q_3\), and maximum.</li>
+            <li>Using the five-number summary
+                \[(5,\ 12,\ 20,\ 29,\ 45),\]
+                construct a boxplot on a number line. Label the box, median, and whiskers.</li>
+            <li>A boxplot has minimum \(12\), \(Q_1=20\), median \(27\), \(Q_3=35\), and maximum \(48\). What percentage of the observations are approximately represented in each of the four sections separated by the quartiles?</li>
+            <li>A boxplot has \(Q_1=40\), median \(52\), and \(Q_3=65\). What does the interval from \(40\) to \(65\) represent, and what is its numerical width?</li>
+            <li>A modified boxplot is based on
+                \[Q_1=20,\qquad Q_3=40.\]
+                A plotted observation appears at \(72\). Determine whether the observation is outside the upper mild-outlier fence.</li>
+            <li>A modified boxplot is based on
+                \[Q_1=50,\qquad Q_3=70.\]
+                An observation is plotted at \(20\). Determine whether it lies below the lower mild-outlier fence.</li>
+            <li>A data set has \(Q_1=30\) and \(Q_3=50\). Determine the lower and upper mild-outlier fences using \(1.5(\text{IQR})\), and determine the lower and upper extreme-outlier fences using \(3(\text{IQR})\). Then classify an observation of \(85\).</li>
+            <li>A data set has \(Q_1=60\) and \(Q_3=80\). Determine whether an observation of \(20\) is a mild outlier, an extreme outlier, or neither. Show all calculations.</li>
+            <li>Two boxplots have the following five-number summaries:
+                <div class="table-scroll">
+                <table>
+                <caption>Five-number summaries for data sets A and B</caption>
+                <thead>
+                <tr><th scope="col">Data set</th><th scope="col">Min</th><th scope="col">\(Q_1\)</th><th scope="col">Median</th><th scope="col">\(Q_3\)</th><th scope="col">Max</th></tr>
+                </thead>
+                <tbody>
+                <tr><th scope="row">A</th><td>10</td><td>20</td><td>30</td><td>40</td><td>50</td></tr>
+                <tr><th scope="row">B</th><td>15</td><td>25</td><td>30</td><td>35</td><td>70</td></tr>
+                </tbody>
+                </table>
+                </div>
+                Compare the two distributions in terms of their medians, IQRs, ranges, and overall spread.</li>
+            <li>Two classes have the following five-number summaries:
+                <div class="table-scroll">
+                <table>
+                <caption>Five-number summaries for two classes</caption>
+                <thead>
+                <tr><th scope="col">Class</th><th scope="col">Min</th><th scope="col">\(Q_1\)</th><th scope="col">Median</th><th scope="col">\(Q_3\)</th><th scope="col">Max</th></tr>
+                </thead>
+                <tbody>
+                <tr><th scope="row">Class 1</th><td>55</td><td>68</td><td>75</td><td>82</td><td>94</td></tr>
+                <tr><th scope="row">Class 2</th><td>48</td><td>65</td><td>76</td><td>88</td><td>99</td></tr>
+                </tbody>
+                </table>
+                </div>
+                Compare the classes in terms of center and spread. Identify which features of the distributions can be determined directly from the five-number summaries.</li>
+        </ol>
+    </section>
+
+    <section aria-labelledby="ex-group-integrated">
+        <h3 id="ex-group-integrated">Integrated Chapter Problems</h3>
+        <ol>
+            <li>The ordered data set
+                \[8,\ 10,\ 12,\ 13,\ 15,\ 17,\ 18,\ 20,\ 21,\ 24,\ 28,\ 35\]
+                represents an entire population. Calculate:
+                <ol type="a">
+                    <li>the mean,</li>
+                    <li>the median,</li>
+                    <li>the range,</li>
+                    <li>the population variance,</li>
+                    <li>the population standard deviation,</li>
+                    <li>\(Q_1\) and \(Q_3\),</li>
+                    <li>the IQR,</li>
+                    <li>the five-number summary.</li>
+                </ol></li>
+            <li>A data set is strongly right-skewed and contains one unusually large observation. The ordinary arithmetic mean is \(64\), the median is \(58\), \(Q_1=45\), and \(Q_3=70\).
+                <ol type="a">
+                    <li>Which measure of center is more resistant to the unusually large observation?</li>
+                    <li>Calculate the IQR.</li>
+                    <li>Explain why the median may provide a more representative description of the center than the mean for this data set.</li>
+                    <li>Would the Range Rule of Thumb be appropriate for estimating the standard deviation? Explain.</li>
+                </ol></li>
+        </ol>
+    </section>
+
+
+    <nav class="page-nav" aria-label="Section navigation">
+        <a class="nav-button" href="mth245_ch5_6.html">Previous: 5.6 Summary</a>
+    </nav>
+
+</main>
+
+<script>
+    fetch('toc.html')
+        .then(function (response) {
+            if (!response.ok) { throw new Error('TOC not found'); }
+            return response.text();
+        })
+        .then(function (data) {
+            document.getElementById('toc-placeholder').innerHTML = data;
+
+            document.querySelectorAll('.toc-chapter').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var expanded = button.getAttribute('aria-expanded') === 'true';
+                    button.setAttribute('aria-expanded', String(!expanded));
+                    document.getElementById(button.getAttribute('aria-controls')).classList.toggle('open');
+                });
+            });
+
+            // Mark the current page and open its chapter
+            var page = window.location.pathname.split('/').pop();
+            var current = document.querySelector('.toc-submenu a[href="' + page + '"]');
+            if (current) {
+                current.setAttribute('aria-current', 'page');
+                var menu = current.closest('.toc-submenu');
+                menu.classList.add('open');
+                var chapterButton = document.querySelector('[aria-controls="' + menu.id + '"]');
+                if (chapterButton) { chapterButton.setAttribute('aria-expanded', 'true'); }
+            }
+        })
+        .catch(function () { /* TOC unavailable: page content still works */ });
+</script>
+
+</body>
+</html>

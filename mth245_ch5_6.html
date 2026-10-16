@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MTH 245 – Ch 5.6: Summary</title>
+
+    <!-- MathJax configuration (single $ intentionally disabled so dollar amounts never collide with math) -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]'], ['$$', '$$']],
+                packages: {'[+]': ['color']}
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            },
+            loader: {
+                load: ['[tex]/color']
+            }
+        };
+    </script>
+    <script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+
+    <link rel="stylesheet" href="styles1.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div id="toc-placeholder"></div>
+
+<main class="container" id="main-content" tabindex="-1">
+
+    <h1>Chapter 5: Measures of Center and Spread</h1>
+    <h2 id="section-5-6">Section 5.6: Summary</h2>
+
+    <p>Measures of center describe the typical value of a data set. The mode is the most frequently occurring value, the median is the middle value of an ordered data set, and the arithmetic mean is the sum of the observations divided by their number. The median is less affected by outliers than the mean. Specialized means, including the geometric, harmonic, trimmed, and weighted means, are useful in particular applications.</p>
+
+    <p>Measures of spread describe how much the observations vary. The range measures the distance between the smallest and largest values, while variance and standard deviation measure variability around the mean. The coefficient of variation expresses the standard deviation relative to the mean as a percentage.</p>
+
+    <p>Chebyshev's Theorem provides a minimum proportion of observations that must lie within a specified number of standard deviations of the mean, regardless of the shape of the distribution. For approximately bell-shaped data, the Range Rule of Thumb can provide a rough estimate of the standard deviation.</p>
+
+    <p>Quantiles divide ordered data into approximately equal groups. Quartiles divide the data into four parts, deciles into ten parts, and percentiles into one hundred parts. The five-number summary consists of the minimum, \(Q_1\), median, \(Q_3\), and maximum. The interquartile range, \(\text{IQR}=Q_3-Q_1\), measures the spread of the middle 50% of the observations.</p>
+
+    <p>Box-and-whisker plots provide a visual summary of the five-number summary and can help identify outliers. Observations beyond \(1.5(\text{IQR})\) from a quartile are commonly classified as mild outliers, while those beyond \(3(\text{IQR})\) are classified as extreme outliers. Together, these methods provide concise descriptions of the center, spread, and unusual features of a data set.</p>
+
+    <nav class="page-nav" aria-label="Section navigation">
+        <a class="nav-button" href="mth245_ch5_5.html">Previous: 5.5 Five-Number Summary</a>
+        <a class="nav-button" href="mth245_ch5_7.html">Next: 5.7 Exercises</a>
+    </nav>
+
+</main>
+
+<script>
+    fetch('toc.html')
+        .then(function (response) {
+            if (!response.ok) { throw new Error('TOC not found'); }
+            return response.text();
+        })
+        .then(function (data) {
+            document.getElementById('toc-placeholder').innerHTML = data;
+
+            document.querySelectorAll('.toc-chapter').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var expanded = button.getAttribute('aria-expanded') === 'true';
+                    button.setAttribute('aria-expanded', String(!expanded));
+                    document.getElementById(button.getAttribute('aria-controls')).classList.toggle('open');
+                });
+            });
+
+            // Mark the current page and open its chapter
+            var page = window.location.pathname.split('/').pop();
+            var current = document.querySelector('.toc-submenu a[href="' + page + '"]');
+            if (current) {
+                current.setAttribute('aria-current', 'page');
+                var menu = current.closest('.toc-submenu');
+                menu.classList.add('open');
+                var chapterButton = document.querySelector('[aria-controls="' + menu.id + '"]');
+                if (chapterButton) { chapterButton.setAttribute('aria-expanded', 'true'); }
+            }
+        })
+        .catch(function () { /* TOC unavailable: page content still works */ });
+</script>
+
+</body>
+</html>

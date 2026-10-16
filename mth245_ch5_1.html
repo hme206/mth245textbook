@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MTH 245 – Ch 5.1: Introduction</title>
+
+    <link rel="stylesheet" href="styles1.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div id="toc-placeholder"></div>
+
+<main class="container" id="main-content" tabindex="-1">
+
+    <h1>Chapter 5: Measures of Center and Spread</h1>
+    <h2 id="section-5-1">Section 5.1: Introduction</h2>
+
+    <section aria-labelledby="intro-5-1-heading">
+        <h3 id="intro-5-1-heading" class="visually-hidden">Overview</h3>
+        <p><strong>Measures of center</strong>, also called <strong>measures of central tendency</strong>, are numerical summaries that describe the center or a typical value of a data set. Different measures of center can be more appropriate depending on the type and distribution of the data.</p>
+
+        <p>Different measures of center are appropriate for different types of data. Some measures of center are resistant to extreme observations, whereas others are sensitive to them. Consequently, selecting the appropriate measure of center depends on the characteristics of the data and the purpose of the analysis.</p>
+
+        <p>The arithmetic mean and median are the most commonly used measures of center in introductory statistics. Additional measures, including the geometric mean, harmonic mean, trimmed mean, and weighted mean, are useful in specialized applications such as finance, economics, engineering, and the natural sciences.</p>
+    </section>
+
+    <div class="learning-obj-box" role="note" aria-labelledby="lo-5-1-heading">
+        <h3 id="lo-5-1-heading">Learning Objectives</h3>
+        <p>After completing this chapter, you should be able to:</p>
+        <ul>
+            <li>Calculate and interpret the mode, median, and arithmetic mean.</li>
+            <li>Distinguish between the arithmetic, geometric, harmonic, trimmed, and weighted means.</li>
+            <li>Choose an appropriate measure of center based on the type and shape of a data set.</li>
+            <li>Calculate and interpret the range, variance, standard deviation, and coefficient of variation.</li>
+            <li>Distinguish between population and sample measures of variability.</li>
+            <li>Apply the Range Rule of Thumb to estimate standard deviation.</li>
+            <li>Apply Chebyshev's Theorem to determine minimum proportions of observations within specified numbers of standard deviations.</li>
+            <li>Calculate and interpret quartiles, deciles, percentiles, and the interquartile range.</li>
+            <li>Construct and interpret a five-number summary.</li>
+            <li>Construct and interpret box-and-whisker plots.</li>
+            <li>Identify and classify mild and extreme outliers using the interquartile range.</li>
+        </ul>
+    </div>
+
+    <nav class="page-nav" aria-label="Section navigation">
+        <a class="nav-button" href="mth245_ch4_7.html">Previous: 4.7 Exercises</a>
+        <a class="nav-button" href="mth245_ch5_2.html">Next: 5.2 Measures of Center</a>
+    </nav>
+
+</main>
+
+<script>
+    fetch('toc.html')
+        .then(function (response) {
+            if (!response.ok) { throw new Error('TOC not found'); }
+            return response.text();
+        })
+        .then(function (data) {
+            document.getElementById('toc-placeholder').innerHTML = data;
+
+            document.querySelectorAll('.toc-chapter').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var expanded = button.getAttribute('aria-expanded') === 'true';
+                    button.setAttribute('aria-expanded', String(!expanded));
+                    document.getElementById(button.getAttribute('aria-controls')).classList.toggle('open');
+                });
+            });
+
+            // Mark the current page and open its chapter
+            var page = window.location.pathname.split('/').pop();
+            var current = document.querySelector('.toc-submenu a[href="' + page + '"]');
+            if (current) {
+                current.setAttribute('aria-current', 'page');
+                var menu = current.closest('.toc-submenu');
+                menu.classList.add('open');
+                var chapterButton = document.querySelector('[aria-controls="' + menu.id + '"]');
+                if (chapterButton) { chapterButton.setAttribute('aria-expanded', 'true'); }
+            }
+        })
+        .catch(function () { /* TOC unavailable: page content still works */ });
+</script>
+
+</body>
+</html>

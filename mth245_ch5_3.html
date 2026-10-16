@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MTH 245 – Ch 5.3: Measures of Spread</title>
+
+    <!-- MathJax configuration (single $ intentionally disabled so dollar amounts never collide with math) -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]'], ['$$', '$$']],
+                packages: {'[+]': ['color']}
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            },
+            loader: {
+                load: ['[tex]/color']
+            }
+        };
+    </script>
+    <script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+
+    <link rel="stylesheet" href="styles1.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div id="toc-placeholder"></div>
+
+<main class="container" id="main-content" tabindex="-1">
+
+    <h1>Chapter 5: Measures of Center and Spread</h1>
+    <h2 id="section-5-3">Section 5.3: Measures of Spread</h2>
+
+    <p>Measures of center, such as the mean and median, describe the location of a data set. However, two data sets can have the same center while exhibiting very different amounts of variability. <strong>Measures of spread</strong> describe how widely the observations are dispersed about the center.</p>
+
+    <p>Several measures of spread are commonly used, including the range, variance, and standard deviation.</p>
+
+    <section aria-labelledby="range-heading">
+        <h3 id="range-heading">Range</h3>
+    <div class="definition-box" role="note" aria-labelledby="def-range">
+        <h4 id="def-range">Definition: Range</h4>
+        <p>The <strong>range</strong> is the simplest measure of spread. It is the difference between the largest and smallest observations in a data set.</p>
+        <p>If</p>
+        \[x_{\min}=\text{smallest observation}\qquad\text{and}\qquad x_{\max}=\text{largest observation},\]
+        <p>then</p>
+        \[\text{Range}=x_{\max}-x_{\min}.\]
+    </div>
+    <section class="example" aria-labelledby="ex-5-3-1-heading">
+        <div class="example-problem">
+            <h3 id="ex-5-3-1-heading">Example 1</h3>
+            <p>Find the range of the data set consisting of the first five prime numbers:</p>
+            \[2,\ 3,\ 5,\ 7,\ 11\]
+        </div>
+        <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-5-3-1">
+            <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+        </button>
+        <div id="sol-5-3-1" class="example-content">
+            <div class="solution">
+                <h4>Solution</h4>
+                <p>The smallest value is 2 and the largest is 11, so</p>
+                \[\text{Range}=11-2=9.\]
+                <p>Although the range is easy to compute, it depends only on the two extreme observations. As a result, it can change dramatically if either the minimum or maximum value changes.</p>
+            </div>
+        </div>
+    </section>
+    </section>
+
+    <hr class="divider" aria-hidden="true" />
+
+    <section aria-labelledby="variance-heading">
+        <h3 id="variance-heading">Variance and Standard Deviation</h3>
+    <div class="definition-box" role="note" aria-labelledby="def-pop-variance">
+        <h4 id="def-pop-variance">Definition: Population Variance</h4>
+        <p>The <strong>variance</strong> measures the average squared distance of the observations from the population mean. Because the deviations are squared, observations farther from the mean contribute much more to the variance than observations close to the mean.</p>
+        <p>For a population of size \(n\) with mean \(\mu\), the population variance is</p>
+        \[\sigma^2=\frac{\sum_{i=1}^{n}(x_i-\mu)^2}{n}=\frac{\sum_{i=1}^{n}(x_i)^2}{n}-\mu^2.\]
+    </div>
+    <p>The units of the variance are the square of the original units. For example, if the observations are measured in centimeters, the variance is measured in square centimeters.</p>
+    <div class="definition-box" role="note" aria-labelledby="def-pop-sd">
+        <h4 id="def-pop-sd">Definition: Population Standard Deviation</h4>
+        <p>The <strong>population standard deviation</strong> is the square root of the population variance.</p>
+        \[\sigma=\sqrt{\sigma^2}=\sqrt{\frac{\sum_{i=1}^{n}(x_i-\mu)^2}{n}}=\sqrt{\frac{\sum_{i=1}^{n}(x_i)^2}{n}-\mu^2}.\]
+    </div>
+    <p>Since the standard deviation has the same units as the original observations, it is generally easier to interpret than the variance.</p>
+    <p>A small standard deviation indicates that the observations tend to lie close to the mean, while a large standard deviation indicates greater variability.</p>
+    <p>Standard deviation is measured in the same units as the original variable, whereas variance is measured in squared units.</p>
+    <div class="definition-box" role="note" aria-labelledby="def-sample-variance">
+        <h4 id="def-sample-variance">Definition: Sample Variance</h4>
+        <p>When the data represent a sample rather than an entire population, the variance is computed differently.</p>
+        <p>If a sample contains \(n\) observations with sample mean \(\bar{x}\), the sample variance is</p>
+        \[s^2=\frac{\sum_{i=1}^{n}(x_i-\bar{x})^2}{n-1}.\]
+    </div>
+    <p>Notice that the denominator is \(n-1\) rather than \(n\). This adjustment compensates for the tendency of a sample to underestimate the variability of the population.</p>
+    <p>The denominator \(n-1\) is used because the population mean is unknown and is estimated by the sample mean \(\bar{x}\). Once \(\bar{x}\) has been calculated, only \(n-1\) of the deviations from \(\bar{x}\) can vary independently. We say that the sample variance has \(n-1\) degrees of freedom.</p>
+    <div class="definition-box" role="note" aria-labelledby="def-sample-sd">
+        <h4 id="def-sample-sd">Definition: Sample Standard Deviation</h4>
+        <p>The <strong>sample standard deviation</strong> is the square root of the sample variance.</p>
+        \[s=\sqrt{s^2}=\sqrt{\frac{\sum_{i=1}^{n}(x_i-\bar{x})^2}{n-1}}.\]
+    </div>
+    <p>Like the population standard deviation, the sample standard deviation measures the typical distance of the observations from the mean.</p>
+    </section>
+
+    <section aria-labelledby="choosing-heading">
+        <h3 id="choosing-heading">Choosing Between Population and Sample Formulas</h3>
+        <p>Whether to use the population or sample formulas depends on the source of the data.</p>
+    <div class="table-scroll">
+    <table>
+    <caption>Which formulas to use</caption>
+    <thead>
+    <tr><th scope="col">Data</th><th scope="col">Use</th></tr>
+    </thead>
+    <tbody>
+    <tr><th scope="row">Entire population</th><td>\(\sigma^2,\ \sigma\)</td></tr>
+    <tr><th scope="row">Sample from a population</th><td>\(s^2,\ s\)</td></tr>
+    </tbody>
+    </table>
+    </div>
+    <p>Use population formulas when the data contain the entire population relevant to the question. Use sample formulas when the data represent a sample from a larger population of interest.</p>
+    </section>
+
+    <section aria-labelledby="manual-heading">
+        <h3 id="manual-heading">Manual Computations</h3>
+        <p>When computing a variance or standard deviation by hand, it is often easier to build a table to keep track of the computations.</p>
+    <section class="example" aria-labelledby="ex-5-3-2-heading">
+        <div class="example-problem">
+            <h3 id="ex-5-3-2-heading">Example 2</h3>
+            <p>Find the variance and standard deviation of the first five prime numbers,</p>
+            \[2,\ 3,\ 5,\ 7,\ 11\]
+            <p>first treating the data as a population and then treating it as a sample.</p>
+        </div>
+        <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-5-3-2">
+            <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+        </button>
+        <div id="sol-5-3-2" class="example-content">
+            <div class="solution">
+                <h4>Solution</h4>
+                <p>First, find the mean:</p>
+                \[\mu \text{ or } \bar{x} = \frac{2+3+5+7+11}{5}=\frac{28}{5}=5.6\]
+                <div class="table-scroll">
+                <table>
+                <caption>Deviations for the first five prime numbers (\(\mu\) or \(\bar{x}=5.6\))</caption>
+                <thead>
+                <tr><th scope="col">\(x_i\)</th><th scope="col">\(x_i-\mu\)</th><th scope="col">\((x_i-\mu)^2\)</th></tr>
+                </thead>
+                <tbody>
+                <tr><td>2</td><td>\(2-5.6=-3.6\)</td><td>\((-3.6)^2=12.96\)</td></tr>
+                <tr><td>3</td><td>\(3-5.6=-2.6\)</td><td>\((-2.6)^2=6.76\)</td></tr>
+                <tr><td>5</td><td>\(5-5.6=-0.6\)</td><td>\((-0.6)^2=0.36\)</td></tr>
+                <tr><td>7</td><td>\(7-5.6=1.4\)</td><td>\((1.4)^2=1.96\)</td></tr>
+                <tr><td>11</td><td>\(11-5.6=5.4\)</td><td>\((5.4)^2=29.16\)</td></tr>
+                <tr><td>\(\sum x_i=28\)</td><td></td><td>\(\sum (x_i-\mu)^2=51.20\)</td></tr>
+                </tbody>
+                </table>
+                </div>
+                <p><strong>As a population</strong>, we can use either population variance equation:</p>
+                \[\sigma^2=\frac{\sum_{i=1}^{n}(x_i-\mu)^2}{n}=\frac{51.20}{5}=10.24\]
+                \[\sigma^2=\frac{\sum_{i=1}^{n}(x_i)^2}{n}-\mu^2=\frac{208}{5}-(5.6)^2=10.24.\]
+                <p>In either case:</p>
+                \[\sigma=\sqrt{\sigma^2}=\sqrt{10.24}=3.20\]
+                <p><strong>As a sample</strong>, we have to use the formula with reduced degrees of freedom:</p>
+                \[s^2=\frac{\sum_{i=1}^{n}(x_i-\bar{x})^2}{n-1}=\frac{51.20}{4}=12.80\]
+                \[s=\sqrt{s^2}=\sqrt{12.80}\approx3.58\]
+            </div>
+        </div>
+    </section>
+    </section>
+
+    <hr class="divider" aria-hidden="true" />
+
+    <section aria-labelledby="rrt-heading">
+        <h3 id="rrt-heading">Range Rule of Thumb</h3>
+    <div class="definition-box" role="note" aria-labelledby="def-rrt">
+        <h4 id="def-rrt">Definition: Range Rule of Thumb</h4>
+        <p>For many data sets that are approximately bell-shaped, the standard deviation can be estimated using the range.</p>
+        <p>The <strong>Range Rule of Thumb</strong> states that</p>
+        \[\sigma\approx\frac{\text{Range}}{4}.\]
+        <p>or, for sample data,</p>
+        \[s\approx\frac{\text{Range}}{4}.\]
+    </div>
+    <p>This approximation is based on the empirical observation that, for many approximately normal distributions, nearly all observations lie within about two standard deviations of the mean. Consequently, the total spread is roughly four standard deviations.</p>
+    <p>This is not a theorem and should be used only as a rough estimate for approximately bell-shaped data.</p>
+    <section class="example" aria-labelledby="ex-5-3-3-heading">
+        <div class="example-problem">
+            <h3 id="ex-5-3-3-heading">Example 3</h3>
+            <p>Use the Range Rule of Thumb to estimate the standard deviation of the first five prime numbers:</p>
+            \[2,\ 3,\ 5,\ 7,\ 11\]
+        </div>
+        <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-5-3-3">
+            <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+        </button>
+        <div id="sol-5-3-3" class="example-content">
+            <div class="solution">
+                <h4>Solution</h4>
+                <p>The range is</p>
+                \[11-2=9.\]
+                <p>The estimated standard deviation is</p>
+                \[s\approx\frac{9}{4}=2.25.\]
+                <p>Notice that this value is only a rough approximation of the actual standard deviation. In this particular case, prime numbers are heavily skewed to the right, explaining the large difference in values. The Range Rule of Thumb provides only a rough estimate and should not replace the exact calculation whenever the data are available. This example illustrates why the shape condition matters: the range rule is not reliable for strongly skewed data.</p>
+            </div>
+        </div>
+    </section>
+    <div class="definition-box" role="note" aria-labelledby="kp-spread">
+        <h4 id="kp-spread">Key Points</h4>
+        <ul>
+            <li>Measures of spread describe how much variability exists in a data set.</li>
+            <li>The range is the difference between the largest and smallest observations.</li>
+            <li>Variance measures the average squared distance from the mean.</li>
+            <li>Standard deviation is the square root of the variance and has the same units as the data.</li>
+            <li>Use \(\sigma^2\) and \(\sigma\) for population data, and use \(s^2\) and \(s\) for sample data.</li>
+            <li>The sample variance uses the denominator \(n-1\) rather than \(n\).</li>
+            <li>For approximately bell-shaped data, \(\text{standard deviation}\approx\dfrac{\text{Range}}{4}\), providing a quick estimate of variability.</li>
+        </ul>
+    </div>
+    </section>
+
+    <hr class="divider" aria-hidden="true" />
+
+    <section aria-labelledby="cv-heading">
+        <h3 id="cv-heading">Coefficient of Variation</h3>
+    <div class="definition-box" role="note" aria-labelledby="def-cv">
+        <h4 id="def-cv">Definition: Coefficient of Variation</h4>
+        <p>The <strong>coefficient of variation (CV)</strong> is a measure of relative variability. Unlike the standard deviation, which measures spread in the same units as the data, the coefficient of variation expresses the standard deviation as a percentage of the mean. This makes it useful for comparing the variability of two or more data sets that have different units or substantially different means.</p>
+        <p>For a population with mean \(\mu\) and standard deviation \(\sigma\), the coefficient of variation is the ratio of the standard deviation to the mean, expressed as a percentage. Depending on whether we are working with a population or a sample, that would be</p>
+        \[\text{CV}=\frac{\sigma}{\mu}\times100\%.\]
+        <p>where \(\mu\) is the population mean and \(\sigma\) is the population standard deviation, or</p>
+        \[\text{CV}=\frac{s}{\bar{x}}\times100\%.\]
+        <p>where \(\bar{x}\) is the sample mean and \(s\) is the sample standard deviation.</p>
+    </div>
+    <section class="example" aria-labelledby="ex-5-3-4-heading">
+        <div class="example-problem">
+            <h3 id="ex-5-3-4-heading">Example 4</h3>
+            <p>Men's heights can be described in inches, meters, or centimeters:</p>
+            <ul>
+                <li>In inches, \(\mu=70\) in and \(\sigma=3\) in.</li>
+                <li>In meters, \(\mu=1.778\) m and \(\sigma=0.0762\) m.</li>
+                <li>In centimeters, \(\mu=177.8\) cm and \(\sigma=7.62\) cm.</li>
+            </ul>
+            <p>Compute the coefficient of variation in each set of units.</p>
+        </div>
+        <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-5-3-4">
+            <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+        </button>
+        <div id="sol-5-3-4" class="example-content">
+            <div class="solution">
+                <h4>Solution</h4>
+                <p>Without comparing to the mean, the numerical values for the standard deviations might appear to be significantly different. When we look at the coefficient of variation,</p>
+                \[\text{CV}=\frac{3}{70}\times100\%=\frac{0.0762}{1.778}\times100\%=\frac{7.62}{177.8}\times100\%\approx4.29\%.\]
+                <p>Thus, the standard deviation is \(4.29\%\) of the mean regardless of the units.</p>
+            </div>
+        </div>
+    </section>
+    <section class="example" aria-labelledby="ex-5-3-5-heading">
+        <div class="example-problem">
+            <h3 id="ex-5-3-5-heading">Example 5</h3>
+            <p>Suppose two machines manufacture parts. Although Machine B has the larger standard deviation, it also produces much larger parts. Compute the coefficient of variation for each machine.</p>
+            <div class="table-scroll">
+            <table>
+            <caption>Mean length and standard deviation for two machines</caption>
+            <thead>
+            <tr><th scope="col">Machine</th><th scope="col">Mean Length</th><th scope="col">Standard Deviation</th></tr>
+            </thead>
+            <tbody>
+            <tr><th scope="row">A</th><td>20 cm</td><td>1 cm</td></tr>
+            <tr><th scope="row">B</th><td>100 cm</td><td>3 cm</td></tr>
+            </tbody>
+            </table>
+            </div>
+        </div>
+        <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-5-3-5">
+            <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+        </button>
+        <div id="sol-5-3-5" class="example-content">
+            <div class="solution">
+                <h4>Solution</h4>
+                <p>For Machine A,</p>
+                \[\text{CV}=\frac{1}{20}\times100\%=5\%.\]
+                <p>For Machine B,</p>
+                \[\text{CV}=\frac{3}{100}\times100\%=3\%.\]
+                <p>Machine B has the smaller coefficient of variation, indicating that its measurements are more consistent relative to their mean, even though its standard deviation is larger.</p>
+            </div>
+        </div>
+    </section>
+    <p>The coefficient of variation measures the size of the standard deviation relative to the mean.</p>
+    <div class="definition-box" role="note" aria-labelledby="kp-cv">
+        <h4 id="kp-cv">Key Points</h4>
+        <ul>
+            <li>The coefficient of variation is a measure of <strong>relative</strong> variability.</li>
+            <li>It expresses the standard deviation as a percentage of the mean.</li>
+            <li>For a population, \(\text{CV}=\dfrac{\sigma}{\mu}\times100\%.\)</li>
+            <li>For a sample, \(\text{CV}=\dfrac{s}{\bar{x}}\times100\%.\)</li>
+            <li>A small coefficient of variation indicates relatively little variability.</li>
+            <li>A large coefficient of variation indicates relatively high variability.</li>
+            <li>The coefficient of variation is useful for comparing variability among data sets with different units or different means.</li>
+            <li>The coefficient of variation is meaningful primarily for variables with a meaningful zero point and positive mean.</li>
+            <li>The coefficient of variation is generally not meaningful when the mean is zero or close to zero, and its interpretation can also be problematic when the variable can take negative values.</li>
+        </ul>
+    </div>
+    </section>
+
+    <hr class="divider" aria-hidden="true" />
+
+    <section aria-labelledby="chebyshev-heading">
+        <h3 id="chebyshev-heading">Chebyshev's Theorem</h3>
+        <p>The standard deviation measures the spread of observations around the mean. For many data sets, it is useful to determine the minimum proportion of observations that lie within a specified number of standard deviations of the mean.</p>
+    <div class="definition-box" role="note" aria-labelledby="def-chebyshev">
+        <h4 id="def-chebyshev">Chebyshev's Theorem</h4>
+        <p>When the shape of a distribution is unknown, <strong>Chebyshev’s Theorem</strong> provides a guaranteed minimum proportion of observations that lie within a specified number of standard deviations of the mean. Unlike the Empirical Rule, Chebyshev’s Theorem applies to any distribution with a finite mean and finite variance, regardless of its shape.</p>
+        <p>According to Chebyshev’s Theorem, for any number \(k>1\), at least</p>
+        \[1-\frac{1}{k^2}\]
+        <p>of the observations lie within \(k\) standard deviations of the mean. In probability notation,</p>
+        \[P(\mu-k\sigma\leq X\leq\mu+k\sigma)\ge1-\frac{1}{k^2}.\]
+    </div>
+    <p>For example, if \(k=2\), then at least \(1-\frac{1}{4}=0.75\), or 75%, of the observations lie within two standard deviations of the mean.</p>
+    <p>If \(k=3\), then at least \(1-\frac{1}{9}=0.889\), or 88.9%, of the observations lie within three standard deviations of the mean.</p>
+    <p>When applying Chebyshev’s Theorem descriptively to a data set, the sample mean \(\bar{x}\) and sample standard deviation \(s\) can be used to describe the observed data. In that setting, the theorem is being used as a descriptive tool rather than as a probability statement about an unknown population.</p>
+
+    <h4 id="cheb-common-heading">Common Values</h4>
+    <p>The theorem is often applied using the following values of \(k\).</p>
+    <div class="table-scroll">
+    <table>
+    <caption>Chebyshev's Theorem for common values of \(k\)</caption>
+    <thead>
+    <tr><th scope="col">\(k\)</th><th scope="col">Minimum Percentage Within \(k\) Standard Deviations</th></tr>
+    </thead>
+    <tbody>
+    <tr><td>2</td><td>\(1-\frac14=\frac34=75\%\)</td></tr>
+    <tr><td>3</td><td>\(1-\frac19=\frac89\approx88.9\%\)</td></tr>
+    <tr><td>4</td><td>\(1-\frac1{16}=\frac{15}{16}=93.75\%\)</td></tr>
+    <tr><td>5</td><td>\(1-\frac1{25}=\frac{24}{25}=96\%\)</td></tr>
+    </tbody>
+    </table>
+    </div>
+    <p>Notice that these percentages are <strong>minimum</strong> values. The actual percentage may be much larger.</p>
+    <section class="example" aria-labelledby="ex-5-3-6-heading">
+        <div class="example-problem">
+            <h3 id="ex-5-3-6-heading">Example 6</h3>
+            <p>Suppose the scores on an examination have</p>
+            \[\mu=70\qquad\text{and}\qquad\sigma=8.\]
+            <p>Use Chebyshev's Theorem with \(k=2\) to describe the scores.</p>
+        </div>
+        <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-5-3-6">
+            <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+        </button>
+        <div id="sol-5-3-6" class="example-content">
+            <div class="solution">
+                <h4>Solution</h4>
+                <p>Using Chebyshev's Theorem with \(k=2\),</p>
+                \[1-\frac{1}{2^2}=1-\frac14=\frac34=75\%.\]
+                <p>Therefore, at least \(75\%\) of the scores lie within</p>
+                \[70\pm2(8)=70\pm16,\]
+                <p>or between</p>
+                \[54\quad\text{and}\quad86.\]
+                <p>Although more than \(75\%\) of the scores may fall in this interval, Chebyshev's Theorem guarantees that no fewer than \(75\%\) do.</p>
+            </div>
+        </div>
+    </section>
+    <h4 id="cheb-vs-empirical-heading">Chebyshev's Theorem versus the Empirical Rule</h4>
+    <p>Chebyshev's Theorem and the Empirical Rule both describe how observations are distributed about the mean, but they apply in different situations.</p>
+    <div class="table-scroll">
+    <table>
+    <caption>Chebyshev's Theorem compared with the Empirical Rule</caption>
+    <thead>
+    <tr><th scope="col">Rule</th><th scope="col">What it says</th></tr>
+    </thead>
+    <tbody>
+    <tr><th scope="row">Chebyshev's Theorem</th><td>Applies to <em>any</em> distribution with a finite mean and variance. Gives only a minimum percentage of observations within a specified number of standard deviations.</td></tr>
+    <tr><th scope="row">Empirical Rule</th><td>Applies only to distributions that are approximately bell-shaped (normal). Gives approximate percentages of 68%, 95%, and 99.7% within one, two, and three standard deviations, respectively.</td></tr>
+    </tbody>
+    </table>
+    </div>
+    <p>Because Chebyshev's Theorem makes no assumptions about the shape of the distribution, its guarantees are more conservative than those of the Empirical Rule.</p>
+
+    <h4 id="when-spread-heading">When to Use Each Statistic</h4>
+    <div class="table-scroll">
+    <table>
+    <caption>Measures of spread: what each describes and whether it resists outliers</caption>
+    <thead>
+    <tr><th scope="col">Measure</th><th scope="col">Description</th><th scope="col">Resistant to Outliers?</th></tr>
+    </thead>
+    <tbody>
+    <tr><th scope="row">Range</th><td>Max − min</td><td>No</td></tr>
+    <tr><th scope="row">Variance</th><td>Average squared deviation</td><td>No</td></tr>
+    <tr><th scope="row">Standard deviation</th><td>Typical distance from mean</td><td>No</td></tr>
+    <tr><th scope="row">IQR</th><td>Spread of middle 50%</td><td>Yes</td></tr>
+    <tr><th scope="row">CV</th><td>Relative standard deviation</td><td>No</td></tr>
+    </tbody>
+    </table>
+    </div>
+    <div class="definition-box" role="note" aria-labelledby="kp-cheb">
+        <h4 id="kp-cheb">Key Points</h4>
+        <ul>
+            <li>Chebyshev's inequality applies to any probability distribution with a finite mean and finite variance, regardless of the shape of the distribution.</li>
+            <li>At least \(1-\dfrac{1}{k^2}\) of the observations lie within \(k\) standard deviations of the mean.</li>
+            <li>The theorem provides a guaranteed minimum percentage, not the exact percentage.</li>
+            <li>The theorem is useful when the shape of the distribution is unknown.</li>
+            <li>The Empirical Rule gives stronger conclusions, but only for approximately normal distributions.</li>
+        </ul>
+    </div>
+    </section>
+
+    <nav class="page-nav" aria-label="Section navigation">
+        <a class="nav-button" href="mth245_ch5_2.html">Previous: 5.2 Measures of Center</a>
+        <a class="nav-button" href="mth245_ch5_4.html">Next: 5.4 Quantiles</a>
+    </nav>
+
+</main>
+
+<script>
+    function toggleExample(button) {
+        var content = button.nextElementSibling;
+        var arrow = button.querySelector('.toggle-arrow');
+        var label = button.querySelector('span:last-child');
+
+        if (content.classList.contains('open')) {
+            content.classList.remove('open');
+            arrow.classList.remove('open');
+            label.textContent = 'Show Solution';
+            button.setAttribute('aria-expanded', 'false');
+        } else {
+            content.classList.add('open');
+            arrow.classList.add('open');
+            label.textContent = 'Hide Solution';
+            button.setAttribute('aria-expanded', 'true');
+        }
+    }
+</script>
+
+<script>
+    fetch('toc.html')
+        .then(function (response) {
+            if (!response.ok) { throw new Error('TOC not found'); }
+            return response.text();
+        })
+        .then(function (data) {
+            document.getElementById('toc-placeholder').innerHTML = data;
+
+            document.querySelectorAll('.toc-chapter').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var expanded = button.getAttribute('aria-expanded') === 'true';
+                    button.setAttribute('aria-expanded', String(!expanded));
+                    document.getElementById(button.getAttribute('aria-controls')).classList.toggle('open');
+                });
+            });
+
+            // Mark the current page and open its chapter
+            var page = window.location.pathname.split('/').pop();
+            var current = document.querySelector('.toc-submenu a[href="' + page + '"]');
+            if (current) {
+                current.setAttribute('aria-current', 'page');
+                var menu = current.closest('.toc-submenu');
+                menu.classList.add('open');
+                var chapterButton = document.querySelector('[aria-controls="' + menu.id + '"]');
+                if (chapterButton) { chapterButton.setAttribute('aria-expanded', 'true'); }
+            }
+        })
+        .catch(function () { /* TOC unavailable: page content still works */ });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MTH 245 – Ch 5.2: Measures of Center</title>
+
+    <!-- MathJax configuration (single $ intentionally disabled so dollar amounts never collide with math) -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]'], ['$$', '$$']],
+                packages: {'[+]': ['color']}
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            },
+            loader: {
+                load: ['[tex]/color']
+            }
+        };
+    </script>
+    <script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+
+    <link rel="stylesheet" href="styles1.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div id="toc-placeholder"></div>
+
+<main class="container" id="main-content" tabindex="-1">
+
+    <h1>Chapter 5: Measures of Center and Spread</h1>
+    <h2 id="section-5-2">Section 5.2: Measures of Center</h2>
+
+    <section aria-labelledby="mode-heading">
+        <h3 id="mode-heading">Mode</h3>
+    <div class="definition-box" role="note" aria-labelledby="def-mode">
+        <h4 id="def-mode">Definition: Mode</h4>
+        <p>The <strong>mode</strong> of a data set is the value that occurs <strong>more often than any other value</strong>. Unlike the mean or median, the mode depends only on the frequency of each value, not on the numerical size of the values.</p>
+    </div>
+    <p>A data set may have:</p>
+    <ul>
+        <li>One mode (<strong>unimodal</strong>),</li>
+        <li>Two modes (<strong>bimodal</strong>),</li>
+        <li>More than two modes (<strong>multimodal</strong>), or</li>
+        <li>No mode if every value occurs the same number of times. Under the convention used in this text, a data set has no mode when no value occurs more frequently than the others.</li>
+    </ul>
+    <p>Different textbooks use slightly different conventions for the term mode when no value occurs more frequently than another.</p>
+    <section class="example" aria-labelledby="ex-5-2-1-heading">
+        <div class="example-problem">
+            <h3 id="ex-5-2-1-heading">Example 1</h3>
+            <p>Consider the following set of test scores:</p>
+            \[80,\ 89,\ 73,\ 95,\ 82,\ 65,\ 93,\ 94,\ 74,\ 84,\ 98,\ 86,\ 78,\ 82,\ 57,\ 92,\ 89,\ 84,\ 91,\ 72,\ 88,\ 79,\ 87,\ 90\]
+            <p>Find the mode(s) and classify the data set.</p>
+        </div>
+        <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-5-2-1">
+            <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+        </button>
+        <div id="sol-5-2-1" class="example-content">
+            <div class="solution">
+                <h4>Solution</h4>
+                <p>To find the mode we need to count the frequency of each value. One method is to sort the values from smallest to largest:</p>
+                \[57,\ 65,\ 72,\ 73,\ 74,\ 78,\ 79,\ 80,\ 82,\ 82,\ 84,\ 84,\ 86,\ 87,\ 88,\ 89,\ 89,\ 90,\ 91,\ 92,\ 93,\ 94,\ 95,\ 98\]
+                <p>We can now look through the sorted data set to find the values with higher frequencies. The values <strong>82</strong>, <strong>84</strong>, and <strong>89</strong> each occur twice, while every other value occurs only once. The modes of this data set are 82, 84, and 89. Since three values are tied for the greatest frequency, this data set is <strong>multimodal</strong>.</p>
+            </div>
+        </div>
+    </section>
+    <section class="example" aria-labelledby="ex-5-2-2-heading">
+        <div class="example-problem">
+            <h3 id="ex-5-2-2-heading">Example 2</h3>
+            <p>Consider the following set of test scores:</p>
+            \[82,\ 83,\ 78,\ 87,\ 72,\ 89,\ 87,\ 74,\ 92,\ 75,\ 93,\ 82,\ 82,\ 78,\ 91\]
+            <p>Find the mode(s) and classify the data set.</p>
+        </div>
+        <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-5-2-2">
+            <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+        </button>
+        <div id="sol-5-2-2" class="example-content">
+            <div class="solution">
+                <h4>Solution</h4>
+                <p>Sorting this data set yields:</p>
+                \[72,\ 74,\ 75,\ 78,\ 78,\ 82,\ 82,\ 82,\ 83,\ 87,\ 87,\ 89,\ 91,\ 92,\ 93\]
+                <p>The value <strong>82</strong> appears three times, more than any other value. The mode of this data set is 82. Since only one value has the greatest frequency, this data set is <strong>unimodal</strong>.</p>
+            </div>
+        </div>
+    </section>
+    <div class="definition-box" role="note" aria-labelledby="kp-mode">
+        <h4 id="kp-mode">Key Points</h4>
+        <ul>
+            <li>The <strong>mode</strong> is the value that appears most frequently in a data set.</li>
+            <li>A data set can have one mode, more than one mode, or no mode.</li>
+            <li>Data sets can be <strong>unimodal</strong>, <strong>bimodal</strong>, <strong>multimodal</strong>, or have no mode.</li>
+            <li>The mode is the only common measure of center that can be used with nominal categorical data.</li>
+        </ul>
+    </div>
+    </section>
+
+    <hr class="divider" aria-hidden="true" />
+
+    <section aria-labelledby="median-heading">
+        <h3 id="median-heading">Median</h3>
+    <div class="definition-box" role="note" aria-labelledby="def-median">
+        <h4 id="def-median">Definition: Median</h4>
+        <p>The <strong>median</strong> is a measure of the center of a data set. It is the middle value when the observations are arranged in order from smallest to largest. Because the median depends only on the order of the observations, it is much less affected by unusually large or unusually small values than the arithmetic mean.</p>
+        <p>When dealing with the entire population, the population median is often denoted by \(\tilde{\mu}\). When dealing with a sample, the sample median is often denoted by \(\tilde{x}\).</p>
+    </div>
+    <div class="definition-box" role="note" aria-labelledby="steps-median">
+        <h4 id="steps-median">To Find the Median</h4>
+        <ol>
+            <li>Arrange the observations in ascending order.</li>
+            <li>If the number of observations, \(n\), is odd, the median is the middle observation.</li>
+            <li>If \(n\) is even, the median is the average of the two middle observations.</li>
+        </ol>
+    </div>
+    <section class="example" aria-labelledby="ex-5-2-3-heading">
+        <div class="example-problem">
+            <h3 id="ex-5-2-3-heading">Example 3</h3>
+            <p>Find the median of the following set of test scores:</p>
+            \[80,\ 89,\ 73,\ 95,\ 82,\ 65,\ 93,\ 94,\ 74,\ 84,\ 98,\ 86,\ 78,\ 82,\ 57,\ 92,\ 89,\ 84,\ 91,\ 72,\ 88,\ 79,\ 87,\ 90\]
+        </div>
+        <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-5-2-3">
+            <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+        </button>
+        <div id="sol-5-2-3" class="example-content">
+            <div class="solution">
+                <h4>Solution</h4>
+                <p>First, arrange the observations in ascending order:</p>
+                \[57,\ 65,\ 72,\ 73,\ 74,\ 78,\ 79,\ 80,\ 82,\ 82,\ 84,\ 84,\ 86,\ 87,\ 88,\ 89,\ 89,\ 90,\ 91,\ 92,\ 93,\ 94,\ 95,\ 98\]
+                <p>There are</p>
+                \[n=24\]
+                <p>observations, so the median is the average of the 12th and 13th observations.</p>
+                \[
+                \begin{aligned}
+                x_{(12)} &amp;= 84,\\
+                x_{(13)} &amp;= 86.
+                \end{aligned}
+                \]
+                <p>Therefore,</p>
+                \[\tilde{x}=\frac{84+86}{2}=85.\]
+                <p>Thus,</p>
+                \[\tilde{x}=85.\]
+            </div>
+        </div>
+    </section>
+    <section class="example" aria-labelledby="ex-5-2-4-heading">
+        <div class="example-problem">
+            <h3 id="ex-5-2-4-heading">Example 4</h3>
+            <p>Find the median of the following set of test scores:</p>
+            \[82,\ 83,\ 78,\ 87,\ 72,\ 89,\ 87,\ 74,\ 92,\ 75,\ 93,\ 82,\ 82,\ 78,\ 91\]
+        </div>
+        <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-5-2-4">
+            <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+        </button>
+        <div id="sol-5-2-4" class="example-content">
+            <div class="solution">
+                <h4>Solution</h4>
+                <p>Arrange the observations in ascending order:</p>
+                \[72,\ 74,\ 75,\ 78,\ 78,\ 82,\ 82,\ 82,\ 83,\ 87,\ 87,\ 89,\ 91,\ 92,\ 93.\]
+                <p>There are</p>
+                \[n=15\]
+                <p>observations, so the median is the middle (8th) observation.</p>
+                \[x_{(8)}=82.\]
+                <p>Therefore,</p>
+                \[\tilde{x}=82.\]
+            </div>
+        </div>
+    </section>
+    <h4 id="interp-median-heading">Interpreting the Median</h4>
+    <p>The median is a value such that approximately half the observations are at or below it and approximately half are at or above it.</p>
+    <p>Unlike the arithmetic mean, the median is resistant to unusually large or unusually small observations. For this reason, the median is often preferred when a data set contains outliers or is strongly skewed.</p>
+    <div class="definition-box" role="note" aria-labelledby="kp-median">
+        <h4 id="kp-median">Key Points</h4>
+        <ul>
+            <li>The median is the middle value of an ordered data set.</li>
+            <li>If the number of observations is odd, the median is the middle observation.</li>
+            <li>If the number of observations is even, the median is the average of the two middle observations.</li>
+            <li>The median is resistant to extreme observations and is therefore less sensitive to outliers than the arithmetic mean.</li>
+        </ul>
+    </div>
+    </section>
+
+    <hr class="divider" aria-hidden="true" />
+
+    <section aria-labelledby="mean-heading">
+        <h3 id="mean-heading">Mean</h3>
+    <div class="definition-box" role="note" aria-labelledby="def-mean">
+        <h4 id="def-mean">Definition: Arithmetic Mean</h4>
+        <p>The <strong>mean</strong> is a measure of the center of a data set. When people refer to the “average” of a set of numbers, they are almost always referring to the <strong>arithmetic mean</strong>. The arithmetic mean is found by adding all of the observations and dividing by the number of observations.</p>
+        <p>If a data set consists of the values</p>
+        \[x_1,x_2,\ldots,x_n,\]
+        <p>then the arithmetic mean is</p>
+        \[\bar{x}=\frac{x_1+x_2+\cdots+x_n}{n}=\frac{\displaystyle\sum_{i=1}^{n}x_i}{n},\]
+        <p>where \(n\) is the number of observations.</p>
+    </div>
+    <p>The arithmetic mean uses every value in the data set, making it one of the most widely used measures of center. However, because every value contributes to the calculation, unusually large or unusually small observations (outliers) can have a substantial effect on the mean.</p>
+
+    <p>Although the arithmetic mean is the most common, other types of means are used in specialized applications. The <strong>geometric mean</strong> is appropriate for quantities that change by multiplication, such as investment returns or population growth. The <strong>harmonic mean</strong> is useful for averaging rates, such as speeds or unit costs. Unless otherwise stated, the word <strong>mean</strong> refers to the arithmetic mean.</p>
+    <section class="example" aria-labelledby="ex-5-2-5-heading">
+        <div class="example-problem">
+            <h3 id="ex-5-2-5-heading">Example 5</h3>
+            <p>Find the arithmetic mean of the following set of test scores:</p>
+            \[80,\ 89,\ 73,\ 95,\ 82,\ 65,\ 93,\ 94,\ 74,\ 84,\ 98,\ 86,\ 78,\ 82,\ 57,\ 92,\ 89,\ 84,\ 91,\ 72,\ 88,\ 79,\ 87,\ 90\]
+        </div>
+        <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-5-2-5">
+            <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+        </button>
+        <div id="sol-5-2-5" class="example-content">
+            <div class="solution">
+                <h4>Solution</h4>
+                <p>There are \(n=24\) observations.</p>
+                <p>The sum of the observations is</p>
+                \[80+89+73+\cdots+90=2002.\]
+                <p>Therefore, the arithmetic mean is</p>
+                \[\bar{x}=\frac{2002}{24}\approx 83.4167.\]
+                <p>Thus, the average value in this data set is approximately</p>
+                \[\bar{x}\approx 83.42.\]
+            </div>
+        </div>
+    </section>
+    <p>The arithmetic mean can be thought of as the “balance point” of a data set. If the total of all observations were distributed equally among all observations, each value would equal the mean. The balance-point interpretation applies to the arithmetic mean: the sum of the deviations from the mean is zero.</p>
+    \[\sum_{i=1}^{n}(x_i-\bar{x})=0\]
+    <p>Notice that the mean does not have to be one of the values in the data set. In this data set, the mean is approximately \(83.42\), even though no observation has that exact value.</p>
+    </section>
+
+    <section aria-labelledby="geo-harm-heading">
+        <h3 id="geo-harm-heading">Geometric and Harmonic Means</h3>
+    <div class="definition-box" role="note" aria-labelledby="def-geometric">
+        <h4 id="def-geometric">Definition: Geometric Mean</h4>
+        <p>For a set of \(n\) positive numbers \(x_1,x_2,\ldots,x_n\), the <strong>geometric mean</strong> is</p>
+        \[G=\sqrt[n]{x_1x_2\cdots x_n}.\]
+    </div>
+    <div class="definition-box" role="note" aria-labelledby="def-harmonic">
+        <h4 id="def-harmonic">Definition: Harmonic Mean</h4>
+        <p>For a set of \(n\) positive numbers \(x_1,x_2,\ldots,x_n\), the <strong>harmonic mean</strong> is</p>
+        \[H=\frac{n}{\displaystyle\sum_{i=1}^{n}\frac{1}{x_i}}.\]
+    </div>
+    <section class="example" aria-labelledby="ex-5-2-6-heading">
+        <div class="example-problem">
+            <h3 id="ex-5-2-6-heading">Example 6</h3>
+            <p>Find the arithmetic mean, geometric mean, and harmonic mean of the data set</p>
+            \[\{1,2,3,4\}.\]
+        </div>
+        <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-5-2-6">
+            <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+        </button>
+        <div id="sol-5-2-6" class="example-content">
+            <div class="solution">
+                <h4>Solution</h4>
+                <p>The sum of the observations is</p>
+                \[1+2+3+4=10\]
+                <p>Since there are four observations,</p>
+                \[\bar{x}=\frac{10}{4}= 2.5.\]
+                <p>Thus, the <strong>arithmetic mean</strong>, or average, is</p>
+                \[\bar{x}=2.5.\]
+                <p>The product of the observations is</p>
+                \[1\cdot2\cdot3\cdot4=24.\]
+                <p>Since there are four observations,</p>
+                \[G=\sqrt[4]{24}\approx2.213.\]
+                <p>Therefore, the <strong>geometric mean</strong> is approximately</p>
+                \[G\approx2.213.\]
+                <p>The sum of the reciprocals is</p>
+                \[1+\frac12+\frac13+\frac14=\frac{25}{12}.\]
+                <p>Since there are four observations,</p>
+                \[H=\frac{4}{25/12}=\frac{48}{25}=1.92.\]
+                <p>Therefore, the <strong>harmonic mean</strong> is</p>
+                \[H=1.92.\]
+            </div>
+        </div>
+    </section>
+    <h4 id="compare-means-heading">Comparison of the Three Means</h4>
+    <p>For the small data set</p>
+    \[\{1,2,3,4\},\]
+    <p>the three common means are</p>
+    \[
+    \begin{aligned}
+    \text{Arithmetic mean} &amp;= \frac{1+2+3+4}{4}=2.5,\\
+    \text{Geometric mean} &amp;= \sqrt[4]{24}\approx2.213,\\
+    \text{Harmonic mean} &amp;= \frac{48}{25}=1.92.
+    \end{aligned}
+    \]
+    <p>For positive observations, the harmonic mean is less than or equal to the geometric mean, which is less than or equal to the arithmetic mean.</p>
+    \[\text{Harmonic Mean}\le\text{Geometric Mean}\le\text{Arithmetic Mean}.\]
+    <p>Equality occurs if and only if all observations are equal.</p>
+    <div class="definition-box" role="note" aria-labelledby="kp-mean">
+        <h4 id="kp-mean">Key Points</h4>
+        <ul>
+            <li>The arithmetic mean is the sum of the observations divided by the number of observations.</li>
+            <li>It is the measure of center most commonly referred to as the “average.”</li>
+            <li>Every observation contributes to the calculation, so the mean is sensitive to unusually large or small values.</li>
+            <li>Other means, including the geometric mean and harmonic mean, are used for specialized applications involving multiplicative growth and rates, respectively.</li>
+        </ul>
+    </div>
+    </section>
+
+    <hr class="divider" aria-hidden="true" />
+
+    <section aria-labelledby="trimmed-heading">
+        <h3 id="trimmed-heading">Trimmed Mean</h3>
+    <div class="definition-box" role="note" aria-labelledby="def-trimmed">
+        <h4 id="def-trimmed">Definition: Trimmed Mean</h4>
+        <p>The <strong>trimmed mean</strong> is a measure of center that reduces the influence of unusually small or unusually large observations. It is computed by removing a specified percentage of the smallest and largest values from a data set and then calculating the arithmetic mean of the remaining observations.</p>
+        <p>In this textbook, a \(p\%\) trimmed mean removes approximately \(p\%\) in total, divided approximately equally between the two tails. Trimming is particularly useful when a data set contains potential outliers that might distort the ordinary arithmetic mean.</p>
+        <p>For a data set with \(n\) observations, let</p>
+        \[k=\frac{pn}{100},\]
+        <p>where \(p\) is the trimming percentage. By removing \(k/2\) values from each end the result is a \(p\%\) trimmed mean. This convention is common in statistics, but not absolute. Some prefer to round to the nearest even integer.</p>
+        <p>After sorting the data, remove the smallest \(k/2\) observations and the largest \(k/2\) observations. The trimmed mean is then</p>
+        \[\bar{x}_{\text{trim}}=\frac{\displaystyle\sum_{i=k/2+1}^{n-k/2}x_{(i)}}{n-k},\]
+        <p>where \(x_{(1)}\le x_{(2)}\le\cdots\le x_{(n)}\) are the ordered observations.</p>
+    </div>
+    <section class="example" aria-labelledby="ex-5-2-7-heading">
+        <div class="example-problem">
+            <h3 id="ex-5-2-7-heading">Example 7</h3>
+            <p>Find the \(10\%\) trimmed mean of the following set of test scores:</p>
+            \[80,\ 89,\ 73,\ 95,\ 82,\ 65,\ 93,\ 94,\ 74,\ 84,\ 98,\ 86,\ 78,\ 82,\ 57,\ 92,\ 89,\ 84,\ 91,\ 72,\ 88,\ 79,\ 87,\ 90\]
+        </div>
+        <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-5-2-7">
+            <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+        </button>
+        <div id="sol-5-2-7" class="example-content">
+            <div class="solution">
+                <h4>Solution</h4>
+                <p>There are</p>
+                \[n=24\]
+                <p>observations. For a \(10\%\) trimmed mean,</p>
+                \[k=0.10(24)=2.4\approx{2}.\]
+                <p>Thus, we remove the smallest observation and the largest observation.</p>
+                <p>First, order the data from smallest to largest:</p>
+                \[57,\ 65,\ 72,\ 73,\ 74,\ 78,\ 79,\ 80,\ 82,\ 82,\ 84,\ 84,\ 86,\ 87,\ 88,\ 89,\ 89,\ 90,\ 91,\ 92,\ 93,\ 94,\ 95,\ 98.\]
+                <p>Remove the smallest value, \(57\), and the largest value, \(98\):</p>
+                \[65,\ 72,\ 73,\ 74,\ 78,\ 79,\ 80,\ 82,\ 82,\ 84,\ 84,\ 86,\ 87,\ 88,\ 89,\ 89,\ 90,\ 91,\ 92,\ 93,\ 94,\ 95.\]
+                <p>The sum of the trimmed data is</p>
+                \[65+72+73+\cdots+95=1847.\]
+                <p>Since \(22\) observations remain, the \(10\%\) trimmed mean is</p>
+                \[\bar{x}_{\text{trim}}=\frac{1847}{22}\approx 83.95.\]
+                <p>Therefore,</p>
+                \[10\%\text{ trimmed mean} \approx 83.95.\]
+            </div>
+        </div>
+    </section>
+    <h4 id="interp-trimmed-heading">Interpreting the Trimmed Mean</h4>
+    <p>The ordinary arithmetic mean of this data set is</p>
+    \[\bar{x}=\frac{2002}{24}\approx83.42,\]
+    <p>while the \(10\%\) trimmed mean is</p>
+    \[\bar{x}_{\text{trim}}=83.95.\]
+    <p>The trimmed mean is slightly larger because the smallest observation (\(57\)) is farther below the center of the data than the largest observation (\(98\)) is above it. By removing one value from each end, the influence of these extreme observations is reduced.</p>
+    <div class="definition-box" role="note" aria-labelledby="kp-trimmed">
+        <h4 id="kp-trimmed">Key Points</h4>
+        <ul>
+            <li>A trimmed mean is computed by removing the same percentage of observations from both ends of an ordered data set before calculating the arithmetic mean.</li>
+            <li>Trimming reduces the effect of unusually small or unusually large observations.</li>
+        </ul>
+    </div>
+    </section>
+
+    <hr class="divider" aria-hidden="true" />
+
+    <section aria-labelledby="weighted-heading">
+        <h3 id="weighted-heading">Weighted Mean</h3>
+    <div class="definition-box" role="note" aria-labelledby="def-weighted">
+        <h4 id="def-weighted">Definition: Weighted Mean</h4>
+        <p>The <strong>weighted mean</strong> is a measure of center that assigns different levels of importance, or <strong>weights</strong>, to the observations in a data set. It is used when some observations should contribute more to the average than others.</p>
+        <p>If the observations are</p>
+        \[x_1,x_2,\ldots,x_n,\]
+        <p>with corresponding weights</p>
+        \[w_1,w_2,\ldots,w_n,\]
+        <p>then the weighted mean is</p>
+        \[\bar{x}_w=\frac{\displaystyle\sum_{i=1}^{n}w_i x_i}{\displaystyle\sum_{i=1}^{n}w_i},\]
+        <p>where the weights \(w_i\) are nonnegative numbers. If all of the weights are equal, the weighted mean is the ordinary arithmetic mean.</p>
+        <p>If the weights are proportions that sum to 1, then the weighted mean is</p>
+        \[\bar{x}_w=\displaystyle\sum_{i=1}^{n}w_i \bar{x}_i.\]
+    </div>
+    <p>The weighted mean is commonly used when observations represent different frequencies, levels of importance, or proportions. Examples include computing a course grade from weighted assignments, finding the average price paid for shares purchased at different prices, or averaging values measured over unequal intervals.</p>
+    <section class="example" aria-labelledby="ex-5-2-8-heading">
+        <div class="example-problem">
+            <h3 id="ex-5-2-8-heading">Example 8</h3>
+            <p>Suppose a course grade is determined as follows:</p>
+            <div class="table-scroll">
+            <table>
+            <caption>Course grade weights</caption>
+            <thead>
+            <tr><th scope="col">Assessment</th><th scope="col">Weight</th></tr>
+            </thead>
+            <tbody>
+            <tr><th scope="row">Tests</th><td>60%</td></tr>
+            <tr><th scope="row">Homework</th><td>20%</td></tr>
+            <tr><th scope="row">Final Exam</th><td>20%</td></tr>
+            </tbody>
+            </table>
+            </div>
+            <p>A student takes</p>
+            <ul>
+                <li>Four tests: 72, 97, 60, 85.</li>
+                <li>Four homework assignments: 37, 75, 59, 43.</li>
+                <li>One final exam: 65.</li>
+            </ul>
+            <p>Find the weighted mean (the course grade).</p>
+        </div>
+        <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-5-2-8">
+            <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+        </button>
+        <div id="sol-5-2-8" class="example-content">
+            <div class="solution">
+                <h4>Solution</h4>
+                <p>The average for each group is:</p>
+                \[\bar{x}_{\text{Tests}}=\frac{72+97+60+85}{4}=\frac{314}{4}=78.5.\]
+                \[\bar{x}_{\text{HW}}=\frac{37+75+59+43}{4}=\frac{214}{4}=53.5.\]
+                \[\bar{x}_{\text{Final}}=65.\]
+                <p>The weighted mean is</p>
+                \[\bar{x}_w=0.60(78.5)+0.20(53.5)+0.20(65)=70.8.\]
+                <p>Therefore,</p>
+                \[\bar{x}_w=70.8.\]
+            </div>
+        </div>
+    </section>
+    <section class="example" aria-labelledby="ex-5-2-9-heading">
+        <div class="example-problem">
+            <h3 id="ex-5-2-9-heading">Example 9</h3>
+            <p>Suppose a survey records the following exam scores. Find the weighted mean.</p>
+            <div class="table-scroll">
+            <table>
+            <caption>Exam scores and their frequencies</caption>
+            <thead>
+            <tr><th scope="col">Score</th><th scope="col">Frequency</th></tr>
+            </thead>
+            <tbody>
+            <tr><th scope="row">70</th><td>4</td></tr>
+            <tr><th scope="row">80</th><td>6</td></tr>
+            <tr><th scope="row">90</th><td>5</td></tr>
+            </tbody>
+            </table>
+            </div>
+        </div>
+        <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-5-2-9">
+            <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+        </button>
+        <div id="sol-5-2-9" class="example-content">
+            <div class="solution">
+                <h4>Solution</h4>
+                <div class="table-scroll">
+                <table>
+                <caption>Contribution of each score</caption>
+                <thead>
+                <tr><th scope="col">Score</th><th scope="col">Frequency</th><th scope="col">Contribution</th></tr>
+                </thead>
+                <tbody>
+                <tr><th scope="row">70</th><td>4</td><td>\(70(4)=280\)</td></tr>
+                <tr><th scope="row">80</th><td>6</td><td>\(80(6)=480\)</td></tr>
+                <tr><th scope="row">90</th><td>5</td><td>\(90(5)=450\)</td></tr>
+                </tbody>
+                </table>
+                </div>
+                <p>The weighted mean is</p>
+                \[\bar{x}_w=\frac{70(4)+80(6)+90(5)}{4+6+5}=\frac{1210}{15}\approx80.67.\]
+                <p>Notice that each score is weighted by the number of times it occurs. This is equivalent to writing the value 70 four times, 80 six times, and 90 five times, then calculating the ordinary mean.</p>
+            </div>
+        </div>
+    </section>
+    <div class="definition-box" role="note" aria-labelledby="kp-weighted">
+        <h4 id="kp-weighted">Key Points</h4>
+        <ul>
+            <li>A weighted mean assigns different levels of importance to different observations.</li>
+            <li>The weighted mean is computed by dividing the sum of the weighted observations by the sum of the weights.</li>
+            <li>If all weights are equal, the weighted mean is the ordinary arithmetic mean.</li>
+            <li>Weights may represent percentages, frequencies, probabilities, or relative importance.</li>
+            <li>The weighted mean is widely used in education, finance, economics, and the physical and social sciences.</li>
+        </ul>
+    </div>
+    </section>
+
+    <hr class="divider" aria-hidden="true" />
+
+    <section aria-labelledby="when-center-heading">
+        <h3 id="when-center-heading">When to Use Each Statistic</h3>
+    <div class="table-scroll">
+    <table>
+    <caption>Measures of center: what each describes and when to use it</caption>
+    <thead>
+    <tr><th scope="col">Measure</th><th scope="col">What it describes</th><th scope="col">Resistant to outliers?</th><th scope="col">Typical use</th></tr>
+    </thead>
+    <tbody>
+    <tr><th scope="row">Mode</th><td>Most frequent value</td><td>Yes</td><td>Categorical or discrete data</td></tr>
+    <tr><th scope="row">Median</th><td>Central position</td><td>Yes</td><td>Skewed data or outliers</td></tr>
+    <tr><th scope="row">Mean</th><td>Arithmetic center</td><td>No</td><td>Quantitative data without strong outliers</td></tr>
+    <tr><th scope="row">Geometric mean</th><td>Multiplicative average</td><td>No</td><td>Growth rates/ratios</td></tr>
+    <tr><th scope="row">Harmonic mean</th><td>Average of rates</td><td>No</td><td>Certain rate problems</td></tr>
+    <tr><th scope="row">Trimmed mean</th><td>Center after removing extremes</td><td>More resistant</td><td>Data with potential extreme values</td></tr>
+    <tr><th scope="row">Weighted mean</th><td>Average accounting for weights</td><td>Depends</td><td>Different importance/frequencies</td></tr>
+    </tbody>
+    </table>
+    </div>
+    </section>
+
+    <nav class="page-nav" aria-label="Section navigation">
+        <a class="nav-button" href="mth245_ch5_1.html">Previous: 5.1 Introduction</a>
+        <a class="nav-button" href="mth245_ch5_3.html">Next: 5.3 Measures of Spread</a>
+    </nav>
+
+</main>
+
+<script>
+    function toggleExample(button) {
+        var content = button.nextElementSibling;
+        var arrow = button.querySelector('.toggle-arrow');
+        var label = button.querySelector('span:last-child');
+
+        if (content.classList.contains('open')) {
+            content.classList.remove('open');
+            arrow.classList.remove('open');
+            label.textContent = 'Show Solution';
+            button.setAttribute('aria-expanded', 'false');
+        } else {
+            content.classList.add('open');
+            arrow.classList.add('open');
+            label.textContent = 'Hide Solution';
+            button.setAttribute('aria-expanded', 'true');
+        }
+    }
+</script>
+
+<script>
+    fetch('toc.html')
+        .then(function (response) {
+            if (!response.ok) { throw new Error('TOC not found'); }
+            return response.text();
+        })
+        .then(function (data) {
+            document.getElementById('toc-placeholder').innerHTML = data;
+
+            document.querySelectorAll('.toc-chapter').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var expanded = button.getAttribute('aria-expanded') === 'true';
+                    button.setAttribute('aria-expanded', String(!expanded));
+                    document.getElementById(button.getAttribute('aria-controls')).classList.toggle('open');
+                });
+            });
+
+            // Mark the current page and open its chapter
+            var page = window.location.pathname.split('/').pop();
+            var current = document.querySelector('.toc-submenu a[href="' + page + '"]');
+            if (current) {
+                current.setAttribute('aria-current', 'page');
+                var menu = current.closest('.toc-submenu');
+                menu.classList.add('open');
+                var chapterButton = document.querySelector('[aria-controls="' + menu.id + '"]');
+                if (chapterButton) { chapterButton.setAttribute('aria-expanded', 'true'); }
+            }
+        })
+        .catch(function () { /* TOC unavailable: page content still works */ });
+</script>
+
+</body>
+</html>

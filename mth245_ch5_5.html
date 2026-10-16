@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MTH 245 – Ch 5.5: Five-Number Summary</title>
+
+    <!-- MathJax configuration (single $ intentionally disabled so dollar amounts never collide with math) -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]'], ['$$', '$$']],
+                packages: {'[+]': ['color']}
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            },
+            loader: {
+                load: ['[tex]/color']
+            }
+        };
+    </script>
+    <script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+
+    <link rel="stylesheet" href="styles1.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div id="toc-placeholder"></div>
+
+<main class="container" id="main-content" tabindex="-1">
+
+    <h1>Chapter 5: Measures of Center and Spread</h1>
+    <h2 id="section-5-5">Section 5.5: Five-Number Summary</h2>
+
+    <section aria-labelledby="fns-heading">
+        <h3 id="fns-heading">The Five-Number Summary</h3>
+    <div class="definition-box" role="note" aria-labelledby="def-fns">
+        <h4 id="def-fns">Definition: Five-Number Summary</h4>
+        <p>A convenient summary of a distribution is the <strong>five-number summary</strong>, consisting of</p>
+        \[\text{Minimum},\;Q_1,\;Q_2,\;Q_3,\;\text{Maximum}.\]
+        <p>For our data set, this summary would be</p>
+        \[57,\;78.5,\;85,\;90.5,\;98.\]
+    </div>
+    <div class="definition-box" role="note" aria-labelledby="def-iqr">
+        <h4 id="def-iqr">Definition: Interquartile Range (IQR)</h4>
+        <p>Furthermore, we can define the <strong>interquartile range (IQR)</strong> as a measure of the spread of the middle 50% of the observations.</p>
+        \[\text{IQR}=Q_3-Q_1.\]
+        <p>For this data set</p>
+        \[\text{IQR}=90.5-78.5=12.\]
+    </div>
+    <p>Unlike the range, the interquartile range is resistant to unusually small or unusually large observations.</p>
+    <div class="definition-box" role="note" aria-labelledby="kp-fns">
+        <h4 id="kp-fns">Key Points</h4>
+        <ul>
+            <li>Quantiles divide an ordered data set into equal parts.</li>
+            <li>Quartiles divide the data into four parts, deciles into ten parts, and percentiles into one hundred parts.</li>
+            <li>The five-number summary consists of the minimum, \(Q_1\), median, \(Q_3\), and maximum.</li>
+            <li>The interquartile range is \(\text{IQR}=Q_3-Q_1\).</li>
+        </ul>
+    </div>
+    </section>
+
+    <hr class="divider" aria-hidden="true" />
+
+    <section aria-labelledby="boxplots-heading">
+        <h3 id="boxplots-heading">Box-and-Whisker Plots</h3>
+    <div class="definition-box" role="note" aria-labelledby="def-boxplot">
+        <h4 id="def-boxplot">Definition: Box-and-Whisker Plot</h4>
+        <p>A <strong>box-and-whisker plot</strong> (or simply <strong>boxplot</strong>) provides a graphical summary of a data set using the five-number summary.</p>
+        <p>A basic boxplot consists of</p>
+        <ul>
+            <li>a box extending from \(Q_1\) to \(Q_3\),</li>
+            <li>a vertical line inside the box at the median,</li>
+            <li>whiskers extending from the box to the minimum and maximum observations.</li>
+        </ul>
+        <p>The length of the box represents the interquartile range.</p>
+    </div>
+    <p>In a basic boxplot, outliers are either not considered or not present. In the modified boxplots used in this chapter, whiskers extend to the smallest and largest observations that are not classified as outliers.</p>
+
+    <p>The following examples illustrate how the boxplot changes as observations are added.</p>
+    <section class="example" aria-labelledby="ex-5-5-1-heading">
+        <div class="example-problem">
+            <h3 id="ex-5-5-1-heading">Example 1</h3>
+            <p>Construct a boxplot for the first seven Fibonacci numbers:</p>
+            \[1,\ 1,\ 2,\ 3,\ 5,\ 8,\ 13\]
+        </div>
+        <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-5-5-1">
+            <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+        </button>
+        <div id="sol-5-5-1" class="example-content">
+            <div class="solution">
+                <h4>Solution</h4>
+                <p>The minimum value is 1.</p>
+                <p>The median is the middle value, \(Q_2=3\).</p>
+                <p>Throwing out the middle value, the median of the lower half \(\{1, 1, 2\}\) is \(Q_1=1\).</p>
+                <p>Similarly, the median of the upper half \(\{5, 8, 13\}\) is \(Q_3=8\).</p>
+                <p>The maximum value is 13.</p>
+                <p>The five-number summary is</p>
+                \[1,\;1,\;3,\;8,\;13\]
+                <p>Using these numbers, we can build the boxplot:</p>
+                <!-- Image mth245_5_5_1 -->
+                <figure class="diagram">
+                    <img
+                        src="images1/mth245_5_5_1.png"
+                        alt="Horizontal box-and-whisker plot of the first seven Fibonacci numbers. The box runs from Q1 = 1 to Q3 = 8 with the median line at 3, and the right whisker extends to the maximum, 13. Because Q1 equals the minimum, 1, the box starts at the minimum and there is no visible left whisker."
+                    />
+                    <figcaption>Boxplot for the first seven Fibonacci numbers.</figcaption>
+                </figure>
+            </div>
+        </div>
+    </section>
+    <section class="example" aria-labelledby="ex-5-5-2-heading">
+        <div class="example-problem">
+            <h3 id="ex-5-5-2-heading">Example 2</h3>
+            <p>Construct a boxplot for the first eight Fibonacci numbers:</p>
+            \[1,\ 1,\ 2,\ 3,\ 5,\ 8,\ 13,\ 21\]
+        </div>
+        <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-5-5-2">
+            <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+        </button>
+        <div id="sol-5-5-2" class="example-content">
+            <div class="solution">
+                <h4>Solution</h4>
+                <p>The minimum value is 1.</p>
+                <p>The median is the average of the middle values, \(Q_2=\frac{3+5}{2}=4\).</p>
+                <p>The median of the lower half \(\{1, 1, 2, 3\}\) is \(Q_1=\frac{1+2}{2}=1.5\).</p>
+                <p>Similarly, the median of the upper half \(\{5, 8, 13, 21\}\) is \(Q_3=\frac{8+13}{2}=10.5\).</p>
+                <p>The maximum value is 21.</p>
+                <p>The five-number summary is</p>
+                \[1,\;1.5,\;4,\;10.5,\;21\]
+                <p>Using these numbers, we can build the boxplot:</p>
+                <!-- Image mth245_5_5_2 -->
+                <figure class="diagram">
+                    <img
+                        src="images1/mth245_5_5_2.png"
+                        alt="Horizontal box-and-whisker plot of the first eight Fibonacci numbers. The left whisker runs from the minimum, 1, to Q1 = 1.5. The box runs from 1.5 to Q3 = 10.5 with the median line at 4. The right whisker extends to the maximum, 21."
+                    />
+                    <figcaption>Boxplot for the first eight Fibonacci numbers.</figcaption>
+                </figure>
+            </div>
+        </div>
+    </section>
+    <section class="example" aria-labelledby="ex-5-5-3-heading">
+        <div class="example-problem">
+            <h3 id="ex-5-5-3-heading">Example 3</h3>
+            <p>Construct a boxplot for the first nine Fibonacci numbers:</p>
+            \[1,\ 1,\ 2,\ 3,\ 5,\ 8,\ 13,\ 21,\ 34\]
+        </div>
+        <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-5-5-3">
+            <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+        </button>
+        <div id="sol-5-5-3" class="example-content">
+            <div class="solution">
+                <h4>Solution</h4>
+                <p>The minimum value is 1.</p>
+                <p>The median is the middle value, \(Q_2=5\).</p>
+                <p>The median of the lower half \(\{1, 1, 2, 3\}\) is \(Q_1=\frac{1+2}{2}=1.5\).</p>
+                <p>The median of the upper half \(\{8, 13, 21, 34\}\) is \(Q_3=\frac{13+21}{2}=17\).</p>
+                <p>The maximum value is 34.</p>
+                <p>The five-number summary is</p>
+                \[1,\;1.5,\;5,\;17,\;34\]
+                <p>Using these numbers, we can build the boxplot:</p>
+                <!-- Image mth245_5_5_3 -->
+                <figure class="diagram">
+                    <img
+                        src="images1/mth245_5_5_3.png"
+                        alt="Horizontal box-and-whisker plot of the first nine Fibonacci numbers. The left whisker runs from the minimum, 1, to Q1 = 1.5. The box runs from 1.5 to Q3 = 17 with the median line at 5. The right whisker extends to the maximum, 34."
+                    />
+                    <figcaption>Boxplot for the first nine Fibonacci numbers.</figcaption>
+                </figure>
+            </div>
+        </div>
+    </section>
+    <section class="example" aria-labelledby="ex-5-5-4-heading">
+        <div class="example-problem">
+            <h3 id="ex-5-5-4-heading">Example 4</h3>
+            <p>Construct a boxplot for the first ten Fibonacci numbers:</p>
+            \[1,\ 1,\ 2,\ 3,\ 5,\ 8,\ 13,\ 21,\ 34,\ 55\]
+        </div>
+        <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-5-5-4">
+            <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+        </button>
+        <div id="sol-5-5-4" class="example-content">
+            <div class="solution">
+                <h4>Solution</h4>
+                <p>The minimum value is 1.</p>
+                <p>The median is the average of the middle values, \(Q_2=\frac{5+8}{2}=6.5\).</p>
+                <p>The middle value of the lower half \(\{1, 1, 2, 3, 5\}\) is \(Q_1=2\).</p>
+                <p>The middle value of the upper half \(\{8, 13, 21, 34, 55\}\) is \(Q_3=21\).</p>
+                <p>The maximum value is 55.</p>
+                <p>The five-number summary is</p>
+                \[1,\;2,\;6.5,\;21,\;55\]
+                <p>Using these numbers, we can build the boxplot:</p>
+                <!-- Image mth245_5_5_4 -->
+                <figure class="diagram">
+                    <img
+                        src="images1/mth245_5_5_4.png"
+                        alt="Horizontal box-and-whisker plot of the first ten Fibonacci numbers. The left whisker runs from the minimum, 1, to Q1 = 2. The box runs from 2 to Q3 = 21 with the median line at 6.5. The right whisker extends to the maximum, 55."
+                    />
+                    <figcaption>Boxplot for the first ten Fibonacci numbers.</figcaption>
+                </figure>
+            </div>
+        </div>
+    </section>
+    <p>These examples illustrate how the quartiles and median can change as observations are added.</p>
+    </section>
+
+    <hr class="divider" aria-hidden="true" />
+
+    <section aria-labelledby="outliers-heading">
+        <h3 id="outliers-heading">Outliers</h3>
+        <p>A boxplot can also be used to identify unusually small or unusually large observations called <strong>outliers</strong>.</p>
+    <div class="definition-box" role="note" aria-labelledby="def-fences">
+        <h4 id="def-fences">Tukey-Style Fences</h4>
+        <p>Using the interquartile range,</p>
+        \[\text{IQR}=Q_3-Q_1,\]
+        <p>define the following Tukey-style fences.</p>
+        \[
+        \begin{aligned}
+        \text{Lower Inner Fence} &amp;=Q_1-1.5(\text{IQR}),\\
+        \text{Upper Inner Fence} &amp;=Q_3+1.5(\text{IQR}),\\
+        \text{Lower Outer Fence} &amp;=Q_1-3(\text{IQR}),\\
+        \text{Upper Outer Fence} &amp;=Q_3+3(\text{IQR}).
+        \end{aligned}
+        \]
+    </div>
+    <p>Using the Tukey-style 1.5(IQR) and 3(IQR) fences, observations outside the inner fences are commonly classified as mild outliers, while observations outside the outer fences are commonly classified as extreme outliers.</p>
+    <div class="table-scroll">
+    <table>
+    <caption>Classifying observations using the fences</caption>
+    <thead>
+    <tr><th scope="col">Observation</th><th scope="col">Classification</th></tr>
+    </thead>
+    <tbody>
+    <tr><td>Between inner fences</td><td>Not an outlier</td></tr>
+    <tr><td>Outside an inner fence</td><td>Mild outlier</td></tr>
+    <tr><td>Outside an outer fence</td><td>Extreme outlier</td></tr>
+    </tbody>
+    </table>
+    </div>
+    <p>In the notation used in this text, mild outliers are shown as filled circles and extreme outliers as open circles. Other software and textbooks may use different symbols.</p>
+    <p>When an outlier is present, the whiskers go out to the last non-outlier point, not the fence.</p>
+    <section class="example" aria-labelledby="ex-5-5-5-heading">
+        <div class="example-problem">
+            <h3 id="ex-5-5-5-heading">Example 5</h3>
+            <p>Consider the following set of sorted test scores:</p>
+            \[0,\ 52,\ 65,\ 72,\ 73,\ 74,\ 78,\ 79,\ 80,\ 82,\ 82,\ 84,\ 84,\ 86,\ 87,\ 88,\ 89,\ 89,\ 90,\ 91,\ 92,\ 93,\ 94,\ 95,\ 98.\]
+            <p>Find the fences, identify any outliers, and construct the boxplot.</p>
+        </div>
+        <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-5-5-5">
+            <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
+        </button>
+        <div id="sol-5-5-5" class="example-content">
+            <div class="solution">
+                <h4>Solution</h4>
+                <p>The quartiles are</p>
+                \[Q_1=76,\qquad Q_2=84,\qquad Q_3=90.5,\]
+                <p>so</p>
+                \[\text{IQR}=90.5-76=14.5.\]
+                <p>The fences are</p>
+                \[
+                \begin{aligned}
+                \text{Lower Outer Fence}&amp;=76-3(14.5)=32.5,\\
+                \text{Lower Inner Fence}&amp;=76-1.5(14.5)=54.25,\\
+                \text{Upper Inner Fence}&amp;=90.5+1.5(14.5)=112.25,\\
+                \text{Upper Outer Fence}&amp;=90.5+3(14.5)=134.
+                \end{aligned}
+                \]
+                <p>Since \(0&lt;32.5\), the score of \(0\) is an <strong>extreme outlier</strong>. Since \(32.5&lt;52&lt;54.25\), the score \(52\) is a mild outlier. All of the remaining observations lie between the inner fences and are therefore not classified as outliers.</p>
+                <!-- Image mth245_5_5_5 -->
+                <figure class="diagram">
+                    <img
+                        src="images1/mth245_5_5_5.png"
+                        alt="Horizontal box-and-whisker plot on a number line from about 0 to 100 with a tick every 10. The box runs from Q1 = 76 to Q3 = 90.5 with the median line at 84. The left whisker ends at 65, the smallest value that is not an outlier, and the right whisker ends at 98. An open circle at 0 marks the extreme outlier, and a filled circle at 52 marks the mild outlier."
+                    />
+                    <figcaption>Modified boxplot with an extreme outlier (open circle) and a mild outlier (filled circle).</figcaption>
+                </figure>
+            </div>
+        </div>
+    </section>
+    <div class="definition-box" role="note" aria-labelledby="kp-boxplot">
+        <h4 id="kp-boxplot">Key Points</h4>
+        <ul>
+            <li>Box-and-whisker plots summarize the distribution using the five-number summary.</li>
+            <li>Observations beyond \(1.5(\text{IQR})\) from the quartiles are mild outliers and are shown as filled-in circles.</li>
+            <li>Observations beyond \(3(\text{IQR})\) from the quartiles are extreme outliers and are shown as open circles.</li>
+        </ul>
+    </div>
+    </section>
+
+    <nav class="page-nav" aria-label="Section navigation">
+        <a class="nav-button" href="mth245_ch5_4.html">Previous: 5.4 Quantiles</a>
+        <a class="nav-button" href="mth245_ch5_6.html">Next: 5.6 Summary</a>
+    </nav>
+
+</main>
+
+<script>
+    function toggleExample(button) {
+        var content = button.nextElementSibling;
+        var arrow = button.querySelector('.toggle-arrow');
+        var label = button.querySelector('span:last-child');
+
+        if (content.classList.contains('open')) {
+            content.classList.remove('open');
+            arrow.classList.remove('open');
+            label.textContent = 'Show Solution';
+            button.setAttribute('aria-expanded', 'false');
+        } else {
+            content.classList.add('open');
+            arrow.classList.add('open');
+            label.textContent = 'Hide Solution';
+            button.setAttribute('aria-expanded', 'true');
+        }
+    }
+</script>
+
+<script>
+    fetch('toc.html')
+        .then(function (response) {
+            if (!response.ok) { throw new Error('TOC not found'); }
+            return response.text();
+        })
+        .then(function (data) {
+            document.getElementById('toc-placeholder').innerHTML = data;
+
+            document.querySelectorAll('.toc-chapter').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var expanded = button.getAttribute('aria-expanded') === 'true';
+                    button.setAttribute('aria-expanded', String(!expanded));
+                    document.getElementById(button.getAttribute('aria-controls')).classList.toggle('open');
+                });
+            });
+
+            // Mark the current page and open its chapter
+            var page = window.location.pathname.split('/').pop();
+            var current = document.querySelector('.toc-submenu a[href="' + page + '"]');
+            if (current) {
+                current.setAttribute('aria-current', 'page');
+                var menu = current.closest('.toc-submenu');
+                menu.classList.add('open');
+                var chapterButton = document.querySelector('[aria-controls="' + menu.id + '"]');
+                if (chapterButton) { chapterButton.setAttribute('aria-expanded', 'true'); }
+            }
+        })
+        .catch(function () { /* TOC unavailable: page content still works */ });
+</script>
+
+</body>
+</html>
