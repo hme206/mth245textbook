@@ -200,11 +200,9 @@ a:focus-visible {
     outline-offset: 2px;
 }
 
-/* Push main body over */
-body {
-    margin-left: 250px;
-}
-
+/* =========================
+   BASE PAGE LAYOUT
+   ========================= */
 * {
     margin: 0;
     padding: 0;
@@ -212,6 +210,7 @@ body {
 }
 
 body {
+    margin-left: 250px; /* push main body over for the side TOC */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     color: #333;
@@ -589,6 +588,69 @@ table td.col-highlight {
     background-color: #ffff99;
 }
 
+/* =========================
+   STEM-AND-LEAF PLOT
+   (must stay AFTER the base table rules above so it can override them;
+   selectors are written to out-rank the global zebra-stripe rule)
+   ========================= */
+.stem-leaf {
+    width: auto;
+    border-collapse: collapse;
+    font-family: Consolas, "Courier New", Courier, monospace;
+    font-size: 1.25rem;
+    margin: 1rem 0;
+}
+
+.stem-leaf caption {
+    caption-side: top;
+    text-align: left;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #1E7A19;
+    padding-bottom: 0.5rem;
+}
+
+/* Strip the global table styling (borders, zebra stripes, header fill) */
+.stem-leaf tr,
+.stem-leaf tr:nth-child(even),
+.stem-leaf th,
+.stem-leaf td {
+    background: none;
+    border: none;
+}
+
+.stem-leaf th,
+.stem-leaf td {
+    padding: 0.2rem 0.75rem;
+    font-weight: normal;
+    color: #333;
+}
+
+/* Stems: right-aligned, with the vertical rule */
+.stem-leaf th {
+    text-align: right;
+    border-right: 2px solid #333;
+}
+
+/* Leaves: left-aligned, evenly spaced digits */
+.stem-leaf td {
+    text-align: left;
+    word-spacing: 0.6em;
+}
+
+/* Header row: small italic labels with a line beneath */
+.stem-leaf thead th {
+    font-size: 0.85rem;
+    font-style: italic;
+    border-bottom: 2px solid #333;
+}
+
+.stem-leaf thead th:last-child {
+    border-right: none;
+    text-align: left;
+}
+
 .subsection-title {
     color: #1E7A19;
     font-size: 1.3em;
@@ -880,6 +942,13 @@ code {
         display: block;
         overflow-x: auto;
         white-space: nowrap;
+    }
+
+    /* Stem-and-leaf stays a real table on mobile (placed after the
+       generic table rule above so it wins) */
+    .stem-leaf {
+        display: table;
+        white-space: normal;
     }
 
     /* Adjust navigation buttons */
