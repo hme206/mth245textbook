@@ -87,60 +87,45 @@
         <p>This quantity is called the <strong>sum of squared errors (SSE)</strong>.</p>
     </div>
     <p>What does this mean? There are a lot of linear models that we can use to approximate the relationship for a data set. Some of them are good; most of them are not. If we were to try one model, we could look at the difference between each data point (\(y\)) and the prediction of the model (\(\hat{y}\)). This difference, or residual, is \(e\). We would then square all of those residuals and add them up. This sum is what we call the <strong>sum of squares</strong>.</p>
-    <section class="example" aria-labelledby="ex-6-3-1-heading">
-        <div class="example-problem">
-            <h3 id="ex-6-3-1-heading">Example 1</h3>
-            <p>Consider the following data.</p>
-            <div class="table-scroll">
-            <table>
-            <caption>Data for the least squares example</caption>
-            <thead>
-            <tr><th scope="col">\(x\)</th><th scope="col">1</th><th scope="col">2</th><th scope="col">3</th><th scope="col">4</th><th scope="col">5</th></tr>
-            </thead>
-            <tbody>
-            <tr><th scope="row">\(y\)</th><td>1</td><td>3</td><td>2</td><td>5</td><td>4</td></tr>
-            </tbody>
-            </table>
-            </div>
-            <p>Compute the residuals and the sum of squares for the model \(\hat{y}=0.6+0.8x\).</p>
-        </div>
-        <button class="solution-header" onclick="toggleExample(this)" aria-expanded="false" aria-controls="sol-6-3-1">
-            <span class="toggle-arrow" aria-hidden="true">▼</span><span>Show Solution</span>
-        </button>
-        <div id="sol-6-3-1" class="example-content">
-            <div class="solution">
-                <h4>Solution</h4>
-                <p>We can graph the model like this:</p>
-                <!-- Image mth245_6_3_1 -->
-                <figure class="diagram">
-                    <img
-                        src="images1/mth245_6_3_1.png"
-                        alt="Scatterplot with x and y axes from 0.5 to 5.5. Five blue points are plotted at (1,1), (2,3), (3,2), (4,5), and (5,4). A red line, labeled in the legend as y-hat equals 0.6 plus 0.8x, rises from lower left to upper right and passes between the points. A dashed vertical segment connects each point to the line to show its residual: the point at x = 1 lies 0.4 below the line, x = 2 lies 0.8 above, x = 3 lies 1.0 below, x = 4 lies 1.2 above, and x = 5 lies 0.6 below."
-                    />
-                    <figcaption>Observed data, the line y-hat = 0.6 + 0.8x, and the residuals (dashed segments).</figcaption>
-                </figure>
-                <p>If we were to compute the sum of squares, it would look like this:</p>
-                <div class="table-scroll">
-                <table>
-                <caption>Residuals and squared residuals for the model</caption>
-                <thead>
-                <tr><th scope="col">\(x\)</th><th scope="col">\(y\)</th><th scope="col">\(\hat y=0.6+0.8x\)</th><th scope="col">\(e=y-\hat{y}\)</th><th scope="col">\(e^2\)</th></tr>
-                </thead>
-                <tbody>
-                <tr><td>1</td><td>1</td><td>1.4</td><td>−0.4</td><td>0.16</td></tr>
-                <tr><td>2</td><td>3</td><td>2.2</td><td>0.8</td><td>0.64</td></tr>
-                <tr><td>3</td><td>2</td><td>3.0</td><td>−1.0</td><td>1</td></tr>
-                <tr><td>4</td><td>5</td><td>3.8</td><td>1.2</td><td>1.44</td></tr>
-                <tr><td>5</td><td>4</td><td>4.6</td><td>−0.6</td><td>0.36</td></tr>
-                <tr><th scope="row">Total</th><td></td><td></td><td></td><td>3.6</td></tr>
-                </tbody>
-                </table>
-                </div>
-                <p>The sum of squares for this model is 3.6. We could then try many different linear models and select the model with the lowest sum of squares. That would be our <strong>least squares regression line</strong>.</p>
-            </div>
-        </div>
-    </section>
-    </section>
+   <p>To see how a model fits data, consider the following values.</p>
+<div class="table-scroll">
+<table>
+<caption>Data for the least squares illustration</caption>
+<thead>
+<tr><th scope="col">\(x\)</th><th scope="col">1</th><th scope="col">2</th><th scope="col">3</th><th scope="col">4</th><th scope="col">5</th></tr>
+</thead>
+<tbody>
+<tr><th scope="row">\(y\)</th><td>1</td><td>3</td><td>2</td><td>5</td><td>4</td></tr>
+</tbody>
+</table>
+</div>
+<p>Suppose we use the model \(\hat{y}=0.6+0.8x\). We can graph the model like this:</p>
+<!-- Image mth245_6_3_1 -->
+<figure class="diagram">
+    <img
+        src="images1/mth245_6_2_1.png"
+        alt="Scatterplot with x and y axes from 0.5 to 5.5. Five blue points are plotted at (1,1), (2,3), (3,2), (4,5), and (5,4). A red line, labeled in the legend as y-hat equals 0.6 plus 0.8x, rises from lower left to upper right and passes between the points. A dashed vertical segment connects each point to the line to show its residual: the point at x = 1 lies 0.4 below the line, x = 2 lies 0.8 above, x = 3 lies 1.0 below, x = 4 lies 1.2 above, and x = 5 lies 0.6 below."
+    />
+    <figcaption>Observed data, the line y-hat = 0.6 + 0.8x, and the residuals (dashed segments).</figcaption>
+</figure>
+<p>To compute the sum of squares, we find each residual \(e=y-\hat{y}\), square it, and add up the results:</p>
+<div class="table-scroll">
+<table>
+<caption>Residuals and squared residuals for the model</caption>
+<thead>
+<tr><th scope="col">\(x\)</th><th scope="col">\(y\)</th><th scope="col">\(\hat y=0.6+0.8x\)</th><th scope="col">\(e=y-\hat{y}\)</th><th scope="col">\(e^2\)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>1</td><td>1.4</td><td>−0.4</td><td>0.16</td></tr>
+<tr><td>2</td><td>3</td><td>2.2</td><td>0.8</td><td>0.64</td></tr>
+<tr><td>3</td><td>2</td><td>3.0</td><td>−1.0</td><td>1</td></tr>
+<tr><td>4</td><td>5</td><td>3.8</td><td>1.2</td><td>1.44</td></tr>
+<tr><td>5</td><td>4</td><td>4.6</td><td>−0.6</td><td>0.36</td></tr>
+<tr><th scope="row">Total</th><td></td><td></td><td></td><td>3.6</td></tr>
+</tbody>
+</table>
+</div>
+<p>The sum of squares for this model is 3.6. We could then try many different linear models and select the model with the lowest sum of squares. That would be our <strong>least squares regression line</strong>.</p>
 
     <hr class="divider" aria-hidden="true" />
 
